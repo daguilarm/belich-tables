@@ -2,8 +2,8 @@
 
 namespace Daguilarm\LivewireTables\Views;
 
-use Illuminate\Support\Str;
 use Daguilarm\LivewireTables\Traits\CanBeHidden;
+use Illuminate\Support\Str;
 
 /**
  * Class Column.
