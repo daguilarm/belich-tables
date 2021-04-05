@@ -2,11 +2,6 @@
 
 namespace Daguilarm\LivewireTables;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Str;
-use Illuminate\View\View;
-use Livewire\Component;
-use Livewire\WithPagination;
 use Daguilarm\LivewireTables\Traits\Exports;
 use Daguilarm\LivewireTables\Traits\Loading;
 use Daguilarm\LivewireTables\Traits\Options;
@@ -15,6 +10,11 @@ use Daguilarm\LivewireTables\Traits\Search;
 use Daguilarm\LivewireTables\Traits\Sorting;
 use Daguilarm\LivewireTables\Traits\Table;
 use Daguilarm\LivewireTables\Traits\Yajra;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Str;
+use Illuminate\View\View;
+use Livewire\Component;
+use Livewire\WithPagination;
 
 /**
  * Class TableComponent.

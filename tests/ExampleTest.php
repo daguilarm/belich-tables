@@ -2,8 +2,8 @@
 
 namespace Daguilarm\LivewireTables\Tests;
 
-use Orchestra\Testbench\TestCase;
 use Daguilarm\LivewireTables\LaravelLivewireTablesServiceProvider;
+use Orchestra\Testbench\TestCase;
 
 class ExampleTest extends TestCase
 {

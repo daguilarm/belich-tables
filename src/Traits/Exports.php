@@ -2,9 +2,9 @@
 
 namespace Daguilarm\LivewireTables\Traits;
 
+use Daguilarm\LivewireTables\Exceptions\UnsupportedExportFormatException;
 use Exception;
 use Maatwebsite\Excel\Excel;
-use Daguilarm\LivewireTables\Exceptions\UnsupportedExportFormatException;
 
 /**
  * Trait Exports.
