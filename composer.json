@@ -1,26 +1,27 @@
 {
-    "name": "rappasoft/laravel-livewire-tables",
+    "name": "daguilarm/livewire-tables",
     "description": "A dynamic table component for Laravel Livewire",
     "keywords": [
-        "rappasoft",
+        "daguilarm",
         "livewire",
         "datatables",
         "tables",
         "laravel"
     ],
-    "homepage": "https://github.com/rappasoft/laravel-livewire-tables",
+    "homepage": "https://github.com/daguilarm/livewire-tables",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Anthony Rappa",
-            "email": "rappa819@gmail.com",
+            "name": "daguilarm",
+            "email": "damian.aguilarm@gmail.com",
+            "homepage": "https://daguilar.dev",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
-        "livewire/livewire": "^1.3|^2.0"
+        "php": "^8.0",
+        "livewire/livewire": "^2.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
@@ -32,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Rappasoft\\LaravelLivewireTables\\": "src"
+            "Daguilarm\\LivewireTables\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rappasoft\\LaravelLivewireTables\\Tests\\": "tests"
+            "Daguilarm\\LivewireTables\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -51,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-              "Rappasoft\\LaravelLivewireTables\\LaravelLivewireTablesServiceProvider"
+              "Daguilarm\\LivewireTables\\LivewireTablesServiceProvider"
             ]
         }
     }

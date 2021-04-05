@@ -1,9 +1,9 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Views;
+namespace Daguilarm\LivewireTables\Views;
 
 use Illuminate\Support\Str;
-use Rappasoft\LaravelLivewireTables\Traits\CanBeHidden;
+use Daguilarm\LivewireTables\Traits\CanBeHidden;
 
 /**
  * Class Column.

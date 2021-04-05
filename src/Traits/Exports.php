@@ -1,10 +1,10 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Traits;
+namespace Daguilarm\LivewireTables\Traits;
 
 use Exception;
 use Maatwebsite\Excel\Excel;
-use Rappasoft\LaravelLivewireTables\Exceptions\UnsupportedExportFormatException;
+use Daguilarm\LivewireTables\Exceptions\UnsupportedExportFormatException;
 
 /**
  * Trait Exports.
@@ -54,7 +54,7 @@ trait Exports
 
             case 'pdf':
                 $writer = Excel::DOMPDF;
-                $library = strtolower(config('laravel-livewire-tables.pdf_library'));
+                $library = strtolower(config('livewire-tables.pdf_library'));
 
                 if (! in_array($library, ['dompdf', 'mpdf'], true)) {
                     throw new UnsupportedExportFormatException(__('This PDF export library is not supported.'));
@@ -66,7 +66,7 @@ trait Exports
             break;
         }
 
-        $class = config('laravel-livewire-tables.exports');
+        $class = config('livewire-tables.exports');
 
         return (new $class(
             $this->models(),

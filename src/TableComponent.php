@@ -1,20 +1,20 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables;
+namespace Daguilarm\LivewireTables;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Rappasoft\LaravelLivewireTables\Traits\Exports;
-use Rappasoft\LaravelLivewireTables\Traits\Loading;
-use Rappasoft\LaravelLivewireTables\Traits\Options;
-use Rappasoft\LaravelLivewireTables\Traits\Pagination;
-use Rappasoft\LaravelLivewireTables\Traits\Search;
-use Rappasoft\LaravelLivewireTables\Traits\Sorting;
-use Rappasoft\LaravelLivewireTables\Traits\Table;
-use Rappasoft\LaravelLivewireTables\Traits\Yajra;
+use Daguilarm\LivewireTables\Traits\Exports;
+use Daguilarm\LivewireTables\Traits\Loading;
+use Daguilarm\LivewireTables\Traits\Options;
+use Daguilarm\LivewireTables\Traits\Pagination;
+use Daguilarm\LivewireTables\Traits\Search;
+use Daguilarm\LivewireTables\Traits\Sorting;
+use Daguilarm\LivewireTables\Traits\Table;
+use Daguilarm\LivewireTables\Traits\Yajra;
 
 /**
  * Class TableComponent.
@@ -86,7 +86,7 @@ abstract class TableComponent extends Component
      */
     public function view(): string
     {
-        return 'laravel-livewire-tables::'.config('laravel-livewire-tables.theme').'.table-component';
+        return 'livewire-tables::'.config('livewire-tables.theme').'.table-component';
     }
 
     /**

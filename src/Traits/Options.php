@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Traits;
+namespace Daguilarm\LivewireTables\Traits;
 
 use Illuminate\Support\Arr;
 

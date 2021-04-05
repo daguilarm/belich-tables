@@ -1,9 +1,9 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Tests;
+namespace Daguilarm\LivewireTables\Tests;
 
 use Orchestra\Testbench\TestCase;
-use Rappasoft\LaravelLivewireTables\LaravelLivewireTablesServiceProvider;
+use Daguilarm\LivewireTables\LaravelLivewireTablesServiceProvider;
 
 class ExampleTest extends TestCase
 {

@@ -5,7 +5,7 @@ return [
     /*
      * The class to use to handle the export functionality
      */
-    'exports' => \Rappasoft\LaravelLivewireTables\Exports\Export::class,
+    'exports' => \Daguilarm\LivewireTables\Exports\Export::class,
 
     /*
      * Which library you want to use for PDF generation
@@ -20,5 +20,5 @@ return [
      * The frontend styling framework to use
      * Options: bootstrap-4
      */
-    'theme' => 'bootstrap-4',
+    'theme' => 'tailwindcss',
 ];

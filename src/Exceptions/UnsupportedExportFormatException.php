@@ -1,6 +1,6 @@
 <?php
 
-namespace Rappasoft\LaravelLivewireTables\Exceptions;
+namespace Daguilarm\LivewireTables\Exceptions;
 
 use Exception;
 
