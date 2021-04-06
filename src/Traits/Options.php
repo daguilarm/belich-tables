@@ -29,6 +29,17 @@ trait Options
             'container' => true,
             'responsive' => true,
         ],
+        'tailwindcss' => [
+            'classes' => [
+                'buttons' => [
+                    'export' => 'btn',
+                ],
+                'table' => 'table table-bordered table-striped',
+                'thead' => null,
+            ],
+            'container' => true,
+            'responsive' => true,
+        ],
     ];
 
     /**

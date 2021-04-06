@@ -19,7 +19,7 @@ trait Pagination
      *
      * @var array
      */
-    public $perPageOptions = [10, 25, 50];
+    public $perPageOptions = [10, 25, 50, 100];
 
     /**
      * Amount of items to show per page.

@@ -62,7 +62,7 @@ abstract class TableComponent extends Component
      */
     public function __construct($id = null)
     {
-        if (config('laravel-livewire-tables.theme') === 'bootstrap-4') {
+        if (config('livewire-tables.theme') === 'bootstrap-4') {
             $this->paginationTheme = 'bootstrap';
         }
 
