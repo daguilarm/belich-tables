@@ -1,5 +1,5 @@
 @if ($loadingIndicator)
-    <tbody wire:loading.class.remove="d-none" class="hidden">
+    <tbody wire:loading.class.remove="hidden" class="hidden">
         <tr>
             <td colspan="{{ collect($columns)->count() }}">
                 @lang('livewire-tables::strings.loading')

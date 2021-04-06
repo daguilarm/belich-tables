@@ -1,6 +1,6 @@
 @foreach($models as $model)
     <tr
-        class="{{ $this->setTableRowClass($model) }}"
+        class="border-b border-gray-200 {{ $this->setTableRowClass($model) }}"
         id="{{ $this->setTableRowId($model) }}"
         @foreach ($this->setTableRowAttributes($model) as $key => $value)
         {{ $key }}="{{ $value }}"
@@ -13,7 +13,7 @@
         @foreach($columns as $column)
             @if ($column->isVisible())
                 <td
-                    class="{{ $this->setTableDataClass($column->getAttribute(), data_get($model, $column->getAttribute())) }}"
+                    class="px-6 py-3 whitespace-nowrap text-sm text-gray-500"
                     id="{{ $this->setTableDataId($column->getAttribute(), data_get($model, $column->getAttribute())) }}"
                     @foreach ($this->setTableDataAttributes($column->getAttribute(), data_get($model, $column->getAttribute())) as $key => $value)
                     {{ $key }}="{{ $value }}"
