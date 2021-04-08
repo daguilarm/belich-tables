@@ -7,9 +7,6 @@ namespace Daguilarm\LivewireTables\Traits;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
-/**
- * Trait Sorting.
- */
 trait Sorting
 {
     /**
@@ -18,50 +15,46 @@ trait Sorting
 
     /**
      * The initial field to be sorting by.
-     *
-     * @var string
      */
-    public $sortField = 'id';
+    public string $sortField = 'id';
 
     /**
      * The initial direction to sort.
-     *
-     * @var bool
      */
-    public $sortDirection = 'asc';
+    public string $sortDirection = 'asc';
 
     /**
      * The default sort icon.
-     *
-     * @var string
      */
-    public $sortDefaultIcon = '<i class="text-muted fas fa-sort"></i>';
+    public string $sortDefaultIcon = '<i class="text-muted fas fa-sort"></i>';
 
     /**
      * The sort icon when currently sorting ascending.
-     *
-     * @var string
      */
-    public $ascSortIcon = '<i class="fas fa-sort-up"></i>';
+    public string $ascSortIcon = '<i class="fas fa-sort-up"></i>';
 
     /**
      * The sort icon when currently sorting descending.
-     *
-     * @var string
      */
-    public $descSortIcon = '<i class="fas fa-sort-down"></i>';
+    public string $descSortIcon = '<i class="fas fa-sort-down"></i>';
 
+    /**
+     * Sorting columns
+     */
     public function sort($attribute): void
     {
+        $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+
         if ($this->sortField !== $attribute) {
             $this->sortDirection = 'asc';
-        } else {
-            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
         }
 
         $this->sortField = $attribute;
     }
 
+    /**
+     * Sorting field
+     */
     protected function getSortField(Builder $builder): string
     {
         if (Str::contains($this->sortField, '.')) {

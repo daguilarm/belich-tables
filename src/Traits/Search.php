@@ -4,46 +4,33 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Traits;
 
-/**
- * Trait Search.
- */
 trait Search
 {
     /**
      * The initial search string.
-     *
-     * @var string
      */
-    public $search = '';
+    public string $search = '';
 
     /**
      * Method to search by: debounce or lazy.
-     *
-     * @var string
      */
-    public $searchUpdateMethod = 'debounce';
+    public string $searchUpdateMethod = 'debounce';
 
     /**
      * Whether or not searching is enabled.
-     *
-     * @var bool
      */
-    public $searchEnabled = true;
+    public bool $searchEnabled = true;
 
     /**
      * false = disabled
      * int = Amount of time in ms to wait to send the search query and refresh the table.
-     *
-     * @var int
      */
-    public $searchDebounce = 350;
+    public int $searchDebounce = 350;
 
     /**
      * A button to clear the search box.
-     *
-     * @var bool
      */
-    public $clearSearchButton = false;
+    public bool $clearSearchButton = false;
 
     /**
      * Resets the search string.

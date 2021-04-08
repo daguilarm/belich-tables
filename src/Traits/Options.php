@@ -6,20 +6,17 @@ namespace Daguilarm\LivewireTables\Traits;
 
 use Illuminate\Support\Arr;
 
-/**
- * Trait Options.
- */
 trait Options
 {
     /**
      * @var array
      */
-    protected $options = [];
+    protected array $options = [];
 
     /**
      * @var array
      */
-    protected $optionDefaults = [
+    protected array $optionDefaults = [
         'bootstrap' => [
             'classes' => [
                 'buttons' => [
@@ -45,11 +42,9 @@ trait Options
     ];
 
     /**
-     * @param $option
-     *
-     * @return mixed
+     * Get the option
      */
-    public function getOption($option)
+    public function getOption(string $option): ?string
     {
         return Arr::dot($this->optionDefaults)[$option] ?? null;
     }

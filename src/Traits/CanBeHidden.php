@@ -9,16 +9,8 @@ namespace Daguilarm\LivewireTables\Traits;
  */
 trait CanBeHidden
 {
-    /**
-     * @var bool
-     */
-    protected $hidden = false;
+    protected bool $hidden = false;
 
-    /**
-     * @param $condition
-     *
-     * @return $this
-     */
     public function hideIf($condition): self
     {
         $this->hidden = $condition;
@@ -26,9 +18,6 @@ trait CanBeHidden
         return $this;
     }
 
-    /**
-     * @return $this
-     */
     public function hide(): self
     {
         $this->hidden = true;

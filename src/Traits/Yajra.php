@@ -9,12 +9,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
 
-/**
- * Trait Yajra.
- */
 trait Yajra
 {
-    public function relationship($attribute): object
+
+    /**
+     * Set relationship
+     */
+    public function relationship(string $attribute): object
     {
         $parts = explode('.', $attribute);
 
@@ -24,7 +25,10 @@ trait Yajra
         ];
     }
 
-    public function attribute(Builder $query, $relationships, $attribute): string
+    /**
+     * Set atribute
+     */
+    public function attribute(Builder $query, string $relationships, string $attribute): string
     {
         $table = '';
         $last_query = $query;
@@ -47,19 +51,19 @@ trait Yajra
 
                     $last_query->addSelect($table.'.'.$attribute);
                     $query->leftJoin($table, $foreign, $other);
-    break;
+                break;
 
                 case $model instanceof HasOneOrMany:
                     $table = $model->getRelated()->getTable();
                     $foreign = $model->getQualifiedForeignKeyName();
                     $other = $model->getQualifiedParentKeyName();
-    break;
+                break;
 
                 case $model instanceof BelongsTo:
                     $table = $model->getRelated()->getTable();
                     $foreign = $model->getQualifiedForeignKeyName();
                     $other = $model->getQualifiedOwnerKeyName();
-    break;
+                break;
 
                 default:
                     return $attribute;
@@ -77,7 +81,7 @@ trait Yajra
      *
      * @return mixed|bool
      */
-    protected function getColumnByAttribute($attribute)
+    protected function getColumnByAttribute(string $attribute)
     {
         foreach ($this->columns() as $column) {
             if ($column->getAttribute() === $attribute) {

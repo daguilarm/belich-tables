@@ -8,20 +8,14 @@ use Daguilarm\LivewireTables\Exceptions\UnsupportedExportFormatException;
 use Exception;
 use Maatwebsite\Excel\Excel;
 
-/**
- * Trait Exports.
- */
 trait Exports
 {
-    /**
-     * @var string
-     */
-    public $exportFileName = 'data';
+    public string $exportFileName = 'data';
 
     /**
      * @var bool
      */
-    public $exports = [];
+    public array $exports = [];
 
     /**
      * @param $type
@@ -46,15 +40,15 @@ trait Exports
             case 'csv':
                 default:
                 $writer = Excel::CSV;
-    break;
+                break;
 
             case 'xls':
                 $writer = Excel::XLS;
-    break;
+                break;
 
             case 'xlsx':
                 $writer = Excel::XLSX;
-    break;
+                break;
 
             case 'pdf':
                 $writer = Excel::DOMPDF;
@@ -67,7 +61,7 @@ trait Exports
                 if ($library === 'mpdf') {
                     $writer = Excel::MPDF;
                 }
-    break;
+                break;
         }
 
         $class = config('livewire-tables.exports');

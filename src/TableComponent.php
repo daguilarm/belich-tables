@@ -54,10 +54,8 @@ abstract class TableComponent extends Component
 
     /**
      * TableComponent constructor.
-     *
-     * @param  null  $id
      */
-    public function __construct($id = null)
+    public function __construct(?string $id = null)
     {
         if (config('livewire-tables.theme') === 'bootstrap-4') {
             $this->paginationTheme = 'bootstrap';
@@ -81,7 +79,7 @@ abstract class TableComponent extends Component
     /**
      * Set the view
      */
-    public function view(): string
+    public function viewName(): string
     {
         return 'livewire-tables::' . config('livewire-tables.theme').'.table-component';
     }
@@ -91,7 +89,7 @@ abstract class TableComponent extends Component
      */
     public function render(): View
     {
-        return view($this->view(), [
+        return view($this->viewName(), [
             'columns' => $this->columns(),
             'models' => $this->paginationEnabled
                 ? $this->models()->paginate($this->perPage)

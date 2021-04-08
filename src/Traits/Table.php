@@ -4,31 +4,30 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Traits;
 
-/**
- * Trait Table.
- */
 trait Table
 {
     /**
      * Whether or not to display the table header.
-     *
-     * @var bool
      */
-    public $tableHeaderEnabled = true;
+    public bool $tableHeaderEnabled = true;
 
     /**
      * Whether or not to display the table footer.
-     *
-     * @var bool
      */
-    public $tableFooterEnabled = false;
+    public bool $tableFooterEnabled = false;
 
-    public function setTableHeadClass($attribute): ?string
+    /**
+     * Set table head class
+     */
+    public function setTableHeadClass(?string $attribute): ?string
     {
         return null;
     }
 
-    public function setTableHeadId($attribute): ?string
+    /**
+     * Set table head ID
+     */
+    public function setTableHeadId(?string $attribute): ?string
     {
         return null;
     }

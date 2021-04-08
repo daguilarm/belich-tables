@@ -7,9 +7,6 @@ namespace Daguilarm\LivewireTables\Traits;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Support\HtmlString;
 
-/**
- * Trait HtmlBuilder.
- */
 trait HtmlComponents
 {
     /**
@@ -22,28 +19,18 @@ trait HtmlComponents
 
     /**
      * Generate an HTML image element.
-     *
-     * @param $url
-     * @param  null  $alt
-     * @param  array  $attributes
-     * @param  null  $secure
      */
-    public function image($url, $alt = null, array $attributes = [], $secure = null): HtmlString
+    public function image(?string $url, ?string $alt = null, array $attributes = [], ?string $secure = null): HtmlString
     {
         $attributes['alt'] = $alt;
 
-        return $this->html('<img src="'.resolve(UrlGenerator::class)->asset($url, $secure).'"'.$this->attributes($attributes).'>');
+        return $this->html('<img src="' . resolve(UrlGenerator::class)->asset($url, $secure) . '"' . $this->attributes($attributes) . '>');
     }
 
     /**
      * Generate a HTML link.
-     *
-     * @param $url
-     * @param  null  $title
-     * @param  array  $attributes
-     * @param  null  $secure
      */
-    public function link($url, $title = null, array $attributes = [], $secure = null, bool $escape = true): HtmlString
+    public function link(?string $url, ?string $title = null, array $attributes = [], ?string $secure = null, bool $escape = true): HtmlString
     {
         $url = resolve(UrlGenerator::class)->to($url, [], $secure);
 
@@ -55,19 +42,21 @@ trait HtmlComponents
             $title = $this->entities($title);
         }
 
-        return $this->html('<a href="'.$this->entities($url).'"'.$this->attributes($attributes).'>'.$title.'</a>');
+        return $this->html('<a href="' . $this->entities($url) . '"' . $this->attributes($attributes) . '>' . $title . '</a>');
     }
 
     /**
      * Generate a HTTPS HTML link.
-     *
-     * @param $url
-     * @param  null  $title
-     * @param  array  $attributes
      */
-    public function secureLink($url, $title = null, array $attributes = [], bool $escape = true): HtmlString
+    public function secureLink(?string $url, ?string $title = null, array $attributes = [], bool $escape = true): HtmlString
     {
-        return $this->link($url, $title, $attributes, true, $escape);
+        return $this->link(
+            $url,
+            $title,
+            $attributes,
+            true,
+            $escape
+        );
     }
 
     /**
@@ -79,7 +68,13 @@ trait HtmlComponents
     {
         $url = resolve(UrlGenerator::class)->asset($url, $secure);
 
-        return $this->link($url, $title ? $title : $url, $attributes, $secure, $escape);
+        return $this->link(
+            $url,
+            $title ? $title : $url,
+            $attributes,
+            $secure,
+            $escape
+        );
     }
 
     /**
@@ -89,7 +84,13 @@ trait HtmlComponents
      */
     public function linkSecureAsset(string $url, ?string $title = null, array $attributes = [], bool $escape = true): HtmlString
     {
-        return $this->linkAsset($url, $title, $attributes, true, $escape);
+        return $this->linkAsset(
+            $url,
+            $title,
+            $attributes,
+            true,
+            $escape
+        );
     }
 
     /**
@@ -100,7 +101,13 @@ trait HtmlComponents
      */
     public function linkRoute(string $name, ?string $title = null, array $parameters = [], array $attributes = [], ?bool $secure = null, bool $escape = true): HtmlString
     {
-        return $this->link(resolve(UrlGenerator::class)->route($name, $parameters), $title, $attributes, $secure, $escape);
+        return $this->link(
+            resolve(UrlGenerator::class)->route($name, $parameters),
+            $title,
+            $attributes,
+            $secure,
+            $escape
+        );
     }
 
     /**
@@ -111,7 +118,13 @@ trait HtmlComponents
      */
     public function linkAction(string $action, ?string $title = null, array $parameters = [], array $attributes = [], ?bool $secure = null, bool $escape = true): HtmlString
     {
-        return $this->link(resolve(UrlGenerator::class)->action($action, $parameters), $title, $attributes, $secure, $escape);
+        return $this->link(
+            resolve(UrlGenerator::class)->action($action, $parameters),
+            $title,
+            $attributes,
+            $secure,
+            $escape
+        );
     }
 
     /**
@@ -139,7 +152,11 @@ trait HtmlComponents
      */
     public function email(string $email): string
     {
-        return str_replace('@', '&#64;', $this->obfuscate($email));
+        return str_replace(
+            '@',
+            '&#64;',
+            $this->obfuscate($email)
+        );
     }
 
     /**
@@ -159,7 +176,9 @@ trait HtmlComponents
             }
         }
 
-        return count($html) > 0 ? ' '.implode(' ', $html) : '';
+        return count($html) > 0
+            ? ' '.implode(' ', $html)
+            : '';
     }
 
     /**
@@ -196,10 +215,8 @@ trait HtmlComponents
 
     /**
      * Transform the string to an Html serializable object.
-     *
-     * @param $html
      */
-    public function html($html): HtmlString
+    public function html(string $html): HtmlString
     {
         return new HtmlString($html);
     }
