@@ -45,7 +45,7 @@ abstract class TableComponent extends Component
      * If it's an integer it will be treated as milliseconds (2000 = refresh every 2 seconds)
      * If it's a string it will call that function every 5 seconds.
      */
-    public bool | string $refresh = false;
+    public bool $refresh = false;
 
     /**
      * Whether or not to display an offline message when there is no connection.
