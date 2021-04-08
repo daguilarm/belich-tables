@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\LivewireTables\Traits;
 
 /**
@@ -21,21 +23,11 @@ trait Table
      */
     public $tableFooterEnabled = false;
 
-    /**
-     * @param $attribute
-     *
-     * @return string|null
-     */
     public function setTableHeadClass($attribute): ?string
     {
         return null;
     }
 
-    /**
-     * @param $attribute
-     *
-     * @return string|null
-     */
     public function setTableHeadId($attribute): ?string
     {
         return null;
@@ -51,21 +43,11 @@ trait Table
         return [];
     }
 
-    /**
-     * @param $model
-     *
-     * @return string|null
-     */
     public function setTableRowClass($model): ?string
     {
         return null;
     }
 
-    /**
-     * @param $model
-     *
-     * @return string|null
-     */
     public function setTableRowId($model): ?string
     {
         return null;
@@ -81,33 +63,16 @@ trait Table
         return [];
     }
 
-    /**
-     * @param $model
-     *
-     * @return string|null
-     */
     public function getTableRowUrl($model): ?string
     {
         return null;
     }
 
-    /**
-     * @param $attribute
-     * @param $value
-     *
-     * @return string|null
-     */
     public function setTableDataClass($attribute, $value): ?string
     {
         return null;
     }
 
-    /**
-     * @param $attribute
-     * @param $value
-     *
-     * @return string|null
-     */
     public function setTableDataId($attribute, $value): ?string
     {
         return null;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\LivewireTables;
 
 use Illuminate\Support\ServiceProvider;
@@ -12,7 +14,7 @@ class LivewireTablesServiceProvider extends ServiceProvider
     /**
      * Bootstrap the application services.
      */
-    public function boot()
+    public function boot(): void
     {
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'livewire-tables');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'livewire-tables');
@@ -35,7 +37,7 @@ class LivewireTablesServiceProvider extends ServiceProvider
     /**
      * Register the application services.
      */
-    public function register()
+    public function register(): void
     {
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'livewire-tables');

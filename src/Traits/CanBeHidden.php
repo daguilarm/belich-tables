@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\LivewireTables\Traits;
 
 /**
@@ -34,17 +36,11 @@ trait CanBeHidden
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function isVisible(): bool
     {
         return $this->hidden !== true;
     }
 
-    /**
-     * @return bool
-     */
     public function isHidden(): bool
     {
         return ! $this->isVisible();

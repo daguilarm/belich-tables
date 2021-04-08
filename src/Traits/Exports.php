@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\LivewireTables\Traits;
 
 use Daguilarm\LivewireTables\Exceptions\UnsupportedExportFormatException;
@@ -25,6 +27,7 @@ trait Exports
      * @param $type
      *
      * @return mixed
+     *
      * @throws Exception
      */
     public function export($type)
@@ -40,17 +43,18 @@ trait Exports
         }
 
         switch ($type) {
-            case 'csv':default:
+            case 'csv':
+                default:
                 $writer = Excel::CSV;
-            break;
+    break;
 
             case 'xls':
                 $writer = Excel::XLS;
-            break;
+    break;
 
             case 'xlsx':
                 $writer = Excel::XLSX;
-            break;
+    break;
 
             case 'pdf':
                 $writer = Excel::DOMPDF;
@@ -63,7 +67,7 @@ trait Exports
                 if ($library === 'mpdf') {
                     $writer = Excel::MPDF;
                 }
-            break;
+    break;
         }
 
         $class = config('livewire-tables.exports');

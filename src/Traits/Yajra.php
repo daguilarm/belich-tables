@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\LivewireTables\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -12,12 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
  */
 trait Yajra
 {
-    /**
-     * @param $attribute
-     *
-     * @return object
-     */
-    public function relationship($attribute)
+    public function relationship($attribute): object
     {
         $parts = explode('.', $attribute);
 
@@ -27,13 +24,6 @@ trait Yajra
         ];
     }
 
-    /**
-     * @param  Builder  $query
-     * @param $relationships
-     * @param $attribute
-     *
-     * @return string
-     */
     public function attribute(Builder $query, $relationships, $attribute): string
     {
         $table = '';
@@ -57,19 +47,19 @@ trait Yajra
 
                     $last_query->addSelect($table.'.'.$attribute);
                     $query->leftJoin($table, $foreign, $other);
-                break;
+    break;
 
                 case $model instanceof HasOneOrMany:
                     $table = $model->getRelated()->getTable();
                     $foreign = $model->getQualifiedForeignKeyName();
                     $other = $model->getQualifiedParentKeyName();
-                break;
+    break;
 
                 case $model instanceof BelongsTo:
                     $table = $model->getRelated()->getTable();
                     $foreign = $model->getQualifiedForeignKeyName();
                     $other = $model->getQualifiedOwnerKeyName();
-                break;
+    break;
 
                 default:
                     return $attribute;

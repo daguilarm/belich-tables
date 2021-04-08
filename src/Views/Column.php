@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\LivewireTables\Views;
 
 use Daguilarm\LivewireTables\Traits\CanBeHidden;
@@ -69,9 +71,6 @@ class Column
 
     /**
      * Column constructor.
-     *
-     * @param  string  $text
-     * @param  string|null  $attribute
      */
     public function __construct(string $text, ?string $attribute)
     {
@@ -79,28 +78,16 @@ class Column
         $this->attribute = $attribute ?? Str::snake(Str::lower($text));
     }
 
-    /**
-     * @param  string  $text
-     * @param  string|null  $attribute
-     *
-     * @return Column
-     */
     public static function make(string $text, ?string $attribute = null): Column
     {
         return new static($text, $attribute);
     }
 
-    /**
-     * @return string
-     */
     public function getText(): string
     {
         return $this->text;
     }
 
-    /**
-     * @return string
-     */
     public function getAttribute(): string
     {
         return $this->attribute;
@@ -122,49 +109,32 @@ class Column
         return $this->searchCallback;
     }
 
-    /**
-     * @return bool
-     */
     public function isFormatted(): bool
     {
         return is_callable($this->formatCallback);
     }
 
-    /**
-     * @return bool
-     */
     public function hasExportFormat(): bool
     {
         return is_callable($this->exportFormatCallback);
     }
 
-    /**
-     * @return bool
-     */
     public function isSortable(): bool
     {
         return $this->sortable === true;
     }
 
-    /**
-     * @return bool
-     */
     public function isSearchable(): bool
     {
         return $this->searchable === true;
     }
 
-    /**
-     * @return bool
-     */
     public function isRaw(): bool
     {
         return $this->raw === true;
     }
 
     /**
-     * @param  callable  $callable
-     *
      * @return $this
      */
     public function format(callable $callable): Column
@@ -175,8 +145,6 @@ class Column
     }
 
     /**
-     * @param  callable  $callable
-     *
      * @return $this
      */
     public function exportFormat(callable $callable): Column
@@ -209,11 +177,9 @@ class Column
     }
 
     /**
-     * @param  callable|null  $callable
-     *
      * @return $this
      */
-    public function sortable(callable $callable = null): self
+    public function sortable(?callable $callable = null): self
     {
         $this->sortCallback = $callable;
         $this->sortable = true;
@@ -222,11 +188,9 @@ class Column
     }
 
     /**
-     * @param  callable|null  $callable
-     *
      * @return $this
      */
-    public function searchable(callable $callable = null): self
+    public function searchable(?callable $callable = null): self
     {
         $this->searchCallback = $callable;
         $this->searchable = true;
@@ -244,9 +208,6 @@ class Column
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function includedInExport(): bool
     {
         return $this->includeInExport === true;
@@ -263,9 +224,6 @@ class Column
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function isExportOnly(): bool
     {
         return $this->exportOnly === true;

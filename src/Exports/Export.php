@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\LivewireTables\Exports;
 
 use Daguilarm\LivewireTables\Traits\ExportHelper;
@@ -29,7 +31,6 @@ class Export implements FromQuery, WithHeadings, WithMapping
     /**
      * CSVExport constructor.
      *
-     * @param  Builder  $builder
      * @param  array  $columns
      */
     public function __construct(Builder $builder, array $columns = [])

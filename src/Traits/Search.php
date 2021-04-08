@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\LivewireTables\Traits;
 
 /**
@@ -16,6 +18,7 @@ trait Search
 
     /**
      * Method to search by: debounce or lazy.
+     *
      * @var string
      */
     public $searchUpdateMethod = 'debounce';

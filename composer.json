@@ -29,8 +29,8 @@
         "livewire/livewire": "^2.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.16",
-        "orchestra/testbench": "^5.0",
+        "nunomaduro/phpinsights": "dev-master",
+        "orchestra/testbench": "^6.0",
         "phpunit/phpunit": "^9.0"
     },
     "suggest": {

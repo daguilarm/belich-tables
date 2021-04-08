@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\LivewireTables\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -49,9 +51,6 @@ trait Sorting
      */
     public $descSortIcon = '<i class="fas fa-sort-down"></i>';
 
-    /**
-     * @param $attribute
-     */
     public function sort($attribute): void
     {
         if ($this->sortField !== $attribute) {
@@ -63,11 +62,6 @@ trait Sorting
         $this->sortField = $attribute;
     }
 
-    /**
-     * @param  Builder  $builder
-     *
-     * @return string
-     */
     protected function getSortField(Builder $builder): string
     {
         if (Str::contains($this->sortField, '.')) {
