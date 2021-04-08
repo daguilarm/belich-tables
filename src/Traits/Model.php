@@ -28,7 +28,7 @@ trait Model
             return app()
                 ->call($column->getSortCallback(), [
                     'builder' => $builder,
-                    'direction' => $this->sortDirection
+                    'direction' => $this->sortDirection,
                 ]);
         }
 
@@ -52,7 +52,6 @@ trait Model
 
                     // The column is callable
                     if ($this->columnIsCallable($column)) {
-
                         $builder = $this->modelSearchCallable($builder);
 
                     // The column has a relationship
@@ -73,7 +72,6 @@ trait Model
                                 // The search value
                                 $this->searchString()
                             );
-
                         });
 
                     // Only search the column

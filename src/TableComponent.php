@@ -14,7 +14,6 @@ use Daguilarm\LivewireTables\Traits\Sorting;
 use Daguilarm\LivewireTables\Traits\Table;
 use Daguilarm\LivewireTables\Traits\Yajra;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
