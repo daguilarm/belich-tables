@@ -18,7 +18,7 @@ return [
 
     /*
      * The frontend styling framework to use
-     * Options: bootstrap-4
+     * Options: tailwind
      */
     'theme' => 'tailwind',
 ];
