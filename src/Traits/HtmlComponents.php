@@ -24,7 +24,7 @@ trait HtmlComponents
     {
         $attributes['alt'] = $alt;
 
-        return $this->html('<img src="' . resolve(UrlGenerator::class)->asset($url, $secure) . '"' . $this->attributes($attributes) . '>');
+        return $this->html('<img src="'.resolve(UrlGenerator::class)->asset($url, $secure).'"'.$this->attributes($attributes).'>');
     }
 
     /**
@@ -42,7 +42,7 @@ trait HtmlComponents
             $title = $this->entities($title);
         }
 
-        return $this->html('<a href="' . $this->entities($url) . '"' . $this->attributes($attributes) . '>' . $title . '</a>');
+        return $this->html('<a href="'.$this->entities($url).'"'.$this->attributes($attributes).'>'.$title.'</a>');
     }
 
     /**

@@ -39,7 +39,7 @@ trait Sorting
     public string $descSortIcon = '<i class="fas fa-sort-down"></i>';
 
     /**
-     * Sorting columns
+     * Sorting columns.
      */
     public function sort($attribute): void
     {
@@ -53,7 +53,7 @@ trait Sorting
     }
 
     /**
-     * Sorting field
+     * Sorting field.
      */
     protected function getSortField(Builder $builder): string
     {

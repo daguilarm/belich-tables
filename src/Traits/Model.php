@@ -140,6 +140,6 @@ trait Model
      */
     private function searchString(): string
     {
-        return '%' . trim($this->search) . '%';
+        return '%'.trim($this->search).'%';
     }
 }

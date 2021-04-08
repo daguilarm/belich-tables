@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
 
 trait Yajra
 {
-
     /**
      * Set relationship.
      */

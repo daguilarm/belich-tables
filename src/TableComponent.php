@@ -67,25 +67,25 @@ abstract class TableComponent extends Component
     }
 
     /**
-     * Set the query builder
+     * Set the query builder.
      */
     abstract public function query(): Builder;
 
     /**
-     * Set the columns
+     * Set the columns.
      */
     abstract public function columns(): array;
 
     /**
-     * Set the view
+     * Set the view.
      */
     public function viewName(): string
     {
-        return 'livewire-tables::' . config('livewire-tables.theme').'.table-component';
+        return 'livewire-tables::'.config('livewire-tables.theme').'.table-component';
     }
 
     /**
-     * Render the view in the blade template
+     * Render the view in the blade template.
      */
     public function render(): View
     {
