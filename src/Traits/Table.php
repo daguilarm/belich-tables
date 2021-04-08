@@ -17,7 +17,7 @@ trait Table
     public bool $tableFooterEnabled = false;
 
     /**
-     * Set table head class
+     * Set table head class.
      */
     public function setTableHeadClass(?string $attribute): ?string
     {
@@ -25,7 +25,7 @@ trait Table
     }
 
     /**
-     * Set table head ID
+     * Set table head ID.
      */
     public function setTableHeadId(?string $attribute): ?string
     {
