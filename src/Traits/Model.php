@@ -11,19 +11,19 @@ use Illuminate\Support\Str;
 trait Model
 {
     /**
-     * Set the model builder
+     * Set the model builder.
      */
     public function models(): Builder
     {
-        // Init the builder
+        // Init the builder.
         $builder = $this->query();
 
-        // If the search is enabled and the search input is not empty...
+        // If the search is enabled and the search input is not empty.
         if ($this->searchEnabled && $this->searchString() !== '') {
             $builder = $this->modelSearch($builder);
         }
 
-        // If the column is searchable
+        // If the column is searchable.
         if (($column = $this->getColumnByAttribute($this->sortField)) !== false && is_callable($column->getSortCallback())) {
             return app()
                 ->call($column->getSortCallback(), [
@@ -32,7 +32,7 @@ trait Model
                 ]);
         }
 
-        // Get the builder result
+        // Get the builder result.
         return $builder->orderBy(
             $this->getSortField($builder),
             $this->sortDirection
@@ -40,48 +40,48 @@ trait Model
     }
 
     /**
-     * Search the model
+     * Search the model.
      */
     private function modelSearch(Builder $builder): Builder
     {
         return $builder->where(function (Builder $builder): void {
             foreach ($this->columns() as $column) {
 
-                // The column is searchable
+                // The column is searchable.
                 if ($column->isSearchable()) {
 
-                    // The column is callable
+                    // The column is callable.
                     if ($this->columnIsCallable($column)) {
                         $builder = $this->modelSearchCallable($builder);
 
-                    // The column has a relationship
+                    // The column has a relationship.
                     } elseif ($this->columnHasRealationship($column)) {
 
-                        // Get the relationship
+                        // Get the relationship.
                         $relationship = $this->relationship($column->getAttribute());
 
-                        // If has a relationship
+                        // If has a relationship.
                         $builder->orWhereHas($relationship->name, function (Builder $builder) use ($relationship): void {
 
-                            // Search into the relationship
+                            // Search into the relationship.
                             $builder->where(
-                                // Set the relationship attribute
+                                // Set the relationship attribute.
                                 $relationship->attribute,
-                                // Search option
+                                // Search option.
                                 'like',
-                                // The search value
+                                // The search value.
                                 $this->searchString()
                             );
                         });
 
-                    // Only search the column
+                    // Only search the column.
                     } else {
                         $builder->orWhere(
-                            // Set the column attribute
+                            // Set the column attribute.
                             $this->columnAttribute($builder, $column),
-                            // Search option
+                            // Search option.
                             'like',
-                            // The search value
+                            // The search value.
                             $this->searchString()
                         );
                     }
@@ -91,7 +91,7 @@ trait Model
     }
 
     /**
-     * Callable model search
+     * Callable model search.
      */
     private function modelSearchCallable(Builder $builder): Builder
     {
@@ -105,7 +105,7 @@ trait Model
     }
 
     /**
-     * Check if the column is callable
+     * Check if the column is callable.
      */
     private function columnIsCallable(Column $column): bool
     {
@@ -113,7 +113,7 @@ trait Model
     }
 
     /**
-     * Check if the column has relationships
+     * Check if the column has relationships.
      */
     private function columnHasRealationship(Column $column): bool
     {
@@ -124,7 +124,7 @@ trait Model
     }
 
     /**
-     * Get the column attribute
+     * Get the column attribute.
      */
     private function columnAttribute(Builder $builder, Column $column): string
     {
@@ -136,7 +136,7 @@ trait Model
     }
 
     /**
-     * Set the search string
+     * Set the search string.
      */
     private function searchString(): string
     {

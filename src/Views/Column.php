@@ -7,47 +7,17 @@ namespace Daguilarm\LivewireTables\Views;
 use Daguilarm\LivewireTables\Traits\CanBeHidden;
 use Illuminate\Support\Str;
 
-/**
- * Class Column.
- */
 class Column
 {
     use CanBeHidden;
 
-    /**
-     * @var string
-     */
-    protected $text;
-
-    /**
-     * @var string
-     */
-    protected $attribute;
-
-    /**
-     * @var bool
-     */
-    protected $sortable = false;
-
-    /**
-     * @var bool
-     */
-    protected $searchable = false;
-
-    /**
-     * @var bool
-     */
-    protected $raw = false;
-
-    /**
-     * @var bool
-     */
-    protected $includeInExport = true;
-
-    /**
-     * @var bool
-     */
-    protected $exportOnly = false;
+    protected string $text;
+    protected string $attribute;
+    protected bool $sortable = false;
+    protected bool $searchable = false;
+    protected bool $raw = false;
+    protected bool $includeInExport = true;
+    protected bool $exportOnly = false;
 
     /**
      * @var

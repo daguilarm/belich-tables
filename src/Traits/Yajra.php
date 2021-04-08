@@ -13,7 +13,7 @@ trait Yajra
 {
 
     /**
-     * Set relationship
+     * Set relationship.
      */
     public function relationship(string $attribute): object
     {
@@ -26,7 +26,7 @@ trait Yajra
     }
 
     /**
-     * Set atribute
+     * Set atribute.
      */
     public function attribute(Builder $query, string $relationships, string $attribute): string
     {

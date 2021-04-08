@@ -42,7 +42,7 @@ trait Options
     ];
 
     /**
-     * Get the option
+     * Get the option.
      */
     public function getOption(string $option): ?string
     {
@@ -50,7 +50,7 @@ trait Options
     }
 
     /**
-     * @param  array  $overrides
+     * @param  array  $overrides.
      */
     protected function setOptions(array $overrides = []): void
     {
