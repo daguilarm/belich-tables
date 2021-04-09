@@ -1,6 +1,6 @@
 @foreach($models as $model)
     <tr
-        class="border-b border-gray-200 {{ $this->setTableRowClass($model) }}"
+        class="bg-white border-b border-gray-150 {{ $this->setTableRowClass($model) }}"
         id="{{ $this->setTableRowId($model) }}"
         {{-- Load all the attributes --}}
         @foreach ($this->setTableRowAttributes($model) as $key => $value)

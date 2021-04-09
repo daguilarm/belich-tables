@@ -1,4 +1,4 @@
-<tr>
+<tr class="border-b border-gray-200">
     {{-- Table head checkbox --}}
     @includeWhen($checkboxEnable && !isset($headerTitle), 'livewire-tables::'.config('livewire-tables.theme').'.includes.checkboxes.checkbox-header')
 

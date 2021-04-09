@@ -16,26 +16,28 @@
                 {{-- Options: search, filters, perPage,... --}}
                 @include('livewire-tables::'.config('livewire-tables.theme').'.includes.options')
 
-                <table class="min-w-full divide-y divide-gray-200">
+                <div class="bg-gray-50 text-gray-500 border border-gray-200 rounded-t-lg">
+                    <table class="table min-w-full leading-normal mt-1">
 
-                    {{-- Table head --}}
-                    @include('livewire-tables::'.config('livewire-tables.theme').'.includes.thead')
+                        {{-- Table head --}}
+                        @include('livewire-tables::'.config('livewire-tables.theme').'.includes.thead')
 
-                    {{-- Table data --}}
-                    <tbody>
-                        @if($models->isEmpty())
-                            @include('livewire-tables::'.config('livewire-tables.theme').'.includes.empty')
-                        @else
-                            @include('livewire-tables::'.config('livewire-tables.theme').'.includes.data')
-                        @endif
-                    </tbody>
+                        {{-- Table data --}}
+                        <tbody>
+                            @if($models->isEmpty())
+                                @include('livewire-tables::'.config('livewire-tables.theme').'.includes.empty')
+                            @else
+                                @include('livewire-tables::'.config('livewire-tables.theme').'.includes.data')
+                            @endif
+                        </tbody>
 
-                    {{-- Table foot --}}
-                    @include('livewire-tables::'.config('livewire-tables.theme').'.includes.tfoot')
-                </table>
+                        {{-- Table foot --}}
+                        @include('livewire-tables::'.config('livewire-tables.theme').'.includes.tfoot')
+                    </table>
 
-                {{-- Pagination --}}
-                @include('livewire-tables::'.config('livewire-tables.theme').'.includes.pagination')
+                    {{-- Pagination --}}
+                    {{ $models->links('livewire-tables::'.config('livewire-tables.theme').'.includes.pagination', compact('paginationEnabled')) }}
+                </div>
             </div>
         </div>
     </div>
