@@ -1,7 +1,6 @@
 @if ($paginationEnabled || $searchEnabled)
     <div class="pb-3 sm:flex sm:items-center sm:justify-between">
         <div class="sm:mt-3">
-            <label for="search_candidate" class="sr-only">Search</label>
             <div class="flex rounded-md">
                 <div class="relative flex-grow focus-within:z-10">
                     {{-- Add search --}}
