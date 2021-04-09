@@ -11,16 +11,18 @@
     @if (is_numeric($searchDebounce) && $searchUpdateMethod === 'debounce') wire:model.debounce.{{ $searchDebounce }}ms="search" @endif
     @if ($searchUpdateMethod === 'lazy') wire:model.lazy="search" @endif
     @if ($disableSearchOnLoading) wire:loading.attr="disabled" @endif
-    class="focus:outline-none focus:border-blue-500 focus:border-transparent block w-full px-10 py-2 shadow-md border border-gray-300 rounded-md sm:text-sm"
+    class="focus:outline-none focus:border-blue-500 focus:border-transparent block w-full px-10 py-2 shadow-md border border-gray-300 rounded-md text-gray-500 sm:text-sm"
     type="text"
     placeholder="{{ __('livewire-tables::strings.search') }}"
 />
 
 {{-- Clear search button --}}
 @if ($clearSearchButton && trim($search))
-    <div wire:click="clearSearch" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer">
-        <svg class="h-4 w-4 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
+    <div wire:click="clearSearch" class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
+        <div class="p-1 hover:bg-gray-100 rounded-lg">
+            <svg class="h-4 w-4 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </div>
     </div>
 @endif
