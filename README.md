@@ -5,6 +5,8 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/daguilarm/livewire-tables.svg?style=flat-square)](https://packagist.org/packages/daguilarm/livewire-tables)
 ![GitHub last commit](https://img.shields.io/github/last-commit/daguilarm/livewire-tables)
 
+> :warning: **This package is currently under development**: Be very careful here!
+
 **This package is base on the https://github.com/rappasoft/laravel-livewire-tables package. Since there seems to be no updates or improvements, I have decided to proceed with this package on my own.**
 
 A dynamic Laravel Livewire component for data tables.
