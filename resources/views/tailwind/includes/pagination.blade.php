@@ -1,5 +1,5 @@
 @if ($paginationEnabled && $paginator->hasPages())
-    <nav class="bg-gray-50 px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+    <nav class="bg-gray-50 px-4 py-3 my-1 flex items-center justify-between sm:px-6">
         <div class="hidden sm:block">
             <p class="text-sm text-gray-500">
                 {{ trans('livewire-tables::strings.pagination.results', [

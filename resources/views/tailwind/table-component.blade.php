@@ -16,7 +16,7 @@
                 {{-- Options: search, filters, perPage,... --}}
                 @include('livewire-tables::'.config('livewire-tables.theme').'.includes.options')
 
-                <div class="bg-gray-50 text-gray-500 border border-gray-200 rounded-t-lg">
+                <div class="bg-gray-50 text-gray-500 border border-gray-200 rounded-t-lg rounded-b-lg">
                     <table class="table min-w-full leading-normal mt-1">
 
                         {{-- Table head --}}
