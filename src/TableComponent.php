@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables;
 
+use Daguilarm\LivewireTables\Traits\Checkboxes;
 use Daguilarm\LivewireTables\Traits\Exports;
+use Daguilarm\LivewireTables\Traits\Hidden;
 use Daguilarm\LivewireTables\Traits\Loading;
 use Daguilarm\LivewireTables\Traits\Model;
 use Daguilarm\LivewireTables\Traits\Options;
@@ -23,7 +25,9 @@ use Livewire\WithPagination;
  */
 abstract class TableComponent extends Component
 {
-    use Exports,
+    use Checkboxes,
+        Exports,
+        Hidden,
         Loading,
         Model,
         Options,
