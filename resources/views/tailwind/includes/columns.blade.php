@@ -1,4 +1,7 @@
 <tr>
+    {{-- Table head checkbox --}}
+    @includeWhen($checkboxEnable && !isset($headerTitle), 'livewire-tables::'.config('livewire-tables.theme').'.includes.checkboxes.checkbox-header')
+
     @foreach($columns as $column)
         @if ($column->isVisible())
             @if($column->isSortable())

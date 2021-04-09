@@ -7,7 +7,7 @@ trait Checkboxes
     /**
      * Whether or not checkboxes are enabled.
      */
-    public bool $checkbox = false;
+    public bool $checkboxEnable = true;
 
     /**
      * Whether or not all checkboxes are currently selected.

@@ -2,14 +2,19 @@
     <tr
         class="border-b border-gray-200 {{ $this->setTableRowClass($model) }}"
         id="{{ $this->setTableRowId($model) }}"
+        {{-- Load all the attributes --}}
         @foreach ($this->setTableRowAttributes($model) as $key => $value)
-        {{ $key }}="{{ $value }}"
+            {{ $key }}="{{ $value }}"
         @endforeach
         @if ($this->getTableRowUrl($model))
             onclick="window.location='{{ $this->getTableRowUrl($model) }}';"
             style="cursor:pointer"
         @endif
     >
+        {{-- Table checkbox --}}
+        @includeWhen($checkboxEnable && !isset($headerTitle), 'livewire-tables::'.config('livewire-tables.theme').'.includes.checkboxes.checkbox')
+
+        {{-- Create all the columns --}}
         @foreach($columns as $column)
             @if ($column->isVisible())
                 <td
@@ -19,12 +24,15 @@
                     {{ $key }}="{{ $value }}"
                     @endforeach
                 >
+                    {{-- Formated column --}}
                     @if ($column->isFormatted())
                         @if ($column->isRaw())
                             {!! $column->formatted($model, $column) !!}
                         @else
                             {{ $column->formatted($model, $column) }}
                         @endif
+
+                    {{-- Regular column --}}
                     @else
                         @if ($column->isRaw())
                             {!! data_get($model, $column->getAttribute()) !!}
