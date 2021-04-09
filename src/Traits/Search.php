@@ -30,7 +30,7 @@ trait Search
     /**
      * A button to clear the search box.
      */
-    public bool $clearSearchButton = false;
+    public bool $clearSearchButton = true;
 
     /**
      * Resets the search string.
