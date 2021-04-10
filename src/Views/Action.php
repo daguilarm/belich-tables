@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Views;
 
-use Daguilarm\LivewireTables\Views\Column;
-
 class Action
 {
     public static function make($model, string $routeName, ?string $view = null)
