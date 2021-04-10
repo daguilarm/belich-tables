@@ -2,15 +2,19 @@
 <div
     class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-gray-200 bg-opacity-75"
     x-show="showModal"
+    x-transition:enter="transform duration-200"
+    x-transition:enter-start="opacity-0 scale-100"
+    x-transition:enter-end="opacity-100 scale-100"
+    x-transition:leave="transform duration-200"
+    x-transition:leave-start="opacity-100 scale-100"
+    x-transition:leave-end="opacity-0 scale-100"
+    class="block md:hidden p-4 border rounded shadow"
     x-cloak
 >
     {{-- Modal inner --}}
     <div
         class="w-auto px-6 py-4 mx-auto"
         @click.away="showModal = false"
-        x-transition:enter="motion-safe:ease-out duration-300"
-        x-transition:enter-start="opacity-0 scale-90"
-        x-transition:enter-end="opacity-100 scale-100"
     >
         <div class="relative rounded-xl border border-gray-200 shadow-lg bg-gray-50 p-4">
 
