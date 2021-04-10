@@ -10,3 +10,4 @@ coverage
 .phpunit.result.cache
 .phpstorm.meta.php
 _ide_helper.php
+/node_modules
