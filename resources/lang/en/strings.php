@@ -13,8 +13,8 @@ return [
     'loading' => 'Loading...',
     'messages' => [
         'delete' => [
-            'success' => 'The item has been successfully removed.',
-            'error' => 'Failed to delete the selected item. If the error persists, please contact with the system administrator.',
+            'success' => 'The item(s) has been successfully removed.',
+            'error' => 'Failed to delete the selected item(s). If the error persists, please contact with the system administrator.',
         ],
     ],
     'no_results' => 'There are no results to display for this query.',
