@@ -9,7 +9,7 @@ trait Hidden
     public string $show;
 
     /**
-     * Hide content base on screen
+     * Hide content base on screen.
      */
     public function hideFrom(string $value): self
     {
@@ -24,7 +24,7 @@ trait Hidden
     }
 
     /**
-     * Show content base on screen
+     * Show content base on screen.
      */
     public function showOn(string $value): self
     {
