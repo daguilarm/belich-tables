@@ -23,4 +23,10 @@ return [
      * Options: tailwind
      */
     'theme' => 'tailwind',
+
+    /*
+     * The color for the loading indicador (by default 'blue').
+     * It can be in rgb, rgba or hexadecimal... any valid format in css.
+     */
+    'loadingColor' => 'rgba(147, 197, 253, 1)',
 ];

@@ -6,10 +6,13 @@ namespace Daguilarm\LivewireTables\Views;
 
 class Action
 {
+    /**
+     * Action column constructor.
+     */
     public static function make($model, string $routeName, ?string $view = null)
     {
         return Column::make('')
-            ->format(static function ($model) {
+            ->format(static function ($model) use ($view) {
                 // Get the route name, Ex: dashboard.users
                 $routeName = request()->route()->getName();
                 // Get the view for the action or the default view
@@ -20,6 +23,9 @@ class Action
             ->excludeFromExport();
     }
 
+    /**
+     * Default action view.
+     */
     private static function defaultView()
     {
         return sprintf(

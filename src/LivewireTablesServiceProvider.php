@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\Compilers\BladeCompiler;
 
 /**
  * Class LaravelLivewireTablesServiceProvider.
