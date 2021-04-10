@@ -9,7 +9,6 @@ use Daguilarm\LivewireTables\Traits\Exports;
 use Daguilarm\LivewireTables\Traits\Hidden;
 use Daguilarm\LivewireTables\Traits\Loading;
 use Daguilarm\LivewireTables\Traits\Model;
-use Daguilarm\LivewireTables\Traits\Options;
 use Daguilarm\LivewireTables\Traits\Pagination;
 use Daguilarm\LivewireTables\Traits\Search;
 use Daguilarm\LivewireTables\Traits\Sorting;
@@ -30,7 +29,6 @@ abstract class TableComponent extends Component
         Hidden,
         Loading,
         Model,
-        Options,
         Pagination,
         Search,
         Sorting,
@@ -61,11 +59,7 @@ abstract class TableComponent extends Component
      */
     public function __construct(?string $id = null)
     {
-        if (config('livewire-tables.theme') === 'bootstrap-4') {
-            $this->paginationTheme = 'bootstrap';
-        }
-
-        $this->setOptions($this->options);
+        $this->paginationTheme = config('livewire-tables.theme');
 
         parent::__construct($id);
     }

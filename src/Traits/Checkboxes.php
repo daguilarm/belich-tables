@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\LivewireTables\Traits;
 
 trait Checkboxes
 {
     /**
-     * Whether or not checkboxes are enabled.
+     * Whether or not checkboxes are enabled. Enable by default.
      */
     public bool $checkboxEnable = true;
 
@@ -17,7 +19,7 @@ trait Checkboxes
     /**
      * The currently selected values of the checkboxes.
      *
-     * @var array
+     * @var array<int>
      */
     public array $checkboxValues = [];
 
@@ -29,9 +31,11 @@ trait Checkboxes
         $this->checkboxValues = [];
 
         if ($this->checkboxAll) {
-            $this->models()->each(function ($model) {
-                $this->checkboxValues[] = (string) $model->id;
-            });
+            // Update checkboxes
+            $this->models()
+                ->each(function ($model): void {
+                    $this->checkboxValues[] = (int) $model->id;
+                });
         }
     }
 

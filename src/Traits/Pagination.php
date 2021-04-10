@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Traits;
 
-/**
- * Trait Pagination.
- */
 trait Pagination
 {
     /**

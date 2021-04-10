@@ -7,7 +7,7 @@ namespace Daguilarm\LivewireTables\Traits;
 trait ExportHelper
 {
     /**
-     * @return array<object>
+     * @return array<string>
      */
     public function getHeadingRow(): array
     {

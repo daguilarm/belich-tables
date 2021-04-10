@@ -1,54 +1,39 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\LivewireTables\Traits;
 
 trait Hidden
 {
-    /**
-     * Whether or not checkboxes are enabled.
-     */
     public string $show;
 
+    /**
+     * Hide content base on screen
+     */
     public function hideFrom(string $value): self
     {
-        switch ($value) {
-            case 'sm':
-                $show = 'hidden';
-                break;
-            case 'md':
-                $show = 'hidden lg:visible';
-                break;
-            case 'lg':
-                $show = 'hidden xl:visible';
-                break;
-            case 'xl':
-                $show = 'visible xl:hidden';
-                break;
-        }
-
-        $this->show = $show;
+        $this->show = match($value) {
+            'sm' => 'hidden',
+            'md' => 'hidden lg:visible',
+            'lg' => 'hidden xl:visible',
+            'xl' => 'visible xl:hidden',
+        };
 
         return $this;
     }
 
+    /**
+     * Show content base on screen
+     */
     public function showOn(string $value): self
     {
-        switch ($value) {
-            case 'sm':
-                $show = 'visible';
-                break;
-            case 'md':
-                $show = 'hidden md:visible';
-                break;
-            case 'lg':
-                $show = 'hidden lg:visible';
-                break;
-            case 'xl':
-                $show = 'hidden xl:visible';
-                break;
-        }
-
-        $this->show = $show;
+        $this->show = match($value) {
+            'sm' => 'visible',
+            'md' => 'hidden md:visible',
+            'lg' => 'hidden lg:visible',
+            'xl' => 'hidden xl:visible',
+        };
 
         return $this;
     }

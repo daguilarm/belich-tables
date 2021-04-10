@@ -6,7 +6,6 @@ namespace Daguilarm\LivewireTables\Traits;
 
 use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Str;
 
 trait Model
 {
@@ -117,10 +116,15 @@ trait Model
      */
     private function columnHasRealationship(Column $column): bool
     {
-        return Str::contains(
+        return str_contains(
             $column->getAttribute(),
             '.'
         );
+
+        // return Str::contains(
+        //     $column->getAttribute(),
+        //     '.'
+        // );
     }
 
     /**

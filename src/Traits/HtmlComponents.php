@@ -20,8 +20,12 @@ trait HtmlComponents
     /**
      * Generate an HTML image element.
      */
-    public function image(?string $url, ?string $alt = null, array $attributes = [], ?string $secure = null): HtmlString
-    {
+    public function image(
+        ?string $url,
+        ?string $alt = null,
+        array $attributes = [],
+        ?string $secure = null
+    ): HtmlString {
         $attributes['alt'] = $alt;
 
         return $this->html('<img src="'.resolve(UrlGenerator::class)->asset($url, $secure).'"'.$this->attributes($attributes).'>');
@@ -30,8 +34,13 @@ trait HtmlComponents
     /**
      * Generate a HTML link.
      */
-    public function link(?string $url, ?string $title = null, array $attributes = [], ?string $secure = null, bool $escape = true): HtmlString
-    {
+    public function link(
+        ?string $url,
+        ?string $title = null,
+        array $attributes = [],
+        ?string $secure = null,
+        bool $escape = true
+    ): HtmlString {
         $url = resolve(UrlGenerator::class)->to($url, [], $secure);
 
         if (is_null($title) || $title === false) {
@@ -48,8 +57,12 @@ trait HtmlComponents
     /**
      * Generate a HTTPS HTML link.
      */
-    public function secureLink(?string $url, ?string $title = null, array $attributes = [], bool $escape = true): HtmlString
-    {
+    public function secureLink(
+        ?string $url,
+        ?string $title = null,
+        array $attributes = [],
+        bool $escape = true
+    ): HtmlString {
         return $this->link(
             $url,
             $title,
@@ -64,8 +77,12 @@ trait HtmlComponents
      *
      * @param array  $attributes
      */
-    public function linkAsset(string $url, ?string $title = null, array $attributes = [], ?bool $secure = null, bool $escape = true): HtmlString
-    {
+    public function linkAsset(
+        string $url,
+        ?string $title = null,
+        array $attributes = [],
+        ?bool $secure = null, bool $escape = true
+    ): HtmlString {
         $url = resolve(UrlGenerator::class)->asset($url, $secure);
 
         return $this->link(
@@ -82,8 +99,12 @@ trait HtmlComponents
      *
      * @param array  $attributes
      */
-    public function linkSecureAsset(string $url, ?string $title = null, array $attributes = [], bool $escape = true): HtmlString
-    {
+    public function linkSecureAsset(
+        string $url,
+        ?string $title = null,
+        array $attributes = [],
+        bool $escape = true
+    ): HtmlString {
         return $this->linkAsset(
             $url,
             $title,
@@ -99,8 +120,14 @@ trait HtmlComponents
      * @param array  $parameters
      * @param array  $attributes
      */
-    public function linkRoute(string $name, ?string $title = null, array $parameters = [], array $attributes = [], ?bool $secure = null, bool $escape = true): HtmlString
-    {
+    public function linkRoute(
+        string $name,
+        ?string $title = null,
+        array $parameters = [],
+        array $attributes = [],
+        ?bool $secure = null,
+        bool $escape = true
+    ): HtmlString {
         return $this->link(
             resolve(UrlGenerator::class)->route($name, $parameters),
             $title,
@@ -116,8 +143,14 @@ trait HtmlComponents
      * @param array  $parameters
      * @param array  $attributes
      */
-    public function linkAction(string $action, ?string $title = null, array $parameters = [], array $attributes = [], ?bool $secure = null, bool $escape = true): HtmlString
-    {
+    public function linkAction(
+        string $action,
+        ?string $title = null,
+        array $parameters = [],
+        array $attributes = [],
+        ?bool $secure = null,
+        bool $escape = true
+    ): HtmlString {
         return $this->link(
             resolve(UrlGenerator::class)->action($action, $parameters),
             $title,
@@ -132,8 +165,12 @@ trait HtmlComponents
      *
      * @param array  $attributes
      */
-    public function mailto(string $email, ?string $title = null, array $attributes = [], bool $escape = true): HtmlString
-    {
+    public function mailto(
+        string $email,
+        ?string $title = null,
+        array $attributes = [],
+        bool $escape = true
+    ): HtmlString {
         $email = $this->email($email);
 
         $title = $title ? $title : $email;

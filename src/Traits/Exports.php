@@ -66,9 +66,6 @@ trait Exports
 
         $class = config('livewire-tables.exports');
 
-        return (new $class(
-            $this->models(),
-            $this->columns(),
-        ))->download($this->exportFileName.'.'.$type, $writer);
+        return (new $class($this->models(), $this->columns()))->download($this->exportFileName.'.'.$type, $writer);
     }
 }

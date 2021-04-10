@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Traits;
 
-/**
- * Trait CanBeHidden.
- */
 trait CanBeHidden
 {
     protected bool $hidden = false;
 
+    /**
+     * Hide content if condition.
+     */
     public function hideIf($condition): self
     {
         $this->hidden = $condition;
@@ -18,6 +18,9 @@ trait CanBeHidden
         return $this;
     }
 
+    /**
+     * Hide content.
+     */
     public function hide(): self
     {
         $this->hidden = true;
@@ -25,11 +28,17 @@ trait CanBeHidden
         return $this;
     }
 
+    /**
+     * Check if content is visible.
+     */
     public function isVisible(): bool
     {
         return $this->hidden !== true;
     }
 
+    /**
+     * Check if content is hidden.
+     */
     public function isHidden(): bool
     {
         return ! $this->isVisible();
