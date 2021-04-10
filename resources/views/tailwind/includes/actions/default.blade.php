@@ -1,9 +1,9 @@
 <div class="flex justify-end text-gray-400" >
-    <a href="{{ routeAction($routeName, 'show', $model->id) }}" class="py-2 px-1 hover:text-green-600">
+    <a href="{{ routeAction($routeName, $routeAction = 'show', $model->id) }}" class="py-2 px-1 hover:text-green-600">
         @svg('heroicon-o-eye', ['class' => 'h-6 xl:h-5'])
     </a>
 
-    <a href="{{ routeAction($routeName, 'edit', $model->id) }}" class="py-2 px-1 hover:text-blue-600">
+    <a href="{{ routeAction($routeName, $routeAction = 'edit', $model->id) }}" class="py-2 px-1 hover:text-blue-600">
         @svg('heroicon-o-pencil-alt', ['class' => 'h-6 xl:h-5'])
     </a>
 

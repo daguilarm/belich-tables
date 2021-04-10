@@ -8,10 +8,13 @@ class Action
 {
     public static function make($model, string $routeName, ?string $view = null)
     {
-        $component = $view ?? self::defaultView();
-
         return Column::make('')
-            ->format(function ($model) use ($component, $routeName) {
+            ->format(static function ($model) {
+                // Get the route name, Ex: dashboard.users
+                $routeName = request()->route()->getName();
+                // Get the view for the action or the default view
+                $component = $view ?? self::defaultView();
+
                 return view($component, compact('model', 'routeName'));
             })
             ->excludeFromExport();
@@ -19,6 +22,9 @@ class Action
 
     private static function defaultView()
     {
-        return 'livewire-tables::'.config('livewire-tables.theme').'.includes.actions.default';
+        return sprintf(
+            'livewire-tables::%s.includes.actions.default',
+            config('livewire-tables.theme')
+        );
     }
 }
