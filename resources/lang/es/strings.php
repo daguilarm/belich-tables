@@ -4,8 +4,19 @@ declare(strict_types=1);
 
 return [
     'clear' => 'Limpiar',
+    'delete' => [
+        'title' => '¿Seguro que quiere eliminar el elemento(s) seleccionado(s)?',
+        'message' => 'Una vez se realice la operación, no podrá ser revertida.',
+        'button' => 'Eliminar',
+    ],
     'export' => 'Exportar',
     'loading' => 'Cargando',
+    'messages' => [
+        'delete' => [
+            'success' => 'El elemento se ha eliminado correctamente.',
+            'error' => 'Error al eliminar el elemento seleccionado. Si el error persiste, por favor contacte con el administrador del sistema.',
+        ],
+    ],
     'no_results' => 'No se encontraron resultados para esta consulta.',
     'offline' => 'Actualmente no te encuentras conectado a internet.',
     'pagination' => [

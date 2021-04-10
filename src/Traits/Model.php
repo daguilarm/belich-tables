@@ -39,6 +39,16 @@ trait Model
     }
 
     /**
+     * Get current model class
+     */
+    public function getModelClass(): string
+    {
+        return get_class(
+            $this->models()->getModel()
+        );
+    }
+
+    /**
      * Search the model.
      */
     private function modelSearch(Builder $builder): Builder

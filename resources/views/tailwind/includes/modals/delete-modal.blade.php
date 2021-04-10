@@ -19,14 +19,14 @@
                 <button type="button" class="inline-flex p-1.5 focus:outline-none">
                     <span class="sr-only">Dismiss</span>
                     {{-- Heroicon name: solid/x-circle --}}
-                    <svg @click="showModal = false" class="h-5 w-5 text-gray-300 hover:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <svg @click="showModal = false" class="h-5 w-5 text-gray-400 hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
                     </svg>
                 </button>
             </div>
 
             {{-- Title --}}
-            <div class="flex mt-4 px-4 mb-2">
+            <div class="flex mt-6 mb-6 px-4">
 
                 {{-- Heroicon name: solid/check-circle --}}
                 <svg class="h-8 w-8 text-red-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -36,19 +36,20 @@
                 {{-- Title message --}}
                 <div class="ml-3">
                     <h1 class="text-xl font-medium text-gray-700">
-                        ¿Seguro que quiere eliminar el elemento?
+                        @lang('livewire-tables::strings.delete.title')
                     </h1>
                 </div>
             </div>
 
             <div class="p-6 text-md bg-red-50 text-red-600 border-t border-b border-red-200">
-                Una vez se realice la acción, no podrá ser revertida.
+                <li>@lang('livewire-tables::strings.delete.message')</li>
             </div>
 
-            <div class="flex justify-center">
+            <div class="flex justify-center mt-8 mb-4">
                 <button
                     type="button"
-                    class="flex justify-center mt-4 py-1 px-4 border border-transparent text-xl font-medium rounded shadow-lg text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                    class="flex justify-center py-1 px-4 border border-transparent text-xl font-medium rounded shadow-lg text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                    wire:click.prevent="deleteById({{ $model->id }})
                 >
                     {{-- Trash icon --}}
                     <svg class="h-5 w-5 mr-1 mt-1 text-white opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -56,7 +57,7 @@
                     </svg>
 
                     {{-- Button text --}}
-                    <div>Delete</div>
+                    <div>@lang('livewire-tables::strings.delete.button')</div>
                 </button>
             </div>
         </div>

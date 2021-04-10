@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Daguilarm\LivewireTables;
 
 use Daguilarm\LivewireTables\Traits\Checkboxes;
+use Daguilarm\LivewireTables\Traits\Delete;
 use Daguilarm\LivewireTables\Traits\Exports;
 use Daguilarm\LivewireTables\Traits\Hidden;
 use Daguilarm\LivewireTables\Traits\Loading;
@@ -25,6 +26,7 @@ use Livewire\WithPagination;
 abstract class TableComponent extends Component
 {
     use Checkboxes,
+        Delete,
         Exports,
         Hidden,
         Loading,

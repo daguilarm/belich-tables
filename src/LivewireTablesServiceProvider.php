@@ -21,6 +21,11 @@ class LivewireTablesServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'livewire-tables');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'livewire-tables');
 
+        // Components
+        $this->callAfterResolving(BladeCompiler::class, function (): void {
+            Blade::component('livewire-tables::'.config('livewire-tables.theme').'.components.message', 'livewire-tables-message');
+        });
+
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('livewire-tables.php'),
