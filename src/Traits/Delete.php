@@ -7,7 +7,7 @@ namespace Daguilarm\LivewireTables\Traits;
 trait Delete
 {
     /**
-     * Delete elements from ID or List of IDs
+     * Delete elements from ID or List of IDs.
      *
      * @param array|int $id
      */
@@ -19,7 +19,7 @@ trait Delete
             : $this->models()->findOrFail($id);
 
         // Messages
-        if($element->delete()) {
+        if ($element->delete()) {
             session()->flash('message.success', __('livewire-tables::strings.messages.delete.success'));
         } else {
             session()->flash('message.error', __('livewire-tables::strings.messages.delete.error'));

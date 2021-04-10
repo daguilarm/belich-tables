@@ -39,7 +39,7 @@ trait Model
     }
 
     /**
-     * Get current model class
+     * Get current model class.
      */
     public function getModelClass(): string
     {
