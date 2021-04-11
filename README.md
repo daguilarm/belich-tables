@@ -258,6 +258,9 @@ public function columns() : array
     ];
 }
 ```
+It will render something like that:
+
+![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/actions.png)
 
 You need to define three parameters:
 
@@ -266,8 +269,6 @@ You need to define three parameters:
 | $model | mandatory parameter | You need to define the model class: \App\Models\User::class |
 | $routeName | request()->route()->getName() | In the view can be use to create the links |
 | $view | resources/views/vendor/livewire-tables/tailwind/includes/actions/default.blade.php | You can use the default template or crear your own in this default folder. |
-
-![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/actions.png)
 
 The default action view:
 
