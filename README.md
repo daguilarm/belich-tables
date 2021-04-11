@@ -170,13 +170,6 @@ public function exportFormat(callable $callable = null) : self;
 
 You can override any of these in your table component:
 
-#### Table
-
-| Property | Default | Usage |
-| -------- | ------- | ----- |
-| $tableHeaderEnabled | true | Whether or not to display the table header |
-| $tableFooterEnabled | false | Whether or not to display the table footer |
-
 #### Searching
 
 | Property | Default | Usage |
@@ -186,8 +179,7 @@ You can override any of these in your table component:
 | $searchDebounce | 350 | Amount of time in ms to wait to send the search query and refresh the table |
 | $disableSearchOnLoading | false | Whether or not to disable the search bar when it is searching/loading new data | 
 | $search | *none* | The initial search string |
-| $clearSearchButton | false | Adds a clear button to the search input |
-| $clearSearchButtonClass | btn btn-outline-dark | The class applied to the clear button |
+| $clearSearchButton | true | Adds a clear button to the search input |
 
 #### Sorting
 
@@ -195,25 +187,20 @@ You can override any of these in your table component:
 | -------- | ------- | ----- |
 | $sortField | id | The initial field to be sorting by |
 | $sortDirection | asc | The initial direction to sort |
-| $sortDefaultIcon | `<i class="text-muted fas fa-sort"></i>` | The default sort icon |
-| $ascSortIcon | `<i class="fas fa-sort-up"></i>` | The sort icon when currently sorting ascending |
-| $descSortIcon | `<i class="fas fa-sort-down"></i>` | The sort icon when currently sorting descending |
 
 #### Pagination
 
 | Property | Default | Usage |
 | -------- | ------- | ----- |
 | $paginationEnabled | true | Enables or disables pagination as a whole |
-| $perPageOptions | [10, 25, 50] | The options to limit the amount of results per page. Set to [] to disable. |
+| $perPageOptions | [10, 25, 50, 100] | The options to limit the amount of results per page. Set to [] to disable. |
 | $perPage | 25 | Amount of items to show per page |
 
 #### Loading
 
 | Property | Default | Usage |
 | -------- | ------- | ----- |
-| $loadingIndicator | false | Whether or not to show a loading indicator when searching |
-| $disableSearchOnLoading | false | Whether or not to disable the search bar when it is searching/loading new data |
-| $collapseDataOnLoading | false | When the table is loading, hide all data but the loading row |
+| $loadingIndicator | true | Whether or not to show a loading indicator when searching |
 
 #### Offline
 
@@ -253,6 +240,31 @@ public function setTableDataId($attribute, $value): ?string
 public function setTableDataAttributes($attribute, $value): array
 ```
 
+#### Actions 
+
+You can define actions for your table:
+
+```php
+public function columns() : array
+{
+    return [
+        Column::make('ID')
+            ->searchable()
+            ->sortable(),
+        Column::make('Name')
+            ->searchable()
+            ->sortable(),
+        Action::make($model = User::class, $routeName='', $view = 'actions.default'),
+    ];
+}
+```
+
+You need to define three parameters:
+
+| Parameter | Default | Usage |
+| -------- | ------- | ----- |
+| $model | mandatory parameter | You need to define the model class: \App\Models\User::class |
+
 #### Pagination
 
 Override these methods if you want to perform extra tasks when the search or per page attributes change.
@@ -284,7 +296,16 @@ This package includes some of the functionality from the laravelcollective/html 
 
 To use these you must import the *Rappasoft\LaravelLivewireTables\Traits\HtmlComponents* trait.
 
-You may return any of these functions from the format() method of a column:
+You may return any of these functions from the format() method of a column, for example:
+
+```php
+Column::make('Permissions')
+   ->format(function(User $model) {
+       return $this->html('<strong>'.$model->permissions_count.'</strong>');
+   })
+```
+
+The complete list of functions:
 
 ```php
 public function image($url, $alt = null, $attributes = [], $secure = null): HtmlString
