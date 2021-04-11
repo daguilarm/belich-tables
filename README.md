@@ -326,7 +326,7 @@ if (! function_exists('routeAction')) {
 }
 ```
 
-The default blade action, includes all the logic for delete items using a modal. But you can create your own in your custom action.
+The default blade action, includes all the logic for delete items using a confirmation modal. But you can create your own in your custom action.
 
 #### Pagination
 
