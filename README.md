@@ -294,7 +294,7 @@ You can define either of the two parameters, or you can leave them blank and use
 | $routeName | request()->route()->getName() | In the view can be use to create the links |
 | $view | resources/views/vendor/livewire-tables/tailwind/includes/actions/default.blade.php | You can use the default template or crear your own in this default folder. |
 
-Basically you will only have to pass the first variable to the default template to work currently, that is, the `$model` variable. The default action view will look like this:
+The default action view will look like this:
 
 ```html
 <div class="flex justify-end text-gray-400" >
@@ -336,7 +336,7 @@ Basically you will only have to pass the first variable to the default template 
     </div>
 </div>
 ```
-You can use the function `routeAction()` to create the action links base on the route:
+As you can see in the code, you will have direct access to the `$model` variable in the view. You can use the function `routeAction()` to create the action links base on the route:
 
 ```php
 /**
