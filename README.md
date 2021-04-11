@@ -267,7 +267,7 @@ You need to define three parameters:
 | $routeName | request()->route()->getName() | In the view can be use to create the links |
 | $view | resources/views/vendor/livewire-tables/tailwind/includes/actions/default.blade.php | You can use the default template or crear your own in this default folder. |
 
-![Action image](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/actions.png)
+![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/actions.png)
 
 The default action view:
 
