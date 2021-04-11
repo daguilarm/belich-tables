@@ -240,7 +240,32 @@ public function setTableDataId($attribute, $value): ?string
 public function setTableDataAttributes($attribute, $value): array
 ```
 
-#### Actions 
+#### Pagination
+
+Override these methods if you want to perform extra tasks when the search or per page attributes change.
+
+```php
+public function updatingSearch(): void
+public function updatingPerPage(): void
+```
+
+#### Search
+
+Override this method if you want to perform extra steps when the search has been cleared.
+
+```php
+public function clearSearch(): void
+```
+
+#### Sorting
+
+Override this method if you want to change the default sorting behavior.
+
+```php
+public function sort($attribute): void
+```
+
+### Actions 
 
 You can define actions for your table:
 
@@ -329,31 +354,6 @@ if (! function_exists('routeAction')) {
 The default blade action, includes all the logic for delete items using a confirmation modal. But you can create your own in your custom action.
 
 ![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/delete-modal.png)
-
-#### Pagination
-
-Override these methods if you want to perform extra tasks when the search or per page attributes change.
-
-```php
-public function updatingSearch(): void
-public function updatingPerPage(): void
-```
-
-#### Search
-
-Override this method if you want to perform extra steps when the search has been cleared.
-
-```php
-public function clearSearch(): void
-```
-
-#### Sorting
-
-Override this method if you want to change the default sorting behavior.
-
-```php
-public function sort($attribute): void
-```
 
 ### HTML Components
 
