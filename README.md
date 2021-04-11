@@ -254,7 +254,7 @@ public function columns() : array
         Column::make('Name')
             ->searchable()
             ->sortable(),
-        Action::make($model = User::class, $routeName='', $view = 'actions.default'),
+        Action::make($model = User::class, $routeName = '', $view = 'actions.default'),
     ];
 }
 ```
