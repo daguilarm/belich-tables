@@ -267,6 +267,8 @@ You need to define three parameters:
 | $routeName | request()->route()->getName() | In the view can be use to create the links |
 | $view | resources/views/vendor/livewire-tables/tailwind/includes/actions/default.blade.php | You can use the default template or crear your own in this default folder. |
 
+![Action image](https://github.com/daguilarm/livewire-tables/docs/images/actions.png)
+
 The default action view:
 
 ```html
@@ -308,6 +310,19 @@ The default action view:
         @include('livewire-tables::'.config('livewire-tables.theme').'.includes.modals.delete-modal')
     </div>
 </div>
+```
+You can use the function `routeAction()` to create the action links base on the route:
+
+```php
+/**
+ * Get the route base on the action.
+ */
+if (! function_exists('routeAction')) {
+    function routeAction(string $root, string $action, int $id): string
+    {
+        return route(sprintf('%s.%s', $root, $action), $id);
+    }
+}
 ```
 
 The default blade action, includes all the logic for delete items using a modal. But you can create your own in your custom action.
