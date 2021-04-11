@@ -267,6 +267,8 @@ You need to define three parameters:
 | $routeName | request()->route()->getName() | In the view can be use to create the links |
 | $view | resources/views/vendor/livewire-tables/tailwind/includes/actions/default.blade.php | You can use the default template or crear your own in this default folder. |
 
+The default action view:
+
 ```html
 <div class="flex justify-end text-gray-400" >
     {{-- Show button --}}
@@ -308,7 +310,7 @@ You need to define three parameters:
 </div>
 ```
 
-The default blade action, includes all the logic for delete items. But you can create your own in your custom action.
+The default blade action, includes all the logic for delete items using a modal. But you can create your own in your custom action.
 
 #### Pagination
 
