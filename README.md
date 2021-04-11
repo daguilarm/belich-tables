@@ -264,6 +264,8 @@ You need to define three parameters:
 | Parameter | Default | Usage |
 | -------- | ------- | ----- |
 | $model | mandatory parameter | You need to define the model class: \App\Models\User::class |
+| $routeName | request()->route()->getName() | In the view can be use to create the links |
+| $view | resources/views/vendor/livewire-tables/tailwind/includes/actions/default.blade.php | You can use the default template or crear your own |
 
 #### Pagination
 
