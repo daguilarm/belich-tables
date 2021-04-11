@@ -270,6 +270,8 @@ You need to define three parameters:
 | $routeName | request()->route()->getName() | In the view can be use to create the links |
 | $view | resources/views/vendor/livewire-tables/tailwind/includes/actions/default.blade.php | You can use the default template or crear your own in this default folder. |
 
+Basically you will only have to pass the first value for the default template to work, that is, the `$model` variable.
+
 The default action view:
 
 ```html
