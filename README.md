@@ -308,6 +308,8 @@ You need to define three parameters:
 </div>
 ```
 
+The default blade action, includes all the logic for delete items. But you can create your own in your custom action.
+
 #### Pagination
 
 Override these methods if you want to perform extra tasks when the search or per page attributes change.
