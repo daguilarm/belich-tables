@@ -328,6 +328,8 @@ if (! function_exists('routeAction')) {
 
 The default blade action, includes all the logic for delete items using a confirmation modal. But you can create your own in your custom action.
 
+![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/delete-modal.png)
+
 #### Pagination
 
 Override these methods if you want to perform extra tasks when the search or per page attributes change.
