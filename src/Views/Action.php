@@ -9,12 +9,12 @@ class Action
     /**
      * Action column constructor.
      */
-    public static function make($model, string $routeName, ?string $view = null)
+    public static function make(?string $routeName = null, ?string $view = null)
     {
         return Column::make('')
             ->format(static function ($model) use ($view) {
                 // Get the route name, Ex: dashboard.users
-                $routeName = request()->route()->getName();
+                $routeName = $routeName ?? request()->route()->getName();
                 // Get the view for the action or the default view
                 $component = $view ?? self::defaultView();
 

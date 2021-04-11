@@ -279,7 +279,7 @@ public function columns() : array
         Column::make('Name')
             ->searchable()
             ->sortable(),
-        Action::make($model = User::class, $routeName = '', $view = 'actions.default'),
+        Action::make($routeName = '', $view = 'path/to/view'),
     ];
 }
 ```
@@ -287,11 +287,10 @@ It will render something like that:
 
 ![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/actions.png)
 
-You need to define three parameters:
+You can define either of the two parameters, or you can leave them blank and use the default values ​​(which work in most of the cases):
 
 | Parameter | Default | Usage |
 | -------- | ------- | ----- |
-| $model | mandatory parameter | You need to define the model class: \App\Models\User::class |
 | $routeName | request()->route()->getName() | In the view can be use to create the links |
 | $view | resources/views/vendor/livewire-tables/tailwind/includes/actions/default.blade.php | You can use the default template or crear your own in this default folder. |
 
