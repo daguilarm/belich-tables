@@ -13,8 +13,8 @@ return [
     'loading' => 'Cargando',
     'messages' => [
         'delete' => [
-            'success' => 'El elemento(s) se ha eliminado correctamente.',
-            'error' => 'Error al eliminar el elemento(s) seleccionado(s). Si el error persiste, por favor contacte con el administrador del sistema.',
+            'success' => 'El/los elemento(s) se ha eliminado correctamente.',
+            'error' => 'Error al eliminar el/los elemento(s) seleccionado(s). Si el error persiste, por favor contacte con el administrador del sistema.',
         ],
     ],
     'no_results' => 'No se encontraron resultados para esta consulta.',
