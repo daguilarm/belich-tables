@@ -20,7 +20,7 @@ trait Delete
         };
 
         // Messages
-        if (!is_null($element) && $element->delete()) {
+        if ( !is_null($element) && $element->delete()) {
             // Success message
             flash(__('livewire-tables::strings.messages.delete.success'))->success()->livewire($this);
         } else {

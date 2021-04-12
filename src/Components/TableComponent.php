@@ -57,7 +57,7 @@ abstract class TableComponent extends Component
     public bool $offlineIndicator = true;
 
     /**
-     * Delete listeners
+     * Delete listeners.
      */
     protected $listeners = ['deleteItemById'];
 

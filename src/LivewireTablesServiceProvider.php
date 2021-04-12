@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Daguilarm\LivewireTables;
 
 use Daguilarm\LivewireTables\Components\DeleteComponent;
-use Daguilarm\LivewireTables\Components\MessageComponent;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;

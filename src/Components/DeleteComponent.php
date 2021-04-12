@@ -14,7 +14,7 @@ class DeleteComponent extends Component
     public object $model;
 
     /**
-     * Render component
+     * Render component.
      */
     public function render()
     {
