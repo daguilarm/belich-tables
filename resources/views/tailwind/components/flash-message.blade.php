@@ -2,6 +2,8 @@
     @if($shown)
         <div
             class="rounded-r-lg shadow-md {{ $styles['bg-color'] }} p-5 border-l-4 {{ $styles['border-color'] }} mb-3"
+            x-data
+            x-init="setTimeout(() => $wire.dismiss(), 15000)"
         >
             <div class="flex">
                 @if ($styles['icon'] ?? false)
