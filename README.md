@@ -514,7 +514,7 @@ public function mount($status) {
 
 ## Other utilities 
 
-## Flash messages 
+### Flash messages 
 
 Livewire tables use (https://github.com/mattlibera/livewire-flash)[https://github.com/mattlibera/livewire-flash] for flash messages, so you can use it in your own livewire components:
 
