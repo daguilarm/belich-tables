@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables;
 
+use Daguilarm\LivewireTables\Components\DeleteComponent;
+use Daguilarm\LivewireTables\Components\MessageComponent;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
+use Livewire\Livewire;
 
 /**
  * Class LaravelLivewireTablesServiceProvider.
@@ -26,9 +29,18 @@ class LivewireTablesServiceProvider extends ServiceProvider
             Blade::component('livewire-tables::'.config('livewire-tables.theme').'.components.message', 'livewire-tables-message');
         });
 
+        // Livewire Components
+        Livewire::component('delete-button-component', DeleteComponent::class);
+
+        // Set config values
+        config()->set('livewire-flash.views.message', 'livewire-tables::'.config('livewire-tables.theme').'.components.flash-message');
+
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('livewire-tables.php'),
+            ], 'config');
+            $this->publishes([
+                __DIR__.'/../config/livewire-flash.php' => config_path('livewire-flash.php'),
             ], 'config');
 
             $this->publishes([

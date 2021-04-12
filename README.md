@@ -28,7 +28,7 @@ namespace App\Http\Livewire;
 
 use App\User;
 use Illuminate\Database\Eloquent\Builder;
-use Rappasoft\LaravelLivewireTables\TableComponent;
+use Rappasoft\LaravelLivewireTables\Components\TableComponent;
 use Rappasoft\LaravelLivewireTables\Traits\HtmlComponents;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
@@ -433,7 +433,7 @@ namespace App\Http\Livewire;
 
 use App\User;
 use Illuminate\Database\Eloquent\Builder;
-use Rappasoft\LaravelLivewireTables\TableComponent;
+use Rappasoft\LaravelLivewireTables\Components\TableComponent;
 use Rappasoft\LaravelLivewireTables\Traits\HtmlComponents;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 

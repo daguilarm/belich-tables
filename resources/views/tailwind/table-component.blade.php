@@ -1,8 +1,4 @@
 <div class="flex flex-col">
-
-    {{-- Messages --}}
-    @includeWhen(session()->has('message'), 'livewire-tables::'.config('livewire-tables.theme').'.includes.messages')
-
     {{-- Loading --}}
     @include('livewire-tables::'.config('livewire-tables.theme').'.includes.loading')
 

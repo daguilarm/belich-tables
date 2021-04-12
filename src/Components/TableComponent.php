@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables;
+namespace Daguilarm\LivewireTables\Components;
 
 use Daguilarm\LivewireTables\Traits\Checkboxes;
 use Daguilarm\LivewireTables\Traits\Delete;
@@ -55,6 +55,11 @@ abstract class TableComponent extends Component
      * Whether or not to display an offline message when there is no connection.
      */
     public bool $offlineIndicator = true;
+
+    /**
+     * Delete listeners
+     */
+    protected $listeners = ['deleteItemById'];
 
     /**
      * TableComponent constructor.

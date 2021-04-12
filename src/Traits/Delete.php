@@ -11,19 +11,21 @@ trait Delete
      *
      * @param array|int $id
      */
-    public function deleteById(?string $id = null): void
+    public function deleteItemById(?string $id = null): void
     {
         $element = match($id) {
-            // $id => $this->models()->findOrFail($id),
-            // is_null($id) && count($this->checkboxValues) > 0 => $this->models()->whereIn('id', $this->checkboxValues),
+            $id => $this->models()->findOrFail($id),
+            is_null($id) && count($this->checkboxValues) > 0 => $this->models()->whereIn('id', $this->checkboxValues),
             default => null,
         };
 
         // Messages
-        if ($element && $element->delete()) {
-            session()->flash('message.success', __('livewire-tables::strings.messages.delete.success'));
+        if (!is_null($element) && $element->delete()) {
+            // Success message
+            flash(__('livewire-tables::strings.messages.delete.success'))->success()->livewire($this);
         } else {
-            session()->flash('message.error', __('livewire-tables::strings.messages.delete.error'));
+            // Error message
+            flash(__('livewire-tables::strings.messages.delete.error'))->error()->livewire($this);
         }
     }
 }
