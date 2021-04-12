@@ -516,7 +516,7 @@ public function mount($status) {
 
 ### Flash messages 
 
-Livewire tables use (https://github.com/mattlibera/livewire-flash)[https://github.com/mattlibera/livewire-flash] for flash messages, so you can use it in your own livewire components:
+Livewire tables use https://github.com/mattlibera/livewire-flash for flash messages, so you can use it in your own livewire components:
 
 ```php
 flash('success message...')->success()->livewire($this);
