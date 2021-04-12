@@ -7,7 +7,7 @@ namespace Daguilarm\LivewireTables\Traits;
 trait Operations
 {
     /**
-     * List of modules to show (Equivalent to Laravel Nova actions)
+     * List of modules to show (Equivalent to Laravel Nova actions).
      */
     public array $operations = [];
 

@@ -24,7 +24,7 @@ trait Delete
      */
     public function deleteListOfItemById(): void
     {
-        if($this->checkboxValues) {
+        if ($this->checkboxValues) {
             $operation = $this->models()->whereIn('id', $this->checkboxValues)->delete();
         }
 
