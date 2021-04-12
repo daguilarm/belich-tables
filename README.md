@@ -524,6 +524,8 @@ flash('warning message...')->warning()->livewire($this);
 flash('error message...')->error()->livewire($this);
 ```
 
+![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/flash-messages.png)
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
