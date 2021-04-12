@@ -7,25 +7,38 @@ namespace Daguilarm\LivewireTables\Traits;
 trait Delete
 {
     /**
-     * Delete elements from ID or List of IDs.
-     *
-     * @param array|int $id
+     * Delete elements from ID.
      */
-    public function deleteItemById(?string $id = null): void
+    public function deleteItemById(string $id): void
     {
-        $element = match($id) {
-            $id => $this->models()->findOrFail($id),
-            is_null($id) && count($this->checkboxValues) > 0 => $this->models()->whereIn('id', $this->checkboxValues),
-            default => null,
-        };
+        $operation = $this
+            ->models()
+            ->findOrFail($id)
+            ->delete();
 
-        // Messages
-        if (! is_null($element) && $element->delete()) {
-            // Success message
-            flash(__('livewire-tables::strings.messages.delete.success'))->success()->livewire($this);
-        } else {
-            // Error message
-            flash(__('livewire-tables::strings.messages.delete.error'))->error()->livewire($this);
+        $this->deleteMessages($operation);
+    }
+
+    /**
+     * Delete elements from ID.
+     */
+    public function deleteListOfItemById(): void
+    {
+        if($this->checkboxValues) {
+            $operation = $this->models()->whereIn('id', $this->checkboxValues)->delete();
         }
+
+        $this->deleteMessages($operation > 0 ? true : false);
+    }
+
+    /**
+     * Delete messages.
+     */
+    private function deleteMessages(bool $deleteOperation)
+    {
+        // Messages
+        return $deleteOperation
+            ? flash(__('livewire-tables::strings.messages.delete.success'))->success()->livewire($this)
+            : flash(__('livewire-tables::strings.messages.delete.error'))->error()->livewire($this);
     }
 }

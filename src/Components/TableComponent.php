@@ -10,6 +10,7 @@ use Daguilarm\LivewireTables\Traits\Exports;
 use Daguilarm\LivewireTables\Traits\Hidden;
 use Daguilarm\LivewireTables\Traits\Loading;
 use Daguilarm\LivewireTables\Traits\Model;
+use Daguilarm\LivewireTables\Traits\Operations;
 use Daguilarm\LivewireTables\Traits\Pagination;
 use Daguilarm\LivewireTables\Traits\Search;
 use Daguilarm\LivewireTables\Traits\Sorting;
@@ -31,6 +32,7 @@ abstract class TableComponent extends Component
         Hidden,
         Loading,
         Model,
+        Operations,
         Pagination,
         Search,
         Sorting,
@@ -99,6 +101,7 @@ abstract class TableComponent extends Component
             'models' => $this->paginationEnabled
                 ? $this->models()->paginate($this->perPage)
                 : $this->models()->get(),
+            'operations' => $this->mergeOperations(),
         ]);
     }
 }

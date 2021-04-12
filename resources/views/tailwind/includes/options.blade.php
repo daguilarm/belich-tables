@@ -13,7 +13,10 @@
             @includeWhen($paginationEnabled && count($perPageOptions), 'livewire-tables::'.config('livewire-tables.theme').'.includes.perPage')
 
             {{-- Add export --}}
-            @include('livewire-tables::'.config('livewire-tables.theme').'.includes.export')
+            @includeWhen(count($exports) > 0, 'livewire-tables::'.config('livewire-tables.theme').'.includes.export')
+
+            {{-- Add mass delete --}}
+            @includeWhen($checkboxValues, 'livewire-tables::'.config('livewire-tables.theme').'.includes.mass-delete')
         </div>
     </div>
 @endif
