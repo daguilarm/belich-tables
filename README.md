@@ -13,7 +13,7 @@
 
 A dynamic Laravel Livewire component for data tables.
 
-This plugin assumes you already have [Laravel Livewire](https://laravel-livewire.com/) installed and configured in your project.
+This plugin assumes you already have [Laravel Livewire](https://laravel-livewire.com/), [AlpineJS](https://github.com/alpinejs/alpine) and [Tailwind](https://tailwindcss.com/) installed and configured in your project.
 
 ## Usage
 
