@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
     'clear' => 'Clear',
+    'close' => 'Close',
     'delete' => [
         'title' => 'Are you sure you want to delete the selected item(s)?',
         'message' => 'Once the operation is done, it cannot be reversed.',

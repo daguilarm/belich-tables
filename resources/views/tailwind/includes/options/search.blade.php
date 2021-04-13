@@ -11,7 +11,7 @@
     @if (is_numeric($searchDebounce) && $searchUpdateMethod === 'debounce') wire:model.debounce.{{ $searchDebounce }}ms="search" @endif
     @if ($searchUpdateMethod === 'lazy') wire:model.lazy="search" @endif
     @if ($disableSearchOnLoading) wire:loading.attr="disabled" @endif
-    class="block w-full px-10 py-2 shadow-md rounded-md text-gray-500 sm:text-sm focus:outline-none border border-transparent focus:border-gray-300 placeholder-gray-300"
+    class="block w-full px-10 py-1.5 shadow-md rounded-md text-gray-500 sm:text-sm focus:outline-none border border-transparent focus:border-gray-300 placeholder-gray-300"
     type="text"
     placeholder="{{ __('livewire-tables::strings.search') }}"
 />

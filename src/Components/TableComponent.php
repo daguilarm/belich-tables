@@ -7,6 +7,7 @@ namespace Daguilarm\LivewireTables\Components;
 use Daguilarm\LivewireTables\Traits\Checkboxes;
 use Daguilarm\LivewireTables\Traits\Delete;
 use Daguilarm\LivewireTables\Traits\Exports;
+use Daguilarm\LivewireTables\Traits\Filters;
 use Daguilarm\LivewireTables\Traits\Hidden;
 use Daguilarm\LivewireTables\Traits\Loading;
 use Daguilarm\LivewireTables\Traits\Model;
@@ -30,6 +31,7 @@ abstract class TableComponent extends Component
         Delete,
         Exports,
         Hidden,
+        Filters,
         Loading,
         Model,
         Operations,
