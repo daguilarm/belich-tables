@@ -7,12 +7,12 @@ namespace Daguilarm\LivewireTables\Traits;
 trait Filters
 {
     /**
-     * List of filters
+     * List of filters.
      */
     public array $filters = [];
 
     /**
-     * Store the filter's values
+     * Store the filter's values.
      */
     public array $filterValues = [];
 
@@ -23,11 +23,11 @@ trait Filters
     {
         $model = $this->models();
 
-        foreach($this->filters as $items) {
+        foreach ($this->filters as $items) {
             [$filter, $field] = array_values($items);
             $value = $this->filterValues[$filter] ?? null;
 
-            if($value) {
+            if ($value) {
                 $model = ($filter === 'date')
                     ? $this->filterByDate($value, $field, $model)
                     : $model->where($field, $value);
@@ -38,16 +38,16 @@ trait Filters
     }
 
     /**
-     * Filter by date
+     * Filter by date.
      */
     private function filterByDate($value, $field, $model): object
     {
-        if(isset($value['start'])) {
+        if (isset($value['start'])) {
             $model = $model
                 ->whereDate($field, '>=', $value['start']);
         }
 
-        if(isset($value['end'])) {
+        if (isset($value['end'])) {
             $model = $model
                 ->whereDate($field, '<=', $value['end']);
         }
