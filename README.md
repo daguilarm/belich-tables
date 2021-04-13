@@ -98,11 +98,19 @@ Place the following where you want the table to appear.
 
 Laravel 6.x: 
 
-`@livewire('users-table')`
+```html
+@livewire('flash-container')
+@livewire('users-table')
+```
 
 Laravel 7.x|8.x:
 
-`<livewire:users-table />`
+```html
+<livewire:flash-container />
+<livewire:users-table />
+```
+
+The component `flash-container` will add the hability to show flash messages from the package, for example, when you delete a user (using the adobe example) will show a message with the action. **You can remove it if you don't want the messages.**
 
 ### Defining Columns
 
