@@ -21,7 +21,7 @@ class FilterByYear extends FilterComponent
     /**
      * Set the filter query.
      */
-    function query()
+    public function query()
     {
         return $this->model::Query()
             ->whereYear($this->tableColumn, $this->value)

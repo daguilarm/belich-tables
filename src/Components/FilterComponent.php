@@ -10,7 +10,7 @@ use Livewire\Component;
 abstract class FilterComponent extends Component
 {
     public string $tableColumn;
-    public int|float|string $value;
+    public int | float | string $value;
     public string $view;
 
     /**
@@ -19,7 +19,8 @@ abstract class FilterComponent extends Component
     public function __construct(
         public string $name,
         public ?string $model = null
-    ) {}
+    ) {
+    }
 
     /**
      * Set the field attributes.
@@ -29,7 +30,7 @@ abstract class FilterComponent extends Component
     /**
      * Set filter database query.
      */
-    abstract function query();
+    abstract public function query();
 
     /**
      * Set model to filter.
