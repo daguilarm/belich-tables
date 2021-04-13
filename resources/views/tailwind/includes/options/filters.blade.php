@@ -2,7 +2,7 @@
     <div class="relative text-left" @click.away="isOpenFilters = false">
         <button type="button"
             x-on:click="isOpenFilters = !isOpenFilters"
-            class="inline-flex items-center bg-yellow-100 hover:bg-yellow-400 text-yellow-500 hover:text-white shadow-xs border border-yellow-300 ml-2 rounded-lg p-1 focus:outline-none focus:bg-yellow-400 focus:text-white"
+            class="inline-flex items-center bg-yellow-100 hover:bg-yellow-400 text-yellow-500 hover:text-white shadow-xs border border-yellow-500 ml-2 rounded-lg p-1 focus:outline-none focus:bg-yellow-400 focus:text-white"
             id="table_filter_button"
             dusk="table-filter-button"
         >
@@ -31,7 +31,7 @@
             x-transition:leave="transition ease-in duration-75"
             x-transition:leave-start="transform opacity-100 scale-100"
             x-transition:leave-end="transform opacity-0 scale-95"
-            class="origin-top-left absolute left-0 w-64 z-50 bg-yellow-100 border-2 border-yellow-300 rounded-lg px-3 pb-3 pt-1 overflow-auto shadow-lg"
+            class="absolute origin-top-left left-0 mt-1 ml-2 w-64 z-50 bg-yellow-100 border-2 border-yellow-300 rounded-lg overflow-auto shadow-lg"
             id="table_filter_container"
             dusk="table-filter-container"
             x-cloak
@@ -39,12 +39,16 @@
             {{-- Add filters --}}
             @foreach($filters as $filter => $value)
                 <span wire:key="{{ md5(Str::random() . time()) }}">
-                    @includeIf('livewire-tables::'.config('livewire-tables.theme').'.includes.options.filters.' . $value['filter'])
+                    <div class="py-2 px-4">
+                        @includeIf('livewire-tables::'.config('livewire-tables.theme').'.includes.options.filters.' . $value['filter'])
+                    </div>
                 </span>
+
+                {{-- Separator --}}
+                <div class="w-full h-1 border-t border-yellow-300 mt-4 mb-2"></div>
             @endforeach
 
-            {{-- Buttons --}}
-            <div class="flex justify-end">
+            {{-- <div class="flex justify-end">
                 <button
                     type="button"
                     class="flex mt-4 py-2 px-4 rounded-lg border border-red-300 bg-gray-50 hover:bg-red-500 text-red-500 hover:text-white shadow cursor-pointer"
@@ -55,13 +59,10 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 opacity-50 mr-1 mt-1 fill-current" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
-                    {{-- Cerrar --}}
+
                     <span>{{ __('livewire-tables::strings.close') }}</span>
                 </button>
-
-                {{-- Add aditional buttons --}}
-                @yield('filter-buttons')
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
