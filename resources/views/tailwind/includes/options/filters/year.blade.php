@@ -5,9 +5,11 @@
 <div class="filter-container">
     <label for="search_filter_year" class="flex">
         <div>
-            @svg('heroicon-o-adjustments', ['class' => 'h-6 opacity-50 mr-1 py-1 fill-current'])
+            {{-- Filter icon --}}
+            <x-livewire-tables-filter-icon />
         </div>
-        <div>Years</div>
+
+        <div>{{ __('livewire-tables::filters.year') }}</div>
     </label>
     {{-- Select --}}
     <select

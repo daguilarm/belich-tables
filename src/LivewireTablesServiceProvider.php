@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Daguilarm\LivewireTables;
 
 use Daguilarm\LivewireTables\Components\DeleteComponent;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\Compilers\BladeCompiler;
 use Livewire\Livewire;
 
 /**
@@ -20,6 +22,11 @@ class LivewireTablesServiceProvider extends ServiceProvider
     {
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'livewire-tables');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'livewire-tables');
+
+        // Blade Components
+        $this->callAfterResolving(BladeCompiler::class, function (): void {
+            Blade::component('livewire-tables::'.config('livewire-tables.theme').'.components.filter-icon', 'livewire-tables-filter-icon');
+        });
 
         // Livewire Components
         Livewire::component('delete-button-component', DeleteComponent::class);

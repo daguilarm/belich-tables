@@ -7,17 +7,19 @@
 <div class="filter-container">
     <label for="search_filter_worker" class="flex">
         <div>
-            @svg('heroicon-o-adjustments', ['class' => 'h-6 opacity-50 mr-1 py-1 fill-current'])
+            {{-- Filter icon --}}
+            <x-livewire-tables-filter-icon />
         </div>
+
         {{-- Filtrar por trabajador --}}
-        <div>{{ __('filters.worker') }}</div>
+        <div>{{ __('livewire-tables::filters.user') }}</div>
     </label>
     {{-- Select --}}
     <select
-        id="table_filter_worker"
+        id="table_filter_user"
         class="form-select select"
-        dusk="table-filter-worker"
-        wire:model="filterValues.worker"
+        dusk="table-filter-user"
+        wire:model="filterValues.user"
     >
         <option value=""></option>
         @foreach($workers as $id => $value)

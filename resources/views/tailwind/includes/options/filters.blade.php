@@ -2,7 +2,6 @@
     <div class="relative text-left" @click.away="isOpenFilters = false">
         <button type="button"
             x-on:click="isOpenFilters = !isOpenFilters"
-            aria-label="{{ __('operations.filter') }}"
             class="inline-flex items-center bg-yellow-100 hover:bg-yellow-400 text-yellow-500 hover:text-white shadow-xs border border-yellow-300 ml-2 rounded-lg p-1 focus:outline-none focus:bg-yellow-400 focus:text-white"
             id="table_filter_button"
             dusk="table-filter-button"
@@ -48,7 +47,7 @@
             <div class="flex justify-end">
                 <button
                     type="button"
-                    class="button flex mt-4 py-2 px-4 rounded-lg border border-yellow-300 bg-gray-50 hover:bg-gray-100 text-red-500 shadow cursor-pointer"
+                    class="flex mt-4 py-2 px-4 rounded-lg border border-red-300 bg-gray-50 hover:bg-red-500 text-red-500 hover:text-white shadow cursor-pointer"
                     x-on:click="isOpenFilters = false"
                     id="table_filter_close_button"
                     dusk="table-filter-close-button"
@@ -59,6 +58,7 @@
                     {{-- Cerrar --}}
                     <span>{{ __('livewire-tables::strings.close') }}</span>
                 </button>
+
                 {{-- Add aditional buttons --}}
                 @yield('filter-buttons')
             </div>

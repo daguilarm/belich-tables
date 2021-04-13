@@ -5,10 +5,12 @@
 <div class="filter-container">
     <label for="search_filter_date" class="flex">
         <div>
-            @svg('heroicon-o-adjustments', ['class' => 'h-6 opacity-50 mr-1 py-1 fill-current'])
+            {{-- Filter icon --}}
+            <x-livewire-tables-filter-icon />
         </div>
+
         {{-- Filtrar por fecha --}}
-        <div>{{ __('filters.date') }}</div>
+        <div>{{ __('livewire-tables::filters.date') }}</div>
     </label>
     {{-- Date start --}}
     <input
@@ -40,13 +42,17 @@
         class="button flex mt-4 py-2 px-4 ml-2 rounded-lg bg-yellow-400 hover:bg-yellow-500 text-white shadow cursor-pointer"
         x-on:click="filterByDate($wire, $refs)"
     >
-        @svg('heroicon-o-search', ['class' => 'h-4 opacity-50 mr-1 mt-1 fill-current'])
+        {{-- icon: heroicon-o-search --}}
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 opacity-50 mr-1 mt-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+        </svg>
+
         {{-- Filtrar --}}
-        <span>{{ __('operations.filter_alt') }}</span>
+        <span>{{ __('livewire-tables::filters.filter') }}</span>
     </button>
 @endsection
 
-@push('alpine')
+@push('livewire-tables-javascript')
     @once
         <script>
             function filterByDate(livewire, referece) {
