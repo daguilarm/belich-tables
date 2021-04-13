@@ -19,7 +19,7 @@ class FilterByYear extends FilterComponent
     }
 
     /**
-     * Set the filter query
+     * Set the filter query.
      */
     function query()
     {

@@ -14,7 +14,7 @@ abstract class FilterComponent extends Component
     public string $view;
 
     /**
-     * Init constructor
+     * Init constructor.
      */
     public function __construct(
         public string $name,
@@ -22,7 +22,7 @@ abstract class FilterComponent extends Component
     ) {}
 
     /**
-     * Set the field attributes
+     * Set the field attributes.
      */
     abstract public static function make(...$attributes);
 
@@ -32,7 +32,7 @@ abstract class FilterComponent extends Component
     abstract function query();
 
     /**
-     * Set model to filter
+     * Set model to filter.
      */
     public function modal(string $value): self
     {
@@ -42,7 +42,7 @@ abstract class FilterComponent extends Component
     }
 
     /**
-     * Set table column
+     * Set table column.
      */
     public function tableColumn(string $value): self
     {
