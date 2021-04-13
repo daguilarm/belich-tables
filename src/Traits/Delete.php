@@ -25,7 +25,10 @@ trait Delete
     public function deleteListOfItemById(): void
     {
         if ($this->checkboxValues) {
-            $operation = $this->models()->whereIn('id', $this->checkboxValues)->delete();
+            $operation = $this
+                ->models()
+                ->whereIn('id', $this->checkboxValues)
+                ->delete();
         }
 
         $this->deleteMessages($operation > 0 ? true : false);
@@ -38,7 +41,11 @@ trait Delete
     {
         // Messages
         return $deleteOperation
-            ? flash(__('livewire-tables::strings.messages.delete.success'))->success()->livewire($this)
-            : flash(__('livewire-tables::strings.messages.delete.error'))->error()->livewire($this);
+            ? flash(trans('livewire-tables::strings.messages.delete.success'))
+                ->success()
+                ->livewire($this)
+            : flash(trans('livewire-tables::strings.messages.delete.error'))
+                ->error()
+                ->livewire($this);
     }
 }
