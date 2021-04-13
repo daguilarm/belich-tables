@@ -5,7 +5,7 @@ declare(strict_types=1);
 return [
     'clear' => 'Limpiar',
     'delete' => [
-        'title' => '¿Seguro que quiere eliminar el elemento(s) seleccionado(s)?',
+        'title' => '¿Seguro que quiere eliminar el/los elemento(s) seleccionado(s)?',
         'message' => 'Una vez se realice la operación, no podrá ser revertida.',
         'button' => 'Eliminar',
     ],
