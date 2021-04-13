@@ -1,6 +1,7 @@
 {{-- Delete button --}}
 <div
     id="delete_button_{{ $model->id }}"
+    dusk="delete-button-{{ $model->id }}"
     class="py-2 px-1 text-gray-300 hover:text-red-600"
     x-data="{ 'showModal': false }"
     @keydown.escape="showModal = false"
@@ -16,5 +17,5 @@
     </a>
 
     {{-- Delete Modal --}}
-    @include('livewire-tables::'.config('livewire-tables.theme').'.includes.modals.delete-modal')
+    @include('livewire-tables::'.config('livewire-tables.theme').'.includes.modals.delete-modal', ['onclick' => 'deleteItemById('.$model->id.')'])
 </div>

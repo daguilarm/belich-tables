@@ -51,7 +51,8 @@
                 <button
                     type="button"
                     class="flex justify-center py-1 px-4 border border-transparent text-xl font-medium rounded shadow-lg text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                    wire:click.prevent="deleteItemById({{ $model->id }})"
+                    @click="showModal = false"
+                    wire:click.prevent="{{ $onclick }}"
                 >
                     {{-- Trash icon --}}
                     <svg class="h-5 w-5 mr-1 mt-1 text-white opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
