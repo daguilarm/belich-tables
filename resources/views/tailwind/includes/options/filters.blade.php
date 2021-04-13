@@ -25,13 +25,13 @@
       {{-- Options --}}
         <div
             x-show="isOpenFilters"
-            x-transition:enter="transition ease-out duration-100"
+            x-transition:enter="transition ease-out duration-200"
             x-transition:enter-start="transform opacity-0 scale-95"
             x-transition:enter-end="transform opacity-100 scale-100"
-            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave="transition ease-in duration-200"
             x-transition:leave-start="transform opacity-100 scale-100"
             x-transition:leave-end="transform opacity-0 scale-95"
-            class="absolute origin-top-left left-0 mt-1 ml-2 w-64 z-50 bg-yellow-100 border-2 border-yellow-300 rounded-lg overflow-auto shadow-lg"
+            class="absolute z-50 origin-top-left left-0 mt-1 ml-2 w-64 bg-yellow-100 border-2 border-yellow-300 rounded-lg overflow-auto shadow-lg"
             id="table_filter_container"
             dusk="table-filter-container"
             x-cloak

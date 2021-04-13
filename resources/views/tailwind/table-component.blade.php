@@ -4,23 +4,23 @@
     @includeWhen($loadingIndicator, 'livewire-tables::'.config('livewire-tables.theme').'.includes.loading')
 
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="min-w-full min-h-screen py-2 align-middle inline-block sm:px-6 lg:px-8">
             <div
-                class="overflow-hidden border-b border-gray-200 sm:rounded-lg"
+                class="border-b border-gray-200 sm:rounded-lg"
                 {{-- Refresh table --}}
                 @if (is_numeric($refresh)) wire:poll.{{ $refresh }}.ms @elseif(is_string($refresh)) wire:poll="{{ $refresh }}" @endif
             >
                 {{-- Offline message --}}
-                @include('livewire-tables::'.config('livewire-tables.theme').'.includes.offline')
+                @includeWhen($offlineIndicator, 'livewire-tables::'.config('livewire-tables.theme').'.includes.offline')
 
                 {{-- Options: search, filters, perPage,... --}}
-                @include('livewire-tables::'.config('livewire-tables.theme').'.includes.options')
+                @includeWhen($paginationEnabled || $searchEnabled, 'livewire-tables::'.config('livewire-tables.theme').'.includes.options')
 
                 <div class="bg-gray-50 text-gray-500 border border-gray-200 rounded-t-lg rounded-b-lg">
                     <table class="table min-w-full leading-normal mt-1">
 
                         {{-- Table head --}}
-                        @include('livewire-tables::'.config('livewire-tables.theme').'.includes.thead')
+                        @includeWhen($tableHeaderEnabled, 'livewire-tables::'.config('livewire-tables.theme').'.includes.thead')
 
                         {{-- Table data --}}
                         <tbody>
@@ -32,11 +32,14 @@
                         </tbody>
 
                         {{-- Table foot --}}
-                        @include('livewire-tables::'.config('livewire-tables.theme').'.includes.tfoot')
+                        @includeWhen($tableFooterEnabled, 'livewire-tables::'.config('livewire-tables.theme').'.includes.tfoot')
                     </table>
 
                     {{-- Pagination --}}
-                    {{ $models->links('livewire-tables::'.config('livewire-tables.theme').'.includes.pagination', compact('paginationEnabled')) }}
+                    {{ $models->links(
+                        'livewire-tables::'.config('livewire-tables.theme').'.includes.pagination',
+                        compact('paginationEnabled')
+                    ) }}
                 </div>
             </div>
         </div>

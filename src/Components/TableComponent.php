@@ -101,8 +101,8 @@ abstract class TableComponent extends Component
         return view($this->viewName(), [
             'columns' => $this->columns(),
             'models' => $this->paginationEnabled
-                ? $this->models()->paginate($this->perPage)
-                : $this->models()->get(),
+                ? $this->resolveFilters()->paginate($this->perPage)
+                : $this->resolveFilters()->get(),
             'operations' => $this->mergeOperations(),
         ]);
     }
