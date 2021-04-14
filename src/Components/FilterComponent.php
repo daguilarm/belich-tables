@@ -23,14 +23,23 @@ abstract class FilterComponent extends Component
     }
 
     /**
-     * Set the field attributes.
+     * Set the filter attributes
      */
-    abstract public static function make(...$attributes);
+    public static function make(...$attributes): FilterComponent
+    {
+        //Set the field values
+        return new static(...$attributes);
+    }
 
     /**
      * Set filter database query.
      */
-    abstract public function query();
+    abstract public function query(Builder $model, ?string $value);
+
+    /**
+     * Sent values for the view.
+     */
+    abstract public function values();
 
     /**
      * Set model to filter.
@@ -60,14 +69,5 @@ abstract class FilterComponent extends Component
         $this->class = $value;
 
         return $this;
-    }
-
-    /**
-     * Reset all the filters.
-     */
-    public function resetAllFilters(): void
-    {
-        $this->filterValues = [];
-        $this->search = '';
     }
 }

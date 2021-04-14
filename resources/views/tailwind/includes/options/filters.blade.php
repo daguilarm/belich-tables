@@ -37,10 +37,10 @@
             x-cloak
         >
             {{-- Add filters --}}
-            @foreach($filters as $filter => $value)
+            @foreach($filters as $filter)
                 <span wire:key="{{ md5(Str::random() . time()) }}">
                     <div class="py-2 px-4">
-                        @includeIf('livewire-tables::'.config('livewire-tables.theme').'.includes.options.filters.' . $value['filter'])
+                        @includeIf($filter->get('view'), ['values' => $filter->get('values')])
                     </div>
                 </span>
 

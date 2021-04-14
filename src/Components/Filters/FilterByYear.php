@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Daguilarm\LivewireTables\Components\Filters;
 
 use Daguilarm\LivewireTables\Components\FilterComponent;
+use Illuminate\Database\Eloquent\Builder;
 
 class FilterByYear extends FilterComponent
 {
@@ -21,10 +22,20 @@ class FilterByYear extends FilterComponent
     /**
      * Set the filter query.
      */
-    public function query()
+    public function query(Builder $model, ?string $value): Builder
     {
-        return $this->model::Query()
-            ->whereYear($this->tableColumn, $this->value)
-            ->get();
+        return $model
+            ->whereYear($this->tableColumn, $value);
+    }
+
+    /**
+     * Set the filter query.
+     */
+    public function values()
+    {
+        return range(
+            date('Y'),
+            date('Y') - 10
+        );
     }
 }

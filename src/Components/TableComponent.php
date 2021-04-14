@@ -76,14 +76,19 @@ abstract class TableComponent extends Component
     }
 
     /**
-     * Set the query builder.
-     */
-    abstract public function query(): Builder;
-
-    /**
      * Set the columns.
      */
     abstract public function columns(): array;
+
+    /**
+     * Set the filters.
+     */
+    abstract public function filters(): array;
+
+    /**
+     * Set the query builder.
+     */
+    abstract public function query(): Builder;
 
     /**
      * Set the view.
@@ -100,6 +105,7 @@ abstract class TableComponent extends Component
     {
         return view($this->viewName(), [
             'columns' => $this->columns(),
+            'filters' => $this->renderFilter(),
             'models' => $this->paginationEnabled
                 ? $this->resolveFilters()->paginate($this->perPage)
                 : $this->resolveFilters()->get(),

@@ -1,7 +1,3 @@
-@php
-    $years = range(date('Y'), date('Y') - 10);
-@endphp
-
 <div class="filter-container">
     <label for="search_filter_year" class="flex">
         <div>
@@ -19,7 +15,7 @@
         wire:model="filterValues.year"
     >
         <option value=""></option>
-        @foreach($years as $id => $value)
+        @foreach($values as $id => $value)
             <option value="{{ $value }}">{{ $value }}</option>
         @endforeach
     </select>
