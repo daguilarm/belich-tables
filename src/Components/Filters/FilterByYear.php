@@ -7,7 +7,7 @@ namespace Daguilarm\LivewireTables\Components\Filters;
 use Daguilarm\LivewireTables\Components\FilterComponent;
 use Illuminate\Database\Eloquent\Builder;
 
-class FilterByYear extends FilterComponent
+final class FilterByYear extends FilterComponent
 {
     /**
      * Create a new field.

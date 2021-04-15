@@ -50,19 +50,19 @@ trait Yajra
 
                     $last_query->addSelect($table.'.'.$attribute);
                     $query->leftJoin($table, $foreign, $other);
-                break;
+                    break;
 
                 case $model instanceof HasOneOrMany:
                     $table = $model->getRelated()->getTable();
                     $foreign = $model->getQualifiedForeignKeyName();
                     $other = $model->getQualifiedParentKeyName();
-                break;
+                    break;
 
                 case $model instanceof BelongsTo:
                     $table = $model->getRelated()->getTable();
                     $foreign = $model->getQualifiedForeignKeyName();
                     $other = $model->getQualifiedOwnerKeyName();
-                break;
+                    break;
 
                 default:
                     return $attribute;

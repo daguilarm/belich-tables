@@ -8,7 +8,7 @@ use App\Models\User;
 use Daguilarm\LivewireTables\Components\FilterComponent;
 use Illuminate\Database\Eloquent\Builder;
 
-class FilterByUser extends FilterComponent
+final class FilterByUser extends FilterComponent
 {
     /**
      * Create a new field.

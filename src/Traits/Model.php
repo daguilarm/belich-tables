@@ -24,11 +24,10 @@ trait Model
 
         // If the column is searchable.
         if (($column = $this->getColumnByAttribute($this->sortField)) !== false && is_callable($column->getSortCallback())) {
-            return app()
-                ->call($column->getSortCallback(), [
-                    'builder' => $builder,
-                    'direction' => $this->sortDirection,
-                ]);
+            return app()->call($column->getSortCallback(), [
+                'builder' => $builder,
+                'direction' => $this->sortDirection,
+            ]);
         }
 
         // Get the builder result.

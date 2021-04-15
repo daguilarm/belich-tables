@@ -13,7 +13,7 @@ use Livewire\Livewire;
 /**
  * Class LaravelLivewireTablesServiceProvider.
  */
-class LivewireTablesServiceProvider extends ServiceProvider
+final class LivewireTablesServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.

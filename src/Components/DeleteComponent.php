@@ -9,7 +9,7 @@ use Livewire\Component;
 /**
  * Class TableComponent.
  */
-class DeleteComponent extends Component
+final class DeleteComponent extends Component
 {
     public object $model;
 

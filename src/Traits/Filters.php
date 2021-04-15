@@ -28,6 +28,15 @@ trait Filters
     }
 
     /**
+     * Reset all the filters.
+     */
+    public function resetAllFilters(): void
+    {
+        $this->filterValues = [];
+        $this->search = '';
+    }
+
+    /**
      * Render the filters for the views.
      */
     private function renderFilter(): Collection
@@ -43,15 +52,6 @@ trait Filters
                 ]);
             })
             ->filter();
-    }
-
-    /**
-     * Reset all the filters.
-     */
-    public function resetAllFilters(): void
-    {
-        $this->filterValues = [];
-        $this->search = '';
     }
 
     /**
