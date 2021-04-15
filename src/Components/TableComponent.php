@@ -43,6 +43,13 @@ abstract class TableComponent extends Component
         Yajra;
 
     /**
+     * Filter values.
+     *
+     * @param array <string> $filterValues
+     */
+    public array $filterValues = [];
+
+    /**
      * The default pagination theme.
      */
     public string $paginationTheme = 'tailwind';
@@ -61,6 +68,11 @@ abstract class TableComponent extends Component
     public bool $offlineIndicator = true;
 
     /**
+     * Set the model builder.
+     */
+    protected Builder $sqlBuilder;
+
+    /**
      * Delete listeners.
      */
     protected $listeners = ['deleteItemById'];
@@ -70,9 +82,10 @@ abstract class TableComponent extends Component
      */
     public function __construct(?string $id = null)
     {
-        $this->paginationTheme = config('livewire-tables.theme');
-
         parent::__construct($id);
+
+        $this->paginationTheme = config('livewire-tables.theme');
+        $this->sqlBuilder = $this->models();
     }
 
     /**
@@ -103,12 +116,14 @@ abstract class TableComponent extends Component
      */
     public function render(): View
     {
+        $this->resolveFilters();
+
         return view($this->viewName(), [
             'columns' => $this->columns(),
-            'filters' => $this->renderFilter(),
+            'filters' => $this->filters(),
             'models' => $this->paginationEnabled
-                ? $this->resolveFilters()->paginate($this->perPage)
-                : $this->resolveFilters()->get(),
+                ? $this->sqlBuilder->paginate($this->perPage)
+                : $this->sqlBuilder->get(),
             'operations' => $this->mergeOperations(),
         ]);
     }

@@ -1,5 +1,8 @@
 <div x-data="{ isOpenFilters: false }">
-    <div class="relative text-left" @click.away="isOpenFilters = false">
+    <div
+        class="relative text-left"
+        @click.away="isOpenFilters = false"
+    >
         <button type="button"
             x-on:click="isOpenFilters = !isOpenFilters"
             class="inline-flex items-center bg-yellow-100 hover:bg-yellow-400 text-yellow-500 hover:text-white shadow-xs border border-yellow-500 ml-2 rounded-lg p-1 focus:outline-none focus:bg-yellow-400 focus:text-white"
@@ -36,33 +39,34 @@
             dusk="table-filter-container"
             x-cloak
         >
-            {{-- Add filters --}}
-            @foreach($filters as $filter)
-                <span wire:key="{{ md5(Str::random() . time()) }}">
-                    <div class="py-2 px-4">
-                        @includeIf($filter->get('view'), ['values' => $filter->get('values')])
-                    </div>
-                </span>
+            <form wire:submit.prevent="resolveFilters">
+                {{-- Add filters --}}
+                @foreach($filters as $filter)
+                    <span wire:key="{{ md5(Str::random() . time()) }}">
+                        <div class="py-2 px-4">
+                            @includeIf($filter->view, ['values' => $filter->values()])
+                        </div>
+                    </span>
 
-                {{-- Separator --}}
-                <div class="w-full h-1 border-t border-yellow-300 mt-4 mb-2"></div>
-            @endforeach
+                    {{-- Separator --}}
+                    <div class="w-full h-1 border-t border-yellow-200 mt-4 mb-2"></div>
+                @endforeach
 
-            {{-- <div class="flex justify-end">
-                <button
-                    type="button"
-                    class="flex mt-4 py-2 px-4 rounded-lg border border-red-300 bg-gray-50 hover:bg-red-500 text-red-500 hover:text-white shadow cursor-pointer"
-                    x-on:click="isOpenFilters = false"
-                    id="table_filter_close_button"
-                    dusk="table-filter-close-button"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 opacity-50 mr-1 mt-1 fill-current" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-
-                    <span>{{ __('livewire-tables::strings.close') }}</span>
-                </button>
-            </div> --}}
+                <div class="flex justify-end">
+                    <button
+                        type="submit"
+                        class="flex m-2 py-2 px-4 rounded-lg border border-yellow-400 bg-yellow-50 hover:bg-yellow-500 text-yellow-600 hover:text-white shadow cursor-pointer"
+                        x-on:click="isOpenFilters = false"
+                        id="table_filter_close_button"
+                        dusk="table-filter-close-button"
+                    >
+                        {{-- Filter icon --}}
+                        <x-livewire-tables-filter-icon />
+                        {{-- Filter title --}}
+                        <span>{{ __('livewire-tables::filters.filter') }}</span>
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

@@ -10,39 +10,33 @@ use Illuminate\Support\Collection;
 trait Filters
 {
     /**
-     * Filter values.
-     */
-    public array $filterValues = [];
-
-    /**
      * Resolve filters.
      */
-    public function resolveFilters()
+    public function resolveFilters(): void
     {
-        $model = $this->models();
-
-        foreach($this->renderFilter() as $filter) {
-            $value = $this->filterValues[$filter->get('name')] ?? null;
-            if($value) {
-                $model = $filter->get('filter')->query(
-                    model: $this->models(),
-                    value: $value,
-                );
-            }
-        }
-
-        return $model;
+        $this->renderFilter()
+            ->each(function($filter) {
+                // Get the value to filter
+                $filterValue = $this->getFilterValue($filter);
+                // Create the new query base on the filter
+                $this->sqlBuilder = $filterValue
+                    // Add  the query from the filter
+                    ? $this->getFilterQuery($filter, $filterValue)
+                    // Without filter
+                    : $this->sqlBuilder;
+            });
     }
 
     /**
-     * Render the filters for the views
+     * Render the filters for the views.
      */
-    public function renderFilter(): Collection
+    private function renderFilter(): Collection
     {
         return collect($this->filters())
             ->map(function($filter) {
                 return collect([
-                    'filter' => $filter,
+                    // Set the value to be rendered in the view
+                    'all' => $filter,
                     'name' => $filter->name,
                     'view' => $filter->view,
                     'values' => $filter->values(),
@@ -61,10 +55,28 @@ trait Filters
     }
 
     /**
-     * Get filter value
+     * Get filter value.
      */
-    private function getFilterValue(string $filterName)
+    private function getFilterValue(Collection $filter): ?string
     {
-        return $this->filterValues[$filterName] ?? null;
+        // Get the filter name
+        $filterName = $filter?->get('name');
+        // Get the filter value
+        $value = $this->filterValues[$filterName] ?? null;
+
+        // Get the filter value
+        return $filterName && $value
+            ? $this->filterValues[$filterName]
+            : null;
+    }
+
+    /**
+     * Get filter query.
+     */
+    private function getFilterQuery(Collection $filter, ?string $value): Builder
+    {
+        return $filter
+            ->get('all')
+            ->query($this->sqlBuilder, $value);
     }
 }

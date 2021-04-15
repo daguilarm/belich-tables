@@ -12,7 +12,7 @@
         id="table_filter_year"
         class="w-full px-10 my-1 py-1.5 shadow-md rounded-md text-gray-500 sm:text-sm focus:outline-none border border-transparent focus:border-gray-300 placeholder-gray-300"
         dusk="table-filter-year"
-        wire:model="filterValues.year"
+        wire:model.defer="filterValues.year"
     >
         <option value=""></option>
         @foreach($values as $id => $value)

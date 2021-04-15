@@ -34,12 +34,12 @@ abstract class FilterComponent extends Component
     /**
      * Set filter database query.
      */
-    abstract public function query(Builder $model, ?string $value);
+    abstract public function query(Builder $model, ?string $value): Builder;
 
     /**
      * Sent values for the view.
      */
-    abstract public function values();
+    abstract public function values(): array;
 
     /**
      * Set model to filter.
