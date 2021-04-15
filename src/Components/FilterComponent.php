@@ -23,7 +23,7 @@ abstract class FilterComponent extends Component
     }
 
     /**
-     * Set the filter attributes
+     * Set the filter attributes.
      */
     public static function make(...$attributes): FilterComponent
     {

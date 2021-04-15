@@ -15,7 +15,7 @@ trait Filters
     public function resolveFilters(): void
     {
         $this->renderFilter()
-            ->each(function($filter) {
+            ->each(function ($filter): void {
                 // Get the value to filter
                 $filterValue = $this->getFilterValue($filter);
                 // Create the new query base on the filter
@@ -33,7 +33,7 @@ trait Filters
     private function renderFilter(): Collection
     {
         return collect($this->filters())
-            ->map(function($filter) {
+            ->map(function ($filter) {
                 return collect([
                     // Set the value to be rendered in the view
                     'all' => $filter,
