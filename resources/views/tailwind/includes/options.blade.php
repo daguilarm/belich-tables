@@ -23,6 +23,12 @@
             'livewire-tables::'.config('livewire-tables.theme').'.includes.options.perPage'
         )
 
+        <!-- Add new resource button -->
+        @includeWhen(
+            $newResource,
+            'livewire-tables::'.config('livewire-tables.theme').'.includes.options.new-resource'
+        )
+
         <!-- Add export button -->
         @includeWhen(
             count($exports) > 0,
