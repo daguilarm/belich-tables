@@ -8,7 +8,7 @@
             </svg>
         </div>
 
-        <!-- Filtrar por trabajador -->
+        <!-- Filter by user -->
         <div>{{ __('livewire-tables::filters.user') }}</div>
     </label>
     <!-- Select -->
