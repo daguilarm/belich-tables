@@ -15,12 +15,10 @@ final class Action
     ): Column {
         return Column::make('')
             ->format(static function ($model) use ($view) {
-                // Get the route name, Ex: dashboard.users
-                $routeName = $routeName ?? request()->route()->getName();
                 // Get the view for the action or the default view
                 $component = $view ?? self::defaultView();
 
-                return view($component, compact('model', 'routeName'));
+                return view($component, compact('model'));
             })
             ->excludeFromExport();
     }
