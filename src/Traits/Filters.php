@@ -11,6 +11,7 @@ trait Filters
 {
     /**
      * Resolve filters.
+     * The magic will happend in \Daguilarm\LivewireTables\Traits\Model::models().
      */
     public function resolveFilters(): void
     {
@@ -19,11 +20,10 @@ trait Filters
                 // Get the value to filter
                 $filterValue = $this->getFilterValue($filter);
                 // Create the new query base on the filter
-                $this->sqlBuilder = $filterValue
-                    // Add  the query from the filter
-                    ? $this->getFilterQuery($filter, $filterValue)
-                    // Without filter
-                    : $this->sqlBuilder;
+                if($filterValue) {
+                    // Execute the filter from each table component defined by the user
+                    $this->getFilterQuery($filter, $filterValue);
+                }
             });
     }
 
@@ -75,8 +75,9 @@ trait Filters
      */
     private function getFilterQuery(Collection $filter, ?string $value): Builder
     {
+        // The filter will be executed directly, no need to return the model
         return $filter
             ->get('all')
-            ->query($this->sqlBuilder, $value);
+            ->query($this->models(), $value);
     }
 }

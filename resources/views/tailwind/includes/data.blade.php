@@ -1,6 +1,6 @@
 @foreach($models as $model)
     <tr
-        class="bg-white border-b border-gray-150 {{ $this->setTableRowClass($model) }}"
+        class="bg-white border-b border-gray-150"
         id="{{ $this->setTableRowId($model) }}"
         {{-- Load all the attributes --}}
         @foreach ($this->setTableRowAttributes($model) as $key => $value)
@@ -8,7 +8,7 @@
         @endforeach
         @if ($this->getTableRowUrl($model))
             onclick="window.location='{{ $this->getTableRowUrl($model) }}';"
-            style="cursor:pointer"
+            class="cursor-pointer"
         @endif
     >
         {{-- Table checkbox --}}

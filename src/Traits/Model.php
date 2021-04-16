@@ -14,8 +14,9 @@ trait Model
      */
     public function models(): Builder
     {
-        // Init the builder.
-        $builder = $this->query();
+        // Init the builder passing (in first place) the filters.
+        // This came from \Daguilarm\LivewireTables\Traits\Filters::resolveFilters().
+        $builder = $this->sqlFilterBuilder;
 
         // If the search is enabled and the search input is not empty.
         if ($this->searchEnabled && $this->searchString() !== '') {

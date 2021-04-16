@@ -70,7 +70,7 @@ abstract class TableComponent extends Component
     /**
      * Set the model builder.
      */
-    protected Builder $sqlBuilder;
+    protected Builder $sqlFilterBuilder;
 
     /**
      * Delete listeners.
@@ -84,8 +84,10 @@ abstract class TableComponent extends Component
     {
         parent::__construct($id);
 
+        // Set the pagination theme
         $this->paginationTheme = config('livewire-tables.theme');
-        $this->sqlBuilder = $this->models();
+        // Init the column's filter
+        $this->sqlFilterBuilder = $this->query();
     }
 
     /**
@@ -122,8 +124,8 @@ abstract class TableComponent extends Component
             'columns' => $this->columns(),
             'filters' => $this->filters(),
             'models' => $this->paginationEnabled
-                ? $this->sqlBuilder->paginate($this->perPage)
-                : $this->sqlBuilder->get(),
+                ? $this->models()->paginate($this->perPage)
+                : $this->models()->get(),
             'operations' => $this->mergeOperations(),
         ]);
     }

@@ -17,15 +17,7 @@ trait Table
     public bool $tableFooterEnabled = false;
 
     /**
-     * Set table head class.
-     */
-    public function setTableHeadClass(?string $attribute): ?string
-    {
-        return null;
-    }
-
-    /**
-     * Set table head ID.
+     * Set the custom table head ID.
      */
     public function setTableHeadId(?string $attribute): ?string
     {
@@ -33,41 +25,33 @@ trait Table
     }
 
     /**
-     * @param $attribute
-     *
-     * @return array|null
+     * Set the the custom table head attributes.
      */
-    public function setTableHeadAttributes($attribute): array
+    public function setTableHeadAttributes(string|array $attribute): array
     {
         return [];
     }
 
-    public function setTableRowClass($model): ?string
-    {
-        return null;
-    }
-
-    public function setTableRowId($model): ?string
+    /**
+     * Set the custom table row ID.
+     */
+    public function setTableRowId(?string $model): ?string
     {
         return null;
     }
 
     /**
-     * @param $model
-     *
-     * @return array
+     * Set the the custom table row attributes.
      */
-    public function setTableRowAttributes($model): array
+    public function setTableRowAttributes(string|array $model): array
     {
         return [];
     }
 
-    public function getTableRowUrl($model): ?string
-    {
-        return null;
-    }
-
-    public function setTableDataClass($attribute, $value): ?string
+    /**
+     * Set the the custom table row url.
+     */
+    public function getTableRowUrl(?string $model): ?string
     {
         return null;
     }
