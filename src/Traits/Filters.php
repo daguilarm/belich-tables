@@ -42,7 +42,7 @@ trait Filters
     private function renderFilter(): Collection
     {
         return collect($this->filters())
-            ->map(function ($filter) {
+            ->map(static function ($filter) {
                 return collect([
                     // Set the value to be rendered in the view
                     'all' => $filter,

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Traits;
 
+use MattLibera\LivewireFlash\LivewireFlashNotifier;
+
 trait Delete
 {
     /**
@@ -37,7 +39,7 @@ trait Delete
     /**
      * Delete messages.
      */
-    private function deleteMessages(bool $deleteOperation)
+    private function deleteMessages(bool $deleteOperation): LivewireFlashNotifier
     {
         // Messages
         return $deleteOperation

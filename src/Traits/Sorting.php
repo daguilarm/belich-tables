@@ -21,7 +21,7 @@ trait Sorting
     /**
      * Sorting columns.
      */
-    public function sort($attribute): void
+    public function sort(string $attribute): void
     {
         $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
 

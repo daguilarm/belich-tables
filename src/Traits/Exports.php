@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Traits;
 
-use Daguilarm\LivewireTables\Exceptions\UnsupportedExportFormatException;
-use Exception;
+use Daguilarm\LivewireTables\Exceptions\UnsupportedExportFormat;
 use Maatwebsite\Excel\Excel;
 
 trait Exports
@@ -13,27 +12,23 @@ trait Exports
     public string $exportFileName = 'data';
 
     /**
-     * @var bool
+     * @var array<string>
      */
     public array $exports = [];
 
     /**
-     * @param $type
-     *
-     * @return mixed
-     *
-     * @throws Exception
+     * Export file with the selected format
      */
-    public function export($type)
+    public function export(string $type): object
     {
         $type = strtolower($type);
 
         if (! in_array($type, ['csv', 'xls', 'xlsx', 'pdf'], true)) {
-            throw new UnsupportedExportFormatException(__('This export type is not supported.'));
+            throw new UnsupportedExportFormat(__('This export type is not supported.'));
         }
 
         if (! in_array($type, array_map('strtolower', $this->exports), true)) {
-            throw new UnsupportedExportFormatException(__('This export type is not set on this table component.'));
+            throw new UnsupportedExportFormat(__('This export type is not set on this table component.'));
         }
 
         switch ($type) {
@@ -55,7 +50,7 @@ trait Exports
                 $library = strtolower(config('livewire-tables.pdf_library'));
 
                 if (! in_array($library, ['dompdf', 'mpdf'], true)) {
-                    throw new UnsupportedExportFormatException(__('This PDF export library is not supported.'));
+                    throw new UnsupportedExportFormat(__('This PDF export library is not supported.'));
                 }
 
                 if ($library === 'mpdf') {

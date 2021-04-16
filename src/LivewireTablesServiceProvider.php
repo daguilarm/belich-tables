@@ -24,7 +24,7 @@ final class LivewireTablesServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'livewire-tables');
 
         // Blade Components
-        $this->callAfterResolving(BladeCompiler::class, function (): void {
+        $this->callAfterResolving(BladeCompiler::class, static function (): void {
             Blade::component('livewire-tables::'.config('livewire-tables.theme').'.components.filter-icon', 'livewire-tables-filter-icon');
         });
 

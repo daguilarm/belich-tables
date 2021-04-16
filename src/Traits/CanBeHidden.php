@@ -11,7 +11,7 @@ trait CanBeHidden
     /**
      * Hide content if condition.
      */
-    public function hideIf($condition): self
+    public function hideIf(bool $condition): self
     {
         $this->hidden = $condition;
 

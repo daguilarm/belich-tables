@@ -24,7 +24,9 @@ trait Model
         }
 
         // If the column is searchable.
-        if (($column = $this->getColumnByAttribute($this->sortField)) !== false && is_callable($column->getSortCallback())) {
+        $column = $this->getColumnByAttribute($this->sortField);
+
+        if ($column !== false && is_callable($column->getSortCallback())) {
             return app()->call($column->getSortCallback(), [
                 'builder' => $builder,
                 'direction' => $this->sortDirection,
@@ -53,50 +55,63 @@ trait Model
      */
     private function modelSearch(Builder $builder): Builder
     {
+        // Search in each column through all the options
         return $builder->where(function (Builder $builder): void {
             foreach ($this->columns() as $column) {
-
-                // The column is searchable.
-                if ($column->isSearchable()) {
-
-                    // The column is callable.
-                    if ($this->columnIsCallable($column)) {
-                        $builder = $this->modelSearchCallable($builder);
-
-                    // The column has a relationship.
-                    } elseif ($this->columnHasRealationship($column)) {
-
-                        // Get the relationship.
-                        $relationship = $this->relationship($column->getAttribute());
-
-                        // If has a relationship.
-                        $builder->orWhereHas($relationship->name, function (Builder $builder) use ($relationship): void {
-
-                            // Search into the relationship.
-                            $builder->where(
-                                // Set the relationship attribute.
-                                $relationship->attribute,
-                                // Search option.
-                                'like',
-                                // The search value.
-                                $this->searchString()
-                            );
-                        });
-
-                    // Only search the column.
-                    } else {
-                        $builder->orWhere(
-                            // Set the column attribute.
-                            $this->columnAttribute($builder, $column),
-                            // Search option.
-                            'like',
-                            // The search value.
-                            $this->searchString()
-                        );
-                    }
-                }
+                // Search for each column
+                $this->modelSearchResolve($builder, $column);
             }
         });
+    }
+
+    /**
+     * Resolve the model search.
+     *
+     * @return Illuminate\Database\Eloquent\Builder | void
+     */
+    private function modelSearchResolve(Builder $builder, object $column)
+    {
+        // The column is searchable.
+        if (! $column->isSearchable()) {
+            return $builder;
+        }
+
+        // The column is callable.
+        if ($this->columnIsCallable($column)) {
+            return $this->modelSearchCallable($builder);
+        }
+
+        // The column has a relationship.
+        if ($this->columnHasRealationship($column)) {
+
+            // Get the relationship.
+            $relationship = $this->relationship($column->getAttribute());
+
+            // If has a relationship.
+            $builder->orWhereHas($relationship->name, function (Builder $builder) use ($relationship): void {
+
+                // Search into the relationship.
+                $builder->where(
+                    // Set the relationship attribute.
+                    $relationship->attribute,
+                    // Search option.
+                    'like',
+                    // The search value.
+                    $this->searchString()
+                );
+            });
+
+        // Only search the column.
+        } else {
+            $builder->orWhere(
+                // Set the column attribute.
+                $this->columnAttribute($builder, $column),
+                // Search option.
+                'like',
+                // The search value.
+                $this->searchString()
+            );
+        }
     }
 
     /**
@@ -130,11 +145,6 @@ trait Model
             $column->getAttribute(),
             '.'
         );
-
-        // return Str::contains(
-        //     $column->getAttribute(),
-        //     '.'
-        // );
     }
 
     /**

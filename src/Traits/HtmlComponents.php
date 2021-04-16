@@ -19,6 +19,8 @@ trait HtmlComponents
 
     /**
      * Generate an HTML image element.
+     *
+     * @param array<string>  $attributes
      */
     public function image(
         ?string $url,
@@ -33,6 +35,8 @@ trait HtmlComponents
 
     /**
      * Generate a HTML link.
+     *
+     * @param array<string>  $attributes
      */
     public function link(
         ?string $url,
@@ -56,6 +60,8 @@ trait HtmlComponents
 
     /**
      * Generate a HTTPS HTML link.
+     *
+     * @param array<string>  $attributes
      */
     public function secureLink(
         ?string $url,
@@ -75,7 +81,7 @@ trait HtmlComponents
     /**
      * Generate a HTML link to an asset.
      *
-     * @param array  $attributes
+     * @param array<string>  $attributes
      */
     public function linkAsset(
         string $url,
@@ -97,7 +103,7 @@ trait HtmlComponents
     /**
      * Generate a HTTPS HTML link to an asset.
      *
-     * @param array  $attributes
+     * @param array<string>  $attributes
      */
     public function linkSecureAsset(
         string $url,
@@ -117,8 +123,8 @@ trait HtmlComponents
     /**
      * Generate a HTML link to a named route.
      *
-     * @param array  $parameters
-     * @param array  $attributes
+     * @param array<string>  $parameters
+     * @param array<string>  $attributes
      */
     public function linkRoute(
         string $name,
@@ -140,8 +146,8 @@ trait HtmlComponents
     /**
      * Generate a HTML link to a controller action.
      *
-     * @param array  $parameters
-     * @param array  $attributes
+     * @param array<string>  $parameters
+     * @param array<string>  $attributes
      */
     public function linkAction(
         string $action,
@@ -163,7 +169,7 @@ trait HtmlComponents
     /**
      * Generate a HTML link to an email address.
      *
-     * @param array  $attributes
+     * @param array<string>  $attributes
      */
     public function mailto(
         string $email,
@@ -199,7 +205,7 @@ trait HtmlComponents
     /**
      * Build an HTML attribute string from an array.
      *
-     * @param array $attributes
+     * @param array<string> $attributes
      */
     public function attributes(array $attributes): string
     {

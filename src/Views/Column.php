@@ -22,22 +22,22 @@ final class Column
     protected bool $exportOnly = false;
 
     /**
-     * @var
+     * @var Closure
      */
     protected $formatCallback;
 
     /**
-     * @var
+     * @var Closure
      */
     protected $exportFormatCallback;
 
     /**
-     * @var
+     * @var Closure
      */
     protected $sortCallback;
 
     /**
-     * @var null
+     * @var Closure
      */
     protected $searchCallback;
 
@@ -155,15 +155,17 @@ final class Column
      */
     public function formatted(object $model, Column $column): object
     {
-        return app()->call($this->formatCallback, ['model' => $model, 'column' => $column]);
+        return app()
+            ->call($this->formatCallback, ['model' => $model, 'column' => $column]);
     }
 
     /**
      * Format the export callback.
      */
-    public function formattedForExport($model, $column): object
+    public function formattedForExport(object $model, Column $column): object
     {
-        return app()->call($this->exportFormatCallback, ['model' => $model, 'column' => $column]);
+        return app()
+            ->call($this->exportFormatCallback, ['model' => $model, 'column' => $column]);
     }
 
     /**

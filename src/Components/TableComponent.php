@@ -43,7 +43,7 @@ abstract class TableComponent extends Component
     /**
      * Filter values.
      *
-     * @param array <string> $filterValues
+     * @var array<string>
      */
     public array $filterValues = [];
 
@@ -72,6 +72,8 @@ abstract class TableComponent extends Component
 
     /**
      * Delete listeners.
+     *
+     * @var array<string>
      */
     protected $listeners = ['deleteItemById'];
 
@@ -90,11 +92,15 @@ abstract class TableComponent extends Component
 
     /**
      * Set the columns.
+     *
+     * @return  array<string>
      */
     abstract public function columns(): array;
 
     /**
      * Set the filters.
+     *
+     * @return  array<string>
      */
     abstract public function filters(): array;
 

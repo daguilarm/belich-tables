@@ -19,13 +19,12 @@ abstract class FilterComponent extends Component
     public function __construct(
         public ?string $name,
         public ?string $model = null
-    ) {
-    }
+    ) { /* … */ }
 
     /**
      * Set the filter attributes.
      */
-    public static function make(...$attributes): FilterComponent
+    public static function make(int | string | null ...$attributes): FilterComponent
     {
         //Set the field values
         return new static(...$attributes);
@@ -34,12 +33,14 @@ abstract class FilterComponent extends Component
     /**
      * Set the filter query.
      *
-     * @param string | array | null $value
+     * @param string | int | null $value
      */
     abstract public function query(Builder $model, $value): Builder;
 
     /**
      * Sent values for the view.
+     *
+     * @return  array<string>
      */
     abstract public function values(): array;
 

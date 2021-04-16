@@ -26,6 +26,8 @@ trait Table
 
     /**
      * Set the the custom table head attributes.
+     *
+     * @return  array<string>
      */
     public function setTableHeadAttributes(string | array $attribute): array
     {
@@ -42,6 +44,8 @@ trait Table
 
     /**
      * Set the the custom table row attributes.
+     *
+     * @return  array<string>
      */
     public function setTableRowAttributes(string | array $model): array
     {
@@ -58,6 +62,8 @@ trait Table
 
     /**
      * Set the the custom table column attributes for the data view.
+     *
+     * @return  array<string>
      */
     public function setTableDataAttributes(?string $attribute, ?string $value): array
     {

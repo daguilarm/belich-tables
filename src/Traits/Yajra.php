@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Traits;
 
+use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -76,11 +77,9 @@ trait Yajra
     }
 
     /**
-     * @param $attribute
-     *
-     * @return mixed|bool
+     * Get the column attribute
      */
-    protected function getColumnByAttribute(string $attribute)
+    protected function getColumnByAttribute(string $attribute): Column | bool
     {
         foreach ($this->columns() as $column) {
             if ($column->getAttribute() === $attribute) {

@@ -16,20 +16,17 @@ final class Export implements FromQuery, WithHeadings, WithMapping
     use Exportable,
         ExportHelper;
 
-    /**
-     * @var array
-     */
-    public array $builder;
+    public Builder $builder;
 
     /**
-     * @var array
+     * @var array<object>
      */
     public array $columns;
 
     /**
      * CSVExport constructor.
      *
-     * @param  array  $columns
+     * @param  array<string>  $columns
      */
     public function __construct(Builder $builder, array $columns = [])
     {
@@ -38,15 +35,17 @@ final class Export implements FromQuery, WithHeadings, WithMapping
     }
 
     /**
-     * @return array|\Illuminate\Database\Query\Builder
+     * Get the query builder
      */
-    public function query()
+    public function query(): Builder
     {
         return $this->builder;
     }
 
     /**
-     * @return array
+     * Get the heading row
+     *
+     * @return  array<string>
      */
     public function headings(): array
     {
@@ -54,11 +53,11 @@ final class Export implements FromQuery, WithHeadings, WithMapping
     }
 
     /**
-     * @param  mixed  $row
+     * Generate the export file map
      *
-     * @return array
+     * @return  array<string>
      */
-    public function map($row): array
+    public function map(object $row): array
     {
         $map = [];
 

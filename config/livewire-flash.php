@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'views' => [
         'container' => 'livewire-flash::livewire.flash-container',

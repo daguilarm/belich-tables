@@ -6,6 +6,6 @@ namespace Daguilarm\LivewireTables\Exceptions;
 
 use Exception;
 
-final class UnsupportedExportFormatException extends Exception
+final class UnsupportedExportFormat extends Exception
 {
 }

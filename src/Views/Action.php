@@ -9,8 +9,10 @@ final class Action
     /**
      * Action column constructor.
      */
-    public static function make(?string $routeName = null, ?string $view = null)
-    {
+    public static function make(
+        ?string $routeName = null,
+        ?string $view = null
+    ): Column {
         return Column::make('')
             ->format(static function ($model) use ($view) {
                 // Get the route name, Ex: dashboard.users
@@ -26,7 +28,7 @@ final class Action
     /**
      * Default action view.
      */
-    private static function defaultView()
+    private static function defaultView(): string
     {
         return sprintf(
             'livewire-tables::%s.includes.actions.default',
