@@ -48,9 +48,9 @@ abstract class FilterComponent extends Component
     /**
      * Set model to filter.
      */
-    public function modal(string $value): self
+    public function model(string $value): self
     {
-        $this->modal = $value;
+        $this->model = $value;
 
         return $this;
     }

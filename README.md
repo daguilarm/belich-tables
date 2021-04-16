@@ -27,10 +27,10 @@ To create a table component you draw inspiration from the below stub:
 namespace App\Http\Livewire;
 
 use App\User;
-use Illuminate\Database\Eloquent\Builder;
 use Daguilarm\LivewireTables\Components\TableComponent;
 use Daguilarm\LivewireTables\Traits\HtmlComponents;
 use Daguilarm\LivewireTables\Views\Column;
+use Illuminate\Database\Eloquent\Builder;
 
 class UsersTable extends TableComponent
 {
@@ -275,10 +275,10 @@ For example:
 namespace App\Http\Livewire;
 
 use App\User;
-use Illuminate\Database\Eloquent\Builder;
 use Daguilarm\LivewireTables\Components\TableComponent;
 use Daguilarm\LivewireTables\Traits\HtmlComponents;
 use Daguilarm\LivewireTables\Views\Column;
+use Illuminate\Database\Eloquent\Builder;
 
 class UsersTable extends TableComponent
 {
@@ -288,20 +288,203 @@ class UsersTable extends TableComponent
     {
         return 'head-id-' . $attribute;
     }
+}
+```
 
-    // public function query() : Builder
-    // {
-    //     return User::with('role')->withCount('permissions');
-    // }
+#### Filters
 
-    // public function columns() : array
-    // {
-    //     return [
-    //         Column::make('ID')
-    //             ->searchable()
-    //             ->sortable(),
-    //     ];
-    // }
+You can add filters easily. By default, the package integrate three predesigned filters:
+
+```php 
+use Daguilarm\LivewireTables\Components\Filters\FilterByDate;
+use Daguilarm\LivewireTables\Components\Filters\FilterByUser;
+use Daguilarm\LivewireTables\Components\Filters\FilterByYear;
+```
+
+A filter has two different parts, the view and the filter logic. The basic structure for a filter logic, is as follows:
+
+```php 
+<?php
+
+declare(strict_types=1);
+
+namespace Daguilarm\LivewireTables\Components\Filters;
+
+use App\Models\User;
+use Daguilarm\LivewireTables\Components\FilterComponent;
+use Illuminate\Database\Eloquent\Builder;
+
+final class FilterByUser extends FilterComponent
+{
+    /**
+     * Create a new field.
+     */
+    public function __construct(?string $name = null)
+    {
+        parent::__construct($name);
+
+        $this->view = 'livewire-tables::'.config('livewire-tables.theme').'.includes.options.filters.user';
+        $this->tableColumn = 'id';
+        $this->name = $name ?? 'user';
+    }
+
+    /**
+     * Set the filter query.
+     *
+     * @param string | int | null $value
+     */
+    public function query(Builder $model, $value): Builder
+    {
+        return $model->where(
+            $this->tableColumn,
+            $value
+        );
+    }
+
+    /**
+     * Set the filter query.
+     *
+     * @return  array<string>
+     */
+    public function values(): array
+    {
+        return User::all()
+            ->pluck('name', 'id')
+            ->toArray();
+    }
+}
+```
+
+The properties and methods that filters support are described below:
+
+| Property | Method | Usage |
+| -------- | ------- | ----- |
+| $name | name() | Set the filter name |
+| $tableColumn | tableColumn() | Set the table field to filter |
+| $view | view() | Set the filter view to render |
+
+An example of the filter view is:
+
+```html 
+<!-- Filter -->
+<div class="filter-container">
+    <label for="search_filter_worker" class="flex mb-1">
+        <div>
+            <!-- Icon: heroicon-s-user -->
+            <svg class="h-6 w-6 py-1 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+            </svg>
+        </div>
+
+        <!-- Filter by user -->
+        <div>{{ __('livewire-tables::filters.user') }}</div>
+    </label>
+    <!-- Select -->
+    <select
+        id="table_filter_user"
+        class="w-full px-10 my-1 py-1.5 shadow-md rounded-md text-gray-500 sm:text-sm focus:outline-none border border-transparent focus:border-gray-300 placeholder-gray-300"
+        dusk="table-filter-user"
+        wire:model.defer="filterValues.user"
+    >
+        <option value=""></option>
+        @foreach($values as $id => $value)
+            <option value="{{ $id }}">{{ $value }}</option>
+        @endforeach
+    </select>
+</div>
+
+```
+
+To add the filters, you need to use the `filters()` method, and load all the classes:
+
+```php
+<?php
+
+namespace App\Http\Livewire;
+
+use App\User;
+use Daguilarm\LivewireTables\Components\Filters\FilterByDate;
+use Daguilarm\LivewireTables\Components\Filters\FilterByUser;
+use Daguilarm\LivewireTables\Components\Filters\FilterByYear;
+use Daguilarm\LivewireTables\Components\TableComponent;
+use Daguilarm\LivewireTables\Traits\HtmlComponents;
+use Daguilarm\LivewireTables\Views\Column;
+use Illuminate\Database\Eloquent\Builder;
+
+class UsersTable extends TableComponent
+{
+    use HtmlComponents;
+
+    public function query() : Builder
+    {
+        return User::with('role')->withCount('permissions');
+    }
+
+    public function columns() : array
+    {
+        return [
+            Column::make('ID')
+                ->searchable()
+                ->sortable(),
+        ];
+    }
+
+    public function filters(): array
+    {
+        return [
+            FilterByYear::make()->tableColumn('created_at'),
+            FilterByUser::make(),
+            FilterByDate::make()->tableColumn('created_at'),
+        ];
+    }
+}
+```
+
+You can create your own filters, for this you must include two mandatory methods:
+
+```php
+/**
+ * Set the filter query.
+ *
+ * @param string | int | null $value
+ */
+abstract public function query(Builder $model, $value): Builder;
+
+/**
+ * Sent values for the view.
+ *
+ * @return  array<string>
+ */
+abstract public function values(): array;
+```
+
+Use the `query()` method to query the database. Remember that it is an instance of `Builder` and not of `Collection`.
+
+```php
+/**
+ * Set the filter query.
+ *
+ * @param string | int | null $value
+ */
+public function query(Builder $model, $value): Builder
+{
+    return $model->where($this->tableColumn, $value);
+}
+```
+
+Use the `values()` method, to send an array with the values to be use in the view.
+
+```php
+/**
+ * Set the filter query.
+ *
+ * @return  array<string>
+ */
+public function values(): array
+{
+    return User::all()
+        ->pluck('name', 'id')
+        ->toArray();
 }
 ```
 
