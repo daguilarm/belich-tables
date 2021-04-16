@@ -2,17 +2,16 @@
 <div x-data="{ isOpenFilters: false, isFiltersActive: {{ count($filterValues) <= 0 ? 'false' : 'true' }} }">
     <div
         class="relative text-left"
-        style="margin-top: 1px"
         @click.away="isOpenFilters = false"
     >
        <!-- Filter button -->
         <button type="button"
             x-on:click="isOpenFilters = !isOpenFilters"
-            class="inline-flex items-center ml-4 mr-1 px-1 py-1 bg-yellow-100 hover:bg-yellow-500 text-yellow-500 hover:text-white shadow rounded-lg focus:outline-none focus:bg-yellow-500 focus:text-white"
+            class="inline-flex items-center ml-2 p-2 border border-gray-200 bg-white hover:bg-yellow-400 text-yellow-500 hover:text-white shadow-lg rounded-lg focus:outline-none focus:bg-yellow-400 focus:text-white"
             id="table_filter_button"
             dusk="table-filter-button"
         >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
             </svg>
         </button>
@@ -22,12 +21,12 @@
             x-show="isFiltersActive"
             x-on:click="isOpenFilters = false"
             wire:click="resetAllFilters()"
-            class="inline-flex items-center mr-2 p-1 bg-white hover:bg-red-500 text-red-400 hover:text-white shadow rounded-lg focus:outline-none"
+            class="inline-flex items-center p-2 border border-gray-200 bg-white hover:bg-red-400 text-red-400 hover:text-white shadow-lg rounded-lg focus:outline-none"
             id="reset_all_filters"
             dusk="reset-all-filters"
             x-cloak
         >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
             </svg>
         </button>
