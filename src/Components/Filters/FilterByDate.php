@@ -27,11 +27,11 @@ final class FilterByDate extends FilterComponent
      */
     public function query(Builder $model, $value): Builder
     {
-        if(isset($value['start'])) {
+        if (isset($value['start'])) {
             $model->whereDate($this->tableColumn, '>=', $value['start']);
         }
 
-        if(isset($value['end'])) {
+        if (isset($value['end'])) {
             $model->whereDate($this->tableColumn, '<=', $value['end']);
         }
 
