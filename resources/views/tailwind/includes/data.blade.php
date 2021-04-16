@@ -1,3 +1,4 @@
+<!-- Table rows -->
 @foreach($models as $model)
     <tr
         class="bg-white border-b border-gray-150"
@@ -7,10 +8,10 @@
             {{ $key }}="{{ $value }}"
         @endforeach
     >
-        {{-- Table checkbox --}}
+        <!-- Table checkbox -->
         @includeWhen($checkboxEnable && !isset($headerTitle), 'livewire-tables::'.config('livewire-tables.theme').'.includes.checkboxes.checkbox')
 
-        {{-- Create all the columns --}}
+        <!-- Table columns -->
         @foreach($columns as $column)
             @if ($column->isVisible())
                 <td
@@ -20,7 +21,7 @@
                     {{ $key }}="{{ $value }}"
                     @endforeach
                 >
-                    {{-- Formated column --}}
+                    <!-- Formated column -->
                     @if ($column->isFormatted())
                         @if ($column->isRaw())
                             {!! $column->formatted($model, $column) !!}
@@ -28,7 +29,7 @@
                             {{ $column->formatted($model, $column) }}
                         @endif
 
-                    {{-- Regular column --}}
+                    <!-- Regular column -->
                     @else
                         @if ($column->isRaw())
                             {!! data_get($model, $column->getAttribute()) !!}

@@ -591,6 +591,35 @@ flash('error message...')->error()->livewire($this);
 
 ![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/flash-messages.png)
 
+### Custom javascript and css 
+
+You can add your own custom javacript or css from any view, pushing the default named stacks:
+
+```php
+@push('livewire-tables-javascript')
+    console.log('hello world');
+@endpush
+
+@push('livewire-tables-css')
+    .customClass{margin:1px;}
+@endpush
+```
+
+The template looks like this:
+
+```html
+<!-- Css classes -->
+<style>
+    /* Css if needed */
+    @stack('livewire-tables-css')
+</style>
+
+<!-- Javascript if needed -->
+<script>
+    @stack('livewire-tables-javascript')
+</script>
+```
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.

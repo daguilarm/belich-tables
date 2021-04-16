@@ -2,7 +2,7 @@
     <div class="flex sm:mt-3">
         <div class="flex rounded-md">
             <div class="relative flex-grow">
-                {{-- Add search --}}
+                <!-- Add search field -->
                 @includeWhen(
                     $searchEnabled,
                     'livewire-tables::'.config('livewire-tables.theme').'.includes.options.search'
@@ -10,26 +10,26 @@
             </div>
         </div>
 
-        {{-- Add filters --}}
+        <!-- Add all the filters -->
         @includeWhen(
             isset($filters) && count($filters) > 0,
             'livewire-tables::'.config('livewire-tables.theme').'.includes.options.filters'
         )
     </div>
     <div class="flex">
-        {{-- Add perpage --}}
+        <!-- Add perpage selector -->
         @includeWhen(
             $paginationEnabled && count($perPageOptions),
             'livewire-tables::'.config('livewire-tables.theme').'.includes.options.perPage'
         )
 
-        {{-- Add export --}}
+        <!-- Add export button -->
         @includeWhen(
             count($exports) > 0,
             'livewire-tables::'.config('livewire-tables.theme').'.includes.options.export'
         )
 
-        {{-- Add mass delete --}}
+        <!-- Add mass delete button (only if there is checkboxes checked) -->
         @includeWhen(
             $checkboxValues,
             'livewire-tables::'.config('livewire-tables.theme').'.includes.options.mass-delete'
