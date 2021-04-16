@@ -28,9 +28,9 @@ namespace App\Http\Livewire;
 
 use App\User;
 use Illuminate\Database\Eloquent\Builder;
-use Rappasoft\LaravelLivewireTables\Components\TableComponent;
-use Rappasoft\LaravelLivewireTables\Traits\HtmlComponents;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Daguilarm\LivewireTables\Components\TableComponent;
+use Daguilarm\LivewireTables\Traits\HtmlComponents;
+use Daguilarm\LivewireTables\Views\Column;
 
 class UsersTable extends TableComponent
 {
@@ -233,19 +233,64 @@ You can override any of these in your table component:
 
 #### Columns/Data
 
-Use the following methods to alter the column/row metadata.
+Use the following methods to alter the column/row metadata in the table component for each model.
 
 ```php
-public function setTableHeadClass($attribute): ?string
-public function setTableHeadId($attribute): ?string
-public function setTableHeadAttributes($attribute): array
-public function setTableRowClass($model): ?string
-public function setTableRowId($model): ?string
-public function setTableRowAttributes($model): array
-public function getTableRowUrl($model): ?string
-public function setTableDataClass($attribute, $value): ?string
+// Set the custom table head ID.
+public function setTableHeadId(?string $attribute): ?string
+
+// Set the the custom table head attributes.
+public function setTableHeadAttributes(string | array $attribute): array
+
+// Set the custom table row ID.
+public function setTableRowId(?string $model): ?string
+
+// Set the the custom table row attributes.
+public function setTableRowAttributes(string | array $model): array
+
+// Set the the custom table column id for the data view.
 public function setTableDataId($attribute, $value): ?string
+
+// Set the the custom table column attributes for the data view.
 public function setTableDataAttributes($attribute, $value): array
+```
+
+For example:
+
+```php
+<?php
+
+namespace App\Http\Livewire;
+
+use App\User;
+use Illuminate\Database\Eloquent\Builder;
+use Daguilarm\LivewireTables\Components\TableComponent;
+use Daguilarm\LivewireTables\Traits\HtmlComponents;
+use Daguilarm\LivewireTables\Views\Column;
+
+class UsersTable extends TableComponent
+{
+    use HtmlComponents;
+
+    public function setTableHeadId(?string $attribute): ?string 
+    {
+        return 'head-id-' . $attribute;
+    }
+
+    // public function query() : Builder
+    // {
+    //     return User::with('role')->withCount('permissions');
+    // }
+
+    // public function columns() : array
+    // {
+    //     return [
+    //         Column::make('ID')
+    //             ->searchable()
+    //             ->sortable(),
+    //     ];
+    // }
+}
 ```
 
 #### Pagination
@@ -336,7 +381,7 @@ The default blade action, includes all the logic for delete items using a confir
 
 This package includes some of the functionality from the laravelcollective/html package modified to fit the needs of this package.
 
-To use these you must import the *Rappasoft\LaravelLivewireTables\Traits\HtmlComponents* trait.
+To use these you must import the *Daguilarm\LivewireTables\Traits\HtmlComponents* trait.
 
 You may return any of these functions from the format() method of a column, for example:
 
@@ -411,9 +456,9 @@ namespace App\Http\Livewire;
 
 use App\User;
 use Illuminate\Database\Eloquent\Builder;
-use Rappasoft\LaravelLivewireTables\Components\TableComponent;
-use Rappasoft\LaravelLivewireTables\Traits\HtmlComponents;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Daguilarm\LivewireTables\Components\TableComponent;
+use Daguilarm\LivewireTables\Traits\HtmlComponents;
+use Daguilarm\LivewireTables\Views\Column;
 
 class UsersTable extends TableComponent
 {
@@ -471,7 +516,7 @@ class UsersTable extends TableComponent
 
 #### Customizing Exports
 
-Currently, there are no customization options available. But there is a config item called `exports` where you can define the class to do the rendering. You can use the `\Rappasoft\LaravelLivewireTables\Exports\Export` class as a base.
+Currently, there are no customization options available. But there is a config item called `exports` where you can define the class to do the rendering. You can use the `\Daguilarm\LivewireTables\Exports\Export` class as a base.
 
 More options will be added in the future, but the built in options should be good for most applications.
 
