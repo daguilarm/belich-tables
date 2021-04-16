@@ -122,7 +122,7 @@ abstract class TableComponent extends Component
             'columns' => $this->columns(),
             'filters' => $this->filters(),
             'models' => $this->paginationEnabled
-                ? $this->models()->paginate($this->perPage)
+                ? $this->models()->paginate((int) $this->perPage)
                 : $this->models()->get(),
             'operations' => $this->mergeOperations(),
         ]);

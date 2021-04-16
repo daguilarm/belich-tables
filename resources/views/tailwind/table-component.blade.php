@@ -8,7 +8,7 @@
             <div
                 class="border-b border-gray-200 sm:rounded-lg"
                 {{-- Refresh table --}}
-                @if (is_numeric($refresh)) wire:poll.{{ $refresh }}.ms @elseif(is_string($refresh)) wire:poll="{{ $refresh }}" @endif
+                @if (is_numeric($refresh)) wire:poll.{{ $refresh }}ms @elseif(is_string($refresh)) wire:poll="{{ $refresh }}" @endif
             >
                 {{-- Offline message --}}
                 @includeWhen($offlineIndicator, 'livewire-tables::'.config('livewire-tables.theme').'.includes.offline')
