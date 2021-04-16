@@ -20,7 +20,7 @@ trait Filters
                 // Get the value to filter
                 $filterValue = $this->getFilterValue($filter);
                 // Create the new query base on the filter
-                if($filterValue) {
+                if ($filterValue) {
                     // Execute the filter from each table component defined by the user
                     $this->getFilterQuery($filter, $filterValue);
                 }

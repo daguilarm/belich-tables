@@ -130,7 +130,7 @@ final class Column
     }
 
     /**
-     * Set the format callback
+     * Set the format callback.
      */
     public function format(callable $callable): self
     {
@@ -140,7 +140,7 @@ final class Column
     }
 
     /**
-     * Set the export format callback
+     * Set the export format callback.
      */
     public function exportFormat(callable $callable): self
     {
@@ -150,7 +150,7 @@ final class Column
     }
 
     /**
-     * Format the callback
+     * Format the callback.
      */
     public function formatted(object $model, Column $column): object
     {
@@ -158,7 +158,7 @@ final class Column
     }
 
     /**
-     * Format the export callback
+     * Format the export callback.
      */
     public function formattedForExport($model, $column): object
     {
@@ -166,7 +166,7 @@ final class Column
     }
 
     /**
-     * Sortable column
+     * Sortable column.
      */
     public function sortable(?callable $callable = null): self
     {
@@ -177,7 +177,7 @@ final class Column
     }
 
     /**
-     * Searchable column
+     * Searchable column.
      */
     public function searchable(?callable $callable = null): self
     {
@@ -188,7 +188,7 @@ final class Column
     }
 
     /**
-     * Raw column
+     * Raw column.
      */
     public function raw(): self
     {
@@ -198,7 +198,7 @@ final class Column
     }
 
     /**
-     * Include column in export
+     * Include column in export.
      */
     public function includedInExport(): bool
     {
@@ -206,7 +206,7 @@ final class Column
     }
 
     /**
-     * Include this column only for export
+     * Include this column only for export.
      */
     public function exportOnly(): self
     {
@@ -217,7 +217,7 @@ final class Column
     }
 
     /**
-     * Check if the column is only for export
+     * Check if the column is only for export.
      */
     public function isExportOnly(): bool
     {
@@ -225,7 +225,7 @@ final class Column
     }
 
     /**
-     * Exclude this column from export
+     * Exclude this column from export.
      */
     public function excludeFromExport(): self
     {

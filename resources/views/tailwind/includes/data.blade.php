@@ -6,10 +6,6 @@
         @foreach ($this->setTableRowAttributes($model) as $key => $value)
             {{ $key }}="{{ $value }}"
         @endforeach
-        @if ($this->getTableRowUrl($model))
-            onclick="window.location='{{ $this->getTableRowUrl($model) }}';"
-            class="cursor-pointer"
-        @endif
     >
         {{-- Table checkbox --}}
         @includeWhen($checkboxEnable && !isset($headerTitle), 'livewire-tables::'.config('livewire-tables.theme').'.includes.checkboxes.checkbox')

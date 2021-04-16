@@ -27,7 +27,7 @@ trait Table
     /**
      * Set the the custom table head attributes.
      */
-    public function setTableHeadAttributes(string|array $attribute): array
+    public function setTableHeadAttributes(string | array $attribute): array
     {
         return [];
     }
@@ -43,31 +43,23 @@ trait Table
     /**
      * Set the the custom table row attributes.
      */
-    public function setTableRowAttributes(string|array $model): array
+    public function setTableRowAttributes(string | array $model): array
     {
         return [];
     }
 
     /**
-     * Set the the custom table row url.
+     * Set the the custom table column id for the data view.
      */
-    public function getTableRowUrl(?string $model): ?string
-    {
-        return null;
-    }
-
-    public function setTableDataId($attribute, $value): ?string
+    public function setTableDataId(?string $attribute, ?string $value): ?string
     {
         return null;
     }
 
     /**
-     * @param $attribute
-     * @param $value
-     *
-     * @return array
+     * Set the the custom table column attributes for the data view.
      */
-    public function setTableDataAttributes($attribute, $value): array
+    public function setTableDataAttributes(?string $attribute, ?string $value): array
     {
         return [];
     }
