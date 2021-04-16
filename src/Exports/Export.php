@@ -35,7 +35,7 @@ final class Export implements FromQuery, WithHeadings, WithMapping
     }
 
     /**
-     * Get the query builder
+     * Get the query builder.
      */
     public function query(): Builder
     {
@@ -43,7 +43,7 @@ final class Export implements FromQuery, WithHeadings, WithMapping
     }
 
     /**
-     * Get the heading row
+     * Get the heading row.
      *
      * @return  array<string>
      */
@@ -53,7 +53,7 @@ final class Export implements FromQuery, WithHeadings, WithMapping
     }
 
     /**
-     * Generate the export file map
+     * Generate the export file map.
      *
      * @return  array<string>
      */

@@ -77,7 +77,7 @@ trait Yajra
     }
 
     /**
-     * Get the column attribute
+     * Get the column attribute.
      */
     protected function getColumnByAttribute(string $attribute): Column | bool
     {

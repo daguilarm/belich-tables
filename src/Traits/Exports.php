@@ -17,7 +17,7 @@ trait Exports
     public array $exports = [];
 
     /**
-     * Export file with the selected format
+     * Export file with the selected format.
      */
     public function export(string $type): object
     {
