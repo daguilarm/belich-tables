@@ -14,7 +14,7 @@
         @foreach($columns as $column)
             @if ($column->isVisible())
                 <td
-                    class="px-6 py-3 whitespace-nowrap text-sm text-gray-500"
+                    class="{{ $column->show }} px-6 py-3 whitespace-nowrap text-sm text-gray-500"
                     id="{{ $this->setTableDataId($column->getAttribute(), data_get($model, $column->getAttribute())) }}"
                     @foreach ($this->setTableDataAttributes($column->getAttribute(), data_get($model, $column->getAttribute())) as $key => $value)
                     {{ $key }}="{{ $value }}"

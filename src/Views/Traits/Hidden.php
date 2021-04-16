@@ -14,10 +14,10 @@ trait Hidden
     public function hideFrom(string $value): self
     {
         $this->show = match($value) {
-            'sm' => 'invisible',
-            'md' => 'invisible lg:visible',
-            'lg' => 'invisible xl:visible',
-            'xl' => 'visible xl:invisible',
+            'sm' => 'hidden',
+            'md' => 'hidden lg:block',
+            'lg' => 'hidden xl:block',
+            'xl' => 'block xl:hidden',
             default => '',
         };
 
@@ -30,10 +30,10 @@ trait Hidden
     public function showOn(string $value): self
     {
         $this->show = match($value) {
-            'sm' => 'visible',
-            'md' => 'invisible md:visible',
-            'lg' => 'invisible lg:visible',
-            'xl' => 'invisible xl:visible',
+            'sm' => 'block',
+            'md' => 'hidden md:block',
+            'lg' => 'hidden lg:block',
+            'xl' => 'hidden xl:block',
             default => '',
         };
 
