@@ -19,7 +19,8 @@ abstract class FilterComponent extends Component
     public function __construct(
         public ?string $name,
         public ?string $model = null
-    ) {}
+    ) {
+    }
 
     /**
      * Set the filter attributes.
