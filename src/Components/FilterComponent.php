@@ -17,7 +17,7 @@ abstract class FilterComponent extends Component
      * Init constructor.
      */
     public function __construct(
-        public string $name,
+        public ?string $name,
         public ?string $model = null
     ) {
     }
@@ -32,9 +32,11 @@ abstract class FilterComponent extends Component
     }
 
     /**
-     * Set filter database query.
+     * Set the filter query.
+     *
+     * @param string | array | null $value
      */
-    abstract public function query(Builder $model, ?string $value): Builder;
+    abstract public function query(Builder $model, $value): Builder;
 
     /**
      * Sent values for the view.

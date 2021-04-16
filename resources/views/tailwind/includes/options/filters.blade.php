@@ -50,20 +50,24 @@
 
                     {{-- Separator --}}
                     @unless($loop->last)
-                        <div class="w-full h-1 border-t border-yellow-200 mt-4 mb-2"></div>
+                        <div class="w-full h-1 border-dotted border-t border-yellow-300 mt-4 mb-2"></div>
                     @endunless
                 @endforeach
 
                 <div class="flex justify-end">
                     <button
                         type="submit"
-                        class="flex m-2 py-2 px-4 rounded-lg border border-yellow-400 bg-yellow-50 hover:bg-yellow-500 text-yellow-600 hover:text-white shadow cursor-pointer"
+                        class="flex m-4 py-2 px-4 rounded-lg border border-yellow-500 hover:border-yellow-700 bg-yellow-400 hover:bg-yellow-600 text-white shadow cursor-pointer"
                         x-on:click="isOpenFilters = false"
                         id="table_filter_close_button"
                         dusk="table-filter-close-button"
                     >
                         {{-- Filter icon --}}
-                        <x-livewire-tables-filter-icon />
+                        {{-- icon: heroicon-o-adjustments --}}
+                        <svg class="h-6 w-6 py-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                        </svg>
+
                         {{-- Filter title --}}
                         <span>{{ __('livewire-tables::filters.filter') }}</span>
                     </button>

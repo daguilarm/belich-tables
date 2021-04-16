@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Components\Filters;
 
-use App\Models\User;
 use Daguilarm\LivewireTables\Components\FilterComponent;
 use Illuminate\Database\Eloquent\Builder;
 
-final class FilterByUser extends FilterComponent
+final class FilterByDate extends FilterComponent
 {
     /**
      * Create a new field.
@@ -17,9 +16,8 @@ final class FilterByUser extends FilterComponent
     {
         parent::__construct($name);
 
-        $this->view = 'livewire-tables::'.config('livewire-tables.theme').'.includes.options.filters.user';
-        $this->tableColumn = 'id';
-        $this->name = $name ?? 'user';
+        $this->view = 'livewire-tables::'.config('livewire-tables.theme').'.includes.options.filters.date';
+        $this->name = $name ?? 'date';
     }
 
     /**
@@ -29,10 +27,15 @@ final class FilterByUser extends FilterComponent
      */
     public function query(Builder $model, $value): Builder
     {
-        return $model->where(
-            $this->tableColumn,
-            $value
-        );
+        if(isset($value['start'])) {
+            $model->whereDate($this->tableColumn, '>=', $value['start']);
+        }
+
+        if(isset($value['end'])) {
+            $model->whereDate($this->tableColumn, '<=', $value['end']);
+        }
+
+        return $model;
     }
 
     /**
@@ -40,8 +43,6 @@ final class FilterByUser extends FilterComponent
      */
     public function values(): array
     {
-        return User::all()
-            ->pluck('name', 'id')
-            ->toArray();
+        return [];
     }
 }

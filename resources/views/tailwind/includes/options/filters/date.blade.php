@@ -3,7 +3,9 @@
     <label for="search_filter_date" class="flex">
         <div>
             {{-- Filter icon --}}
-            <x-livewire-tables-filter-icon />
+            <svg class="h-6 w-6 py-1 opacity-30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+            </svg>
         </div>
 
         {{-- Filtrar por fecha --}}
@@ -30,22 +32,20 @@
         x-ref="date_end"
     >
 
-    <div class="w-full flex justify-end">
+{{--     <div class="w-full flex justify-end">
         <button
             type="button"
             dusk="table-filter-date-button"
             class="flex mt-4 py-2 px-4 ml-2 rounded-lg bg-yellow-400 hover:bg-yellow-500 text-white shadow cursor-pointer"
             x-on:click="filterByDate($wire, $refs)"
         >
-            {{-- icon: heroicon-o-search --}}
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 opacity-50 mr-1 mt-1" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
             </svg>
 
-            {{-- Filtrar --}}
             <span>{{ __('livewire-tables::filters.filter') }}</span>
         </button>
-    </div>
+    </div> --}}
 </div>
 
 @push('livewire-tables-javascript')

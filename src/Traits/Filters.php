@@ -57,7 +57,7 @@ trait Filters
     /**
      * Get filter value.
      */
-    private function getFilterValue(Collection $filter): ?string
+    private function getFilterValue(Collection $filter): string | array | null
     {
         // Get the filter name
         $filterName = $filter?->get('name');
@@ -73,7 +73,7 @@ trait Filters
     /**
      * Get filter query.
      */
-    private function getFilterQuery(Collection $filter, ?string $value): Builder
+    private function getFilterQuery(Collection $filter, string | array | null $value): Builder
     {
         // The filter will be executed directly, no need to return the model
         return $filter
