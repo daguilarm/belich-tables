@@ -355,14 +355,6 @@ final class FilterByUser extends FilterComponent
 }
 ```
 
-The properties and methods that filters support are described below:
-
-| Property | Method | Usage |
-| -------- | ------- | ----- |
-| $name | name() | Set the filter name |
-| $tableColumn | tableColumn() | Set the table field to filter |
-| $view | view() | Set the filter view to render |
-
 An example of the filter view is:
 
 ```html 
@@ -439,6 +431,14 @@ class UsersTable extends TableComponent
     }
 }
 ```
+
+The properties and methods that filters support are described below:
+
+| Property | Method | Usage |
+| -------- | ------- | ----- |
+| $name | name() | Set the filter name |
+| $tableColumn | tableColumn() | Set the table field to filter |
+| $view | view() | Set the filter view to render |
 
 You can create your own filters, for this you must include two mandatory methods:
 
