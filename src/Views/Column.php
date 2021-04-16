@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace Daguilarm\LivewireTables\Views;
 
 use Daguilarm\LivewireTables\Traits\CanBeHidden;
-use Daguilarm\LivewireTables\Views\Column;
+use Daguilarm\LivewireTables\Views\Traits\Hidden;
 use Illuminate\Support\Str;
 
 final class Column
 {
-    use CanBeHidden;
+    use CanBeHidden,
+        Hidden;
 
     protected string $text;
     protected string $attribute;

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Traits;
+namespace Daguilarm\LivewireTables\Views\Traits;
 
 trait Hidden
 {
-    public string $show;
+    public string $show = '';
 
     /**
      * Hide content base on screen.
@@ -14,10 +14,11 @@ trait Hidden
     public function hideFrom(string $value): self
     {
         $this->show = match($value) {
-            'sm' => 'hidden',
-            'md' => 'hidden lg:visible',
-            'lg' => 'hidden xl:visible',
-            'xl' => 'visible xl:hidden',
+            'sm' => 'invisible',
+            'md' => 'invisible lg:visible',
+            'lg' => 'invisible xl:visible',
+            'xl' => 'visible xl:invisible',
+            default => '',
         };
 
         return $this;
@@ -30,9 +31,10 @@ trait Hidden
     {
         $this->show = match($value) {
             'sm' => 'visible',
-            'md' => 'hidden md:visible',
-            'lg' => 'hidden lg:visible',
-            'xl' => 'hidden xl:visible',
+            'md' => 'invisible md:visible',
+            'lg' => 'invisible lg:visible',
+            'xl' => 'invisible xl:visible',
+            default => '',
         };
 
         return $this;

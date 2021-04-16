@@ -59,10 +59,12 @@ class UsersTable extends TableComponent
                 ->sortable()
                 ->format(function(User $model) {
                     return $this->mailto($model->email, null, ['target' => '_blank']);
-                }),
+                })
+                ->hideFrom('md'),
             Column::make('Role', 'role.name')
                 ->searchable()
-                ->sortable(),
+                ->sortable()
+                ->showOn('md'),
             Column::make('Permissions')
                 ->sortable()
                 ->format(function(User $model) {
@@ -125,7 +127,7 @@ The following methods are available to chain to a column:
  * The attribute can be omitted if the text is equal to the lower case snake_cased version of the column
  * The attribute can also be used to reference a relationship (i.e. role.name)
  */
-public function make($text, ?$attribute) : Column;
+public static function make(string $text, ?string $attribute = null): Column
 
 /**
  * Used to format the column data in different ways, see the HTML Components section.
@@ -154,6 +156,11 @@ public function raw() : self;
 public function hide() : self;
 
 /**
+ * Hide this column base on screen size. Acepted values: 'sm', 'md', 'lg', 'xl'. For example: Column::hideFrom('lg') will hide the column except for the screens 'xl' or higher values (such as '2xl').
+ */
+public function hideFrom(string $value): self
+
+/**
  * Hide this column based on a condition. i.e.: user has or doesn't have a role or permission. Must return a boolean, not a closure.
  */
 public function hideIf($condition) : self;
@@ -172,6 +179,11 @@ public function excludeFromExport() : self;
  * If supplied, and the column is exportable, this will be the format when rendering the CSV/XLS/PDF instead of the format() function. You may have both, format() for the UI, and exportFormat() for the export only. If this method is not supplied, format() will be used and passed through strip_tags() to try to clean the output.
  */
 public function exportFormat(callable $callable = null) : self;
+
+/**
+ * Is the reverse of hideFrom(). Show columns base on the screen size.
+ */
+public function showOn(string $value): self
 ```
 
 ### Properties
