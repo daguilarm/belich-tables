@@ -49,7 +49,9 @@
                     </span>
 
                     {{-- Separator --}}
-                    <div class="w-full h-1 border-t border-yellow-200 mt-4 mb-2"></div>
+                    @unless($loop->last)
+                        <div class="w-full h-1 border-t border-yellow-200 mt-4 mb-2"></div>
+                    @endunless
                 @endforeach
 
                 <div class="flex justify-end">
