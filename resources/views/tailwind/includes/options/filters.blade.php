@@ -1,13 +1,14 @@
 <!-- Hide container by default -->
-<div x-data="{ isOpenFilters: false }">
+<div x-data="{ isOpenFilters: false, isFiltersActive: {{ count($filterValues) <= 0 ? 'false' : 'true' }} }">
     <div
         class="relative text-left"
+        style="margin-top: 1px"
         @click.away="isOpenFilters = false"
     >
        <!-- Filter button -->
         <button type="button"
             x-on:click="isOpenFilters = !isOpenFilters"
-            class="inline-flex items-center bg-yellow-100 hover:bg-yellow-400 text-yellow-500 hover:text-white shadow-xs border border-yellow-500 ml-2 rounded-lg p-1 focus:outline-none focus:bg-yellow-400 focus:text-white"
+            class="inline-flex items-center ml-4 mr-1 px-1 py-1 bg-yellow-100 hover:bg-yellow-500 text-yellow-500 hover:text-white shadow rounded-lg focus:outline-none focus:bg-yellow-500 focus:text-white"
             id="table_filter_button"
             dusk="table-filter-button"
         >
@@ -18,11 +19,13 @@
         <!-- Reset button -->
         <button
             type="button"
-            wire:click="resetAllFilters()"
+            x-show="isFiltersActive"
             x-on:click="isOpenFilters = false"
-            class="inline-flex items-center p-1 bg-white hover:bg-red-500 text-red-400 hover:text-white shadow-xs border border-red-400 rounded-lg focus:outline-none"
+            wire:click="resetAllFilters()"
+            class="inline-flex items-center mr-2 p-1 bg-white hover:bg-red-500 text-red-400 hover:text-white shadow rounded-lg focus:outline-none"
             id="reset_all_filters"
             dusk="reset-all-filters"
+            x-cloak
         >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -37,7 +40,7 @@
             x-transition:leave="transition ease-in duration-200"
             x-transition:leave-start="transform opacity-100 scale-100"
             x-transition:leave-end="transform opacity-0 scale-95"
-            class="absolute z-50 origin-top-left left-0 mt-1 ml-2 w-64 bg-yellow-100 border-2 border-yellow-300 rounded-lg overflow-auto shadow-lg"
+            class="absolute z-50 origin-top-left left-0 mt-1 ml-2 w-64 bg-yellow-100 border border-yellow-200 rounded-lg overflow-auto shadow-lg"
             id="table_filter_container"
             dusk="table-filter-container"
             x-cloak
