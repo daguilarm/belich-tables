@@ -387,7 +387,7 @@ An example of the filter view is:
 
 ```
 
-To add the filters, you need to use the `filters()` method, and load all the classes:
+To use the filters, you need to use the `filters()` method, and load all the classes in the **livewire table component**:
 
 ```php
 <?php
