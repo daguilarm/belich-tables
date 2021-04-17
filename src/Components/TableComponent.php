@@ -13,10 +13,10 @@ use Daguilarm\LivewireTables\Components\Traits\Model;
 use Daguilarm\LivewireTables\Components\Traits\Operations;
 use Daguilarm\LivewireTables\Components\Traits\Pagination;
 use Daguilarm\LivewireTables\Components\Traits\PerPage;
+use Daguilarm\LivewireTables\Components\Traits\Relationships;
 use Daguilarm\LivewireTables\Components\Traits\Search;
 use Daguilarm\LivewireTables\Components\Traits\Sorting;
 use Daguilarm\LivewireTables\Components\Traits\Table;
-use Daguilarm\LivewireTables\Components\Traits\Yajra;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -36,11 +36,11 @@ abstract class TableComponent extends Component
         Operations,
         Pagination,
         PerPage,
+        Relationships,
         Search,
         Sorting,
         Table,
-        WithPagination,
-        Yajra;
+        WithPagination;
 
     /**
      * Add a new resource into the database for the current model.
