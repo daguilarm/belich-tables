@@ -5,15 +5,19 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/daguilarm/livewire-tables.svg?style=flat-square)](https://packagist.org/packages/daguilarm/livewire-tables)
 ![GitHub last commit](https://img.shields.io/github/last-commit/daguilarm/livewire-tables)
 
-
 > :warning: **This package is currently under development**: Be very careful here!
 
+This package is base on the https://github.com/rappasoft/laravel-livewire-tables package. Since there seems to be no mayor updates or improvements, I have decided to proceed with this package on my own.
 
-**This package is base on the https://github.com/rappasoft/laravel-livewire-tables package. Since there seems to be no mayor updates or improvements, I have decided to proceed with this package on my own.**
+## Requirements
 
-A dynamic Laravel Livewire component for data tables.
+This package need at least:
 
-This plugin assumes you already have [Laravel Livewire](https://laravel-livewire.com/), [AlpineJS](https://github.com/alpinejs/alpine) and [TailwindCSS](https://tailwindcss.com/) installed and configured in your project.
+- PHP ^8.0
+- Laravel ^8.0
+- Laravel Livewire ^2.0
+- AlpineJS ^2.0
+- TailwindCSS ^2.0
 
 ## Usage
 
@@ -28,7 +32,7 @@ namespace App\Http\Livewire;
 
 use App\User;
 use Daguilarm\LivewireTables\Components\TableComponent;
-use Daguilarm\LivewireTables\Traits\HtmlComponents;
+use Daguilarm\LivewireTables\Components\Traits\HtmlComponents;
 use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -96,29 +100,22 @@ public function columns() : array;
 
 ### Rendering the Table
 
-Place the following where you want the table to appear.
-
-Laravel 6.x: 
-
-```html
-@livewire('flash-container')
-@livewire('users-table')
-```
-
-Laravel 7.x|8.x:
+Place the following where you want the table component to appear.
 
 ```html
 <livewire:flash-container />
 <livewire:users-table />
 ```
 
-The component `flash-container` will add the hability to show flash messages from the package, for example, when you delete a user (using the adobe example) will show a message with the action. **You can remove it if you don't want the messages.**
+The component `flash-container` will add the hability to show flash messages from the package. **You can remove it if you don't want this feature.** and just use:
+
+```html
+<livewire:users-table />
+```
 
 ### Defining Columns
 
-You can define the columns of your table with the column class.
-
-The following methods are available to chain to a column:
+You can define the columns of your table with the column class. The following methods are available to chain to a column:
 
 ```php
 
@@ -240,6 +237,7 @@ You can override any of these in your table component:
 | Property | Default | Usage |
 | -------- | ------- | ----- |
 | $refresh | false | Whether or not to refresh the table at a certain interval. false = off, int = ms, string = functionCall |
+| $checkboxEnable | true | Enable the checkboxes to make mass assignments |
 
 ### Table Methods
 
@@ -276,7 +274,7 @@ namespace App\Http\Livewire;
 
 use App\User;
 use Daguilarm\LivewireTables\Components\TableComponent;
-use Daguilarm\LivewireTables\Traits\HtmlComponents;
+use Daguilarm\LivewireTables\Components\Traits\HtmlComponents;
 use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -399,7 +397,7 @@ use Daguilarm\LivewireTables\Components\Filters\FilterByDate;
 use Daguilarm\LivewireTables\Components\Filters\FilterByUser;
 use Daguilarm\LivewireTables\Components\Filters\FilterByYear;
 use Daguilarm\LivewireTables\Components\TableComponent;
-use Daguilarm\LivewireTables\Traits\HtmlComponents;
+use Daguilarm\LivewireTables\Components\Traits\HtmlComponents;
 use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -458,7 +456,7 @@ abstract public function query(Builder $model, $value): Builder;
 abstract public function values(): array;
 ```
 
-Use the `query()` method to query the database. Remember that it is an instance of `Builder` and not of `Collection`.
+Use the `query()` method to query the database. Remember that it's an instance of `Builder` and not of `Collection`:
 
 ```php
 /**
@@ -488,9 +486,27 @@ public function values(): array
 }
 ```
 
+or leave blank if your filter doesn't need these extra values:
+
+```php
+/**
+ * Set the filter query.
+ *
+ * @return  array<string>
+ */
+public function values(): array
+{
+    return [];
+}
+```
+
+Filters example:
+
+![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/filters.png)
+
 #### Pagination
 
-Override these methods if you want to perform extra tasks when the search or per page attributes change.
+Override these methods if you want to perform extra tasks when the search or per page attributes change:
 
 ```php
 public function updatingSearch(): void
@@ -499,7 +515,7 @@ public function updatingPerPage(): void
 
 #### Search
 
-Override this method if you want to perform extra steps when the search has been cleared.
+Override this method if you want to perform extra steps when the search has been cleared:
 
 ```php
 public function clearSearch(): void
@@ -507,7 +523,7 @@ public function clearSearch(): void
 
 #### Sorting
 
-Override this method if you want to change the default sorting behavior.
+Override this method if you want to change the default sorting behavior:
 
 ```php
 public function sort($attribute): void
@@ -602,6 +618,22 @@ public function email($email): string
 public function html($html): HtmlString
 ```
 
+#### Mass assignments
+
+You can enable or disable the checkboxes using the variable `$checkboxEnable`, using this, you can show or hide the checkboxes:
+
+![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/checkboxes.png)
+
+When a checkbox is activated, the mass action buttons automatically appear. By default, the hability to delete the selected elements.
+
+![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/mass-delete.png)
+
+You can show or hide buttons base on the selected checkboxes, using this logic:
+
+```php
+@includeWhen($checkboxValues, 'livewire-tables::path.to.your.view')
+```
+
 ### Exporting Data
 
 The table component supports exporting to CSV, XLS, XLSX, and PDF.
@@ -652,7 +684,7 @@ namespace App\Http\Livewire;
 use App\User;
 use Illuminate\Database\Eloquent\Builder;
 use Daguilarm\LivewireTables\Components\TableComponent;
-use Daguilarm\LivewireTables\Traits\HtmlComponents;
+use Daguilarm\LivewireTables\Components\Traits\HtmlComponents;
 use Daguilarm\LivewireTables\Views\Column;
 
 class UsersTable extends TableComponent
