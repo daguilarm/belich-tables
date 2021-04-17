@@ -10,7 +10,7 @@
        <!-- Filter button -->
         <button type="button"
             x-on:click="isOpenFilters = !isOpenFilters"
-            class="inline-flex items-center ml-2 p-2 border border-gray-200 bg-white hover:bg-yellow-400 text-yellow-500 hover:text-white shadow-lg rounded-lg focus:outline-none focus:bg-yellow-400 focus:text-white"
+            class="inline-flex items-center ml-2 p-2 bg-white hover:bg-yellow-400 text-yellow-500 hover:text-white shadow-lg rounded-lg focus:outline-none focus:bg-yellow-400 focus:text-white"
             id="table_filter_button"
             dusk="table-filter-button"
         >

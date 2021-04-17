@@ -7,7 +7,7 @@
 
 > :warning: **This package is currently under development**: Be very careful here!
 
-This package is base on the https://github.com/rappasoft/laravel-livewire-tables package. Since there seems to be no mayor updates or improvements, I have decided to proceed with this package on my own.
+This package is base on the https://github.com/rappasoft/laravel-livewire-tables package.
 
 ## Requirements
 

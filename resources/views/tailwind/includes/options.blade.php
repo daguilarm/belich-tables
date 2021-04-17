@@ -31,7 +31,7 @@
 
         <!-- Add export button -->
         @includeWhen(
-            count($exports) > 0,
+            $checkboxValues && count($exports) > 0,
             'livewire-tables::'.config('livewire-tables.theme').'.includes.options.export'
         )
 
