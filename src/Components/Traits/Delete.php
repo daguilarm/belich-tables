@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Traits;
+namespace Daguilarm\LivewireTables\Components\Traits;
 
 use MattLibera\LivewireFlash\LivewireFlashNotifier;
 

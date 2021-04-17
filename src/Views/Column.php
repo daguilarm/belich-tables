@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Views;
 
-use Daguilarm\LivewireTables\Traits\CanBeHidden;
+use Daguilarm\LivewireTables\Components\Traits\CanBeHidden;
 use Daguilarm\LivewireTables\Views\Traits\Hidden;
 use Illuminate\Support\Str;
 
