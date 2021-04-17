@@ -1,8 +1,23 @@
 # Changelog
 
-All notable changes to `laravel-livewire-tables` will be documented in this file
+All notable changes to `livewire-tables` will be documented in this file
 
 ## [Unreleased]
+
+## [1.0] - 2021-04-17
+
+### Added
+
+- Ability to add custom filters.
+- Ability to add custom action bottons.
+- Delete items.
+- Checkboxes and the ability to add new features for selected items.
+- Flash messages.
+- Add new resources to a model.
+
+### Changed
+
+- Now the default css framework is Tailwindcss.
 
 ## [0.3.3] - 2020-12-13
 
