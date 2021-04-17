@@ -2,9 +2,7 @@
 
 All notable changes to `livewire-tables` will be documented in this file
 
-## [Unreleased]
-
-## [1.0] - 2021-04-17
+## [1.0.0] - 2021-04-17
 
 ### Added
 
