@@ -7,21 +7,14 @@ namespace Daguilarm\LivewireTables\Components\Traits;
 trait Pagination
 {
     /**
+     * The default pagination theme.
+     */
+    public string $paginationTheme = 'tailwind';
+
+    /**
      * Displays per page and pagination links.
      */
-    public bool $paginationEnabled = true;
-
-    /**
-     * The options to limit the amount of results per page.
-     *
-     * @var array <int>
-     */
-    public array $perPageOptions = [10, 25, 50, 100];
-
-    /**
-     * Amount of items to show per page.
-     */
-    public int $perPage = 25;
+    public bool $showPagination = true;
 
     /**
      * https://laravel-livewire.com/docs/pagination

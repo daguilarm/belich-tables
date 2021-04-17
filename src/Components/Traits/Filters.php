@@ -10,6 +10,13 @@ use Illuminate\Support\Collection;
 trait Filters
 {
     /**
+     * Filter values.
+     *
+     * @var array<string>
+     */
+    public array $filterValues = [];
+
+    /**
      * Resolve filters.
      * The magic will happend in \Daguilarm\LivewireTables\Traits\Model::models().
      */

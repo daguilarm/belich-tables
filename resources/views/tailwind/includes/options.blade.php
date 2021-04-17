@@ -4,7 +4,7 @@
             <div class="relative flex-grow">
                 <!-- Add search field -->
                 @includeWhen(
-                    $searchEnabled,
+                    $showSearch,
                     'livewire-tables::'.config('livewire-tables.theme').'.includes.options.search'
                 )
             </div>
@@ -19,7 +19,7 @@
     <div class="flex">
         <!-- Add perpage selector -->
         @includeWhen(
-            $paginationEnabled && count($perPageOptions),
+            $showPerPage,
             'livewire-tables::'.config('livewire-tables.theme').'.includes.options.perPage'
         )
 

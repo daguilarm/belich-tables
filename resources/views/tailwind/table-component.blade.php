@@ -1,7 +1,7 @@
 <div class="flex flex-col">
 
     <!-- Include the table loading view -->
-    @includeWhen($loadingIndicator, 'livewire-tables::'.config('livewire-tables.theme').'.includes.loading')
+    @includeWhen($showLoading, 'livewire-tables::'.config('livewire-tables.theme').'.includes.loading')
 
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="min-w-full min-h-screen py-2 align-middle inline-block sm:px-6 lg:px-8">
@@ -11,10 +11,10 @@
                 @if (is_numeric($refresh)) wire:poll.{{ $refresh }}ms @elseif(is_string($refresh)) wire:poll="{{ $refresh }}" @endif
             >
                 <!-- Include the table offline message -->
-                @includeWhen($offlineIndicator, 'livewire-tables::'.config('livewire-tables.theme').'.includes.offline')
+                @includeWhen($showOffline, 'livewire-tables::'.config('livewire-tables.theme').'.includes.offline')
 
                 <!-- Load all the options: search, filters, perPage, export, new resource... -->
-                @includeWhen($paginationEnabled || $searchEnabled, 'livewire-tables::'.config('livewire-tables.theme').'.includes.options')
+                @include('livewire-tables::'.config('livewire-tables.theme').'.includes.options')
 
                 <div class="bg-gray-50 text-gray-500 border border-gray-200 rounded-t-lg rounded-b-lg">
                     <table class="table min-w-full leading-normal mt-1">
@@ -36,10 +36,9 @@
                     </table>
 
                     <!-- Include the pagination -->
-                    {{ $models->links(
-                        'livewire-tables::'.config('livewire-tables.theme').'.includes.pagination',
-                        compact('paginationEnabled')
-                    ) }}
+                    @if($showPagination)
+                        {{ $models->links('livewire-tables::'.config('livewire-tables.theme').'.includes.pagination') }}
+                    @endif
                 </div>
             </div>
         </div>

@@ -19,7 +19,7 @@ trait Model
         $builder = $this->sqlFilterBuilder;
 
         // If the search is enabled and the search input is not empty.
-        if ($this->searchEnabled && $this->searchString() !== '') {
+        if ($this->showSearch && $this->searchString() !== '') {
             $builder = $this->modelSearch($builder);
         }
 

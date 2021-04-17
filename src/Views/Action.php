@@ -9,10 +9,8 @@ final class Action
     /**
      * Action column constructor.
      */
-    public static function make(
-        ?string $routeName = null,
-        ?string $view = null
-    ): Column {
+    public static function make(?string $routeName = null, ?string $view = null): Column
+    {
         return Column::make('')
             ->format(static function ($model) use ($view) {
                 // Get the view for the action or the default view

@@ -184,10 +184,9 @@ You can override any of these in your table component:
 
 | Property | Default | Usage |
 | -------- | ------- | ----- |
-| $searchEnabled | true | Whether or not searching is enabled |
+| $showSearch | true | Whether or not searching is enabled |
 | $searchUpdateMethod | debounce | debounce or lazy |
 | $searchDebounce | 350 | Amount of time in ms to wait to send the search query and refresh the table |
-| $disableSearchOnLoading | false | Whether or not to disable the search bar when it is searching/loading new data | 
 | $search | *none* | The initial search string |
 | $clearSearchButton | true | Adds a clear button to the search input |
 
@@ -202,7 +201,7 @@ You can override any of these in your table component:
 
 | Property | Default | Usage |
 | -------- | ------- | ----- |
-| $paginationEnabled | true | Enables or disables pagination as a whole |
+| $showPagination | true | Enables or disables pagination as a whole |
 | $perPageOptions | [10, 25, 50, 100] | The options to limit the amount of results per page. Set to [] to disable. |
 | $perPage | 25 | Amount of items to show per page |
 
@@ -210,13 +209,13 @@ You can override any of these in your table component:
 
 | Property | Default | Usage |
 | -------- | ------- | ----- |
-| $loadingIndicator | true | Whether or not to show a loading indicator when searching |
+| $showLoading | true | Whether or not to show a loading indicator when searching |
 
 #### Offline
 
 | Property | Default | Usage |
 | -------- | ------- | ----- |
-| $offlineIndicator | true | Whether or not to display an offline message when there is no connection |
+| $showOffline | true | Whether or not to display an offline message when there is no connection |
 
 #### Exports
 

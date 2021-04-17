@@ -1,5 +1,5 @@
 <!-- Start pagination if is enable -->
-@if ($paginationEnabled && $paginator->hasPages())
+@if ($paginator->hasPages())
     <nav class="bg-gray-50 px-4 py-3 my-1 flex items-center justify-between sm:px-6">
         <div class="hidden sm:block">
             <p class="text-sm text-gray-500">

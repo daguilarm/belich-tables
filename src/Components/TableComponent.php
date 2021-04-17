@@ -12,6 +12,7 @@ use Daguilarm\LivewireTables\Components\Traits\Loading;
 use Daguilarm\LivewireTables\Components\Traits\Model;
 use Daguilarm\LivewireTables\Components\Traits\Operations;
 use Daguilarm\LivewireTables\Components\Traits\Pagination;
+use Daguilarm\LivewireTables\Components\Traits\PerPage;
 use Daguilarm\LivewireTables\Components\Traits\Search;
 use Daguilarm\LivewireTables\Components\Traits\Sorting;
 use Daguilarm\LivewireTables\Components\Traits\Table;
@@ -34,6 +35,7 @@ abstract class TableComponent extends Component
         Model,
         Operations,
         Pagination,
+        PerPage,
         Search,
         Sorting,
         Table,
@@ -41,21 +43,9 @@ abstract class TableComponent extends Component
         Yajra;
 
     /**
-     * Filter values.
-     *
-     * @var array<string>
-     */
-    public array $filterValues = [];
-
-    /**
      * Add a new resource into the database for the current model.
      */
     public string $newResource;
-
-    /**
-     * The default pagination theme.
-     */
-    public string $paginationTheme = 'tailwind';
 
     /**
      * Whether or not to refresh the table at a certain interval
@@ -68,7 +58,7 @@ abstract class TableComponent extends Component
     /**
      * Whether or not to display an offline message when there is no connection.
      */
-    public bool $offlineIndicator = true;
+    public bool $showOffline = true;
 
     /**
      * Set the model builder.
@@ -132,7 +122,7 @@ abstract class TableComponent extends Component
         return view($this->viewName(), [
             'columns' => $this->columns(),
             'filters' => $this->filters(),
-            'models' => $this->paginationEnabled
+            'models' => $this->showPagination
                 ? $this->models()->paginate((int) $this->perPage)
                 : $this->models()->get(),
             'operations' => $this->mergeOperations(),

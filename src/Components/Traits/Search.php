@@ -19,7 +19,7 @@ trait Search
     /**
      * Whether or not searching is enabled.
      */
-    public bool $searchEnabled = true;
+    public bool $showSearch = true;
 
     /**
      * false = disabled
