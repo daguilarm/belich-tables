@@ -23,13 +23,13 @@ This package need at least:
 
 You can install the package via composer:
 
-composer require daguilarm/livewire-tables
+    composer require daguilarm/livewire-tables
 
 ## Publishing Assets
 
 Publishing assets are optional unless you want to customize this package.
 
-php artisan vendor:publish --provider="Daguilarm\LivewireTables\LivewireTablesServiceProvider"
+    php artisan vendor:publish --provider="Daguilarm\LivewireTables\LivewireTablesServiceProvider"
 
 ## Usage
 
