@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Components\Traits;
+namespace Daguilarm\LivewireTables\Exports;
 
 trait ExportHelper
 {

@@ -4,18 +4,17 @@
 
     <!-- All the columns -->
     @foreach($columns as $column)
+        {{-- Set the column name --}}
+        @php $columnName = Str::lower($column->getText()); @endphp
         @if ($column->isVisible())
             @if($column->isSortable())
                 <!-- Sortable column -->
                 <th
                     scope="col"
-                    class="{{ $column->show }} px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    id="{{ $this->setTableHeadId($column->getAttribute()) }}"
-                    @foreach ($this->setTableHeadAttributes($column->getAttribute()) as $key => $value)
-                        {{ $key }}="{{ $value }}"
-                    @endforeach
+                    class="{{ $column->show }} px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+                    id="column-{{ $columnName }}"
+                    dusk="column_{{ $columnName }}"
                     wire:click="sort('{{ $column->getAttribute() }}')"
-                    style="cursor:pointer;"
                 >
                     <div class="flex justify-start items-center">
 
@@ -47,10 +46,8 @@
                 <th
                     scope="col"
                     class="{{ $column->show }} px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    id="{{ $this->setTableHeadId($column->getAttribute()) }}"
-                    @foreach ($this->setTableHeadAttributes($column->getAttribute()) as $key => $value)
-                        {{ $key }}="{{ $value }}"
-                    @endforeach
+                    id="column-{{ $columnName }}"
+                    dusk="column_{{ $columnName }}"
                 >
                     <!-- Column text -->
                     {{ $column->getText() }}

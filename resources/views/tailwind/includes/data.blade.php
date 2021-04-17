@@ -2,11 +2,6 @@
 @foreach($models as $model)
     <tr
         class="bg-white border-b border-gray-150"
-        id="{{ $this->setTableRowId($model) }}"
-        {{-- Load all the attributes --}}
-        @foreach ($this->setTableRowAttributes($model) as $key => $value)
-            {{ $key }}="{{ $value }}"
-        @endforeach
     >
         <!-- Table checkbox -->
         @includeWhen($checkboxEnable && !isset($headerTitle), 'livewire-tables::'.config('livewire-tables.theme').'.includes.checkboxes.checkbox')
@@ -16,10 +11,6 @@
             @if ($column->isVisible())
                 <td
                     class="{{ $column->show }} px-6 py-3 whitespace-nowrap text-sm text-gray-500"
-                    id="{{ $this->setTableDataId($column->getAttribute(), data_get($model, $column->getAttribute())) }}"
-                    @foreach ($this->setTableDataAttributes($column->getAttribute(), data_get($model, $column->getAttribute())) as $key => $value)
-                    {{ $key }}="{{ $value }}"
-                    @endforeach
                 >
                     <!-- Formated column -->
                     @if ($column->isFormatted())

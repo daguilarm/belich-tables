@@ -14,6 +14,11 @@ trait Exports
     /**
      * @var array<string>
      */
+    public array $allowedFormats = ['csv', 'xls', 'xlsx', 'pdf'];
+
+    /**
+     * @var array<string>
+     */
     public array $exports = [];
 
     /**

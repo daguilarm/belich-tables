@@ -40,7 +40,11 @@ trait Sorting
         if (str_contains($this->sortField, '.')) {
             $relationship = $this->relationship($this->sortField);
 
-            return $this->attribute($builder, $relationship->name, $relationship->attribute);
+            return $this->attribute(
+                $builder,
+                $relationship->name,
+                $relationship->attribute
+            );
         }
 
         return $this->sortField;

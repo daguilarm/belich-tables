@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Exports;
 
-use Daguilarm\LivewireTables\Traits\ExportHelper;
+use Daguilarm\LivewireTables\Exports\ExportHelper;
 use Illuminate\Database\Eloquent\Builder;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
@@ -55,9 +55,10 @@ final class Export implements FromQuery, WithHeadings, WithMapping
     /**
      * Generate the export file map.
      *
+     * @param object $row
      * @return  array<string>
      */
-    public function map(object $row): array
+    public function map($row): array
     {
         $map = [];
 
