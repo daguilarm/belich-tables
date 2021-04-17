@@ -38,6 +38,7 @@ final class LivewireTablesServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('livewire-tables.php'),
             ], 'config');
+
             $this->publishes([
                 __DIR__.'/../config/livewire-flash.php' => config_path('livewire-flash.php'),
             ], 'config');

@@ -19,6 +19,18 @@ This package need at least:
 - AlpineJS ^2.0
 - TailwindCSS ^2.0
 
+## Installation
+
+You can install the package via composer:
+
+composer require daguilarm/livewire-tables
+
+## Publishing Assets
+
+Publishing assets are optional unless you want to customize this package.
+
+php artisan vendor:publish --provider="Daguilarm\LivewireTables\LivewireTablesServiceProvider"
+
 ## Usage
 
 ### Creating Tables
