@@ -25,9 +25,13 @@ You can install the package via composer:
 
     composer require daguilarm/livewire-tables
 
+Or include in your `composer.json`:
+
+    "daguilarm/livewire-tables": "^1.0"
+
 ## Publishing Assets
 
-Publishing assets are optional unless you want to customize this package.
+Publishing assets are mandatory for this package:
 
     php artisan vendor:publish --provider="Daguilarm\LivewireTables\LivewireTablesServiceProvider"
 

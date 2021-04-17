@@ -13,11 +13,6 @@
     "type": "library",
     "authors": [
         {
-            "name": "Anthony Rappa",
-            "email": "rappa819@gmail.com",
-            "role": "Developer"
-        },
-        {
             "name": "daguilarm",
             "email": "damian.aguilarm@gmail.com",
             "homepage": "https://daguilar.dev",
