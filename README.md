@@ -254,6 +254,7 @@ You can override any of these in your table component:
 | -------- | ------- | ----- |
 | $refresh | false | Whether or not to refresh the table at a certain interval. false = off, int = ms, string = functionCall |
 | $checkboxEnable | true | Enable the checkboxes to make mass assignments |
+| $newResource | null | If not empty, will enable the new resource buttom |
 
 ### Table Methods
 
@@ -652,7 +653,7 @@ You can show or hide buttons base on the selected checkboxes, using this logic:
 
 #### New resources 
 
-You can add a botton for: add new resource, using the parameter `$newResource` in you table component:
+You can add a button for *add new resource*, using the parameter `$newResource` in you table component:
 
 ```php
 <?php
