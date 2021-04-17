@@ -153,10 +153,9 @@ final class Column
     /**
      * Format the callback.
      */
-    public function formatted(object $model, Column $column): object
+    public function formatted(object $model, Column $column): object | string
     {
-        return app()
-            ->call($this->formatCallback, ['model' => $model, 'column' => $column]);
+        return app()->call($this->formatCallback, ['model' => $model, 'column' => $column]);
     }
 
     /**

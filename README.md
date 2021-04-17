@@ -48,14 +48,11 @@ namespace App\Http\Livewire;
 
 use App\User;
 use Daguilarm\LivewireTables\Components\TableComponent;
-use Daguilarm\LivewireTables\Components\Traits\HtmlComponents;
 use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
 class UsersTable extends TableComponent
 {
-    use HtmlComponents;
-
     public function query() : Builder
     {
         return User::with('role')->withCount('permissions');
@@ -67,34 +64,14 @@ class UsersTable extends TableComponent
             Column::make('ID')
                 ->searchable()
                 ->sortable(),
-            Column::make('Avatar')
-                ->format(function(User $model) {
-                    return $this->image($model->avatar, $model->name, ['class' => 'img-fluid']);
-                }),
             Column::make('Name')
                 ->searchable()
-                ->sortable(),
-            Column::make('E-mail', 'email')
-                ->searchable()
                 ->sortable()
-                ->format(function(User $model) {
-                    return $this->mailto($model->email, null, ['target' => '_blank']);
-                })
                 ->hideFrom('md'),
             Column::make('Role', 'role.name')
                 ->searchable()
                 ->sortable()
                 ->showOn('md'),
-            Column::make('Permissions')
-                ->sortable()
-                ->format(function(User $model) {
-                    return $this->html('<strong>'.$model->permissions_count.'</strong>');
-                }),
-            Column::make('Actions')
-                ->format(function(User $model) {
-                    return view('backend.auth.user.includes.actions', ['user' => $model]);
-                })
-                ->hideIf(auth()->user()->cannot('do-this')),
         ];
     }
 }
@@ -291,14 +268,11 @@ namespace App\Http\Livewire;
 
 use App\User;
 use Daguilarm\LivewireTables\Components\TableComponent;
-use Daguilarm\LivewireTables\Components\Traits\HtmlComponents;
 use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
 class UsersTable extends TableComponent
 {
-    use HtmlComponents;
-
     public function setTableHeadId(?string $attribute): ?string 
     {
         return 'head-id-' . $attribute;
@@ -414,14 +388,11 @@ use Daguilarm\LivewireTables\Components\Filters\FilterByDate;
 use Daguilarm\LivewireTables\Components\Filters\FilterByUser;
 use Daguilarm\LivewireTables\Components\Filters\FilterByYear;
 use Daguilarm\LivewireTables\Components\TableComponent;
-use Daguilarm\LivewireTables\Components\Traits\HtmlComponents;
 use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
 class UsersTable extends TableComponent
 {
-    use HtmlComponents;
-
     public function query() : Builder
     {
         return User::with('role')->withCount('permissions');
@@ -605,36 +576,6 @@ The default blade action, includes all the logic for delete items using a confir
 
 ![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/delete-modal.png)
 
-### HTML Components
-
-This package includes some of the functionality from the laravelcollective/html package modified to fit the needs of this package.
-
-To use these you must import the *Daguilarm\LivewireTables\Traits\HtmlComponents* trait.
-
-You may return any of these functions from the format() method of a column, for example:
-
-```php
-Column::make('Permissions')
-   ->format(function(User $model) {
-       return $this->html('<strong>'.$model->permissions_count.'</strong>');
-   })
-```
-
-The complete list of functions:
-
-```php
-public function image($url, $alt = null, $attributes = [], $secure = null): HtmlString
-public function link($url, $title = null, $attributes = [], $secure = null, $escape = true): HtmlString
-public function secureLink($url, $title = null, $attributes = [], $escape = true): HtmlString
-public function linkAsset($url, $title = null, $attributes = [], $secure = null, $escape = true): HtmlString
-public function linkSecureAsset($url, $title = null, $attributes = [], $escape = true): HtmlString
-public function linkRoute($name, $title = null, $parameters = [], $attributes = [], $secure = null, $escape = true): HtmlString
-public function linkAction($action, $title = null, $parameters = [], $attributes = [], $secure = null, $escape = true): HtmlString
-public function mailto($email, $title = null, $attributes = [], $escape = true): HtmlString
-public function email($email): string
-public function html($html): HtmlString
-```
-
 #### Mass assignments
 
 You can enable or disable the checkboxes using the variable `$checkboxEnable`, using this, you can show or hide the checkboxes:
@@ -665,14 +606,11 @@ use Daguilarm\LivewireTables\Components\Filters\FilterByDate;
 use Daguilarm\LivewireTables\Components\Filters\FilterByUser;
 use Daguilarm\LivewireTables\Components\Filters\FilterByYear;
 use Daguilarm\LivewireTables\Components\TableComponent;
-use Daguilarm\LivewireTables\Components\Traits\HtmlComponents;
 use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
 class UsersTable extends TableComponent
 {
-    use HtmlComponents;
-
     public string $newResource = '../../dashboard/users/create';
 
     public function query() : Builder
@@ -747,13 +685,10 @@ namespace App\Http\Livewire;
 use App\User;
 use Illuminate\Database\Eloquent\Builder;
 use Daguilarm\LivewireTables\Components\TableComponent;
-use Daguilarm\LivewireTables\Components\Traits\HtmlComponents;
 use Daguilarm\LivewireTables\Views\Column;
 
 class UsersTable extends TableComponent
 {
-    use HtmlComponents;
-
     public function query() : Builder
     {
         return User::with('role')->withCount('permissions');
