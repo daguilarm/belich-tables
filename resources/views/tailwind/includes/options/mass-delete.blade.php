@@ -4,6 +4,7 @@
     dusk="delete-mass-button"
     x-data="{ 'showModal': false }"
     @keydown.escape="showModal = false"
+    class="hidden md:block"
 >
     <!-- Button -->
     <button

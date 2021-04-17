@@ -1,5 +1,8 @@
 <!-- Hide container by default -->
-<div x-data="{ isOpenFilters: false, isFiltersActive: {{ count($filterValues) <= 0 ? 'false' : 'true' }} }">
+<div
+    x-data="{ isOpenFilters: false, isFiltersActive: {{ count($filterValues) <= 0 ? 'false' : 'true' }} }"
+    class="hidden md:block"
+>
     <div
         class="relative text-left"
         @click.away="isOpenFilters = false"

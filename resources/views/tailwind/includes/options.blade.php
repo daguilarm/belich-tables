@@ -1,5 +1,5 @@
-<div class="pb-3 sm:flex sm:items-center sm:justify-between">
-    <div class="flex sm:mt-3">
+<div class="pb-3 flex items-center justify-between">
+    <div class="flex mt-3">
         <div class="flex rounded-md">
             <div class="relative flex-grow">
                 <!-- Add search field -->
