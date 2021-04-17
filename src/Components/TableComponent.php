@@ -48,7 +48,7 @@ abstract class TableComponent extends Component
     public array $filterValues = [];
 
     /**
-     * Add a new resource into the database for the current model
+     * Add a new resource into the database for the current model.
      */
     public string $newResource;
 
