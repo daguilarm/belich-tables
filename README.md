@@ -650,6 +650,52 @@ You can show or hide buttons base on the selected checkboxes, using this logic:
 @includeWhen($checkboxValues, 'livewire-tables::path.to.your.view')
 ```
 
+#### New resources 
+
+You can add a botton for: add new resource, using the parameter `$newResource` in you table component:
+
+```php
+<?php
+
+namespace App\Http\Livewire;
+
+use App\User;
+use Daguilarm\LivewireTables\Components\Filters\FilterByDate;
+use Daguilarm\LivewireTables\Components\Filters\FilterByUser;
+use Daguilarm\LivewireTables\Components\Filters\FilterByYear;
+use Daguilarm\LivewireTables\Components\TableComponent;
+use Daguilarm\LivewireTables\Components\Traits\HtmlComponents;
+use Daguilarm\LivewireTables\Views\Column;
+use Illuminate\Database\Eloquent\Builder;
+
+class UsersTable extends TableComponent
+{
+    use HtmlComponents;
+
+    public string $newResource = '../../dashboard/users/create';
+
+    public function query() : Builder
+    {
+        return User::with('role')->withCount('permissions');
+    }
+}
+```
+
+The `$newResource` will render in the view:
+
+```html
+<a
+    href="{{ $newResource }} "
+    type="button"
+    class="inline-flex ml-2 mt-3 items-center p-2 shadow-lg rounded-lg text-blue-400 hover:text-white bg-white hover:bg-blue-400 focus:outline-none"
+>
+    <!-- Heroicon name: solid/mail -->
+    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+    </svg>
+</a>
+```
+
 ### Exporting Data
 
 The table component supports exporting to CSV, XLS, XLSX, and PDF.
