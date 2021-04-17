@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Views\Traits;
 
-trait Hidden
+trait ColumnVisibility
 {
     public string $show = '';
 

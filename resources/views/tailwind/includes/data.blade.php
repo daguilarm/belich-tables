@@ -14,7 +14,7 @@
                 >
                     <!-- Formated column -->
                     @if ($column->isFormatted())
-                        @if ($column->isRaw())
+                        @if ($column->asHtml())
                             {!! $column->formatted($model, $column) !!}
                         @else
                             {{ $column->formatted($model, $column) }}
@@ -22,7 +22,7 @@
 
                     <!-- Regular column -->
                     @else
-                        @if ($column->isRaw())
+                        @if ($column->asHtml())
                             {!! data_get($model, $column->getAttribute()) !!}
                         @else
                             {{ data_get($model, $column->getAttribute()) }}

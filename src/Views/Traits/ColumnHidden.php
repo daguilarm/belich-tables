@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Components\Traits;
+namespace Daguilarm\LivewireTables\Views\Traits;
 
-trait CanBeHidden
+trait ColumnHidden
 {
     protected bool $hidden = false;
 
