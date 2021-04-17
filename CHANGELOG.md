@@ -9,8 +9,9 @@ All notable changes to `livewire-tables` will be documented in this file
 ### Added
 
 - Ability to add custom filters.
+- Added three default filters.
 - Ability to add custom action bottons.
-- Delete items.
+- Delete items using a modal.
 - Checkboxes and the ability to add new features for selected items.
 - Flash messages.
 - Add new resources to a model.
