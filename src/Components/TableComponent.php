@@ -127,6 +127,7 @@ abstract class TableComponent extends Component
     public function render(): View
     {
         $this->resolveFilters();
+
         return view($this->viewName(), [
             'columns' => $this->columns(),
             'filters' => $this->filters(),
