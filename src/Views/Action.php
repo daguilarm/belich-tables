@@ -12,7 +12,7 @@ final class Action
     public static function make(?string $routeName = null, ?string $view = null): Column
     {
         return Column::make('')
-            ->format(static function ($model) use ($view) {
+            ->render(static function ($model) use ($view) {
                 // Get the view for the action or the default view
                 $component = $view ?? self::defaultView();
 

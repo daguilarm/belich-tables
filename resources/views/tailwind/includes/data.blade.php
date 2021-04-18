@@ -12,12 +12,16 @@
                 <td
                     class="{{ $column->show }} px-6 py-3 whitespace-nowrap text-sm text-gray-500"
                 >
+                    <!-- Renderable column -->
+                    @if ($column->isRenderable())
+                        {!! $column->renderCallback($model) !!}
+
                     <!-- Formated column -->
-                    @if ($column->isFormatted())
+                    @elseif ($column->isFormatted())
                         @if ($column->asHtml())
-                            {!! $column->formatted($model, $column) !!}
+                            {!! $column->formatted(data_get($model, $column->getAttribute())) !!}
                         @else
-                            {{ $column->formatted($model, $column) }}
+                            {{ $column->formatted(data_get($model, $column->getAttribute())) }}
                         @endif
 
                     <!-- Regular column -->

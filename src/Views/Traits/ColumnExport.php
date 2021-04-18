@@ -9,6 +9,11 @@ use Daguilarm\LivewireTables\Views\Column;
 trait ColumnExport
 {
     /**
+     * @var Closure
+     */
+    protected $exportFormatCallback;
+
+    /**
      * Check if the export format is callable.
      */
     public function hasExportFormat(): bool

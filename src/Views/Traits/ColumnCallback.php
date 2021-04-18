@@ -16,11 +16,6 @@ trait ColumnCallback
     /**
      * @var Closure
      */
-    protected $exportFormatCallback;
-
-    /**
-     * @var Closure
-     */
     protected $sortCallback;
 
     /**
@@ -65,8 +60,8 @@ trait ColumnCallback
     /**
      * Format the callback.
      */
-    public function formatted(object $model, Column $column): object | string
+    public function formatted(?string $value): object | string
     {
-        return app()->call($this->formatCallback, ['model' => $model, 'column' => $column]);
+        return call_user_func($this->formatCallback, $value);
     }
 }

@@ -67,11 +67,21 @@ class UsersTable extends TableComponent
             Column::make('Name')
                 ->searchable()
                 ->sortable()
-                ->hideFrom('md'),
-            Column::make('Role', 'role.name')
+                ->format(function($value) {
+                    return Str::of($value)
+                        ->plural()
+                        ->title();
+                })
+                ->hideFrom('lg'),
+            Column::make('Telephone', 'profile.profile_telephone')
                 ->searchable()
-                ->sortable()
-                ->showOn('md'),
+                ->sortable(),
+            Column::make('Avatar', 'profile.profile_avatar')
+                ->searchable()
+                ->render(function(User $user) {
+                    return view('profile.avatar', compact('user'));
+                }),
+            Action::make(),
         ];
     }
 }
