@@ -26,10 +26,21 @@
             loadSidebar: './nav/sidebar.md',
             subMaxLevel: 2,
             homepage: 'home.md',
+            search: 'auto',// default
+            tabs: {
+              persist    : true,      // default
+              sync       : true,      // default
+              theme      : 'classic', // default
+              tabComments: true,      // default
+              tabHeadings: true       // default
+            }
         }
     </script>
     <!-- Docsify v4 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-markdown.min.js"></script>
 </body>
 </html>
