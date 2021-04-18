@@ -37,12 +37,7 @@ trait Model
         if ($this->columnHasRealationship($column)) {
             $relationship = $this->relationship($column->getAttribute());
             $builder
-                ->join(
-                    $relationship->name,
-                    sprintf('%s.%s', $this->getModelClass(),$relationship->attribute),
-                    '=',
-                    sprintf('%s.id', $relationship->name)
-                );
+                ->join($relationship->name, sprintf('%s.%s', $this->getModelClass(),$relationship->attribute), '=', sprintf('%s.id', $relationship->name));
         }
 
         // Get the builder result.
