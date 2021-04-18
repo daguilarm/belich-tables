@@ -20,13 +20,10 @@
             requestHeaders: {
                 'cache-control': 'max-age=0',
             },
-            alias: {
-                '/.*/_sidebar.md': '/_sidebar.md'
-            },
             el: '#main',
             name: 'Livewire Tables',
             repo: 'daguilarm/livewire-tables',
-            loadSidebar: true,
+            loadSidebar: './nav/sidebar.md',
             subMaxLevel: 2,
             homepage: 'home.md',
         }
