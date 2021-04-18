@@ -499,7 +499,7 @@ public function values(): array
 
 Filters example:
 
-![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/filters.png)
+![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/documentation/images/filters.png)
 
 #### Pagination
 
@@ -546,7 +546,7 @@ public function columns() : array
 ```
 It will render something like that:
 
-![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/actions.png)
+![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/documentation/images/actions.png)
 
 You can define either of the two parameters, or you can leave them blank and use the default values ​​(which work in most of the cases):
 
@@ -583,17 +583,17 @@ The default action view will look like this:
 
 The default blade action, includes all the logic for delete items using a confirmation modal. But you can create your own in your custom action. In this case, the delete button is inside a livewire container, but you can do whatever you want...
 
-![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/delete-modal.png)
+![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/documentation/images/delete-modal.png)
 
 #### Mass assignments
 
 You can enable or disable the checkboxes using the variable `$checkboxEnable`, using this, you can show or hide the checkboxes:
 
-![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/checkboxes.png)
+![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/documentation/images/checkboxes.png)
 
 When a checkbox is activated, the mass action buttons automatically appear. By default, the hability to delete the selected elements.
 
-![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/mass-delete.png)
+![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/documentation/images/mass-delete.png)
 
 You can show or hide buttons base on the selected checkboxes, using this logic:
 
@@ -811,7 +811,7 @@ flash('warning message...')->warning()->livewire($this);
 flash('error message...')->error()->livewire($this);
 ```
 
-![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/docs/images/flash-messages.png)
+![Tables](https://raw.githubusercontent.com/daguilarm/livewire-tables/master/documentation/images/flash-messages.png)
 
 ### Custom javascript and css 
 
