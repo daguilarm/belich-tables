@@ -7,6 +7,11 @@
     <meta name="description" content="Description">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+    <!-- Plugins that are needed before app configuration. -->
+    <style>
+        /* Fix issue on mobile devices where a custom cover image goes off the screen. */
+        section.cover.show{height: 100%;}
+    </style>
 </head>
 <body>
     <div data-app id="main"></div>
@@ -15,8 +20,7 @@
             el: '#main',
             name: 'Livewire Tables',
             repo: 'daguilarm/livewire-tables',
-            basePath: 'raw.githubusercontent.com/daguilarm/livewire-tables',
-            coverpage: false,
+            basePath: 'raw.githubusercontent.com/daguilarm/livewire-tables/master/docs',
             loadSidebar: true,
             subMaxLevel: 4,
             auto2top: true,
@@ -25,7 +29,6 @@
     </script>
     <!-- Docsify v4 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-markdown.min.js"></script>
 </body>
 </html>
