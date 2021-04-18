@@ -14,7 +14,7 @@
                     class="{{ $column->show }} px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
                     id="column-{{ $columnName }}"
                     dusk="column_{{ $columnName }}"
-                    wire:click="sort('{{ $column->getAttribute() }}')"
+                    wire:click="orderBy('{{ $column->getAttribute() }}')"
                 >
                     <div class="flex justify-start items-center">
 

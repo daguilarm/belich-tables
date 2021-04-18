@@ -19,7 +19,7 @@ trait Model
         $builder = $this->sqlFilterBuilder;
 
         // If the search is enabled and the search input is not empty.
-        if ($this->showSearch && $this->searchString() !== '') {
+        if ($this->showSearch && $this->search) {
             $builder = $this->modelSearch($builder);
         }
 
@@ -33,11 +33,21 @@ trait Model
             ]);
         }
 
+        // // Sort by relationship
+        // if ($this->columnHasRealationship($column)) {
+        //     $relationship = $this->relationship($column->getAttribute());
+        //     $builder
+        //         ->join(
+        //             $relationship->name,
+        //             sprintf('%s.%s', $this->getModelClass(),$relationship->attribute),
+        //             '=',
+        //             sprintf('%s.id', $relationship->name)
+        //         );
+        // }
+
         // Get the builder result.
-        return $builder->orderBy(
-            $this->getSortField($builder),
-            $this->sortDirection
-        );
+        return $builder
+            ->orderBy($this->getSortField($builder), $this->sortDirection);
     }
 
     /**
