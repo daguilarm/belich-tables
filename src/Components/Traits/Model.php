@@ -33,21 +33,24 @@ trait Model
             ]);
         }
 
-        // // Sort by relationship
-        // if ($this->columnHasRealationship($column)) {
-        //     $relationship = $this->relationship($column->getAttribute());
-        //     $builder
-        //         ->join(
-        //             $relationship->name,
-        //             sprintf('%s.%s', $this->getModelClass(),$relationship->attribute),
-        //             '=',
-        //             sprintf('%s.id', $relationship->name)
-        //         );
-        // }
+        // Sort by relationship
+        if ($this->columnHasRealationship($column)) {
+            $relationship = $this->relationship($column->getAttribute());
+            $builder
+                ->join(
+                    $relationship->name,
+                    sprintf('%s.%s', $this->getModelClass(),$relationship->attribute),
+                    '=',
+                    sprintf('%s.id', $relationship->name)
+                );
+        }
 
         // Get the builder result.
         return $builder
-            ->orderBy($this->getSortField($builder), $this->sortDirection);
+            ->reorder(
+                $this->getSortField($builder),
+                $this->sortDirection
+            );
     }
 
     /**
