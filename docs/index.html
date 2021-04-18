@@ -35,6 +35,10 @@
               tabHeadings: true       // default
             }
         }
+        // Service worker
+        if (typeof navigator.serviceWorker !== 'undefined') {
+            navigator.serviceWorker.register('sw.js')
+        }
     </script>
     <!-- Docsify v4 -->
     <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>

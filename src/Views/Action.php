@@ -16,7 +16,7 @@ final class Action
                 // Get the view for the action or the default view
                 $component = $view ?? self::defaultView();
 
-                return view($component, compact('model'));
+                return view($component)->withId($model->id)->withResource($model->getTable());
             })
             ->excludeFromExport();
     }

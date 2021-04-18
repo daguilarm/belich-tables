@@ -1,6 +1,6 @@
 @php
     // Set the resource url
-    $url = sprintf('%s/%s', $model->getTable(), $model->id);
+    $url = sprintf('%s/%s', $resource, $id);
 @endphp
 
 <div class="flex justify-end text-gray-400" >
@@ -23,6 +23,6 @@
     </a>
 
     <!-- Livewire component: Delete button + modal -->
-    <livewire:delete-button-component :model="$model" :key="time().$model->id"/>
+    <livewire:delete-button-component :userId="$id" :key="time().$id"/>
 
 </div>

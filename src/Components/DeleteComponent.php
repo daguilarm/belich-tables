@@ -11,7 +11,7 @@ use Livewire\Component;
  */
 final class DeleteComponent extends Component
 {
-    public object $model;
+    public string $userId;
 
     /**
      * Render component.

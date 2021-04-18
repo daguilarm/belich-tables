@@ -51,6 +51,14 @@ trait Model
     }
 
     /**
+     * Get current model instance.
+     */
+    public function getModel()
+    {
+        return app($this->getModelClass());
+    }
+
+    /**
      * Search the model.
      */
     private function modelSearch(Builder $builder): Builder
