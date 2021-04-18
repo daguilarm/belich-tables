@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Exports;
 
-use Daguilarm\LivewireTables\Exports\ExportHelper;
 use Illuminate\Database\Eloquent\Builder;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;

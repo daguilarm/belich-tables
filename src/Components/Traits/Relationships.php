@@ -84,7 +84,7 @@ trait Relationships
     }
 
     /**
-     * Get the values for a BelongsToMany realtionship
+     * Get the values for a BelongsToMany realtionship.
      *
      * @return array<string>
      */
@@ -114,7 +114,7 @@ trait Relationships
     }
 
     /**
-     * Get the values for a HasOne or HasMany realtionship
+     * Get the values for a HasOne or HasMany realtionship.
      *
      * @return array<string>
      */
@@ -130,7 +130,7 @@ trait Relationships
     }
 
     /**
-     * Get the values for a BelongsTo realtionship
+     * Get the values for a BelongsTo realtionship.
      *
      * @return array<string>
      */
@@ -146,7 +146,7 @@ trait Relationships
     }
 
     /**
-     * Get the values for a null realtionship
+     * Get the values for a null realtionship.
      */
     private function getNullRelationship()
     {
