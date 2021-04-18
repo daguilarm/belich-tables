@@ -17,10 +17,12 @@
     <div data-app id="main"></div>
     <script>
         window.$docsify = {
+            requestHeaders: {
+                'cache-control': 'max-age=0',
+            },
             el: '#main',
             name: 'Livewire Tables',
             repo: 'daguilarm/livewire-tables',
-            basePath: 'raw.githubusercontent.com/daguilarm/livewire-tables/master/docs',
             loadSidebar: true,
             subMaxLevel: 4,
             auto2top: true,
