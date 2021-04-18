@@ -64,4 +64,24 @@ trait ColumnCallback
     {
         return call_user_func($this->formatCallback, $value);
     }
+
+    /**
+     * Resolve the column.
+     *
+     * @return int | float | string | null
+     */
+    public function resolveColumn(Column $column, object $model)
+    {
+        $value = data_get($model, $column->getAttribute());
+
+        if ($column->isRenderable()) {
+            return $column->renderCallback($model);
+        }
+
+        if ($column->isFormatted()) {
+            return $column->formatted($value);
+        }
+
+        return $value;
+    }
 }
