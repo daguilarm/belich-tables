@@ -9,7 +9,7 @@ trait Checkboxes
     /**
      * Whether or not checkboxes are enabled. Enable by default.
      */
-    public bool $checkboxEnable = true;
+    public bool $showCheckboxes = true;
 
     /**
      * Whether or not all checkboxes are currently selected.

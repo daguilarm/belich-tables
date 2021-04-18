@@ -20,7 +20,7 @@
                     <table class="table min-w-full leading-normal mt-1">
 
                         <!-- Include the table head -->
-                        @includeWhen($tableHeaderEnabled, 'livewire-tables::'.config('livewire-tables.theme').'.includes.thead')
+                        @includeWhen($showTableHead, 'livewire-tables::'.config('livewire-tables.theme').'.includes.thead')
 
                         <!-- Include the table data -->
                         <tbody>
@@ -32,7 +32,7 @@
                         </tbody>
 
                         <!-- Include the table foot -->
-                        @includeWhen($tableFooterEnabled, 'livewire-tables::'.config('livewire-tables.theme').'.includes.tfoot')
+                        @includeWhen($showTableFooter, 'livewire-tables::'.config('livewire-tables.theme').'.includes.tfoot')
                     </table>
 
                     <!-- Include the pagination -->

@@ -4,7 +4,7 @@
         class="bg-white border-b border-gray-150"
     >
         <!-- Table checkbox -->
-        @includeWhen($checkboxEnable && !isset($headerTitle), 'livewire-tables::'.config('livewire-tables.theme').'.includes.checkboxes.checkbox')
+        @includeWhen($showCheckboxes && !isset($headerTitle), 'livewire-tables::'.config('livewire-tables.theme').'.includes.checkboxes.checkbox')
 
         <!-- Table columns -->
         @foreach($columns as $column)
