@@ -13,6 +13,7 @@ All notable changes to `livewire-tables` will be documented in this file
 - Checkboxes and the ability to add new features for selected items.
 - Flash messages.
 - Add new resources to a model.
+- Custom views for columns results. Now you can custimize the result with a custom view.
 
 ### Changed
 
