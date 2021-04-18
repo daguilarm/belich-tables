@@ -18,6 +18,7 @@ use Daguilarm\LivewireTables\Components\Traits\Search;
 use Daguilarm\LivewireTables\Components\Traits\Sorting;
 use Daguilarm\LivewireTables\Components\Traits\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -27,7 +28,8 @@ use Livewire\WithPagination;
  */
 abstract class TableComponent extends Component
 {
-    use Checkboxes,
+    use AuthorizesRequests,
+        Checkboxes,
         Delete,
         Exports,
         Filters,
@@ -73,6 +75,11 @@ abstract class TableComponent extends Component
     protected $listeners = ['deleteItemById'];
 
     /**
+     * Set the model instance.
+     */
+    protected object $model;
+
+    /**
      * TableComponent constructor.
      */
     public function __construct(?string $id = null)
@@ -83,6 +90,8 @@ abstract class TableComponent extends Component
         $this->paginationTheme = config('livewire-tables.theme');
         // Init the column's filter
         $this->sqlFilterBuilder = $this->query();
+        // Init the model
+        $this->model = $this->getModel();
     }
 
     /**

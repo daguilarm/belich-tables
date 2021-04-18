@@ -13,7 +13,9 @@ trait Delete
      */
     public function deleteItemById(string $id): void
     {
-        $operation = $this->getModel()
+        $this->authorize('delete', [$this->model, $id]);
+
+        $operation = $this->model
             ->findOrFail($id)
             ->delete();
 
@@ -26,7 +28,10 @@ trait Delete
     public function deleteListOfItemById(): void
     {
         if ($this->checkboxValues) {
-            $operation = $this->getModel()
+
+            $this->authorize('deleteBulk', [$this->model, $this->checkboxValues]);
+
+            $operation = $this->model
                 ->whereIn('id', $this->checkboxValues)
                 ->delete();
         }
