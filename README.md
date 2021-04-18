@@ -1,7 +1,8 @@
 ![Package Logo](https://banners.beyondco.de/Livewire%20Tables.png?theme=light&packageManager=composer+require&packageName=daguilarm%2Flivewire-tables&pattern=bamboo&style=style_1&description=Manage+your+tables+with+Laravel+Livewire&md=1&showWatermark=0&fontSize=100px&images=template)
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/daguilarm/laravel-livewire-tables.svg?style=flat-square)](https://packagist.org/packages/daguilarm/livewire-tables)
-[![StyleCI](https://styleci.io/repos/354914653/shield?style=plastic)](https://github.styleci.io/repos/354914653)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/daguilarm/livewire-tables.svg?style=flat-square)](https://packagist.org/packages/daguilarm/livewire-tables)
+[![Styling](https://github.com/daguilarm/livewire-tables/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/daguilarm/livewire-tables/actions/workflows/php-cs-fixer.yml)
+[![Tests](https://github.com/daguilarm/livewire-tables/actions/workflows/run-tests.yml/badge.svg)](https://github.com/daguilarm/livewire-tables/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/daguilarm/livewire-tables.svg?style=flat-square)](https://packagist.org/packages/daguilarm/livewire-tables)
 ![GitHub last commit](https://img.shields.io/github/last-commit/daguilarm/livewire-tables)
 
