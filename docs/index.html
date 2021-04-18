@@ -9,15 +9,20 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 </head>
 <body>
-    <div data-app id="main">Hellow world</div>
+    <div data-app id="main"></div>
     <script>
         window.$docsify = {
+            repo: 'docsifyjs/docsify',
             el: '#main',
+            coverpage: false,
             loadSidebar: true,
             subMaxLevel: 4,
+            auto2top: true,
+            homepage: 'home.md',
+            basePath: '/docs/',
         }
     </script>
-    <!-- Docsify -->
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 </body>
 </html>
