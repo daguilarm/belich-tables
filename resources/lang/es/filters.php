@@ -6,6 +6,6 @@ return [
     'filter' => 'Filtrar',
     // Filters
     'date' => 'Filtro por fecha',
-    'user' => 'Filtro por suario',
+    'user' => 'Filtro por usuario',
     'year' => 'Filtro por año',
 ];
