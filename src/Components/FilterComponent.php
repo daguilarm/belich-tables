@@ -72,4 +72,18 @@ abstract class FilterComponent extends Component
 
         return $this;
     }
+
+    /**
+     * Get the column name from table.
+     */
+    public function getColumn(Builder $model, ?string $tableColumnName = null): string
+    {
+        $tableName = $model->getQuery()->from;
+
+        return sprintf(
+            '%s.%s',
+            $tableName,
+            $tableColumnName ?? $this->tableColumn
+        );
+    }
 }

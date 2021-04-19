@@ -67,7 +67,7 @@ trait Filters
     private function getFilterValue(Collection $filter): string | array | null
     {
         // Get the filter name
-        $filterName = $filter?->get('name');
+        $filterName = $this->getFilterName($filter);
         // Get the filter value
         $value = $this->filterValues[$filterName] ?? null;
 
@@ -82,9 +82,28 @@ trait Filters
      */
     private function getFilterQuery(Collection $filter, string | array | null $value): Builder
     {
+        // Get the filter name
+        $filterName = $this->getFilterName($filter);
+
+        // Preventing the filter from repeating
+        if (! in_array($filterName, $this->queryKey)) {
+            // Query unique key
+            $this->queryKey[] = $filterName;
+            // The filter will be executed directly, no need to return the model
+            return $filter
+                ->get('all')
+                ->query($this->models(), $value);
+        }
+
         // The filter will be executed directly, no need to return the model
-        return $filter
-            ->get('all')
-            ->query($this->models(), $value);
+        return $this->models();
+    }
+
+    /**
+     * Get filter name.
+     */
+    private function getFilterName(Collection $filter): ?string
+    {
+        return $filter?->get('name');
     }
 }

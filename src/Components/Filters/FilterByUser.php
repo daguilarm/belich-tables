@@ -18,7 +18,7 @@ final class FilterByUser extends FilterComponent
         parent::__construct($name);
 
         $this->view = 'livewire-tables::'.config('livewire-tables.theme').'.includes.options.filters.user';
-        $this->tableColumn = 'id';
+        $this->tableColumn = 'users.id';
         $this->name = $name ?? 'user';
     }
 
@@ -29,10 +29,12 @@ final class FilterByUser extends FilterComponent
      */
     public function query(Builder $model, $value): Builder
     {
-        return $model->where(
-            $this->tableColumn,
-            $value
-        );
+        return $model
+            ->select($this->tableColumn)
+            ->where(
+                $this->tableColumn,
+                $value
+            );
     }
 
     /**
@@ -42,7 +44,8 @@ final class FilterByUser extends FilterComponent
      */
     public function values(): array
     {
-        return User::all()
+        return User::orderBy('name')
+            ->get()
             ->pluck('name', 'id')
             ->toArray();
     }

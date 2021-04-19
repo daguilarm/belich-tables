@@ -48,11 +48,9 @@ trait Delete
     {
         // Messages
         return $deleteOperation
-            ? flash(trans('livewire-tables::strings.messages.delete.success'))
-                ->success()
-                ->livewire($this)
-            : flash(trans('livewire-tables::strings.messages.delete.error'))
-                ->error()
-                ->livewire($this);
+            // Success message
+            ? flash(trans('livewire-tables::strings.messages.delete.success'))->success()->livewire($this)
+            // Error message
+            : flash(trans('livewire-tables::strings.messages.delete.error'))->error()->livewire($this);
     }
 }

@@ -69,6 +69,8 @@ abstract class TableComponent extends Component
      */
     protected Builder $sqlFilterBuilder;
 
+    protected string $getTableName;
+
     /**
      * Delete listeners.
      *
@@ -94,6 +96,8 @@ abstract class TableComponent extends Component
         $this->sqlFilterBuilder = $this->query();
         // Init the model
         $this->model = $this->getModel();
+        // Get table name
+        $this->tableName = $this->model->getTable();
     }
 
     /**

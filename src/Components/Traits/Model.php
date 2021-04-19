@@ -29,7 +29,7 @@ trait Model
             $builder = $this->modelSearch($builder);
         }
 
-        // If the column is searchable.
+        // Get the column.
         $column = $this->getColumnByAttribute($this->sortField);
 
         if ($column !== false && is_callable($column->getSortCallback())) {

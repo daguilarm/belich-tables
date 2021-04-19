@@ -13,6 +13,11 @@ use Illuminate\Support\Str;
 trait SortingRelatioships
 {
     /**
+     * @var array<string>
+     */
+    protected array $queryKey = [];
+
+    /**
      * Sort table base on relationship.
      *
      * @return  array<string> [$builder, $sortAttribute]
@@ -24,19 +29,29 @@ trait SortingRelatioships
 
         // Sort if relationship is: HasOne
         if ($model instanceof HasOne) {
-            $builder
-                ->join($relationshipTable, $model->getQualifiedForeignKeyName(), '=', $model->getQualifiedParentKeyName());
+            // Preventing the filter from repeating
+            if (! in_array($sortAttribute, $this->queryKey)) {
+                // Query unique key
+                $this->queryKey[] = $sortAttribute;
+                // Sorting result
+                $builder->join($relationshipTable, $model->getQualifiedForeignKeyName(), '=', $model->getQualifiedParentKeyName());
+            }
         }
 
         // Sort if relationship is: BelongsTo
         if ($model instanceof BelongsTo) {
-            $builder
-                ->join($relationshipTable, $model->getRelated()->getQualifiedKeyName(), '=', $model->getQualifiedOwnerKeyName());
+            // Preventing the filter from repeating
+            if (! in_array($sortAttribute, $this->queryKey)) {
+                // Query unique key
+                $this->queryKey[] = $sortAttribute;
+                // Sorting result
+                $builder->join($relationshipTable, $model->getRelated()->getQualifiedKeyName(), '=', $model->getQualifiedOwnerKeyName());
+            }
         }
 
         return [
             $builder,
-            $sortAttribute
+            $sortAttribute,
         ];
     }
 
@@ -56,6 +71,5 @@ trait SortingRelatioships
             $builder->getRelation($relationshipName),
             sprintf('%s.%s', $relationshipTable, $relationship->attribute),
         ];
-
     }
 }
