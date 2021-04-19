@@ -1,7 +1,7 @@
 <div class="flex flex-col">
 
     <!-- Include the table loading view -->
-    @includeWhen($showLoading, 'livewire-tables::'.config('livewire-tables.theme').'.includes.loading')
+    @includeWhen($showLoading, LivewireTables::include('includes.loading'))
 
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="min-w-full min-h-screen py-2 align-middle inline-block sm:px-6 lg:px-8">
