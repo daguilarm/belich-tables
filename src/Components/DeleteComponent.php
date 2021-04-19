@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Components;
 
+use Daguilarm\LivewireTables\Facades\LivewireTables;
 use Livewire\Component;
 
 /**
@@ -20,7 +21,7 @@ final class DeleteComponent extends Component
      */
     public function render()
     {
-        return view('livewire-tables::'.config('livewire-tables.theme').'.components.delete-button');
+        return view(LivewireTables::include('components.delete-button'));
     }
 
     /**

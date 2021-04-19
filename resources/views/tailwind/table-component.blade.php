@@ -11,33 +11,33 @@
                 @if (is_numeric($refresh)) wire:poll.{{ $refresh }}ms @elseif(is_string($refresh)) wire:poll="{{ $refresh }}" @endif
             >
                 <!-- Include the table offline message -->
-                @includeWhen($showOffline, 'livewire-tables::'.config('livewire-tables.theme').'.includes.offline')
+                @includeWhen($showOffline, LivewireTables::include('includes.offline'))
 
                 <!-- Load all the options: search, filters, perPage, export, new resource... -->
-                @include('livewire-tables::'.config('livewire-tables.theme').'.includes.options')
+                @include(LivewireTables::include('includes.options'))
 
                 <div class="bg-gray-50 text-gray-500 border border-gray-200 rounded-t-lg rounded-b-lg">
                     <table class="table min-w-full leading-normal mt-1">
 
                         <!-- Include the table head -->
-                        @includeWhen($showTableHead, 'livewire-tables::'.config('livewire-tables.theme').'.includes.thead')
+                        @includeWhen($showTableHead, LivewireTables::include('includes.thead'))
 
                         <!-- Include the table data -->
                         <tbody>
                             @if($models->isEmpty())
-                                @include('livewire-tables::'.config('livewire-tables.theme').'.includes.empty')
+                                @include(LivewireTables::include('includes.empty'))
                             @else
-                                @include('livewire-tables::'.config('livewire-tables.theme').'.includes.data')
+                                @include(LivewireTables::include('includes.data'))
                             @endif
                         </tbody>
 
                         <!-- Include the table foot -->
-                        @includeWhen($showTableFooter, 'livewire-tables::'.config('livewire-tables.theme').'.includes.tfoot')
+                        @includeWhen($showTableFooter, LivewireTables::include('includes.tfoot'))
                     </table>
 
                     <!-- Include the pagination -->
                     @if($showPagination)
-                        {{ $models->links('livewire-tables::'.config('livewire-tables.theme').'.includes.pagination') }}
+                        {{ $models->links(LivewireTables::include('includes.pagination')) }}
                     @endif
                 </div>
             </div>

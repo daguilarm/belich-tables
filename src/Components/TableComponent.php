@@ -18,6 +18,7 @@ use Daguilarm\LivewireTables\Components\Traits\Search;
 use Daguilarm\LivewireTables\Components\Traits\Sorting;
 use Daguilarm\LivewireTables\Components\Traits\SortingRelatioships;
 use Daguilarm\LivewireTables\Components\Traits\Table;
+use Daguilarm\LivewireTables\Facades\LivewireTables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\View\View;
@@ -124,7 +125,7 @@ abstract class TableComponent extends Component
      */
     public function viewName(): string
     {
-        return 'livewire-tables::'.config('livewire-tables.theme').'.table-component';
+        return LivewireTables::include('table-component');
     }
 
     /**

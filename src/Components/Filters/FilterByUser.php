@@ -6,6 +6,7 @@ namespace Daguilarm\LivewireTables\Components\Filters;
 
 use App\Models\User;
 use Daguilarm\LivewireTables\Components\FilterComponent;
+use Daguilarm\LivewireTables\Facades\LivewireTables;
 use Illuminate\Database\Eloquent\Builder;
 
 final class FilterByUser extends FilterComponent
@@ -17,8 +18,8 @@ final class FilterByUser extends FilterComponent
     {
         parent::__construct($name);
 
-        $this->view = 'livewire-tables::'.config('livewire-tables.theme').'.includes.options.filters.user';
-        $this->tableColumn = 'users.id';
+        $this->view = LivewireTables::include('includes.options.filters.user');
+        $this->tableColumn = 'id';
         $this->name = $name ?? 'user';
     }
 
@@ -29,7 +30,7 @@ final class FilterByUser extends FilterComponent
      */
     public function query(Builder $model, $value): Builder
     {
-        return $model->where($this->tableColumn, $value);
+        return $model->where($this->getColumn($model), $value);
     }
 
     /**

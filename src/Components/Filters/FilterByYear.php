@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Daguilarm\LivewireTables\Components\Filters;
 
 use Daguilarm\LivewireTables\Components\FilterComponent;
+use Daguilarm\LivewireTables\Facades\LivewireTables;
 use Illuminate\Database\Eloquent\Builder;
 
 final class FilterByYear extends FilterComponent
@@ -16,7 +17,7 @@ final class FilterByYear extends FilterComponent
     {
         parent::__construct($name);
 
-        $this->view = 'livewire-tables::'.config('livewire-tables.theme').'.includes.options.filters.year';
+        $this->view = LivewireTables::include('includes.options.filters.year');
         $this->name = $name ?? 'year';
     }
 

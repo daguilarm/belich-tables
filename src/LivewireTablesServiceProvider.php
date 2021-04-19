@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Daguilarm\LivewireTables;
 
 use Daguilarm\LivewireTables\Components\DeleteComponent;
+use Daguilarm\LivewireTables\Facades\LivewireTables;
+use Daguilarm\LivewireTables\Facades\LivewireTablesProvider;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
@@ -60,5 +63,8 @@ final class LivewireTablesServiceProvider extends ServiceProvider
     {
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'livewire-tables');
+
+        $this->app->register(LivewireTablesProvider::class);
+        AliasLoader::getInstance()->alias('LivewireTables', LivewireTables::class);
     }
 }

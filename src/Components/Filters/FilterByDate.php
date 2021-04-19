@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Daguilarm\LivewireTables\Components\Filters;
 
 use Daguilarm\LivewireTables\Components\FilterComponent;
+use Daguilarm\LivewireTables\Facades\LivewireTables;
 use Illuminate\Database\Eloquent\Builder;
 
 final class FilterByDate extends FilterComponent
@@ -16,7 +17,7 @@ final class FilterByDate extends FilterComponent
     {
         parent::__construct($name);
 
-        $this->view = 'livewire-tables::'.config('livewire-tables.theme').'.includes.options.filters.date';
+        $this->view = LivewireTables::include('includes.options.filters.date');
         $this->name = $name ?? 'date';
     }
 
@@ -28,11 +29,11 @@ final class FilterByDate extends FilterComponent
     public function query(Builder $model, $value): Builder
     {
         if (isset($value['start'])) {
-            $model->whereDate($this->tableColumn, '>=', $value['start']);
+            $model->whereDate($this->getColumn($model), '>=', $value['start']);
         }
 
         if (isset($value['end'])) {
-            $model->whereDate($this->tableColumn, '<=', $value['end']);
+            $model->whereDate($this->getColumn($model), '<=', $value['end']);
         }
 
         return $model;
