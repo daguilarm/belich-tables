@@ -1,3 +1,18 @@
 :root {
   --content-max-width: 90%;
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --tw-border-opacity: 1;
+}
+
+.thumb-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+    border-radius: 0.5rem;
 }

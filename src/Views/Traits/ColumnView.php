@@ -34,8 +34,6 @@ trait ColumnView
      */
     public function renderCallback(object $model): object
     {
-        return app()->call($this->renderCallback, [
-            'model' => $model ?? null,
-        ]);
+        return call_user_func($this->renderCallback, $model);
     }
 }
