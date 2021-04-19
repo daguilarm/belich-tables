@@ -1,5 +1,7 @@
 # Quickstart
 
+## Livewire Component
+
 To create a table component you may draw inspiration from the below stub:
 
 ```php 
@@ -46,6 +48,8 @@ class UsersTable extends TableComponent
 }
 ```
 
+## Route
+
 You need to create this file in the folder `app\Http\Livewire`. Now you need to create a rute for this table:
 
 ```php
@@ -53,8 +57,11 @@ Route::get('/dashboard/users', function () {
     return view('dashboard.users-table');
 })->name('dashboard.users');
 ```
+Of course, you can do this from a `Controller`, but this is the first aproch to the package.
 
-Of course, you can do this from a `Controller`, but this is the first aproch to the package. In the view, you will need to call the `Livewire Component`:
+## Blade Component
+
+In the view, you will need to call the `Livewire Component`:
 
 ```html
 <livewire:users-table /> 
@@ -70,3 +77,16 @@ Column::make('Avatar', 'profile.profile_avatar')
         return view('profile.avatar', compact('user'));
     })
 ```
+
+## Flash messages
+
+**Livewire Tables** include the package: [Livewire Flash by Mattlibera](https://github.com/mattlibera/livewire-flash). This package allows us to incorporate flash messages through Livewire, in a very simple way. Some parts of the package use this functionality, so it is convenient to activate it.
+
+To do this, you need to add the `flash-container` component:
+
+```html
+<livewire:flash-container />
+<livewire:users-table />
+```
+
+!>If you do not add this component, the messages will not appear when certain tasks were completed.
