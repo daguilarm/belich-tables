@@ -29,12 +29,7 @@ final class FilterByUser extends FilterComponent
      */
     public function query(Builder $model, $value): Builder
     {
-        return $model
-            ->select($this->tableColumn)
-            ->where(
-                $this->tableColumn,
-                $value
-            );
+        return $model->where($this->tableColumn, $value);
     }
 
     /**
