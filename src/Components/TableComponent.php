@@ -16,6 +16,7 @@ use Daguilarm\LivewireTables\Components\Traits\PerPage;
 use Daguilarm\LivewireTables\Components\Traits\Relationships;
 use Daguilarm\LivewireTables\Components\Traits\Search;
 use Daguilarm\LivewireTables\Components\Traits\Sorting;
+use Daguilarm\LivewireTables\Components\Traits\SortingRelatioships;
 use Daguilarm\LivewireTables\Components\Traits\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -41,6 +42,7 @@ abstract class TableComponent extends Component
         Relationships,
         Search,
         Sorting,
+        SortingRelatioships,
         Table,
         WithPagination;
 

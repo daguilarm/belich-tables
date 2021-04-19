@@ -21,6 +21,9 @@ trait Model
         // This came from \Daguilarm\LivewireTables\Traits\Filters::resolveFilters().
         $builder = $this->sqlFilterBuilder;
 
+        // Set the defaul model variables
+        [$tableName, $sortAttribute] = $this->defaultModelVariables($builder);
+
         // If the search is enabled and the search input is not empty.
         if ($this->showSearch && $this->search) {
             $builder = $this->modelSearch($builder);
@@ -36,39 +39,14 @@ trait Model
             ]);
         }
 
-        // Sort by relationship
+        // Sort by relationship [Daguilarm\LivewireTables\Components\Traits\SortingRelatioships]
         if ($this->columnHasRealationship($column)) {
-            $relationship = $this->relationship($column->getAttribute());
-            $relationshipName = $relationship->name;
-            $relationshipTable = Str::of($relationshipName)->plural();
-            $relationshipField = $relationship->attribute;
-            $model = $builder->getRelation($relationship->name);
-
-            if ($model instanceof HasOne) {
-                return $builder
-                    ->join($relationshipTable, $model->getQualifiedForeignKeyName(), '=', $model->getQualifiedParentKeyName())
-                    ->reorder(
-                        sprintf('%s.%s', $relationshipTable, $relationshipField),
-                        $this->sortDirection
-                    );
-            }
-
-            if ($model instanceof BelongsTo) {
-                return $builder
-                    ->join($relationshipTable, $model->getRelated()->getQualifiedKeyName(), '=', $model->getQualifiedOwnerKeyName())
-                    ->reorder(
-                        sprintf('%s.%s', $relationshipTable, $relationshipField),
-                        $this->sortDirection
-                    );
-            }
+            [$builder, $sortAttribute] = $this->sortingByRelationship($builder, $column);
         }
 
         // Get the builder result.
         return $builder
-            ->reorder(
-                $this->getSortField($builder),
-                $this->sortDirection
-            );
+            ->reorder($sortAttribute, $this->sortDirection);
     }
 
     /**
@@ -87,6 +65,21 @@ trait Model
     public function getModel()
     {
         return app($this->getModelClass());
+    }
+
+    /**
+     * Set the default model variables.
+     *
+     * @return  array<string> [$tableName, $sortAttribute]
+     */
+    private function defaultModelVariables(Builder $builder): array
+    {
+        $tableName = $builder->getQuery()->from;
+
+        return [
+            $tableName,
+            sprintf('%s.%s', $tableName, $this->getSortField($builder)),
+        ];
     }
 
     /**
