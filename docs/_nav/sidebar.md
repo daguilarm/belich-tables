@@ -6,4 +6,4 @@
 - The basics
 
   - [Quickstart](en/basics/quickstart.md)
-  - [Table Components](en/basics/table-components.md)
+  - [Creating Tables](en/basics/table-components.md)
