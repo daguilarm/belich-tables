@@ -6,6 +6,9 @@ namespace Daguilarm\LivewireTables\Components\Traits;
 
 use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Str;
 
 trait Model
 {
@@ -36,8 +39,28 @@ trait Model
         // Sort by relationship
         if ($this->columnHasRealationship($column)) {
             $relationship = $this->relationship($column->getAttribute());
-            $builder
-                ->join($relationship->name, sprintf('%s.%s', $this->getModelClass(), $relationship->attribute), '=', sprintf('%s.id', $relationship->name));
+            $relationshipName = $relationship->name;
+            $relationshipTable = Str::of($relationshipName)->plural();
+            $relationshipField = $relationship->attribute;
+            $model = $builder->getRelation($relationship->name);
+
+            if ($model instanceof HasOne) {
+                return $builder
+                    ->join($relationshipTable, $model->getQualifiedForeignKeyName(), '=', $model->getQualifiedParentKeyName())
+                    ->reorder(
+                        sprintf('%s.%s', $relationshipTable, $relationshipField),
+                        $this->sortDirection
+                    );
+            }
+
+            if ($model instanceof BelongsTo) {
+                return $builder
+                    ->join($relationshipTable, $model->getRelated()->getQualifiedKeyName(), '=', $model->getQualifiedOwnerKeyName())
+                    ->reorder(
+                        sprintf('%s.%s', $relationshipTable, $relationshipField),
+                        $this->sortDirection
+                    );
+            }
         }
 
         // Get the builder result.
