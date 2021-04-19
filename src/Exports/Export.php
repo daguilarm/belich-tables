@@ -55,6 +55,7 @@ final class Export implements FromQuery, WithHeadings, WithMapping
      * Generate the export file map.
      *
      * @param object $row
+     *
      * @return  array<string>
      */
     public function map($row): array

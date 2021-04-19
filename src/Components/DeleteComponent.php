@@ -15,6 +15,8 @@ final class DeleteComponent extends Component
 
     /**
      * Render component.
+     *
+     * @return  Illuminate\View\View
      */
     public function render()
     {

@@ -6,9 +6,6 @@ namespace Daguilarm\LivewireTables\Components\Traits;
 
 use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Support\Str;
 
 trait Model
 {
@@ -21,8 +18,8 @@ trait Model
         // This came from \Daguilarm\LivewireTables\Traits\Filters::resolveFilters().
         $builder = $this->sqlFilterBuilder;
 
-        // Set the defaul model variables
-        [$tableName, $sortAttribute] = $this->defaultModelVariables($builder);
+        // Get the default sort attribute
+        $sortAttribute = $this->getSortAttribute($builder);
 
         // If the search is enabled and the search input is not empty.
         if ($this->showSearch && $this->search) {
@@ -62,24 +59,19 @@ trait Model
     /**
      * Get current model instance.
      */
-    public function getModel()
+    public function getModel(): object
     {
         return app($this->getModelClass());
     }
 
     /**
-     * Set the default model variables.
-     *
-     * @return  array<string> [$tableName, $sortAttribute]
+     * Set the sort attribute.
      */
-    private function defaultModelVariables(Builder $builder): array
+    private function getSortAttribute(Builder $builder): string
     {
         $tableName = $builder->getQuery()->from;
 
-        return [
-            $tableName,
-            sprintf('%s.%s', $tableName, $this->getSortField($builder)),
-        ];
+        return sprintf('%s.%s', $tableName, $this->getSortField($builder));
     }
 
     /**

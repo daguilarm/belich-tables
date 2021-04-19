@@ -32,7 +32,7 @@ trait ColumnView
     /**
      * Format the callback.
      */
-    public function renderCallback(object $model)
+    public function renderCallback(object $model): object
     {
         return app()->call($this->renderCallback, [
             'model' => $model ?? null,

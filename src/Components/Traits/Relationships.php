@@ -147,8 +147,10 @@ trait Relationships
 
     /**
      * Get the values for a null realtionship.
+     *
+     * @return array<null>
      */
-    private function getNullRelationship()
+    private function getNullRelationship(): array
     {
         return [null, null, null, null, null];
     }
