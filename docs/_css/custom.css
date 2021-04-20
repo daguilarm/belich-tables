@@ -1,7 +1,9 @@
 :root {
     --content-max-width: 90%;
     --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --tw-shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     --tw-border-opacity: 1;
+    --code-inline-background: var(--mono-tint2);
 }
 
 .thumb-image,
@@ -29,6 +31,17 @@
 #main > table > tbody > tr > td:not(:last-child) {
     width: 1px;
     white-space: nowrap;
+}
+
+#main > p.tip,
+#main > p.warn {
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+#main > p.tip > code,
+#main > p.warn > code {
+    background-color: #fff !important;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow-1);
 }
 
 /* Fix issue on mobile devices where a custom cover image goes off the screen. */
