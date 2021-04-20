@@ -8,6 +8,6 @@ Combining all these parameters, we will be able to configure the table according
 
 The table, will need to extend the class `Daguilarm\LivewireTables\Components\TableComponent` this class establishes some parameters by default and forces you to include a series of classes in your table. These three classes are:
 
-### Query 
+### The query() method 
 
 The `query()` method...

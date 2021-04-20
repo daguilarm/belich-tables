@@ -17,5 +17,5 @@
     </a>
 
     {{-- Delete Modal --}}
-    @include('livewire-tables::'.config('livewire-tables.theme').'.includes.modals.delete-modal', ['onclick' => 'deleteItemById('.$userId.')'])
+    @include(LivewireTables::include('includes.modals.delete-modal'), ['onclick' => 'itemDelete('.$userId.')'])
 </div>

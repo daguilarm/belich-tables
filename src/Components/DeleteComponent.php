@@ -27,8 +27,8 @@ final class DeleteComponent extends Component
     /**
      * Delete elements from ID or List of IDs.
      */
-    public function deleteItemById(?string $id = null): void
+    public function itemDelete(?string $id = null): void
     {
-        $this->emit('deleteItemById', $id);
+        $this->emit('itemDelete', $id);
     }
 }

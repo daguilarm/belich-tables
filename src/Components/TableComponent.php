@@ -70,6 +70,9 @@ abstract class TableComponent extends Component
      */
     protected Builder $sqlFilterBuilder;
 
+    /**
+     * Get the table name from model.
+     */
     protected string $getTableName;
 
     /**
@@ -77,7 +80,7 @@ abstract class TableComponent extends Component
      *
      * @var array<string>
      */
-    protected $listeners = ['deleteItemById'];
+    protected $listeners = ['itemDelete'];
 
     /**
      * Set the model instance.
