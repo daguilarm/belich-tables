@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Components\Traits\Models;
 
-use Daguilarm\LivewireTables\Components\Traits\Models\SearchBuilder;
 use Illuminate\Database\Eloquent\Builder;
 
 final class Search extends SearchBuilder

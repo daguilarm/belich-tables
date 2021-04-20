@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Facades;
 
-use Daguilarm\LivewireTables\Facades\LivewireTablesMethods;
 use Illuminate\Support\ServiceProvider;
 
 final class LivewireTablesProvider extends ServiceProvider

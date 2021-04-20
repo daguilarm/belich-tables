@@ -15,7 +15,7 @@ trait UniqueQuery
     protected array $queryKey = [];
 
     /**
-     * Preventing the query from repeating
+     * Preventing the query from repeating.
      */
     private function uniqueQuery(Builder $builder, string $key, string | Stringable $table, string $first, string $second, string $operator = '='): Builder
     {

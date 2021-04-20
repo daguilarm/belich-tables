@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Components\Traits;
 
-use Daguilarm\LivewireTables\Components\Traits\RelationshipsMethod;
 use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
