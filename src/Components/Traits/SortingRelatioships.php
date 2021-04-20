@@ -30,24 +30,22 @@ trait SortingRelatioships
 
         // Sort if relationship is: HasOne
         if ($model instanceof HasOne) {
-            // Preventing the query from repeating
-            $builder = $this->uniqueQuery(
-                builder: $builder,
-                key: $sortAttribute,
+            // HasOne relationship query
+            $builder->join(
                 table: $relationshipTable,
                 first: $model->getQualifiedForeignKeyName(),
+                operator: '=',
                 second: $model->getQualifiedParentKeyName(),
             );
         }
 
         // Sort if relationship is: BelongsTo
         if ($model instanceof BelongsTo) {
-            // Preventing the query from repeating
-            $builder = $this->uniqueQuery(
-                builder: $builder,
-                key: $sortAttribute,
+            // BelongsTo relationship query
+            $builder->join(
                 table: $relationshipTable,
                 first: $model->getRelated()->getQualifiedKeyName(),
+                operator: '=',
                 second: $model->getQualifiedOwnerKeyName(),
             );
         }
@@ -78,24 +76,5 @@ trait SortingRelatioships
             $model,
             $sortAttribute,
         ];
-    }
-
-    /**
-     * Preventing the query from repeating.
-     */
-    private function uniqueQuery(Builder $builder, string $key, string | Stringable $table, string $first, string $operator = '=', ?string $second, ?callable $callback = null): Builder
-    {
-        // Check if the query exists
-        if (! in_array($key, $this->queryKey)) {
-            // Sete the query unique key
-            $this->queryKey[] = $key;
-            // Sorting result
-            return $builder->join(
-                $table,
-                $first,
-                $operator,
-                $second
-            );
-        }
     }
 }
