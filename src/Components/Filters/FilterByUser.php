@@ -30,7 +30,10 @@ final class FilterByUser extends FilterComponent
      */
     public function query(Builder $model, $value): Builder
     {
-        return $model->where($this->getColumn($model), $value);
+        return $model->where(
+            $this->getColumn($model),
+            $value,
+        );
     }
 
     /**
@@ -40,8 +43,8 @@ final class FilterByUser extends FilterComponent
      */
     public function values(): array
     {
-        return User::orderBy('name')
-            ->get()
+        return User::select('users.id', 'users.name')
+            ->orderBy('name')
             ->pluck('name', 'id')
             ->toArray();
     }

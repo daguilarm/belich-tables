@@ -53,7 +53,7 @@
                 @foreach($filters as $filter)
                     <span wire:key="{{ md5(Str::random() . time()) }}">
                         <div class="py-2 px-4 text-yellow-700 font-normal">
-                            @includeIf($filter->view, ['values' => $filter->values()])
+                            @includeIf($filter->view, compact('filter'))
                         </div>
                     </span>
 

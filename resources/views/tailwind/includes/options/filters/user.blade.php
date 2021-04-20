@@ -1,6 +1,6 @@
 <!-- Filter -->
 <div class="filter-container">
-    <label for="search_filter_worker" class="flex mb-1">
+    <label for="search_filter_user" class="flex mb-1">
         <div>
             <!-- Icon: heroicon-s-user -->
             <svg class="h-6 w-6 py-1 opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -19,7 +19,7 @@
         wire:model.defer="filterValues.user"
     >
         <option value=""></option>
-        @foreach($values as $id => $value)
+        @foreach($filter->values() as $id => $value)
             <option value="{{ $id }}">{{ $value }}</option>
         @endforeach
     </select>
