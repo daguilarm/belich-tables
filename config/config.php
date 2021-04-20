@@ -29,4 +29,9 @@ return [
      * It can be in rgb, rgba or hexadecimal... any valid format in css.
      */
     'loadingColor' => 'rgba(147, 197, 253, 1)',
+
+    /*
+     * Default value when there is no results.
+     */
+    'noResults' => '—'
 ];

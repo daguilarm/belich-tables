@@ -12,8 +12,15 @@
                 <td
                     class="{{ $column->show }} px-6 py-3 whitespace-nowrap text-sm text-gray-500"
                 >
+                    <!-- Render column as Boolean -->
+                    @if ($column->boolean)
+                        @if ($column->resolveColumn($column, $model) === true)
+                            <div class="h-4 w-4 rounded-full bg-green-400"></div>
+                        @else
+                            <div class="h-4 w-4 rounded-full bg-gray-200"></div>
+                        @endif
                     <!-- Render column as HTML -->
-                    @if ($column->asHtml())
+                    @elseif ($column->asHtml)
                         {!! $column->resolveColumn($column, $model) !!}
 
                     <!-- Render column -->

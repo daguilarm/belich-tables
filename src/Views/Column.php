@@ -4,26 +4,31 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Views;
 
+use Daguilarm\LivewireTables\Views\Traits\ColumnBoolean;
 use Daguilarm\LivewireTables\Views\Traits\ColumnCallback;
 use Daguilarm\LivewireTables\Views\Traits\ColumnExport;
 use Daguilarm\LivewireTables\Views\Traits\ColumnHidden;
+use Daguilarm\LivewireTables\Views\Traits\ColumnResolve;
 use Daguilarm\LivewireTables\Views\Traits\ColumnView;
 use Daguilarm\LivewireTables\Views\Traits\ColumnVisibility;
 use Illuminate\Support\Str;
 
 final class Column
 {
-    use ColumnCallback,
+    use ColumnBoolean,
+        ColumnCallback,
         ColumnExport,
         ColumnHidden,
+        ColumnResolve,
         ColumnView,
         ColumnVisibility;
 
+    public bool $asHtml = false;
+    public bool $boolean = false;
     protected string $text;
     protected string $attribute;
     protected bool $sortable = false;
     protected bool $searchable = false;
-    protected bool $asHtml = false;
     protected bool $includeInExport = true;
     protected bool $exportOnly = false;
 

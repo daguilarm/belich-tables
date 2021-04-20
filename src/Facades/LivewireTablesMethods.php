@@ -13,4 +13,12 @@ final class LivewireTablesMethods
     {
         return sprintf('livewire-tables::'.config('livewire-tables.theme').'.%s', $path);
     }
+
+    /**
+     * No results.
+     */
+    public function noResults()
+    {
+        return config('livewire-tables.noResults');
+    }
 }
