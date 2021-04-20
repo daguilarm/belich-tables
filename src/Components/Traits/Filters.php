@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Components\Traits;
 
-use Daguilarm\LivewireTables\Components\Traits\Filters\FiltersToCollection;
-use Daguilarm\LivewireTables\Components\Traits\Filters\GetFilterValueFromView;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
 trait Filters
@@ -29,7 +26,7 @@ trait Filters
             // Get each filter from the list
             ->each(function ($filter): void {
                 // Get the value to filter
-                $value =  $this->getFilterValue($filter);
+                $value = $this->getFilterValue($filter);
                 // Create the new query base on the filter
                 if ($value) {
                     // Execute the filter from each table component defined by the user
