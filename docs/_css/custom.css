@@ -4,16 +4,34 @@
     --tw-border-opacity: 1;
 }
 
-.thumb-image {
+.thumb-image,
+#main > table {
     display: block;
-    max-width: 72rem !important;
-    margin-top: 3rem;
-    margin-bottom: : 3rem;
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     border-width: 1px;
     border-style: solid;
     border-color: rgba(229, 231, 235, var(--tw-border-opacity));
     border-radius: 0.5rem;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.thumb-image {
+    max-width: 72rem !important;
+}
+
+#main > table {
+    max-width: 100% !important;
+}
+
+#main > table > tbody > tr > td:not(:last-child) {
+    width: 1px;
+    white-space: nowrap;
+}
+
+/* Fix issue on mobile devices where a custom cover image goes off the screen. */
+section.cover.show {
+    height: 100%;
 }
