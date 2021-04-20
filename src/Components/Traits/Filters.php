@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Components\Traits;
 
+use Daguilarm\LivewireTables\Components\Traits\Filters\FiltersToCollection;
+use Daguilarm\LivewireTables\Components\Traits\Filters\GetFilterValueFromView;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
@@ -22,14 +24,17 @@ trait Filters
      */
     public function resolveFilters(): void
     {
-        $this->renderFilter()
+        // Convert all the filters in a collection
+        app(FiltersToCollection::class)
+            ->handle($this->filters())
+            // Get each filter from the list
             ->each(function ($filter): void {
                 // Get the value to filter
-                $filterValue = $this->getFilterValue($filter);
+                $value = app(GetFilterValueFromView::class)->handle($filter, $this->filterValues);
                 // Create the new query base on the filter
-                if ($filterValue) {
+                if ($value) {
                     // Execute the filter from each table component defined by the user
-                    $this->getFilterQuery($filter, $filterValue);
+                    $this->getFilterQuery($filter, $value);
                 }
             });
     }
@@ -41,40 +46,6 @@ trait Filters
     {
         $this->filterValues = [];
         $this->search = '';
-    }
-
-    /**
-     * Render the filters for the views.
-     */
-    private function renderFilter(): Collection
-    {
-        return collect($this->filters())
-            ->map(static function ($filter) {
-                return collect([
-                    // Set the value to be rendered in the view
-                    'all' => $filter,
-                    'name' => $filter->name,
-                    'view' => $filter->view,
-                    'values' => $filter->values(),
-                ]);
-            })
-            ->filter();
-    }
-
-    /**
-     * Get filter value.
-     */
-    private function getFilterValue(Collection $filter): string | array | null
-    {
-        // Get the filter name
-        $filterName = $this->getFilterName($filter);
-        // Get the filter value
-        $value = $this->filterValues[$filterName] ?? null;
-
-        // Get the filter value
-        return $filterName && $value
-            ? $this->filterValues[$filterName]
-            : null;
     }
 
     /**
