@@ -7,7 +7,7 @@ namespace Daguilarm\LivewireTables\Components\Traits\Models;
 use Daguilarm\LivewireTables\Components\Traits\Models\SearchBuilder;
 use Illuminate\Database\Eloquent\Builder;
 
-class Search extends SearchBuilder
+final class Search extends SearchBuilder
 {
     /**
      * Search in all the selected columns.
@@ -21,7 +21,7 @@ class Search extends SearchBuilder
             // Start the search
             return $builder
                 // Search the columns
-                ->where(function (Builder $builder) use ($columns, $search) {
+                ->where(function (Builder $builder) use ($columns, $search): void {
                     foreach ($columns as $column) {
                         // Search in each column
                         $this->searchBuilder($builder, $column, $search);

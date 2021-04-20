@@ -17,7 +17,7 @@ trait UniqueQuery
     /**
      * Preventing the query from repeating
      */
-    private function uniqueQuery(Builder $builder, string $key, string | Stringable $table, string $first, string $second, string $operator = '=')
+    private function uniqueQuery(Builder $builder, string $key, string | Stringable $table, string $first, string $second, string $operator = '='): Builder
     {
         // Check if the query exists
         if (! in_array($key, $this->queryKey)) {

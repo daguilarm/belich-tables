@@ -6,7 +6,7 @@ namespace Daguilarm\LivewireTables\Components\Traits\Filters;
 
 use Illuminate\Support\Collection;
 
-class FiltersToCollection
+final class FiltersToCollection
 {
     /**
      * Convert all the filters into a collection of filters.

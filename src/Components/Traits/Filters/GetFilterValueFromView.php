@@ -6,7 +6,7 @@ namespace Daguilarm\LivewireTables\Components\Traits\Filters;
 
 use Illuminate\Support\Collection;
 
-class GetFilterValueFromView
+final class GetFilterValueFromView
 {
     /**
      * Get the filter value from the view (from selection).
