@@ -15,7 +15,10 @@ trait Model
      */
     public function models(): Builder
     {
-        // Initialize the constructor using the query from the filters
+        // Resolve the filters
+        $this->resolveFilters();
+
+        // Initialize the constructor
         $builder = $this->sqlBuilder;
 
         // Get the default sort attribute
