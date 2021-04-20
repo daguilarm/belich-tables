@@ -8,7 +8,7 @@ Combining all these parameters, we will be able to configure the table according
 
 The table, will need to extend the class `Daguilarm\LivewireTables\Components\TableComponent` this class establishes some parameters by default and forces you to include a series of classes in your table. These three classes are:
 
-### The query() method 
+## query()
 
 The `query()` method will allow us to show the results of the database in our table. The structure of the method is as follows:
 
@@ -37,7 +37,7 @@ public function query(): Builder
 ```
 ?> If we are using models with relationships, it is important to define the attributes as in the previous example: `table.attribute`, to avoid problems when ordering the results. So you must use, for example: `users.id` instead of `id`.
 
-### The columns() method 
+## columns()
 
 This method will allow us to configure the columns of the table, and how they will be displayed. The structure of the method is as follows:
 
@@ -72,7 +72,7 @@ Column::make('Email').
 
 ?> It is advisable to always use both parameters, and leave magic aside.
 
-### The filters() method 
+## filters()
 
 From here we can load all the filters that we want to apply to each table. Let's see an example, using the predefined filters:
 
