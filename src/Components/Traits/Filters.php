@@ -25,16 +25,15 @@ trait Filters
     public function resolveFilters(): void
     {
         // Convert all the filters in a collection
-        app(FiltersToCollection::class)
-            ->handle($this->filters())
+        $this->filtersAsCollection()
             // Get each filter from the list
             ->each(function ($filter): void {
                 // Get the value to filter
-                $value = app(GetFilterValueFromView::class)->handle($filter, $this->filterValues);
+                $value =  $this->getFilterValue($filter);
                 // Create the new query base on the filter
                 if ($value) {
                     // Execute the filter from each table component defined by the user
-                    $this->getFilterQuery($filter, $value);
+                    $filter->query($this->sqlBuilder, $value);
                 }
             });
     }
@@ -49,32 +48,18 @@ trait Filters
     }
 
     /**
-     * Get filter query.
+     * Collect all the filters.
      */
-    private function getFilterQuery(Collection $filter, string | array | null $value): Builder
+    private function filtersAsCollection(): Collection
     {
-        // Get the filter name
-        $filterName = $this->getFilterName($filter);
-
-        // Preventing the filter from repeating
-        if (! in_array($filterName, $this->queryKey)) {
-            // Query unique key
-            $this->queryKey[] = $filterName;
-            // The filter will be executed directly, no need to return the model
-            $this->sqlBuilder = $filter
-                ->get('all')
-                ->query($this->sqlBuilder, $value);
-        }
-
-        // The filter will be executed directly, no need to return the model
-        return $this->sqlBuilder;
+        return collect($this->filters());
     }
 
     /**
      * Get filter name.
      */
-    private function getFilterName(Collection $filter): ?string
+    private function getFilterValue(object $filter): ?string
     {
-        return $filter?->get('name');
+        return $this->filterValues[$filter->name] ?? null;
     }
 }

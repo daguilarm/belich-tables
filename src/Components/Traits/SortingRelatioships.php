@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Str;
+use Illuminate\Support\Stringable;
 
 trait SortingRelatioships
 {
@@ -77,5 +78,24 @@ trait SortingRelatioships
             $model,
             $sortAttribute,
         ];
+    }
+
+    /**
+     * Preventing the query from repeating.
+     */
+    private function uniqueQuery(Builder $builder, string $key, string | Stringable $table, string $first, string $operator = '=', ?string $second, ?callable $callback = null): Builder
+    {
+        // Check if the query exists
+        if (! in_array($key, $this->queryKey)) {
+            // Sete the query unique key
+            $this->queryKey[] = $key;
+            // Sorting result
+            return $builder->join(
+                $table,
+                $first,
+                $operator,
+                $second
+            );
+        }
     }
 }

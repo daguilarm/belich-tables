@@ -10,4 +10,29 @@ The table, will need to extend the class `Daguilarm\LivewireTables\Components\Ta
 
 ### The query() method 
 
-The `query()` method...
+The `query()` method will allow us to show the results of the database in our table. The structure of the method is as follows:
+
+```php
+/**
+ * Set the query builder.
+ */
+public function query(): Builder
+{
+    //some code...
+};
+```
+
+!> It is important to note that we must create an instance of `\Illuminate\Database\Eloquent\Builder`.
+
+Let's see a working example:
+
+```php
+/**
+ * Set the query builder.
+ */
+public function query(): Builder
+{
+    return User::select(['users.id', 'user.name', 'user.email'])->with('profile');
+};
+```
+?> If we are using models with relationships, it is important to define the attributes as in the previous example: `table.attribute`, to avoid problems when ordering the results. 
