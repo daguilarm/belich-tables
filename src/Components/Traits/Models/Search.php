@@ -11,8 +11,10 @@ class Search extends SearchBuilder
 {
     /**
      * Search in all the selected columns.
+     *
+     * @param array<string> $columns
      */
-    public function handle(Builder $builder, $columns, ?string $search, bool $showSearch): Builder
+    public function handle(Builder $builder, array $columns, ?string $search, bool $showSearch): Builder
     {
         // If there is a search...
         if ($showSearch && $search) {

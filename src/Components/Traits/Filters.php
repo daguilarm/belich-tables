@@ -61,13 +61,13 @@ trait Filters
             // Query unique key
             $this->queryKey[] = $filterName;
             // The filter will be executed directly, no need to return the model
-            return $filter
+            $this->sqlBuilder = $filter
                 ->get('all')
-                ->query($this->models(), $value);
+                ->query($this->sqlBuilder, $value);
         }
 
         // The filter will be executed directly, no need to return the model
-        return $this->models();
+        return $this->sqlBuilder;
     }
 
     /**

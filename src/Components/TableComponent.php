@@ -18,6 +18,7 @@ use Daguilarm\LivewireTables\Components\Traits\Search;
 use Daguilarm\LivewireTables\Components\Traits\Sorting;
 use Daguilarm\LivewireTables\Components\Traits\SortingRelatioships;
 use Daguilarm\LivewireTables\Components\Traits\Table;
+use Daguilarm\LivewireTables\Components\Traits\UniqueQuery;
 use Daguilarm\LivewireTables\Facades\LivewireTables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -45,6 +46,7 @@ abstract class TableComponent extends Component
         Sorting,
         SortingRelatioships,
         Table,
+        UniqueQuery,
         WithPagination;
 
     /**
@@ -68,7 +70,7 @@ abstract class TableComponent extends Component
     /**
      * Set the model builder.
      */
-    protected Builder $sqlFilterBuilder;
+    protected Builder $sqlBuilder;
 
     /**
      * Get the table name from model.
@@ -97,7 +99,7 @@ abstract class TableComponent extends Component
         // Set the pagination theme
         $this->paginationTheme = config('livewire-tables.theme');
         // Init the column's filter
-        $this->sqlFilterBuilder = $this->query();
+        $this->sqlBuilder = $this->query();
         // Init the model
         $this->model = $this->getModel();
         // Get table name

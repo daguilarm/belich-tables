@@ -16,7 +16,7 @@ trait Model
     public function models(): Builder
     {
         // Initialize the constructor using the query from the filters
-        $builder = $this->sqlFilterBuilder;
+        $builder = $this->sqlBuilder;
 
         // Get the default sort attribute
         $sortAttribute = $this->getSortAttribute($builder);
@@ -38,7 +38,7 @@ trait Model
 
         // If the column is callable
         if ($column !== false && is_callable($column->getSortCallback())) {
-            $seach->columnCallback(
+            $search->columnCallback(
                 builder: $builder,
                 column: $column,
                 direction: $this->sortDirection

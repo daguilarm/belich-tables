@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Str;
+use Illuminate\Support\Stringable;
 
 trait SortingRelatioships
 {
@@ -29,24 +30,26 @@ trait SortingRelatioships
 
         // Sort if relationship is: HasOne
         if ($model instanceof HasOne) {
-            // Preventing the filter from repeating
-            if (! in_array($sortAttribute, $this->queryKey)) {
-                // Query unique key
-                $this->queryKey[] = $sortAttribute;
-                // Sorting result
-                $builder->join($relationshipTable, $model->getQualifiedForeignKeyName(), '=', $model->getQualifiedParentKeyName());
-            }
+            // Preventing the query from repeating
+            $builder = $this->uniqueQuery(
+                builder: $builder,
+                key: $sortAttribute,
+                table: $relationshipTable,
+                first: $model->getQualifiedForeignKeyName(),
+                second: $model->getQualifiedParentKeyName(),
+            );
         }
 
         // Sort if relationship is: BelongsTo
         if ($model instanceof BelongsTo) {
-            // Preventing the filter from repeating
-            if (! in_array($sortAttribute, $this->queryKey)) {
-                // Query unique key
-                $this->queryKey[] = $sortAttribute;
-                // Sorting result
-                $builder->join($relationshipTable, $model->getRelated()->getQualifiedKeyName(), '=', $model->getQualifiedOwnerKeyName());
-            }
+            // Preventing the query from repeating
+            $builder = $this->uniqueQuery(
+                builder: $builder,
+                key: $sortAttribute,
+                table: $relationshipTable,
+                first: $model->getRelated()->getQualifiedKeyName(),
+                second: $model->getQualifiedOwnerKeyName(),
+            );
         }
 
         return [
@@ -62,14 +65,18 @@ trait SortingRelatioships
      */
     private function defaultRelationshipVariables(Builder $builder, Column $column): array
     {
+        // Set values
         $relationship = $this->relationship($column->getAttribute());
         $relationshipName = $relationship->name;
+        // Get values
         $relationshipTable = Str::of($relationshipName)->plural();
+        $model = $builder->getRelation($relationshipName);
+        $sortAttribute = sprintf('%s.%s', $relationshipTable, $relationship->attribute);
 
         return [
             $relationshipTable,
-            $builder->getRelation($relationshipName),
-            sprintf('%s.%s', $relationshipTable, $relationship->attribute),
+            $model,
+            $sortAttribute,
         ];
     }
 }
