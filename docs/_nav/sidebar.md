@@ -7,3 +7,5 @@
 
   - [Quickstart](en/basics/quickstart.md)
   - [Creating Tables](en/basics/table-components.md)
+  - [Columns](en/basics/columns.md)
+  - [Filters](en/basics/filters.md)
