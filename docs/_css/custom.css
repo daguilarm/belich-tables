@@ -6,7 +6,8 @@
     --code-inline-background: var(--mono-tint2);
 }
 
-.thumb-image,
+.thumbnail,
+.thumbnail-full,
 #main > table {
     display: block;
     margin-top: 3rem !important;
@@ -20,7 +21,11 @@
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.thumb-image {
+.thumbnail {
+    max-width: 28rem !important;
+}
+
+.thumbnail-full {
     max-width: 72rem !important;
 }
 

@@ -14,8 +14,10 @@
                 >
                     <!-- Render column as Boolean -->
                     @if ($column->boolean)
+                        <!-- Render green -->
                         @if ($column->resolveColumn($column, $model) === true)
                             <div class="h-4 w-4 rounded-full bg-green-400"></div>
+                        <!-- Render gray -->
                         @else
                             <div class="h-4 w-4 rounded-full bg-gray-200"></div>
                         @endif

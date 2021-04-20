@@ -22,10 +22,22 @@ We can also hide or show content depending on the screen size:
 
 | Method | Example | Description |
 | :---------- |:------------| :-----------| 
-| hideFrom() | `Column::make('email')->hideFrom('xl')` | We can hide the column depending on the size of the screen. For this, the size system used by TailwindCSS has been used. In this specific case, it will add to the `class` attribute, the classes: `block xl:hidden`.  |
+| hideFrom() | `Column::make('email')->hideFrom('xl')` | We can hide the column depending on the size of the screen. For this, the size system used by TailwindCSS has been used. In this specific case, it will add to the `class` attribute, the classes: `block xl:hidden`. |
 | showOn() | `Column::make('email')->showOn('md')` | It works in the opposite way to the previous one. In this specific case, it will add to the `class` attribute, the classes: `hidden md:block`. |
 
 ?> The available options are: `sm`, `md`, `lg` and `xl`.
+
+We can show the value as boolean:
+
+| Method | Example | Description |
+| :---------- |:------------| :-----------| 
+| boolean() | `Column::make('email')->boolean()` | The field needs to be boolean (true or false), or it won't work properly. |
+
+In the following image, you can see an example of how it would look:
+
+![livewire-tables](../../../_media/boolean.png ':class=thumbnail')
+
+!> It is very important to define in the model (using the `cast` attribute) that it is a boolean field. Otherwise it will always give the result of `false`.
 
 And finally, we leave the method that will allow us to add custom views to the column. This method will be able to manage the design using `Blade`.
 
