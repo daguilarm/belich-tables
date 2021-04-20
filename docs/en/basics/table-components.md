@@ -96,4 +96,4 @@ public function filters(): array
 }
 ```
 
-!> Remember!!! the three methods are mandatory.
+!> **Remember!!!** the three methods are mandatory.
