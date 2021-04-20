@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Components\Traits\Models;
 
-use Daguilarm\LivewireTables\Components\Traits\Relationships;
+use Daguilarm\LivewireTables\Components\Traits\RelationshipsMethod;
 use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
 abstract class SearchBuilder
 {
-    use Relationships;
+    use RelationshipsMethod;
 
     /**
      * Resolve the model search.

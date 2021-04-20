@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Components\Traits;
 
+use Daguilarm\LivewireTables\Components\Traits\RelationshipsMethod;
 use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,18 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
 
 trait Relationships
 {
-    /**
-     * Set relationship.
-     */
-    public function relationship(string $attribute): object
-    {
-        $parts = explode('.', $attribute);
-
-        return (object) [
-            'attribute' => array_pop($parts),
-            'name' => implode('.', $parts),
-        ];
-    }
+    use RelationshipsMethod;
 
     /**
      * Set atribute.
@@ -40,9 +30,11 @@ trait Relationships
 
             // Values base on the relationship type
             [$table, $foreign, $other, $baseQuery, $query] = match($model) {
+                // See the cases
                 $model instanceof BelongsToMany => $this->BelongsToMany($model, $baseQuery, $query),
                 $model instanceof HasOneOrMany => $this->getHasOneOrMany($model, $baseQuery, $query),
                 $model instanceof BelongsTo => $this->getBelongsTo($model, $baseQuery, $query),
+                // Null relationship
                 default => $this->getNullRelationship(),
             };
 
@@ -56,7 +48,7 @@ trait Relationships
             $baseQuery = $model->getQuery();
         }
 
-        return $table.'.'.$attribute;
+        return sprintf('%s.%s', $table, $attribute);
     }
 
     /**
