@@ -9,6 +9,7 @@ use Daguilarm\LivewireTables\Views\Traits\ColumnCallback;
 use Daguilarm\LivewireTables\Views\Traits\ColumnExport;
 use Daguilarm\LivewireTables\Views\Traits\ColumnHidden;
 use Daguilarm\LivewireTables\Views\Traits\ColumnResolve;
+use Daguilarm\LivewireTables\Views\Traits\ColumnType;
 use Daguilarm\LivewireTables\Views\Traits\ColumnView;
 use Daguilarm\LivewireTables\Views\Traits\ColumnVisibility;
 use Illuminate\Support\Str;
@@ -20,11 +21,10 @@ final class Column
         ColumnExport,
         ColumnHidden,
         ColumnResolve,
+        ColumnType,
         ColumnView,
         ColumnVisibility;
 
-    public bool $asHtml = false;
-    public bool $boolean = false;
     protected string $text;
     protected string $attribute;
     protected bool $sortable = false;
@@ -101,23 +101,5 @@ final class Column
     public function isSearchable(): bool
     {
         return $this->searchable === true;
-    }
-
-    /**
-     * Html column.
-     */
-    public function asHtml(): self
-    {
-        $this->asHtml = true;
-
-        return $this;
-    }
-
-    /**
-     * Check if the column is raw.
-     */
-    public function isHtml(): bool
-    {
-        return $this->asHtml === true;
     }
 }

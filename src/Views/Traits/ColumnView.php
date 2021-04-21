@@ -18,6 +18,9 @@ trait ColumnView
     {
         $this->renderCallback = $callable;
 
+        // Set object type
+        $this->toObject();
+
         return $this;
     }
 

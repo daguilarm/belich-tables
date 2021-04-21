@@ -59,8 +59,10 @@ trait ColumnCallback
 
     /**
      * Format the callback.
+     *
+     * @param bool | int | float | object | string | null $value
      */
-    public function formatted(?string $value): object | string
+    public function formatted($value): bool | int | float | object | string | null
     {
         return call_user_func($this->formatCallback, $value);
     }
