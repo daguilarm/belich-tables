@@ -9,11 +9,12 @@ trait ColumnBoolean
     public bool $boolean = false;
 
     /**
-     * Show content base on screen.
+     * Show content as boolean.
      */
     public function boolean(): self
     {
         $this->boolean = true;
+
         // Force the boolean type
         $this->toBoolean();
 

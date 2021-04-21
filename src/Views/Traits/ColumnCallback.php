@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Views\Traits;
 
-use Daguilarm\LivewireTables\Views\Column;
-
 trait ColumnCallback
 {
     /**

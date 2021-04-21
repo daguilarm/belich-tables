@@ -17,7 +17,7 @@ final class LivewireTablesMethods
     /**
      * No results.
      */
-    public function noResults()
+    public function noResults(): string
     {
         return config('livewire-tables.noResults');
     }

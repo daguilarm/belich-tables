@@ -33,5 +33,5 @@ return [
     /*
      * Default value when there is no results.
      */
-    'noResults' => '—'
+    'noResults' => '—',
 ];
