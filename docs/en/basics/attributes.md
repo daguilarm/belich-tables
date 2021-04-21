@@ -4,14 +4,14 @@ The attributes that you can use in a Table Component are described below. These 
 
 ## Export attributes
 
-| Method | Default | Example | Description |
+| Attribute | Default | Example | Description |
 | :---------- |:------------ |:------------| :-----------| 
 | $exportAllowedFormats | csv, xls, xlsx, pdf | `public array $exportAllowedFormats = ['csv', 'pdf']`| Defines the file formats supported when exporting. |
 | $exportFileName | data | `public string $exportFileName = 'data'`| Defines the file name for the exported file. |
 
 ## Table attributes
 
-| Method | Default | Example | Description |
+| Attribute | Default | Example | Description |
 | :---------- |:------------ |:------------| :-----------| 
 | $refresh | false | `public bool $refresh = false`| Defines if the table will be refreshing at a certain interval of time. |
 | $refreshInSeconds | 2 seconds | `public int $refreshInSeconds`| Defines the interval of time, in seconds. |
@@ -23,14 +23,14 @@ The attributes that you can use in a Table Component are described below. These 
 
 ## Pagination attributes
 
-| Method | Default | Example | Description |
+| Attribute | Default | Example | Description |
 | :---------- |:------------ |:------------| :-----------| 
 | $showPagination | true | `public bool $showPagination = true`| show or hide the pagination. |
 | $paginationTheme | tailwind | `public string $paginationTheme = 'talwind'`| Defines The pagination theme used by Laravel. By default will use the selection from the config file. |
 
 ## Per page attributes
 
-| Method | Default | Example | Description |
+| Attribute | Default | Example | Description |
 | :---------- |:------------ |:------------| :-----------| 
 | $showPerPage | true | `public bool $showPerPage = true`| Show the selector with the per page options. |
 | $perPageOptions | 10, 25, 50, 100 | `public array $perPageOptions = [10, 25, 50, 100]` | Define the interval of values for the attribute. |
@@ -38,7 +38,7 @@ The attributes that you can use in a Table Component are described below. These 
 
 ## Search attributes
 
-| Method | Default | Example | Description |
+| Attribute | Default | Example | Description |
 | :---------- |:------------ |:------------| :-----------| 
 | $showSearch | true | `public bool $showSearch = true`| Show or hide the search box. |
 | $searchUpdateMethod | debounce | `public string $searchUpdateMethod = 'debounce'`| Select the search update method between: `debounce` or `lazy`. |
@@ -47,7 +47,7 @@ The attributes that you can use in a Table Component are described below. These 
 
 ## Sort attributes
 
-| Method | Default | Example | Description |
+| Attribute | Default | Example | Description |
 | :---------- |:------------ |:------------| :-----------| 
 | $sortField | id | `public string $sortField = 'id'`| The default sort field for the table. |
 | $sortDirection | asc | `public string $sortDirection = 'asc'`| The default sort direction for the table. |

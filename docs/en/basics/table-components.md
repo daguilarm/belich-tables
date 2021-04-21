@@ -22,7 +22,7 @@ public function query(): Builder
 };
 ```
 
-!> It is important to note that we must create an instance of `\Illuminate\Database\Eloquent\Builder`.
+!> It is important to note that you must create an instance of `\Illuminate\Database\Eloquent\Builder`.
 
 Let's see a working example:
 

@@ -14,7 +14,7 @@ Let's start with the general methods:
 | searchable() | `Column::make('ID')->searchable()` | This method will allow our column to be included in the search results from the package. |
 | sortable() | `Column::make('ID')->sortable()` | This method will allow us to sort the results of each column in ascending or descending order. | 
 
-## Visibility methods
+## Visibility
 
 There are also methods to show and hide content:
 
@@ -23,7 +23,7 @@ There are also methods to show and hide content:
 | hide() | `Column::make('email')->hide()` | The method hides the entire column. |
 | hideIf() | `Column::make('email')->hideIf(auth()->user()->role !== 'admin')` | It allows us to hide content based on a condition. The method hide the column if the condition is met. |
 
-## Screen size methods
+## Screen size
 
 We can also hide or show content depending on the screen size:
 
@@ -34,7 +34,7 @@ We can also hide or show content depending on the screen size:
 
 ?> The available options are: `sm`, `md`, `lg` and `xl`.
 
-## The showAsBoolean() method
+## showAsBoolean()
 
 We can show the value as boolean:
 
@@ -48,7 +48,7 @@ In the following image, you can see an example of how it would look:
 
 !> It is recommended to define inside the model that the field is boolean (using the `cast` attribute). In any case, the system will automatically assign the field as boolean, trying to avoid the problem. For this, will use the `asBoolean()` method internally.
 
-## Type hint methods 
+## Type hint
 
 As mentioned above, the package has a series of methods that will allow us to assign types to the returned value.
 
@@ -60,13 +60,13 @@ As mentioned above, the package has a series of methods that will allow us to as
 |toObject() | `Column::make('address')->format(...)->toObject()` | Returns the value as a object. In some specific cases it can be useful. |
 |toString() | `Column::make('id')->toString()` | Returns the value as a string. |
 
-## The Render() method
+## render()
 
 And finally, we leave the method that will allow us to add custom views to the column. This method will be able to manage the design using `Blade`.
 
 | Method | Example | Description |
 | :---------- |:------------| :-----------| 
-| render() | `Column::render(static function(object $model) {return view('myView', compact('model'));})` | This method allows us to include a view directly in the column. |
+| render() | `Column::render(static function(object $model) {...})` | This method allows us to include a view directly in the column. |
 
 This method needs a more detailed explanation. And the best way to understand it is with a complete example, showing the component and the view. Let's start with the component:
 

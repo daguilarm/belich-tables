@@ -9,10 +9,16 @@
 }
 
 .thumbnail,
-.thumbnail-full,
-#main > table {
+.thumbnail-full {
     margin-top: 3rem !important;
     margin-bottom: 3rem !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main > table {
+    margin-top: 2rem !important;
+    margin-bottom: 3.5rem !important;
     margin-left: auto;
     margin-right: auto;
 }
