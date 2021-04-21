@@ -9,7 +9,7 @@ trait Pagination
     /**
      * The default pagination theme.
      */
-    public string $paginationTheme = 'tailwind';
+    public string $paginationTheme;
 
     /**
      * Displays per page and pagination links.
