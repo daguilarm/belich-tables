@@ -13,7 +13,7 @@
                     class="{{ $column->show }} px-6 py-3 whitespace-nowrap text-sm text-gray-500"
                 >
                     <!-- Render column as Boolean -->
-                    @if ($column->boolean)
+                    @if ($column->showAsBoolean)
                         <!-- Render green -->
                         @if ($column->resolveColumn($column, $model) === true)
                             <div class="h-4 w-4 rounded-full bg-green-400"></div>

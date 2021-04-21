@@ -22,6 +22,16 @@ trait ColumnResolve
     }
 
     /**
+     * Html column.
+     */
+    public function notAsHtml(): self
+    {
+        $this->asHtml = false;
+
+        return $this;
+    }
+
+    /**
      * Check if the column is raw.
      */
     public function isHtml(): bool

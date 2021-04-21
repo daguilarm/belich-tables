@@ -6,14 +6,14 @@ namespace Daguilarm\LivewireTables\Views\Traits;
 
 trait ColumnBoolean
 {
-    public bool $boolean = false;
+    public bool $showAsBoolean = false;
 
     /**
      * Show content as boolean.
      */
-    public function boolean(): self
+    public function showAsBoolean(): self
     {
-        $this->boolean = true;
+        $this->showAsBoolean = true;
 
         // Force the boolean type
         $this->toBoolean();
