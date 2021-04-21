@@ -24,7 +24,7 @@ final class FilterByYear extends FilterComponent
     /**
      * Set the filter query.
      *
-     * @param string | int | null $value
+     * @param int | float | string | null $value
      */
     public function query(Builder $model, $value): Builder
     {

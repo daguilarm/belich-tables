@@ -32,7 +32,7 @@ abstract class FilterComponent extends Component
     /**
      * Set the filter query.
      *
-     * @param string | int | null $value
+     * @param int | float | string | null $value
      */
     abstract public function query(Builder $model, $value): Builder;
 
