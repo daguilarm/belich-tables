@@ -11,3 +11,7 @@
   - [Attributes](en/basics/attributes.md)
   - [Columns](en/basics/columns.md)
   - [Filters](en/basics/filters.md)
+
+- Other features
+  
+  - [Helpers](en/others/helpers.md)
