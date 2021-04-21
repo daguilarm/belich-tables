@@ -53,13 +53,13 @@ abstract class TableComponent extends Component
     public string $newResource;
 
     /**
-     * Whether or not to refresh the table at a certain interval (false is off)
-     * By default will refresh every 2 seconds
+     * Whether or not to refresh the table at a certain interval (false is off).
+     * By default will refresh every 2 seconds.
      */
     public bool $refresh = false;
 
     /**
-     * Refresh table each XX seconds
+     * Refresh table each XX seconds.
      */
     public int $refreshInSeconds;
 
