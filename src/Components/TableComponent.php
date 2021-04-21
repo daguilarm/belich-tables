@@ -53,12 +53,15 @@ abstract class TableComponent extends Component
     public string $newResource;
 
     /**
-     * Whether or not to refresh the table at a certain interval
-     * false is off
-     * If it's an integer it will be treated as milliseconds (2000 = refresh every 2 seconds)
-     * If it's a string it will call that function every 5 seconds.
+     * Whether or not to refresh the table at a certain interval (false is off)
+     * By default will refresh every 2 seconds
      */
     public bool $refresh = false;
+
+    /**
+     * Refresh table each XX seconds
+     */
+    public int $refreshInSeconds;
 
     /**
      * Whether or not to display an offline message when there is no connection.
