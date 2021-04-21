@@ -1,6 +1,6 @@
 # Attributes
 
-The attributes that you can use in a Table Component are described below. These attributes have been classified by groups, in order to facilitate their management.
+The attributes that you can use in a **Table Component** are described below. These attributes have been classified by groups, in order to facilitate their management.
 
 ## Export attributes
 

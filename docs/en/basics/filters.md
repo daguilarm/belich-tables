@@ -1,6 +1,6 @@
 # Filters
 
-The filters will allow us to show a more precise results, discarding those that do not fill with the established criteria. Each filter consists of two parts: the Filter Component and the Blade view. Let's first look at the basics of the PHP class.
+The filters will allow us to show a more precise results, discarding those that do not fill with the established criteria. Each filter consists of two parts: the **Filter Component** and the **Blade view**. Let's first look at the basics of the **Filter Component**.
 
 ## Component 
 
