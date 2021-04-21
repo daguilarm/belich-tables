@@ -9,16 +9,10 @@
 .thumbnail,
 .thumbnail-full,
 #main > table {
-    display: block;
     margin-top: 3rem !important;
     margin-bottom: 3rem !important;
     margin-left: auto;
     margin-right: auto;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgba(229, 231, 235, var(--tw-border-opacity));
-    border-radius: 0.5rem;
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .thumbnail {
@@ -29,14 +23,16 @@
     max-width: 72rem !important;
 }
 
-#main > table {
-    max-width: 100% !important;
+/*#main > table,
+#main > table > thead > tr,
+#main > table > tbody > tr,
+#main > table > tfoot > tr {
+    width: 100% !important;
 }
 
 #main > table > tbody > tr > td:not(:last-child) {
-    width: 1px;
     white-space: nowrap;
-}
+}*/
 
 #main > p.tip,
 #main > p.warn {
