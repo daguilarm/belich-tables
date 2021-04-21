@@ -34,14 +34,14 @@ abstract class FilterComponent extends Component
      *
      * @param int | float | string | null $value
      */
-    abstract public function query(Builder $model, $value): Builder;
+    abstract public function apply(Builder $model, $value): Builder;
 
     /**
      * Sent values for the view.
      *
      * @return  array<string>
      */
-    abstract public function values(): array;
+    abstract public function options(): array;
 
     /**
      * Set model to filter.

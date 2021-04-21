@@ -30,7 +30,7 @@ trait Filters
                 // Create the new query base on the filter
                 if ($value) {
                     // Execute the filter from each table component defined by the user
-                    $filter->query($this->sqlBuilder, $value);
+                    $filter->apply($this->sqlBuilder, $value);
                 }
             });
     }

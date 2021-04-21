@@ -28,7 +28,7 @@ final class FilterByUser extends FilterComponent
      *
      * @param int | float | string | null $value
      */
-    public function query(Builder $model, $value): Builder
+    public function apply(Builder $model, $value): Builder
     {
         return $model->where(
             $this->getColumn($model),
@@ -41,7 +41,7 @@ final class FilterByUser extends FilterComponent
      *
      * @return  array<string>
      */
-    public function values(): array
+    public function options(): array
     {
         return User::select('users.id', 'users.name')
             ->orderBy('name')

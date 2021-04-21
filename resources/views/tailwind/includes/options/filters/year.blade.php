@@ -19,7 +19,7 @@
         <!-- Blank option -->
         <option value=""></option>
         <!-- Options -->
-        @foreach($filter->values() as $id => $value)
+        @foreach($filter->options() as $id => $value)
             <option value="{{ $value }}">{{ $value }}</option>
         @endforeach
     </select>

@@ -26,7 +26,7 @@ final class FilterByYear extends FilterComponent
      *
      * @param int | float | string | null $value
      */
-    public function query(Builder $model, $value): Builder
+    public function apply(Builder $model, $value): Builder
     {
         return $model
             ->whereYear($this->getColumn($model), $value);
@@ -37,7 +37,7 @@ final class FilterByYear extends FilterComponent
      *
      * @return  array<string>
      */
-    public function values(): array
+    public function options(): array
     {
         return range(
             date('Y'),

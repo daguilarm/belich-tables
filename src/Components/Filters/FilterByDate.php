@@ -26,7 +26,7 @@ final class FilterByDate extends FilterComponent
      *
      * @param int | float | string | null $value
      */
-    public function query(Builder $model, $value): Builder
+    public function apply(Builder $model, $value): Builder
     {
         if (isset($value['start'])) {
             $model->whereDate($this->getColumn($model), '>=', $value['start']);
@@ -44,7 +44,7 @@ final class FilterByDate extends FilterComponent
      *
      * @return  array<string>
      */
-    public function values(): array
+    public function options(): array
     {
         return [];
     }

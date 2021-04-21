@@ -19,7 +19,7 @@
         wire:model.defer="filterValues.user"
     >
         <option value=""></option>
-        @foreach($filter->values() as $id => $value)
+        @foreach($filter->options() as $id => $value)
             <option value="{{ $id }}">{{ $value }}</option>
         @endforeach
     </select>

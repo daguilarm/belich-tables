@@ -1,6 +1,8 @@
 # Filters
 
-The filters will allow us to show a more precise results, discarding those that do not fill with the established criteria. Each filter consists of two parts: the **Filter Component** and the **Blade view**. Let's first look at the basics of the **Filter Component**.
+The filters will allow us to show a more precise results, discarding those that do not fill with the established criteria. Each filter consists of two parts: the **Filter Component** and the **Blade view**. This structure and this operation is similar to the one used by [Laravel Nova](https://nova.laravel.com/docs/3.0/filters/defining-filters.html). 
+
+Let's first look at the basics of the **Filter Component**.
 
 ## Component 
 
@@ -37,7 +39,7 @@ final class FilterByUser extends FilterComponent
      *
      * @param int | float | string | null $value
      */
-    public function query(Builder $model, $value): Builder
+    public function apply(Builder $model, $value): Builder
     {
         return $model->where(
             $this->getColumn($model),
@@ -50,7 +52,7 @@ final class FilterByUser extends FilterComponent
      *
      * @return  array<string>
      */
-    public function values(): array
+    public function options(): array
     {
         return User::select('users.id', 'users.name')
             ->orderBy('name')
@@ -88,7 +90,7 @@ public function __construct(?string $name = null)
 }
 ```
 
-### query()
+### apply()
 
 It is the filter itself. It is about defining the search in the database.
 
@@ -98,7 +100,7 @@ It is the filter itself. It is about defining the search in the database.
  *
  * @param int | float | string | null $value
  */
-public function query(Builder $model, $value): Builder
+public function apply(Builder $model, $value): Builder
 {
     return $model->where(
         $this->getColumn($model),
@@ -116,7 +118,7 @@ The `getColumn ()` method is available as a helper when we want to use the name 
 
 ?> It is important to use the method `getColumn()`, since it will allow us to homogenize the code and thus avoid problems with the database when we use related tables.
 
-### values()
+### options()
 
 It is used to return the array with the filter options to the view. In this case, the values ​​have been obtained directly from the database, but they can be sent directly in an `array` without database.
 
@@ -126,7 +128,7 @@ It is used to return the array with the filter options to the view. In this case
  *
  * @return  array<string>
  */
-public function values(): array
+public function options(): array
 {
     return User::select('users.id', 'users.name')
         ->orderBy('name')
@@ -143,7 +145,7 @@ Or you can just return an `array` with values:
  *
  * @return  array<string>
  */
-public function values(): array
+public function options(): array
 {
     return [
         'guest', 
@@ -185,7 +187,7 @@ Let's see a complete example of what a view would look like:
         <!-- Default value -->
         <option value=""></option>
         <!-- Values from the values() method -->
-        @foreach($filter->values() as $id => $value)
+        @foreach($filter->options() as $id => $value)
             <option value="{{ $id }}">{{ $value }}</option>
         @endforeach
     </select>
