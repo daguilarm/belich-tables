@@ -33,7 +33,7 @@
         >
             <!-- Allowed file format -->
             @foreach(Arr::sort($exports) as $export)
-                @if(in_array($export, $allowedFormats))
+                @if(in_array($export, $exportAllowedFormats))
                     <a
                         href="#"
                         dusk="export-{{ $export }}-link"

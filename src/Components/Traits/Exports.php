@@ -14,7 +14,7 @@ trait Exports
     /**
      * @var array<string>
      */
-    public array $allowedFormats = ['csv', 'xls', 'xlsx', 'pdf'];
+    public array $exportAllowedFormats = ['csv', 'xls', 'xlsx', 'pdf'];
 
     /**
      * @var array<string>
@@ -28,7 +28,7 @@ trait Exports
     {
         $type = strtolower($type);
 
-        if (! in_array($type, ['csv', 'xls', 'xlsx', 'pdf'], true)) {
+        if (! in_array($type, $this->exportAllowedFormats, true)) {
             throw new UnsupportedExportFormat(__('This export type is not supported.'));
         }
 

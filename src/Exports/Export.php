@@ -68,7 +68,7 @@ final class Export implements FromQuery, WithHeadings, WithMapping
                     if ($column->hasExportFormat()) {
                         $map[] = $column->formattedForExport($row, $column);
                     } else {
-                        $map[] = strip_tags($column->formatted($row, $column));
+                        $map[] = strip_tags($column->formatted($row, $column)->__toString());
                     }
                 } else {
                     $map[] = data_get($row, $column->getAttribute());
