@@ -23,16 +23,15 @@
     max-width: 72rem !important;
 }
 
-/*#main > table,
-#main > table > thead > tr,
-#main > table > tbody > tr,
-#main > table > tfoot > tr {
-    width: 100% !important;
+#main > table > tbody > tr > td:not(:first-child),
+main > table > tbody > tr > th {
+    border-left: 3px solid white;
 }
 
-#main > table > tbody > tr > td:not(:last-child) {
-    white-space: nowrap;
-}*/
+#main > table > tbody > tr > td:not(:last-child),
+main > table > tbody > tr > th {
+    border-right: 3px solid white;
+}
 
 #main > p.tip,
 #main > p.warn {
