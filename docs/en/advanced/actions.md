@@ -61,5 +61,5 @@ Below is the code for the default **Blade** view:
 </div>
 ```
 
-The delete button includes a **Livewire Component** that includes a **Modal** and all the management to delete the element through the **Livewire Component**.
+The delete button includes a **Livewire Component** that includes a **Modal** and all the management to delete the element through the **Livewire Component**. In the section [Delete Modal](en/advanced/delete-modal.md) you can find more information.
 
