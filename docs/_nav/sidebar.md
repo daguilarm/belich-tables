@@ -12,6 +12,13 @@
   - [Columns](en/basics/columns.md)
   - [Filters](en/basics/filters.md)
 
+- Advanced
+
+  - [Actions](en/advanced/actions.md)
+  - [Delete Modal](en/advanced/delete-modal.md)
+  - [Export](en/advanced/export.md)
+  - [New resources](en/advanced/new-resources.md)
+
 - Other features
   
   - [Helpers](en/others/helpers.md)
