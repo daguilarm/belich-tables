@@ -13,11 +13,6 @@ use Illuminate\Support\Str;
 trait SortingRelatioships
 {
     /**
-     * @var array<string>
-     */
-    protected array $queryKey = [];
-
-    /**
      * Sort table base on relationship.
      *
      * @return  array<string> [$builder, $sortAttribute]
