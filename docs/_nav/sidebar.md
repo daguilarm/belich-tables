@@ -18,6 +18,7 @@
   - [Delete Modal](en/advanced/delete-modal.md)
   - [Export](en/advanced/export.md)
   - [New resources](en/advanced/new-resources.md)
+  - [Custom sections](en/advanced/custom-sections.md)
 
 - Other features
   
