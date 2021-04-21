@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Components\Traits\Models;
 
+use Daguilarm\LivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
 final class Search extends SearchBuilder
@@ -29,16 +30,5 @@ final class Search extends SearchBuilder
         }
 
         return $builder;
-    }
-
-    /**
-     * Resolve the column callback.
-     */
-    public function columnCallback(Builder $builder, Column $column, string $direction): object
-    {
-        return app()->call($column->getSortCallback(), [
-            'builder' => $builder,
-            'direction' => $direction,
-        ]);
     }
 }
