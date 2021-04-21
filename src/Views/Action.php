@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Daguilarm\LivewireTables\Views;
 
+use Daguilarm\LivewireTables\Facades\LivewireTables;
+
 final class Action
 {
     /**
      * Action column constructor.
      */
-    public static function make(?string $routeName = null, ?string $view = null): Column
+    public static function make(?string $view = null): Column
     {
         return Column::make('')
             ->render(static function ($model) use ($view) {
@@ -28,9 +30,6 @@ final class Action
      */
     private static function defaultView(): string
     {
-        return sprintf(
-            'livewire-tables::%s.includes.actions.default',
-            config('livewire-tables.theme')
-        );
+        return LivewireTables::include('includes.actions.default');
     }
 }
