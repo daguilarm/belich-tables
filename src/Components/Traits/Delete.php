@@ -41,7 +41,7 @@ trait Delete
                     ->user()
                     ->can('delete', [
                         $this->model,
-                        $value
+                        $value,
                     ]);
             })
             ->toArray();
