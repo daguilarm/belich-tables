@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Components\Traits;
+namespace Daguilarm\BelichTables\Components\Traits;
 
-use Daguilarm\LivewireTables\Components\Traits\Models\Search;
-use Daguilarm\LivewireTables\Views\Column;
+use Daguilarm\BelichTables\Components\Traits\Models\Search;
+use Daguilarm\BelichTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
 trait Model
@@ -28,7 +28,7 @@ trait Model
         $column = $this->getColumnByAttribute($this->sortField);
 
         // Initialize the search
-        // @See Daguilarm\LivewireTables\Components\Traits\Models\Search:class
+        // @See Daguilarm\BelichTables\Components\Traits\Models\Search:class
         $search = new Search();
 
         // If the search is enabled, and the search input is not empty, then the search can start.
@@ -48,7 +48,7 @@ trait Model
         //     );
         // }
 
-        // Sort by relationship [Daguilarm\LivewireTables\Components\Traits\SortingRelatioships]
+        // Sort by relationship [Daguilarm\BelichTables\Components\Traits\SortingRelatioships]
         if ($this->columnHasRealationship($column)) {
             [$builder, $sortAttribute] = $this->sortingByRelationship($builder, $column);
         }

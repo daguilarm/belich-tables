@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Components;
+namespace Daguilarm\BelichTables\Components;
 
-use Daguilarm\LivewireTables\Components\Traits\Checkboxes;
-use Daguilarm\LivewireTables\Components\Traits\Delete;
-use Daguilarm\LivewireTables\Components\Traits\Exports;
-use Daguilarm\LivewireTables\Components\Traits\Filters;
-use Daguilarm\LivewireTables\Components\Traits\Loading;
-use Daguilarm\LivewireTables\Components\Traits\Model;
-use Daguilarm\LivewireTables\Components\Traits\Operations;
-use Daguilarm\LivewireTables\Components\Traits\Pagination;
-use Daguilarm\LivewireTables\Components\Traits\PerPage;
-use Daguilarm\LivewireTables\Components\Traits\Relationships;
-use Daguilarm\LivewireTables\Components\Traits\Search;
-use Daguilarm\LivewireTables\Components\Traits\Sorting;
-use Daguilarm\LivewireTables\Components\Traits\SortingRelatioships;
-use Daguilarm\LivewireTables\Components\Traits\Table;
-use Daguilarm\LivewireTables\Facades\LivewireTables;
+use Daguilarm\BelichTables\Components\Traits\Checkboxes;
+use Daguilarm\BelichTables\Components\Traits\Delete;
+use Daguilarm\BelichTables\Components\Traits\Exports;
+use Daguilarm\BelichTables\Components\Traits\Filters;
+use Daguilarm\BelichTables\Components\Traits\Loading;
+use Daguilarm\BelichTables\Components\Traits\Model;
+use Daguilarm\BelichTables\Components\Traits\Operations;
+use Daguilarm\BelichTables\Components\Traits\Pagination;
+use Daguilarm\BelichTables\Components\Traits\PerPage;
+use Daguilarm\BelichTables\Components\Traits\Relationships;
+use Daguilarm\BelichTables\Components\Traits\Search;
+use Daguilarm\BelichTables\Components\Traits\Sorting;
+use Daguilarm\BelichTables\Components\Traits\SortingRelatioships;
+use Daguilarm\BelichTables\Components\Traits\Table;
+use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\View\View;
@@ -98,7 +98,7 @@ abstract class TableComponent extends Component
         parent::__construct($id);
 
         // Set the pagination theme
-        $this->paginationTheme = config('livewire-tables.theme');
+        $this->paginationTheme = config('belich-tables.theme');
         // Init the column's filter
         $this->sqlBuilder = $this->query();
         // Init the model
@@ -131,7 +131,7 @@ abstract class TableComponent extends Component
      */
     public function viewName(): string
     {
-        return LivewireTables::include('table-component');
+        return BelichTables::include('table-component');
     }
 
     /**

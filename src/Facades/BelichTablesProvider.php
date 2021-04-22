@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Facades;
+namespace Daguilarm\BelichTables\Facades;
 
 use Illuminate\Support\ServiceProvider;
 
-final class LivewireTablesProvider extends ServiceProvider
+final class BelichTablesProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -20,8 +20,8 @@ final class LivewireTablesProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton('LivewireTables', static function () {
-            return new LivewireTablesMethods();
+        $this->app->singleton('BelichTables', static function () {
+            return new BelichTablesMethods();
         });
     }
 }

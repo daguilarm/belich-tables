@@ -9,7 +9,7 @@
         </div>
 
         <!-- Filter by user -->
-        <div>{{ __('livewire-tables::filters.user') }}</div>
+        <div>{{ __('belich-tables::filters.user') }}</div>
     </label>
     <!-- Select -->
     <select

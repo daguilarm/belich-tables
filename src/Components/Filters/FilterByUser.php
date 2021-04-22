@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Components\Filters;
+namespace Daguilarm\BelichTables\Components\Filters;
 
 use App\Models\User;
-use Daguilarm\LivewireTables\Components\FilterComponent;
-use Daguilarm\LivewireTables\Facades\LivewireTables;
+use Daguilarm\BelichTables\Components\FilterComponent;
+use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Database\Eloquent\Builder;
 
 final class FilterByUser extends FilterComponent
@@ -18,7 +18,7 @@ final class FilterByUser extends FilterComponent
     {
         parent::__construct($name);
 
-        $this->view = LivewireTables::include('includes.options.filters.user');
+        $this->view = BelichTables::include('includes.options.filters.user');
         $this->tableColumn = 'id';
         $this->name = $name ?? 'user';
     }

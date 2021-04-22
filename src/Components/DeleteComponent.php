@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Components;
+namespace Daguilarm\BelichTables\Components;
 
-use Daguilarm\LivewireTables\Facades\LivewireTables;
+use Daguilarm\BelichTables\Facades\BelichTables;
 use Livewire\Component;
 
 /**
@@ -21,7 +21,7 @@ final class DeleteComponent extends Component
      */
     public function render()
     {
-        return view(LivewireTables::include('components.delete-button'));
+        return view(BelichTables::include('components.delete-button'));
     }
 
     /**

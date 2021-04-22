@@ -1,7 +1,7 @@
 <div class="flex mt-3 w-400 justify-end">
     <!-- Text -->
     <div class="flex items-center text-sm leading-5 font-medium text-gray-500">
-        @lang('livewire-tables::strings.per_page'): &nbsp;
+        @lang('belich-tables::strings.per_page'): &nbsp;
     </div>
     <!-- Options -->
     <select

@@ -9,7 +9,7 @@
         </div>
 
         <!--Filtrar por fecha -->
-        <div>{{ __('livewire-tables::filters.date') }}</div>
+        <div>{{ __('belich-tables::filters.date') }}</div>
     </label>
     <!--Date start -->
     <input

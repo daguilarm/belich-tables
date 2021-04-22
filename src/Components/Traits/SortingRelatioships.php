@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Components\Traits;
+namespace Daguilarm\BelichTables\Components\Traits;
 
-use Daguilarm\LivewireTables\Views\Column;
+use Daguilarm\BelichTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;

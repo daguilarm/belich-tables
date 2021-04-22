@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Exports;
+namespace Daguilarm\BelichTables\Exports;
 
 use Illuminate\Database\Eloquent\Builder;
 use Maatwebsite\Excel\Concerns\Exportable;

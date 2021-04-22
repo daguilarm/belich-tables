@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Components\Traits\Models;
+namespace Daguilarm\BelichTables\Components\Traits\Models;
 
-use Daguilarm\LivewireTables\Components\Traits\RelationshipsMethod;
-use Daguilarm\LivewireTables\Views\Column;
+use Daguilarm\BelichTables\Components\Traits\RelationshipsMethod;
+use Daguilarm\BelichTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
 abstract class SearchBuilder

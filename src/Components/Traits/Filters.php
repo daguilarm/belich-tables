@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Components\Traits;
+namespace Daguilarm\BelichTables\Components\Traits;
 
 use Illuminate\Support\Collection;
 
@@ -17,7 +17,7 @@ trait Filters
 
     /**
      * Resolve filters.
-     * The magic will happend in \Daguilarm\LivewireTables\Traits\Model::models().
+     * The magic will happend in \Daguilarm\BelichTables\Traits\Model::models().
      */
     public function resolveFilters(): void
     {

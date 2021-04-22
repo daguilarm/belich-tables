@@ -17,5 +17,5 @@
     </a>
 
     {{-- Delete Modal --}}
-    @include(LivewireTables::include('includes.modals.delete-modal'), ['onclick' => 'itemDelete('.$userId.')'])
+    @include(BelichTables::include('includes.modals.delete-modal'), ['onclick' => 'itemDelete('.$userId.')'])
 </div>

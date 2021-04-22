@@ -1,6 +1,6 @@
 <tr class="border-b border-gray-200">
     <!-- Table head checkbox -->
-    @includeWhen($showCheckboxes && !isset($headerTitle), 'livewire-tables::'.config('livewire-tables.theme').'.includes.checkboxes.checkbox-header')
+    @includeWhen($showCheckboxes && !isset($headerTitle), 'belich-tables::'.config('belich-tables.theme').'.includes.checkboxes.checkbox-header')
 
     <!-- All the columns -->
     @foreach($columns as $column)

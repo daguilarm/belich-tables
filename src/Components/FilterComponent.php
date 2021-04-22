@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Components;
+namespace Daguilarm\BelichTables\Components;
 
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;

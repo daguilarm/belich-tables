@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Views;
+namespace Daguilarm\BelichTables\Views;
 
-use Daguilarm\LivewireTables\Views\Traits\ColumnBoolean;
-use Daguilarm\LivewireTables\Views\Traits\ColumnCallback;
-use Daguilarm\LivewireTables\Views\Traits\ColumnExport;
-use Daguilarm\LivewireTables\Views\Traits\ColumnHidden;
-use Daguilarm\LivewireTables\Views\Traits\ColumnResolve;
-use Daguilarm\LivewireTables\Views\Traits\ColumnType;
-use Daguilarm\LivewireTables\Views\Traits\ColumnView;
-use Daguilarm\LivewireTables\Views\Traits\ColumnVisibility;
+use Daguilarm\BelichTables\Views\Traits\ColumnBoolean;
+use Daguilarm\BelichTables\Views\Traits\ColumnCallback;
+use Daguilarm\BelichTables\Views\Traits\ColumnExport;
+use Daguilarm\BelichTables\Views\Traits\ColumnHidden;
+use Daguilarm\BelichTables\Views\Traits\ColumnResolve;
+use Daguilarm\BelichTables\Views\Traits\ColumnType;
+use Daguilarm\BelichTables\Views\Traits\ColumnView;
+use Daguilarm\BelichTables\Views\Traits\ColumnVisibility;
 use Illuminate\Support\Str;
 
 final class Column

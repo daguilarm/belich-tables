@@ -1,5 +1,5 @@
 {
-    "name": "daguilarm/livewire-tables",
+    "name": "daguilarm/belich-tables",
     "description": "A dynamic table component for Laravel Livewire",
     "keywords": [
         "daguilarm",
@@ -8,7 +8,7 @@
         "tables",
         "laravel"
     ],
-    "homepage": "https://github.com/daguilarm/livewire-tables",
+    "homepage": "https://github.com/daguilarm/belich-tables",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -32,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Daguilarm\\LivewireTables\\": "src"
+            "Daguilarm\\BelichTables\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Daguilarm\\LivewireTables\\Tests\\": "tests"
+            "Daguilarm\\BelichTables\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -51,7 +51,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Daguilarm\\LivewireTables\\LivewireTablesServiceProvider"
+                "Daguilarm\\BelichTables\\BelichTablesServiceProvider"
             ]
         }
     }

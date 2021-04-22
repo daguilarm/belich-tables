@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Views\Traits;
+namespace Daguilarm\BelichTables\Views\Traits;
 
-use Daguilarm\LivewireTables\Facades\LivewireTables;
-use Daguilarm\LivewireTables\Views\Column;
+use Daguilarm\BelichTables\Facades\BelichTables;
+use Daguilarm\BelichTables\Views\Column;
 
 trait ColumnResolve
 {
@@ -60,6 +60,6 @@ trait ColumnResolve
             return $column->formatted($value);
         }
 
-        return $value ?: LivewireTables::noResults();
+        return $value ?: BelichTables::noResults();
     }
 }

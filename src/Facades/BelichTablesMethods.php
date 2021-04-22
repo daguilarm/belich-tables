@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Facades;
+namespace Daguilarm\BelichTables\Facades;
 
-final class LivewireTablesMethods
+final class BelichTablesMethods
 {
     /**
      * Get the include path for the views.
      */
     public function include(string $path): string
     {
-        return sprintf('livewire-tables::'.config('livewire-tables.theme').'.%s', $path);
+        return sprintf('belich-tables::'.config('belich-tables.theme').'.%s', $path);
     }
 
     /**
@@ -19,6 +19,6 @@ final class LivewireTablesMethods
      */
     public function noResults(): string
     {
-        return config('livewire-tables.noResults');
+        return config('belich-tables.noResults');
     }
 }

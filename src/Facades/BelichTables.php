@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Facades;
+namespace Daguilarm\BelichTables\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-final class LivewireTables extends Facade
+final class BelichTables extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return 'LivewireTables';
+        return 'BelichTables';
     }
 }

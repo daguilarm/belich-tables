@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Views\Traits;
+namespace Daguilarm\BelichTables\Views\Traits;
 
 trait ColumnHidden
 {

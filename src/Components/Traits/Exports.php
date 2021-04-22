@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Components\Traits;
+namespace Daguilarm\BelichTables\Components\Traits;
 
-use Daguilarm\LivewireTables\Exceptions\UnsupportedExportFormat;
+use Daguilarm\BelichTables\Exceptions\UnsupportedExportFormat;
 use Maatwebsite\Excel\Excel;
 
 trait Exports

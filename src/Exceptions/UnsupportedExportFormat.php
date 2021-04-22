@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Exceptions;
+namespace Daguilarm\BelichTables\Exceptions;
 
 use Exception;
 

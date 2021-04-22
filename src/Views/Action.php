@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Views;
+namespace Daguilarm\BelichTables\Views;
 
-use Daguilarm\LivewireTables\Facades\LivewireTables;
+use Daguilarm\BelichTables\Facades\BelichTables;
 
 final class Action
 {
@@ -30,6 +30,6 @@ final class Action
      */
     private static function defaultView(): string
     {
-        return LivewireTables::include('includes.actions.default');
+        return BelichTables::include('includes.actions.default');
     }
 }

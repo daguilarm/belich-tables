@@ -38,13 +38,13 @@
                 {{-- Title message --}}
                 <div class="ml-3">
                     <h1 class="text-xl font-medium text-gray-700">
-                        @lang('livewire-tables::strings.delete.title')
+                        @lang('belich-tables::strings.delete.title')
                     </h1>
                 </div>
             </div>
 
             <div class="p-6 text-md bg-red-50 text-red-600 border-t border-b border-red-200">
-                <li>@lang('livewire-tables::strings.delete.message')</li>
+                <li>@lang('belich-tables::strings.delete.message')</li>
             </div>
 
             <div class="flex justify-center mt-8 mb-4">
@@ -60,7 +60,7 @@
                     </svg>
 
                     {{-- Button text --}}
-                    <div>@lang('livewire-tables::strings.delete.button')</div>
+                    <div>@lang('belich-tables::strings.delete.button')</div>
                 </button>
             </div>
         </div>

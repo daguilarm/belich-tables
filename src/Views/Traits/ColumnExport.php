@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Views\Traits;
+namespace Daguilarm\BelichTables\Views\Traits;
 
-use Daguilarm\LivewireTables\Views\Column;
+use Daguilarm\BelichTables\Views\Column;
 
 trait ColumnExport
 {

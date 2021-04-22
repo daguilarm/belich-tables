@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Components\Filters;
+namespace Daguilarm\BelichTables\Components\Filters;
 
-use Daguilarm\LivewireTables\Components\FilterComponent;
-use Daguilarm\LivewireTables\Facades\LivewireTables;
+use Daguilarm\BelichTables\Components\FilterComponent;
+use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Database\Eloquent\Builder;
 
 final class FilterByDate extends FilterComponent
@@ -17,7 +17,7 @@ final class FilterByDate extends FilterComponent
     {
         parent::__construct($name);
 
-        $this->view = LivewireTables::include('includes.options.filters.date');
+        $this->view = BelichTables::include('includes.options.filters.date');
         $this->name = $name ?? 'date';
     }
 
