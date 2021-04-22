@@ -2,7 +2,7 @@
 
 With the actions, we will be able to perform the operations of: **show**, **edit** and **delete**. **Belich Tables** automatically enables and configure the action of **delete**, and prepare the actions of **show** and **edit**. When you define the actions, the icons for **show**, **edit** and **delete**, appear as shown below:
 
-![livewire-tables](../../../_media/actions.jpg ':class=thumbnail')
+![livewire-tables](../../_media/actions.jpg ':class=thumbnail')
 
 Below is an example of how to activate the actions:
 
