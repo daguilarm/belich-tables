@@ -51,3 +51,9 @@ The attributes that you can use in a **Table Component** are described below. Th
 | :---------- |:------------ |:------------| :-----------| 
 | $sortField | id | `public string $sortField = 'id'`| The default sort field for the table. |
 | $sortDirection | asc | `public string $sortDirection = 'asc'`| The default sort direction for the table. |
+
+## Other attributes
+
+| Attribute | Default | Example | Description |
+| :---------- |:------------ |:------------| :-----------| 
+| $newResource | disabled | `public string $newResource = '../../dashboard/users/create'`| Set the url path for create a new resource. |

@@ -16,14 +16,16 @@
 
   - [Actions](en/advanced/actions.md)
   - [Delete Modal](en/advanced/delete-modal.md)
-  - [Export](en/advanced/export.md)
   - [New resources](en/advanced/new-resources.md)
   - [Relationships](en/advanced/relationships.md)
-  - [Custom sections](en/advanced/custom-sections.md)
+
+- Custom sections
+  - [Introduction](en/sections/introduction.md)
+  - [Bulk delete](en/sections/bulk-delete.md)
+  - [Export](en/sections/export.md)
 
 - Other features
   
   - [Helpers](en/others/helpers.md)
   - [Flash messages](en/others/flash-messages.md)
-  - [Bulk delete](en/others/bulk-delete.md)
   - [Localization](en/others/localization.md)
