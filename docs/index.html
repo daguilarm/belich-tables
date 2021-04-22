@@ -56,6 +56,11 @@
             auto2top: true,
             homepage: 'home.md',
             search: 'auto',// default
+            footer: {
+                copy: '<span><b>Belich Tables</b> &copy; 2020 - ' + new Date().getFullYear() + ' - </span>',
+                auth: '<b>Author</b>: <a href="https://daguilarm.dev">Damián Aguilar</>',
+                pre: '<hr/>',
+            },
         }
         // Service worker
         if (typeof navigator.serviceWorker !== 'undefined') {
@@ -67,6 +72,7 @@
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <script src="//unpkg.com/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-markdown.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>

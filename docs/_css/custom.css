@@ -40,6 +40,11 @@ main > table > tbody > tr > th {
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow-1);
 }
 
+footer {
+    text-align: right;
+    color: var(--mono-tint1);
+}
+
 /* Fix issue on mobile devices where a custom cover image goes off the screen. */
 section.cover.show {
     height: 100%;
