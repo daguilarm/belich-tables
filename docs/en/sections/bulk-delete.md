@@ -1,6 +1,6 @@
 # Bulk delete
 
-Belich Tables allows us to eliminate simultaneously all the elements that are selected in the table, through the checkboxes.
+**Belich Tables** allows us to eliminate simultaneously all the elements that are selected in the table, through the checkboxes.
 
 ![Belich Tables with Livewire](../../_media/bulk-delete.png ':class=thumbnail')
 
