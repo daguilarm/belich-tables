@@ -1,3 +1,3 @@
-# D-Livewire Tables 
+# Belich Tables 
 
 ![livewire-tables](../../../_media/livewire-tables.png)
