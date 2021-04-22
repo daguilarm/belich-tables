@@ -1,3 +1,3 @@
 # Belich Tables 
 
-![livewire-tables](../../../_media/livewire-tables.png)
+![Belich Tables with Livewire](../../../_media/livewire-tables.png)

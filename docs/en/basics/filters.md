@@ -13,11 +13,11 @@ Let's see a complete example of what a Filter Component would look like:
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireTables\Components\Filters;
+namespace Daguilarm\BelichTables\Components\Filters;
 
 use App\Models\User;
-use Daguilarm\LivewireTables\Components\FilterComponent;
-use Daguilarm\LivewireTables\Facades\LivewireTables;
+use Daguilarm\BelichTables\Components\FilterComponent;
+use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Database\Eloquent\Builder;
 
 final class FilterByUser extends FilterComponent
@@ -29,7 +29,7 @@ final class FilterByUser extends FilterComponent
     {
         parent::__construct($name);
 
-        $this->view = 'livewire-tables.includes.options.filters.user';
+        $this->view = 'belich-tables.includes.options.filters.user';
         $this->name = 'user';
         $this->tableColumn = 'id';
     }
@@ -84,7 +84,7 @@ public function __construct(?string $name = null)
 {
     parent::__construct($name);
 
-    $this->view = 'livewire-tables.includes.options.filters.user';
+    $this->view = 'belich-tables.includes.options.filters.user';
     $this->name = 'user';
     $this->tableColumn = 'id';
 }
@@ -175,7 +175,7 @@ Let's see a complete example of what a view would look like:
         </div>
 
         <!-- Filter by user -->
-        <div>{{ __('livewire-tables::filters.user') }}</div>
+        <div>{{ __('belich-tables::filters.user') }}</div>
     </label>
     <!-- Select -->
     <select
@@ -202,7 +202,7 @@ wire:model.defer="filterValues.filterName"
 
 ## Default filters
 
-The package includes by default three filters:
+**Belich Tables** includes by default three filters:
 
 | Filter | Class | Description |
 | :---------- |:------------| :------------|
@@ -212,7 +212,7 @@ The package includes by default three filters:
 
 An example of the default filters in action:
 
-![livewire-tables](../../../_media/default-filters.png ':class=thumbnail')
+![Belich Tables with Livewire](../../../_media/default-filters.png ':class=thumbnail')
 
 In the next section, it is explained how to customize the default filters.
 

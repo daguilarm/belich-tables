@@ -10,8 +10,8 @@ To create a table component you may draw inspiration from the below stub:
 namespace App\Http\Livewire;
 
 use App\User;
-use Daguilarm\LivewireTables\Components\TableComponent;
-use Daguilarm\LivewireTables\Views\Column;
+use Daguilarm\BelichTables\Components\TableComponent;
+use Daguilarm\BelichTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
 class UsersTable extends TableComponent
@@ -57,7 +57,7 @@ Route::get('/dashboard/users', function () {
     return view('dashboard.users-table');
 })->name('dashboard.users');
 ```
-Of course, you can do this from a `Controller`, but this is the first aproch to the package.
+Of course, you can do this from a `Controller`, but this is a first aproch to **Belich Tables**.
 
 ## Blade Component
 
@@ -80,7 +80,7 @@ Column::make('Avatar', 'profile.profile_avatar')
 
 And this is the result:
 
-![livewire-tables](../../../_media/livewire-tables.png ':class=thumbnail')
+![Belich Tables with Livewire](../../../_media/livewire-tables.png ':class=thumbnail')
 
 ## Flash messages
 

@@ -1,6 +1,6 @@
 # Columns
 
-Let's take a cloused look at the methods available for `\Daguilarm\LivewireTables\Views\Column::class`. 
+Let's take a cloused look at the methods available for `\Daguilarm\BelichTables\Views\Column::class`. 
 
 ## General methods 
 
@@ -11,7 +11,7 @@ Let's start with the general methods:
 |asHtml() | `Column::make('email')->asHtml()` | It allows us to show the result as if it were pure html, that is, the code without escaping. This method is often associated with `format()`. |
 | notAsHtml() | `Column::make('email')->notAsHtml()` | This method is the opposite of `asHtml()` and what it does is re-escape the code. |
 | format() | `format(static function($value) {return $value;})` | It allows us to format the data output. This includes the use of `HTML` elements. In these cases you must also add the method `asHtml()`. |
-| searchable() | `Column::make('ID')->searchable()` | This method will allow our column to be included in the search results from the package. |
+| searchable() | `Column::make('ID')->searchable()` | This method will allow our column to be included in the search results from the **Belich Tables**. |
 | sortable() | `Column::make('ID')->sortable()` | This method will allow us to sort the results of each column in ascending or descending order. | 
 
 ## Visibility
@@ -44,13 +44,13 @@ We can show the value as boolean:
 
 In the following image, you can see an example of how it would look:
 
-![livewire-tables](../../../_media/boolean.png ':class=thumbnail')
+![Belich Tables with Livewire](../../../_media/boolean.png ':class=thumbnail')
 
 !> It is recommended to define inside the model that the field is boolean (using the `cast` attribute). In any case, the system will automatically assign the field as boolean, trying to avoid the problem. For this, will use the `asBoolean()` method internally.
 
 ## Type hint
 
-As mentioned above, the package has a series of methods that will allow us to assign types to the returned value.
+As mentioned above, **Belich Tables** has a series of methods that will allow us to assign types to the returned value.
 
 | Method | Example | Description |
 | :---------- |:------------| :-----------| 

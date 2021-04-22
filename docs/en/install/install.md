@@ -3,17 +3,17 @@
 You can install the package via composer:
 
 ```bash
-composer require daguilarm/livewire-tables
+composer require daguilarm/belich-tables
 ```
 
 Or include in your `composer.json`:
 
 ```bash
-"daguilarm/livewire-tables": "^1.0"
+"daguilarm/belich-tables": "^1.0"
 ```
 
 Publishing assets **is mandatory** for this package:
 
 ```bash
-php artisan vendor:publish --provider="Daguilarm\LivewireTables\LivewireTablesServiceProvider"
+php artisan vendor:publish --provider="Daguilarm\BelichTables\BelichTablesServiceProvider"
 ```
