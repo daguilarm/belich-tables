@@ -8,12 +8,18 @@
     --heading-h2-color: rgba(107, 114, 128, var(--tw-text-opacity));
 }
 
-.thumbnail{
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+.thumbnail {
     max-width: 38rem !important;
 }
 
 .thumbnail,
+.image {
+    border-radius: 0.50rem;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.thumbnail,
+.image,
 #main > table  {
     margin-top: 2rem;
     margin-bottom: 3.5rem;
