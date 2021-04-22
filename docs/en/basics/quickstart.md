@@ -80,7 +80,7 @@ Column::make('Avatar', 'profile.profile_avatar')
 
 And this is the result:
 
-![livewire-tables](../../../_media/livewire-tables.png ':class=thumbnail-full')
+![livewire-tables](../../../_media/livewire-tables.png ':class=thumbnail')
 
 ## Flash messages
 

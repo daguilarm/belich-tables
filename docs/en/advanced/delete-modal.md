@@ -2,7 +2,7 @@
 
 This modal will allow you to eliminate individual elements and bulk elements (in the case you select multiples elements through the checkboxes). When you click on the delete button, the following modal shows:
 
-![livewire-tables](../../../_media/delete-modal.png ':class=thumbnail-full')
+![livewire-tables](../../../_media/delete-modal.png ':class=thumbnail')
 
 The **HTML** code is shown below, and you can find it in `./tailwind/includes/modals/delete-modal.blade.php`:
 

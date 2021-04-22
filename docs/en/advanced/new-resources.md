@@ -2,7 +2,7 @@
 
 As commented on [Attributes](en/basics/attributes.md), there is a way to add a  *add-new-resource-button* to the model shown in the table. This button looks like this (at the top right of the image):
 
-![livewire-tables](../../../_media/new-resource.png ':class=thumbnail-full')
+![livewire-tables](../../../_media/new-resource.png ':class=thumbnail')
 
 To activate it, we will only have to go to our *Table Component*, and add the attribute `$newResource` with the url path or a route:
 
