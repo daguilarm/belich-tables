@@ -28,7 +28,7 @@ trait Relationships
             $model = $baseQuery->getRelation($relationship);
 
             // Values base on the relationship type
-            [$table, $foreign, $other, $baseQuery, $query] = match($model) {
+            [$table, $foreign, $other, $baseQuery, $query] = match ($model) {
                 // See the cases
                 $model instanceof BelongsToMany => $this->BelongsToMany($model, $baseQuery, $query),
                 $model instanceof HasOneOrMany => $this->getHasOneOrMany($model, $baseQuery, $query),

@@ -13,7 +13,7 @@ trait ColumnVisibility
      */
     public function hideFrom(string $value): self
     {
-        $this->show = match($value) {
+        $this->show = match ($value) {
             'sm' => 'hidden',
             'md' => 'hidden lg:block',
             'lg' => 'hidden xl:block',
@@ -29,7 +29,7 @@ trait ColumnVisibility
      */
     public function showOn(string $value): self
     {
-        $this->show = match($value) {
+        $this->show = match ($value) {
             'sm' => 'block',
             'md' => 'hidden md:block',
             'lg' => 'hidden lg:block',
