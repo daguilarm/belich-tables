@@ -80,7 +80,7 @@ Column::make('Avatar', 'profile.profile_avatar')
 
 And this is the result:
 
-![Belich Tables with Livewire](_media/belich-tables.png ':class=thumbnail')
+![Belich Tables with Livewire](../../_media/belich-tables.png ':class=thumbnail')
 
 ## Flash messages
 
