@@ -47,7 +47,9 @@ main > table > tbody > tr > th {
 }
 
 footer {
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
     color: var(--mono-tint1);
 }
 
