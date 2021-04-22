@@ -16,6 +16,7 @@
 
   - [Actions](en/advanced/actions.md)
   - [Delete Modal](en/advanced/delete-modal.md)
+  - [Authorization](en/advanced/authorization.md)
   - [New resources](en/advanced/new-resources.md)
   - [Relationships](en/advanced/relationships.md)
 
