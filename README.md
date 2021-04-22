@@ -1,4 +1,4 @@
-![Package Logo](https://banners.beyondco.de/Livewire%20Tables.png?theme=light&packageManager=composer+require&packageName=daguilarm%2Flivewire-tables&pattern=bamboo&style=style_1&description=Manage+your+tables+with+Laravel+Livewire&md=1&showWatermark=0&fontSize=100px&images=template)
+![Package Logo](https://banners.beyondco.de/Belich%20Tables.png?theme=light&packageManager=composer+require&packageName=daguilarm%2Fbelich-tables&pattern=bamboo&style=style_1&description=Manage+your+tables+with+Laravel+Livewire&md=1&showWatermark=0&fontSize=100px&images=template)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/daguilarm/belich-tables.svg?style=flat-square)](https://packagist.org/packages/daguilarm/belich-tables)
 [![StyleCI](https://styleci.io/repos/354914653/shield?style=plastic)](https://github.styleci.io/repos/354914653)
@@ -27,7 +27,7 @@ You can install the package via composer:
 
 Or include in your `composer.json`:
 
-    "daguilarm/belich-tables": "^1.0"
+    "daguilarm/livewire-tables": "^1.0"
 
 ## Publishing Assets
 
