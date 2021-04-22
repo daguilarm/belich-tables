@@ -44,7 +44,7 @@ We can show the value as boolean:
 
 In the following image, you can see an example of how it would look:
 
-![Belich Tables with Livewire](../../../_media/boolean.png ':class=thumbnail')
+![Belich Tables with Livewire](../../_media/boolean.png ':class=thumbnail')
 
 !> It is recommended to define inside the model that the field is boolean (using the `cast` attribute). In any case, the system will automatically assign the field as boolean, trying to avoid the problem. For this, will use the `asBoolean()` method internally.
 

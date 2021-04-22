@@ -212,7 +212,7 @@ wire:model.defer="filterValues.filterName"
 
 An example of the default filters in action:
 
-![Belich Tables with Livewire](../../../_media/default-filters.png ':class=thumbnail')
+![Belich Tables with Livewire](../../_media/default-filters.png ':class=thumbnail')
 
 In the next section, it is explained how to customize the default filters.
 
