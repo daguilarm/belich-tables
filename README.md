@@ -27,7 +27,7 @@ You can install the package via composer:
 
 Or include in your `composer.json`:
 
-    "daguilarm/livewire-tables": "^1.0"
+    "daguilarm/belich-tables": "^1.0"
 
 ## Publishing Assets
 
