@@ -29,4 +29,5 @@
   
   - [Helpers](en/others/helpers.md)
   - [Flash messages](en/others/flash-messages.md)
+  - [Custom assets](en/others/custom-assets.md)
   - [Localization](en/others/localization.md)
