@@ -206,9 +206,9 @@ The package includes by default three filters:
 
 | Filter | Class | Description |
 | :---------- |:------------| :------------|
-| FilterByDate | `Daguilarm\LivewireTables\Components\Filters\FilterByDate:class` | It is used to filter between two dates or between only one, in the selected column. |
-| FilterByUser| `Daguilarm\LivewireTables\Components\Filters\FilterByUser:class` | It is used to filter the users in the database. |
-| FilterByYear| `Daguilarm\LivewireTables\Components\Filters\FilterByYear:class` | It is used to filter the results base on the year. |
+| FilterByDate | `FilterByDate:class` | It is used to filter between two dates or between only one, in the selected column. |
+| FilterByUser| `FilterByUser:class` | It is used to filter the users in the database. |
+| FilterByYear| `FilterByYear:class` | It is used to filter the results base on the year. |
 
 An example of the default filters in action:
 

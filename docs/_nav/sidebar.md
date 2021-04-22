@@ -18,8 +18,12 @@
   - [Delete Modal](en/advanced/delete-modal.md)
   - [Export](en/advanced/export.md)
   - [New resources](en/advanced/new-resources.md)
+  - [Relationships](en/advanced/relationships.md)
   - [Custom sections](en/advanced/custom-sections.md)
 
 - Other features
   
   - [Helpers](en/others/helpers.md)
+  - [Flash messages](en/others/flash-messages.md)
+  - [Bulk delete](en/others/bulk-delete.md)
+  - [Localization](en/others/localization.md)
