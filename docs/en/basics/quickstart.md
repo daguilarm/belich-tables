@@ -84,7 +84,7 @@ And this is the result:
 
 ## Flash messages
 
-**Livewire Tables** include the package: [Livewire Flash by Mattlibera](https://github.com/mattlibera/livewire-flash). This package allows us to incorporate flash messages through Livewire, in a very simple way. Some parts of the package use this functionality, so it is convenient to activate it.
+**Belich Tables** include the package: [Livewire Flash by Mattlibera](https://github.com/mattlibera/livewire-flash). This package allows us to incorporate flash messages through Livewire, in a very simple way. Some parts of the package use this functionality, so it is convenient to activate it.
 
 To do this, you need to add the `flash-container` component:
 
