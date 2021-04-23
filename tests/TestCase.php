@@ -35,7 +35,7 @@ class TestCase extends BaseTestCase
     }
 
     /**
-     * Load the service providers
+     * Load the service providers.
      */
     protected function getPackageProviders($app)
     {
@@ -46,7 +46,7 @@ class TestCase extends BaseTestCase
     }
 
     /**
-     * Setup the testing environment
+     * Setup the testing environment.
      */
     public function getEnvironmentSetUp($app)
     {
@@ -71,7 +71,7 @@ class TestCase extends BaseTestCase
     }
 
     /**
-     * Clean up for the test
+     * Clean up for the test.
      */
     public function makeACleanSlate()
     {
@@ -84,7 +84,7 @@ class TestCase extends BaseTestCase
     }
 
     /**
-     * Swap HTTP Kernel for application bootstrap
+     * Swap HTTP Kernel for application bootstrap.
      */
     protected function resolveApplicationHttpKernel($app)
     {
@@ -92,7 +92,7 @@ class TestCase extends BaseTestCase
     }
 
     /**
-     * Set the path for the livewire classes
+     * Set the path for the livewire classes.
      */
     protected function livewireClassesPath($path = '')
     {
@@ -100,7 +100,7 @@ class TestCase extends BaseTestCase
     }
 
     /**
-     * Set the path for the livewire views
+     * Set the path for the livewire views.
      */
     protected function livewireViewsPath($path = '')
     {
@@ -108,7 +108,7 @@ class TestCase extends BaseTestCase
     }
 
     /**
-     * Set the path for the livewire tests
+     * Set the path for the livewire tests.
      */
     protected function livewireTestsPath($path = '')
     {

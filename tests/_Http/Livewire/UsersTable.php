@@ -7,7 +7,6 @@ use Daguilarm\BelichTables\Tests\_Filters\FilterByDate;
 use Daguilarm\BelichTables\Tests\_Filters\FilterByUser;
 use Daguilarm\BelichTables\Tests\_Filters\FilterByYear;
 use Daguilarm\BelichTables\Tests\_Models\User;
-use Daguilarm\BelichTables\Views\Action;
 use Daguilarm\BelichTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
@@ -25,12 +24,12 @@ class UsersTable extends TableComponent
         parent::__construct($id);
     }
 
-    public function query() : Builder
+    public function query(): Builder
     {
         return User::select('users.*')->with('profile');
     }
 
-    public function columns() : array
+    public function columns(): array
     {
         return [
             Column::make('ID')

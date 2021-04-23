@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Tests\_Filters;
 
-use Daguilarm\BelichTables\Tests\_Models\User;
 use Daguilarm\BelichTables\Components\FilterComponent;
 use Daguilarm\BelichTables\Facades\BelichTables;
+use Daguilarm\BelichTables\Tests\_Models\User;
 use Illuminate\Database\Eloquent\Builder;
 
 final class FilterByUser extends FilterComponent

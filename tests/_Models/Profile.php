@@ -15,7 +15,7 @@ class Profile extends Model
     protected $table = 'profiles';
 
     /**
-     * In case you need to use the softdeletes
+     * In case you need to use the softdeletes.
      *
      * @var array
      */
