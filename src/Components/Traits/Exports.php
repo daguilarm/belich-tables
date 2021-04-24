@@ -58,9 +58,9 @@ trait Exports
         // Download the file
         $download = $this->download($type, $exportFormat);
 
-        // File is successfull downloaded
+        // File is successful downloaded
         if ($download) {
-            // Notify successfull - only for testing
+            // Notify successful - only for testing
             $this->emit('fileDownload', true);
 
             // Success message
