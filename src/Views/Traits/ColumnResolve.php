@@ -36,7 +36,7 @@ trait ColumnResolve
      */
     public function isHtml(): bool
     {
-        return $this->asHtml === true;
+        return $this->asHtml;
     }
 
     /**

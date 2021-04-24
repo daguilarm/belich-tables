@@ -20,4 +20,12 @@ trait ColumnBoolean
 
         return $this;
     }
+
+    /**
+     * Check if the columns is boolean.
+     */
+    public function isBoolean(): bool
+    {
+        return $this->showAsBoolean;
+    }
 }

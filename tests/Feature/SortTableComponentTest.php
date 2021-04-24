@@ -14,8 +14,8 @@ class SortTableComponentTest extends TestCase
         parent::setUp();
     }
 
-    // test --filter=test_tablecomponent_sort_attributes
-    public function test_tablecomponent_sort_attributes(): void
+    // test --filter=test_table_component_sort_attributes
+    public function test_table_component_sort_attributes(): void
     {
         Livewire::test(UsersTable::class)
             // Sort attributes
@@ -27,8 +27,8 @@ class SortTableComponentTest extends TestCase
             ->assertNotSet('sortDirection', 'asc');
     }
 
-    // test --filter=test_tablecomponent_sort_direction
-    public function test_tablecomponent_sort_direction(): void
+    // test --filter=test_table_component_sort_direction
+    public function test_table_component_sort_direction(): void
     {
         Livewire::test(UsersTable::class)
             // Default values
@@ -44,8 +44,8 @@ class SortTableComponentTest extends TestCase
             ->assertSet('sortDirection', 'desc');
     }
 
-    // test --filter=test_tablecomponent_sort_direction_for_a_relationship_field
-    public function test_tablecomponent_sort_direction_for_a_relationship_field(): void
+    // test --filter=test_table_component_sort_direction_for_a_relationship_field
+    public function test_table_component_sort_direction_for_a_relationship_field(): void
     {
         Livewire::test(UsersTable::class)
             // We simulate clicking on the name column

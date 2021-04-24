@@ -20,8 +20,8 @@ class TableComponentTest extends TestCase
         $this->table = new UsersTable();
     }
 
-    // test --filter=test_tablecomponent_is_working
-    public function test_tablecomponent_is_working(): void
+    // test --filter=test_table_component_is_working
+    public function test_table_component_is_working(): void
     {
         $this->assertInstanceOf(
             $instance = TableComponent::class,
@@ -29,8 +29,8 @@ class TableComponentTest extends TestCase
         );
     }
 
-    // test --filter=test_tablecomponent_columns
-    public function test_tablecomponent_columns(): void
+    // test --filter=test_table_component_columns
+    public function test_table_component_columns(): void
     {
         $this->assertCount(
             $columns = 4,
@@ -38,8 +38,8 @@ class TableComponentTest extends TestCase
         );
     }
 
-    // test --filter=test_tablecomponent_results
-    public function test_tablecomponent_results(): void
+    // test --filter=test_table_component_results
+    public function test_table_component_results(): void
     {
         $results = $this->table->models();
 
@@ -47,8 +47,8 @@ class TableComponentTest extends TestCase
         $this->assertEquals(9, $results->count());
     }
 
-    // test --filter=test_tablecomponent_pagination
-    public function test_tablecomponent_pagination(): void
+    // test --filter=test_table_component_pagination
+    public function test_table_component_pagination(): void
     {
         // Test changing per page
         $this->table->perPage = 3;
@@ -62,8 +62,8 @@ class TableComponentTest extends TestCase
         $this->assertEquals($lastPage = 3, $pagination->lastPage());
     }
 
-    // test --filter=test_tablecomponent_attributes
-    public function test_tablecomponent_attributes(): void
+    // test --filter=test_table_component_attributes
+    public function test_table_component_attributes(): void
     {
         Livewire::test(UsersTable::class)
             // Table attributes
@@ -103,8 +103,8 @@ class TableComponentTest extends TestCase
             ->assertNotSet('newResource', '');
     }
 
-    // test --filter=test_tablecomponent_view_exists
-    public function test_tablecomponent_view_exists(): void
+    // test --filter=test_table_component_view_exists
+    public function test_table_component_view_exists(): void
     {
         Livewire::test(UsersTable::class)
             ->assertViewIs('belich-tables::tailwind.table-component');

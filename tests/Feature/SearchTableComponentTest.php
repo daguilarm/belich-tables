@@ -16,8 +16,8 @@ class SearchTableComponentTest extends TestCase
         $this->table = new UsersTable();
     }
 
-    // test --filter=test_tablecomponent_search_attributes
-    public function test_tablecomponent_search_attributes(): void
+    // test --filter=test_table_component_search_attributes
+    public function test_table_component_search_attributes(): void
     {
         Livewire::test(UsersTable::class)
             // Search attributes
@@ -33,8 +33,8 @@ class SearchTableComponentTest extends TestCase
             ->assertSet('clearSearchButton', false);
     }
 
-    // test --filter=test_tablecomponent_search_input
-    public function test_tablecomponent_search_input(): void
+    // test --filter=test_table_component_search_input
+    public function test_table_component_search_input(): void
     {
         // Total results
         Livewire::test(UsersTable::class)

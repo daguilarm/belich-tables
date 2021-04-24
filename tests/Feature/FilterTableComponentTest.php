@@ -16,8 +16,8 @@ class FilterTableComponentTest extends TestCase
         parent::setUp();
     }
 
-    // test --filter=test_tablecomponent_filter_by_user
-    public function test_tablecomponent_filter_by_user(): void
+    // test --filter=test_table_component_filter_by_user
+    public function test_table_component_filter_by_user(): void
     {
         Livewire::test(UsersTable::class)
             ->call('totalResultsForTesting')
@@ -27,8 +27,8 @@ class FilterTableComponentTest extends TestCase
             ->assertCount('totalResultsForTesting', 1);
     }
 
-    // test --filter=test_tablecomponent_filter_by_year
-    public function test_tablecomponent_filter_by_year(): void
+    // test --filter=test_table_component_filter_by_year
+    public function test_table_component_filter_by_year(): void
     {
         Livewire::test(UsersTable::class)
             ->call('totalResultsForTesting')
@@ -38,8 +38,8 @@ class FilterTableComponentTest extends TestCase
             ->assertCount('totalResultsForTesting', 3);
     }
 
-    // test --filter=test_tablecomponent_filter_by_date
-    public function test_tablecomponent_filter_by_date(): void
+    // test --filter=test_table_component_filter_by_date
+    public function test_table_component_filter_by_date(): void
     {
         Livewire::test(UsersTable::class)
             ->call('totalResultsForTesting')

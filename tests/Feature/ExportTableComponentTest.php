@@ -14,8 +14,8 @@ class ExportTableComponentTest extends TestCase
         parent::setUp();
     }
 
-    // test --filter=test_tablecomponent_export_attributes
-    public function test_tablecomponent_export_attributes(): void
+    // test --filter=test_table_component_export_attributes
+    public function test_table_component_export_attributes(): void
     {
         Livewire::test(UsersTable::class)
             // Export attributes
@@ -27,8 +27,8 @@ class ExportTableComponentTest extends TestCase
             ->assertNotSet('exportFileName', 'data');
     }
 
-    // test --filter=test_tablecomponent_export_file
-    public function test_tablecomponent_export_file(): void
+    // test --filter=test_table_component_export_file
+    public function test_table_component_export_file(): void
     {
         // Assert see the export element
         Livewire::test(UsersTable::class)
