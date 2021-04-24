@@ -58,7 +58,7 @@ class TestCase extends BaseTestCase
     {
         // Setup the application
         $app['config']->set('view.paths', [
-            __DIR__.'/views',
+            __DIR__.'/../tests/_Resources/_Views/',
             resource_path('views'),
         ]);
         $app['config']->set('auth.providers.users.model', User::class);
@@ -87,6 +87,16 @@ class TestCase extends BaseTestCase
         File::deleteDirectory($this->livewireClassesPath());
         File::deleteDirectory($this->livewireTestsPath());
         File::delete(app()->bootstrapPath('cache/livewire-components.php'));
+    }
+
+    /**
+     * Get all the dusk attributes.
+     */
+    public function getDuskAttributes($html)
+    {
+        preg_match_all('/dusk="(.*)"/', $html, $results);
+
+        return $results[1];
     }
 
     /**

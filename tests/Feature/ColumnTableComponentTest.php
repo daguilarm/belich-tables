@@ -2,7 +2,10 @@
 
 namespace Daguilarm\BelichTables\Tests\Feature;
 
+use Daguilarm\BelichTables\Facades\BelichTables;
 use Daguilarm\BelichTables\Tests\TestCase;
+use Daguilarm\BelichTables\Tests\_Models\User;
+use Daguilarm\BelichTables\Views\Action;
 use Daguilarm\BelichTables\Views\Column;
 
 // test --filter=ColumnTableComponentTest
@@ -99,5 +102,49 @@ class ColumnTableComponentTest extends TestCase
 
         $this->assertTrue($column->hideIf(false)->isVisible());
         $this->assertTrue($column->hide()->isHidden());
+    }
+
+    // test --filter=test_column_view_component
+    public function test_column_view_component(): void
+    {
+        // Get column
+        $column = (new Column('Email', 'email'))
+            ->render(static function(User $user) {
+                return view('avatar', compact('user'));
+            });
+
+        // See if is callable
+        $this->assertTrue($column->isRenderable());
+
+        // Get view
+        $view = $column->renderCallback(new User())->render();
+
+        // Verify render view has the correct dusk attributes
+        $this->assertEquals(
+            ['test-image', 'test-name', 'test-email'],
+            $this->getDuskAttributes($view),
+        );
+    }
+
+    // test --filter=test_column_action_component
+    public function test_column_action_component(): void
+    {
+        // Get user
+        $user = User::find(5);
+
+        // Get action view
+        $actionView = BelichTables::include('includes.actions.default');
+
+        // Render the action
+        $action = app(Action::class)
+            ->make($actionView)
+            ->renderCallback($user)
+            ->render();
+
+        // Verify action view has the correct dusk attributes
+        $this->assertEquals(
+            ['show-button-5', 'edit-button-5', 'delete-button-5'],
+            $this->getDuskAttributes($action),
+        );
     }
 }
