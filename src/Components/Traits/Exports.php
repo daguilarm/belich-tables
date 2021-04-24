@@ -59,7 +59,7 @@ trait Exports
         $download = $this->download($type, $exportFormat);
 
         // File is successfull downloaded
-        if($download) {
+        if ($download) {
             // app('lwflash')->message(trans('belich-tables::strings.messages.download.success'), 'success')->livewire($this);
             flash(trans('belich-tables::strings.messages.download.success'))->success()->livewire($this);
 
@@ -88,7 +88,8 @@ trait Exports
         // File name
         $fileName = sprintf('%s.%s', $this->exportFileName, $type);
 
-        return $downloadClass->download($fileName, $exportFormat);
+        return $downloadClass
+            ->download($fileName, $exportFormat);
     }
 
     /**
