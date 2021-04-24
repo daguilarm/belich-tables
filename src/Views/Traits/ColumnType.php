@@ -6,7 +6,7 @@ namespace Daguilarm\BelichTables\Views\Traits;
 
 trait ColumnType
 {
-    public string $type;
+    public string $type = 'string';
 
     /**
      * Convert value to boolean.
@@ -63,10 +63,14 @@ trait ColumnType
      *
      * @param bool | int | float | object | string | null $value
      */
-    protected function resolveType($value = null): bool | int | float | object | string | null
+    public function resolveType($value = null): bool | int | float | object | string | null
     {
-        return $value && isset($this->type)
-            ? settype($value, $this->type)
-            : $value;
+        return match ($this->type) {
+            'bool' => (boolean) $value,
+            'float' => (float) $value,
+            'int' => (integer) $value,
+            'object' => (object) $value,
+            'string' => (string) $value,
+        };
     }
 }
