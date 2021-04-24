@@ -28,7 +28,7 @@ class UserPolicy
 }
 ```
 
-From the **Livewire Componet**, the **Model** to check (`$target`) and the element ID (`$id`). On the other hand, the **Livewire Componet** works as follows:
+From the **Livewire Componet**, the **Model** to check (`$target`) and the element ID (`$id`). On the other hand, the **Livewire Component** works as follows:
 
 ```php
 /**
