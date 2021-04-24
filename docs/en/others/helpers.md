@@ -1,6 +1,6 @@
 # Helpers
 
-**Belich Tables** has some extra methods that can be useful to us. These methods are accessible through the *Facade* `LivewireTables`.
+**Belich Tables** has some extra methods that can be useful to us. These methods are accessible through the *Facade* `BelichTables`.
 
 | Method | Example | Description |
 | :---------- |:------------ |:------------|
