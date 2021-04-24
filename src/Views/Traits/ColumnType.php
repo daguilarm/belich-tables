@@ -66,9 +66,9 @@ trait ColumnType
     public function resolveType($value = null): bool | int | float | object | string | null
     {
         return match ($this->type) {
-            'bool' => (boolean) $value,
+            'bool' => (bool) $value,
             'float' => (float) $value,
-            'int' => (integer) $value,
+            'int' => (int) $value,
             'object' => (object) $value,
             'string' => (string) $value,
         };
