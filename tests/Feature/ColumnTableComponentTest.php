@@ -74,7 +74,7 @@ class ColumnTableComponentTest extends TestCase
         // types
         $columnBoolean = $column->toBoolean()->resolveType('1');
         $columnFloat = $column->toFloat()->resolveType('1');
-        $columnInteger = $column->toInteger()->resolveType('1');
+        $columnInteger = $column->toInteger()->resolveType('1.12');
         $columnObject = $column->toObject()->resolveType('1');
         $columnString = $column->toString()->resolveType(22);
 
@@ -84,5 +84,20 @@ class ColumnTableComponentTest extends TestCase
         $this->assertTrue(is_integer($columnInteger));
         $this->assertTrue(is_object($columnObject));
         $this->assertTrue(is_string($columnString));
+
+        // Verify the types
+        $this->assertEquals($columnBoolean, true);
+        $this->assertEquals($columnFloat, 1.0);
+        $this->assertEquals($columnInteger, 1);
+        $this->assertEquals($columnString, '22');
+    }
+
+    // test --filter=test_column_hidden_component
+    public function test_column_hidden_component(): void
+    {
+        $column = new Column('Email', 'email');
+
+        $this->assertTrue($column->hideIf(false)->isVisible());
+        $this->assertTrue($column->hide()->isHidden());
     }
 }
