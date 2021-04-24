@@ -1,6 +1,13 @@
 # Changelog
 
-All notable changes to `livewire-tables` will be documented in this file
+All notable changes to `livewire-tables` will be documented in this file:
+
+## [1.1] - 2021-04-24
+
+### Added
+
+- The development environment for testing has been created.
+- New tests.
 
 ## [1.0] - 2021-04-17
 

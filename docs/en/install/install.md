@@ -9,7 +9,13 @@ composer require daguilarm/belich-tables
 Or include in your `composer.json`:
 
 ```bash
-"daguilarm/belich-tables": "^1.0"
+"daguilarm/belich-tables": "^1.1"
+```
+
+or if you want to test...
+
+```bash
+"daguilarm/belich-tables": "@dev"
 ```
 
 Publishing assets is optional for this package:
