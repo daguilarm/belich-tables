@@ -5,10 +5,6 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/daguilarm/belich-tables.svg?style=flat-square)](https://packagist.org/packages/daguilarm/belich-tables)
 ![GitHub last commit](https://img.shields.io/github/last-commit/daguilarm/belich-tables)
 
-> :warning: **This package is currently under development**: Be very careful here!
-
-This package is deeply inspired by the https://github.com/rappasoft/laravel-livewire-tables package.
-
 ## Requirements
 
 This package need at least:
