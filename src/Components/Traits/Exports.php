@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Daguilarm\BelichTables\Components\Traits;
 
 use Daguilarm\BelichTables\Exceptions\UnsupportedExportFormat;
+use Illuminate\Support\Str;
 use Maatwebsite\Excel\Excel;
 
 trait Exports
@@ -24,7 +25,7 @@ trait Exports
     /**
      * Export file with the selected format.
      */
-    public function export(string $type): object
+    public function export(string $type): ?object
     {
         $type = strtolower($type);
 
@@ -52,7 +53,9 @@ trait Exports
 
             case 'pdf':
                 $writer = Excel::DOMPDF;
-                $library = strtolower(config('livewire-tables.pdf_library'));
+                $library = Str::of(config('belich-tables.pdf_library'))
+                    ->lower()
+                    ->__toString();
 
                 if (! in_array($library, ['dompdf', 'mpdf'], true)) {
                     throw new UnsupportedExportFormat(__('This PDF export library is not supported.'));
@@ -64,8 +67,20 @@ trait Exports
                 break;
         }
 
-        $class = config('livewire-tables.exports');
+        $class = config('belich-tables.exports');
 
-        return (new $class($this->models(), $this->columns()))->download($this->exportFileName.'.'.$type, $writer);
+        $download = (new $class($this->models(), $this->columns()))
+            ->download($this->exportFileName.'.'.$type, $writer);
+
+        if($download) {
+            flash(trans('belich-tables::strings.messages.download.success'))->success()->livewire($this);
+
+            return $download;
+
+        } else {
+            flash(trans('belich-tables::strings.messages.download.error'))->error()->livewire($this);
+
+            return null;
+        }
     }
 }
