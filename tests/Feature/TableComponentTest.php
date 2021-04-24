@@ -6,14 +6,11 @@ use Daguilarm\BelichTables\Components\TableComponent;
 use Daguilarm\BelichTables\Tests\_Http\Livewire\UsersTable;
 use Daguilarm\BelichTables\Tests\TestCase;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
 
 // test --filter=TableComponentTest
 class TableComponentTest extends TestCase
 {
-    use RefreshDatabase;
-
     protected TableComponent $table;
 
     public function setUp(): void
