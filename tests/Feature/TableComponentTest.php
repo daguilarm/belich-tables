@@ -3,13 +3,17 @@
 namespace Daguilarm\BelichTables\Tests\Feature;
 
 use Daguilarm\BelichTables\Components\TableComponent;
-use Daguilarm\BelichTables\Tests\_Http\Livewire\UsersTable;
 use Daguilarm\BelichTables\Tests\TestCase;
+use Daguilarm\BelichTables\Tests\_Http\Livewire\UsersTable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Livewire\Livewire;
 
 // test --filter=TableComponentTest
 class TableComponentTest extends TestCase
 {
+    use RefreshDatabase;
+
     protected TableComponent $table;
 
     public function setUp(): void
@@ -59,5 +63,53 @@ class TableComponentTest extends TestCase
         $this->assertEquals($currentPage = 1, $pagination->currentPage());
         $this->assertEquals($totalPages = 3, $pagination->count());
         $this->assertEquals($lastPage = 3, $pagination->lastPage());
+    }
+
+    // test --filter=test_tablecomponent_attributes
+    public function test_tablecomponent_attributes(): void
+    {
+        Livewire::test(UsersTable::class)
+            // Table attributes
+            ->set('refresh', true)
+            ->assertSet('refresh', true)
+            ->set('refreshInSeconds', 5)
+            ->assertSet('refreshInSeconds', 5)
+            ->assertNotSet('refreshInSeconds', 2)
+            ->set('showCheckboxes', false)
+            ->assertSet('showCheckboxes', false)
+            ->set('showOffline', false)
+            ->assertSet('showOffline', false)
+            ->set('showLoading', false)
+            ->assertSet('showLoading', false)
+            ->set('showTableHead', false)
+            ->assertSet('showTableHead', false)
+            ->set('showTableFooter', false)
+            ->assertSet('showTableFooter', false)
+            // Pagination attributes
+            ->set('showPagination', false)
+            ->assertSet('showPagination', false)
+            ->set('paginationTheme', 'tailwind')
+            ->assertSet('paginationTheme', 'tailwind')
+            ->assertNotSet('paginationTheme', 'bootstrap')
+            // Per page attributes
+            ->set('showPerPage', false)
+            ->assertSet('showPerPage', false)
+            ->set('perPageOptions', [10, 25, 50, 100, 200])
+            ->assertSet('perPageOptions', [10, 25, 50, 100, 200])
+            ->assertCount('perPageOptions', 5)
+            ->set('perPage', 10)
+            ->assertSet('perPage', 10)
+            ->assertNotSet('perPage', 25)
+            // Other attributes
+            ->set('newResource', '/my/url/path')
+            ->assertSet('newResource', '/my/url/path')
+            ->assertNotSet('newResource', '');
+    }
+
+    // test --filter=test_tablecomponent_view_exists
+    public function test_tablecomponent_view_exists(): void
+    {
+        Livewire::test(UsersTable::class)
+            ->assertViewIs('belich-tables::tailwind.table-component');
     }
 }

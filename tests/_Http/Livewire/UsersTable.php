@@ -33,20 +33,18 @@ class UsersTable extends TableComponent
     {
         return [
             Column::make('ID')
-                ->searchable()
                 ->sortable(),
             Column::make('Active')
                 ->showAsBoolean(),
             Column::make('Name')
                 ->searchable()
                 ->sortable()
-                ->format(static function($value) {
+                ->format(static function ($value) {
                     return Str::of($value)
                         ->plural()
                         ->title();
                 }),
             Column::make('Telephone', 'profile.profile_telephone')
-                ->searchable()
                 ->sortable(),
         ];
     }

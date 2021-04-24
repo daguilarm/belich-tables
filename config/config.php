@@ -7,7 +7,7 @@ return [
     /*
      * The class to use to handle the export functionality
      */
-    'exports' => \Daguilarm\LivewireTables\Exports\Export::class,
+    'exports' => \Daguilarm\BelichTables\Exports\Export::class,
 
     /*
      * Which library you want to use for PDF generation

@@ -18,6 +18,7 @@ use Daguilarm\BelichTables\Components\Traits\Search;
 use Daguilarm\BelichTables\Components\Traits\Sorting;
 use Daguilarm\BelichTables\Components\Traits\SortingRelatioships;
 use Daguilarm\BelichTables\Components\Traits\Table;
+use Daguilarm\BelichTables\Components\Traits\Testing;
 use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -45,6 +46,7 @@ abstract class TableComponent extends Component
         Sorting,
         SortingRelatioships,
         Table,
+        Testing,
         WithPagination;
 
     /**
@@ -61,7 +63,7 @@ abstract class TableComponent extends Component
     /**
      * Refresh table each XX seconds.
      */
-    public int $refreshInSeconds;
+    public int $refreshInSeconds = 2;
 
     /**
      * Whether or not to display an offline message when there is no connection.
@@ -83,7 +85,7 @@ abstract class TableComponent extends Component
      *
      * @var array<string>
      */
-    protected $listeners = ['itemDelete'];
+    protected $listeners = ['itemDelete', 'fileDownload'];
 
     /**
      * Set the model instance.
@@ -129,9 +131,9 @@ abstract class TableComponent extends Component
     /**
      * Set the view.
      */
-    public function viewName(): string
+    public function viewName(?string $viewName = null): string
     {
-        return BelichTables::include('table-component');
+        return $viewName ?? BelichTables::include('table-component');
     }
 
     /**

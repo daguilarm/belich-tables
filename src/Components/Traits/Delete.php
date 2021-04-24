@@ -66,8 +66,8 @@ trait Delete
         // Messages
         return $deleteOperation
             // Success message
-            ? flash(trans('belich-tables::strings.messages.delete.success'))->success()->livewire($this)
+            ? app('lwflash')->message(trans('belich-tables::strings.messages.delete.success'), 'success')->livewire($this)
             // Error message
-            : flash(trans('belich-tables::strings.messages.delete.error'))->error()->livewire($this);
+            : app('lwflash')->message(trans('belich-tables::strings.messages.delete.error'), 'error')->livewire($this);
     }
 }

@@ -60,14 +60,25 @@ trait Exports
 
         // File is successfull downloaded
         if ($download) {
-            // app('lwflash')->message(trans('belich-tables::strings.messages.download.success'), 'success')->livewire($this);
-            flash(trans('belich-tables::strings.messages.download.success'))->success()->livewire($this);
+            // Notify successfull - only for testing
+            $this->emit('fileDownload', true);
+
+            // Success message
+            app('lwflash')
+                ->message(trans('belich-tables::strings.messages.download.success'), 'success')
+                ->livewire($this);
 
             return $download;
 
         // Error with file download
         } else {
-            flash(trans('belich-tables::strings.messages.download.error'))->error()->livewire($this);
+            // Notify failure - only for testing
+            $this->emit('fileDownload', false);
+
+            // Error message
+            app('lwflash')
+                ->message(trans('belich-tables::strings.messages.download.error'), 'error')
+                ->livewire($this);
 
             return null;
         }
