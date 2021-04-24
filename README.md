@@ -23,7 +23,11 @@ You can install the package via composer:
 
 Or include in your `composer.json`:
 
-    "daguilarm/belich-tables": "^1.0"
+    "daguilarm/belich-tables": "^1.1"
+
+Or if you want to test...
+
+    "daguilarm/belich-tables": "@dev"
 
 ## Publishing Assets
 
