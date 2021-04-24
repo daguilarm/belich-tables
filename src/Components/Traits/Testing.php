@@ -9,6 +9,9 @@ namespace Daguilarm\BelichTables\Components\Traits;
  */
 trait Testing
 {
+    /**
+     * @var array<string>.
+     */
     public array $totalResultsForTesting = [];
 
     /**
@@ -16,7 +19,7 @@ trait Testing
      */
     public function typeSearchForTesting(string $search): self
     {
-        if(app()->environment() === 'testing') {
+        if (app()->environment() === 'testing') {
             $this->search = $search;
         }
 
@@ -28,7 +31,7 @@ trait Testing
      */
     public function totalResultsForTesting(): self
     {
-        if(app()->environment() === 'testing') {
+        if (app()->environment() === 'testing') {
             $this->totalResultsForTesting = $this->models()->get()->toArray();
         }
 

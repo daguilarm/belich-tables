@@ -2,9 +2,8 @@
 
 namespace Daguilarm\BelichTables\Tests\Feature;
 
-use Daguilarm\BelichTables\Tests\TestCase;
 use Daguilarm\BelichTables\Tests\_Http\Livewire\UsersTable;
-use Illuminate\Support\Facades\Route;
+use Daguilarm\BelichTables\Tests\TestCase;
 use Livewire\Livewire;
 
 // test --filter=ExportTableComponentTest

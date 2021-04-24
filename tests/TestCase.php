@@ -3,6 +3,7 @@
 namespace Daguilarm\BelichTables\Tests;
 
 use Daguilarm\BelichTables\BelichTablesServiceProvider;
+use Daguilarm\BelichTables\Tests\_Models\User;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Livewire\LivewireServiceProvider;
