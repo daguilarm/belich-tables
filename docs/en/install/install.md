@@ -12,7 +12,7 @@ Or include in your `composer.json`:
 "daguilarm/belich-tables": "^1.0"
 ```
 
-Publishing assets **is mandatory** for this package:
+Publishing assets is optional for this package:
 
 ```bash
 php artisan vendor:publish --provider="Daguilarm\BelichTables\BelichTablesServiceProvider"
