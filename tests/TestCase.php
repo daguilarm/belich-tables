@@ -7,6 +7,8 @@ use Daguilarm\BelichTables\Tests\TestSeed;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Livewire\LivewireServiceProvider;
+use Maatwebsite\Excel\ExcelServiceProvider;
+use MattLibera\LivewireFlash\LivewireFlashServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
@@ -42,6 +44,8 @@ class TestCase extends BaseTestCase
         return [
             BelichTablesServiceProvider::class,
             LivewireServiceProvider::class,
+            ExcelServiceProvider::class,
+            LivewireFlashServiceProvider::class,
         ];
     }
 

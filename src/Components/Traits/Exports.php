@@ -15,7 +15,12 @@ trait Exports
     /**
      * @var array<string>
      */
-    public array $exportAllowedFormats = ['csv', 'xls', 'xlsx', 'pdf'];
+    public array $exportAllowedFormats = [
+        'csv',
+        'xls',
+        'xlsx',
+        'pdf',
+    ];
 
     /**
      * @var array<string>
@@ -27,60 +32,83 @@ trait Exports
      */
     public function export(string $type): ?object
     {
-        $type = strtolower($type);
+        // Set the default export type
+        $type = Str::of($type)
+            ->lower()
+            ->__toString();
 
+        // Verify the export type is correct
         if (! in_array($type, $this->exportAllowedFormats, true)) {
             throw new UnsupportedExportFormat(__('This export type is not supported.'));
         }
 
+        // and is allowed
         if (! in_array($type, array_map('strtolower', $this->exports), true)) {
             throw new UnsupportedExportFormat(__('This export type is not set on this table component.'));
         }
 
-        switch ($type) {
-            case 'csv':
-                default:
-                $writer = Excel::CSV;
-                break;
+        // Set the export format
+        $exportFormat = match ($type) {
+            'csv' => Excel::CSV,
+            'xls' => Excel::XLS,
+            'xlsx' => Excel::XLSX,
+            'pdf' => $this->selectPdfLibrary(),
+        };
 
-            case 'xls':
-                $writer = Excel::XLS;
-                break;
+        // Download the file
+        $download = $this->download($type, $exportFormat);
 
-            case 'xlsx':
-                $writer = Excel::XLSX;
-                break;
-
-            case 'pdf':
-                $writer = Excel::DOMPDF;
-                $library = Str::of(config('belich-tables.pdf_library'))
-                    ->lower()
-                    ->__toString();
-
-                if (! in_array($library, ['dompdf', 'mpdf'], true)) {
-                    throw new UnsupportedExportFormat(__('This PDF export library is not supported.'));
-                }
-
-                if ($library === 'mpdf') {
-                    $writer = Excel::MPDF;
-                }
-                break;
-        }
-
-        $class = config('belich-tables.exports');
-
-        $download = (new $class($this->models(), $this->columns()))
-            ->download($this->exportFileName.'.'.$type, $writer);
-
+        // File is successfull downloaded
         if($download) {
+            // app('lwflash')->message(trans('belich-tables::strings.messages.download.success'), 'success')->livewire($this);
             flash(trans('belich-tables::strings.messages.download.success'))->success()->livewire($this);
 
             return $download;
 
+        // Error with file download
         } else {
             flash(trans('belich-tables::strings.messages.download.error'))->error()->livewire($this);
 
             return null;
         }
+    }
+
+    /**
+     * Download the file.
+     */
+    private function download(string $type, string $exportFormat)
+    {
+        // Get the download class
+        $class = config('belich-tables.exports');
+        $downloadClass = new $class(
+            $this->models(),
+            $this->columns()
+        );
+
+        // File name
+        $fileName = sprintf('%s.%s', $this->exportFileName, $type);
+
+        return $downloadClass->download($fileName, $exportFormat);
+    }
+
+    /**
+     * Select the PDF library.
+     */
+    private function selectPdfLibrary()
+    {
+        // Prepare the library
+        $pdfLibrary = Str::of(config('belich-tables.pdf_library'))
+            ->lower()
+            ->__toString();
+
+        // Library not supported
+        if (! in_array($pdfLibrary, ['dompdf', 'mpdf'], true)) {
+            throw new UnsupportedExportFormat(__('This PDF export library is not supported.'));
+        }
+
+        return match ($pdfLibrary) {
+            'mpdf' => Excel::MPDF,
+            default => Excel::DOMPDF,
+        };
     }
 }
