@@ -15,7 +15,11 @@ return [
     'messages' => [
         'delete' => [
             'success' => 'El/los elemento(s) se ha eliminado correctamente.',
-            'error' => 'Error al eliminar el/los elemento(s) seleccionado(s). Si el error persiste, por favor contacte con el administrador del sistema.',
+            'error' => 'Se ha producido un error al eliminar el/los elemento(s) seleccionado(s). Si el error persiste, por favor contacte con el administrador del sistema.',
+        ],
+        'download' => [
+            'success' => 'El archivo se ha descargado correctamente.',
+            'error' => 'Se ha producido un error al intentar descargar el archivo. Si el error persiste, por favor contacte con el administrador del sistema.',
         ],
     ],
     'no_results' => 'No se encontraron resultados para esta consulta.',

@@ -15,7 +15,11 @@ return [
     'messages' => [
         'delete' => [
             'success' => 'The item(s) has been successfully removed.',
-            'error' => 'Failed to delete the selected item(s). If the error persists, please contact with the system administrator.',
+            'error' => 'Failed when trying to delete the selected item(s). If the error persists, please contact with the system administrator.',
+        ],
+        'download' => [
+            'success' => 'The item(s) has been successfully downloaded.',
+            'error' => 'Failed when trying to download the file. If the error persists, please contact with the system administrator.',
         ],
     ],
     'no_results' => 'There are no results to display for this query.',
