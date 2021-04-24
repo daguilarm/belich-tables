@@ -1,6 +1,6 @@
 # Localization
 
-**Belich Tables** use two localization files:
+**Belich Tables** use this localization files:
 
 - `resources/lang/vendor/belich-tables/en/files.php` 
 - `resources/lang/vendor/belich-tables/en/filters.php` 
