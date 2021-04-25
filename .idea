@@ -1,0 +1,18 @@
+[Configure bash preferences]
+cd ~
+nano .bash_profile
+    alias art="php artisan"
+    alias phpunit="./vendor/bin/phpunit"
+    alias test="clear && XDEBUG_MODE=coverage ./vendor/bin/phpunit"
+    alias pest="clear && ./vendor/bin/pest"
+    alias clearAll="clear && art route:clear && art cache:clear && art view:clear && composer dump"
+    alias asset="npm run dev"
+    alias production="npm run production"
+    alias watch="npm run watch"
+    alias duskall="php artisan make:dracarys --env=dusk && clear && art dusk"
+    alias dusk="clear && art dusk"
+    alias dracarys="art migrate:refresh --seed"
+    alias validate="php artisan insights"
+
+[Run tests]
+XDEBUG_MODE=coverage ./vendor/bin/phpunit

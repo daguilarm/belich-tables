@@ -1,12 +1,25 @@
-build
-composer.lock
-vendor
-coverage
-*.sublime-project
-*.sublime-workspace
-.idea
-.php_cs.cache
+/build/
+/vendor/
+/database/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+public_html/storage
+public_html/hot
+
+storage/*.key
+.env
+Homestead.yaml
+Homestead.json
+/.vagrant
 .phpunit.result.cache
-.phpstorm.meta.php
-_ide_helper.php
-/node_modules
