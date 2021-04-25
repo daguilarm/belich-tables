@@ -7,6 +7,7 @@ All notable changes to `livewire-tables` will be documented in this file:
 ### Added
 
 - The development environment for testing has been created.
+- New boolean filter.
 - New tests.
 
 ## [1.0] - 2021-04-17
