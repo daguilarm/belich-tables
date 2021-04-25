@@ -1,7 +1,7 @@
 ![Package Logo](https://banners.beyondco.de/Belich%20Tables.png?theme=light&packageManager=composer+require&packageName=daguilarm%2Fbelich-tables&pattern=bamboo&style=style_1&description=Manage+your+tables+with+Laravel+Livewire&md=1&showWatermark=0&fontSize=100px&images=template)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/daguilarm/belich-tables.svg?style=flat-square)](https://packagist.org/packages/daguilarm/belich-tables)
-[![StyleCI](https://styleci.io/repos/354914653/shield?style=plastic)](https://github.styleci.io/repos/354914653)
+[![StyleCI](https://styleci.io/repos/361343056/shield?style=plastic)](https://github.styleci.io/repos/361343056)
 [![Total Downloads](https://img.shields.io/packagist/dt/daguilarm/belich-tables.svg?style=flat-square)](https://packagist.org/packages/daguilarm/belich-tables)
 ![GitHub last commit](https://img.shields.io/github/last-commit/daguilarm/belich-tables)
 
