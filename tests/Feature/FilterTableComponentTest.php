@@ -2,9 +2,8 @@
 
 namespace Daguilarm\BelichTables\Tests\Feature;
 
-use Daguilarm\BelichTables\Tests\TestCase;
-use Daguilarm\BelichTables\Tests\_Filters\FilterByBoolean;
 use Daguilarm\BelichTables\Tests\_Http\Livewire\UsersTable;
+use Daguilarm\BelichTables\Tests\TestCase;
 use Livewire\Livewire;
 
 // test --filter=FilterTableComponentTest

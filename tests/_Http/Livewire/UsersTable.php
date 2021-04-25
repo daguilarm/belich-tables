@@ -3,7 +3,6 @@
 namespace Daguilarm\BelichTables\Tests\_Http\Livewire;
 
 use Daguilarm\BelichTables\Components\TableComponent;
-use Daguilarm\BelichTables\Facades\BelichTables;
 use Daguilarm\BelichTables\Tests\_Filters\FilterByBoolean;
 use Daguilarm\BelichTables\Tests\_Filters\FilterByDate;
 use Daguilarm\BelichTables\Tests\_Filters\FilterByUser;
