@@ -243,15 +243,15 @@ To create your own filters, you will only have to create the two necessary files
 
 ## Boolean filters 
 
-This filters have a extra feature. You can instruct **Belich Tables** to use a custom values for the filters in the select field in the view. For example:
+This filters have a extra feature. You can instruct **Belich Tables** to use a custom values for the filters in the select field in the view. For example if you use the boolean column to clasify into males and femails, using 1 or 0 as value, you can reconfigure the boolean filter doing this:
 
 ```php
 public function filters(): array
 {
     return [
         FilterByBoolean ::make()
-            ->trueValue('Correct!!!')
-            ->falseValue('Big Mistake!!!!'),
+            ->trueValue('Male')
+            ->falseValue('Female'),
     ];
 }
 ```
