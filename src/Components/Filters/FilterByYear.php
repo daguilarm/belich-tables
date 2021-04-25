@@ -17,7 +17,7 @@ final class FilterByYear extends FilterComponent
     {
         parent::__construct($name);
 
-        $this->view = BelichTables::include('includes.options.filters.year');
+        $this->view = BelichTables::include('sections.options.filters.year');
         $this->name = $name ?? 'year';
     }
 

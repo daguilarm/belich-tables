@@ -1,7 +1,7 @@
 <div class="flex flex-col">
 
     <!-- Include the table loading view -->
-    @includeWhen($showLoading, BelichTables::include('includes.loading'))
+    @includeWhen($showLoading, BelichTables::include('sections.loading'))
 
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="min-w-full min-h-screen py-2 align-middle inline-block sm:px-6 lg:px-8">
@@ -17,33 +17,33 @@
                 @endif
             >
                 <!-- Include the table offline message -->
-                @includeWhen($showOffline, BelichTables::include('includes.offline'))
+                @includeWhen($showOffline, BelichTables::include('sections.offline'))
 
                 <!-- Load all the options: search, filters, perPage, export, new resource... -->
-                @include(BelichTables::include('includes.options'))
+                @include(BelichTables::include('sections.options'))
 
                 <div class="bg-gray-50 text-gray-500 border border-gray-200 rounded-t-lg rounded-b-lg">
                     <table class="table min-w-full leading-normal mt-1">
 
                         <!-- Include the table head -->
-                        @includeWhen($showTableHead, BelichTables::include('includes.thead'))
+                        @includeWhen($showTableHead, BelichTables::include('sections.thead'))
 
                         <!-- Include the table data -->
                         <tbody>
                             @if($models->isEmpty())
-                                @include(BelichTables::include('includes.empty'))
+                                @include(BelichTables::include('sections.empty'))
                             @else
-                                @include(BelichTables::include('includes.data'))
+                                @include(BelichTables::include('sections.data'))
                             @endif
                         </tbody>
 
                         <!-- Include the table foot -->
-                        @includeWhen($showTableFooter, BelichTables::include('includes.tfoot'))
+                        @includeWhen($showTableFooter, BelichTables::include('sections.tfoot'))
                     </table>
 
                     <!-- Include the pagination -->
                     @if($showPagination)
-                        {{ $models->links(BelichTables::include('includes.pagination')) }}
+                        {{ $models->links(BelichTables::include('sections.pagination')) }}
                     @endif
                 </div>
             </div>

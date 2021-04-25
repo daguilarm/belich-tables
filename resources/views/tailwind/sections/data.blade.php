@@ -5,7 +5,7 @@
         dusk="row-id-{{ $model->id }}"
     >
         <!-- Table checkbox -->
-        @includeWhen($showCheckboxes && !isset($headerTitle), BelichTables::include('includes.checkboxes.checkbox'))
+        @includeWhen($showCheckboxes && !isset($headerTitle), BelichTables::include('sections.checkboxes.checkbox'))
 
         <!-- Table columns -->
         @foreach($columns as $column)

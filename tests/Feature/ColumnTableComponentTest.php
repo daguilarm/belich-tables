@@ -133,7 +133,7 @@ class ColumnTableComponentTest extends TestCase
         $user = User::find(5);
 
         // Get action view
-        $actionView = BelichTables::include('includes.actions.default');
+        $actionView = BelichTables::include('sections.actions.default');
 
         // Render the action
         $action = app(Action::class)

@@ -18,7 +18,7 @@ final class FilterByUser extends FilterComponent
     {
         parent::__construct($name);
 
-        $this->view = BelichTables::include('includes.options.filters.user');
+        $this->view = BelichTables::include('sections.options.filters.user');
         $this->tableColumn = 'id';
         $this->name = $name ?? 'user';
     }

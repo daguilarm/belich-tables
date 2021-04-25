@@ -30,6 +30,6 @@ final class Action
      */
     private static function defaultView(): string
     {
-        return BelichTables::include('includes.actions.default');
+        return BelichTables::include('sections.actions.default');
     }
 }

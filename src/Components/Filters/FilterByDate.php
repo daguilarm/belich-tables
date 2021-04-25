@@ -17,7 +17,7 @@ final class FilterByDate extends FilterComponent
     {
         parent::__construct($name);
 
-        $this->view = BelichTables::include('includes.options.filters.date');
+        $this->view = BelichTables::include('sections.options.filters.date');
         $this->name = $name ?? 'date';
     }
 
