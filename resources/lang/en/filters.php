@@ -13,5 +13,5 @@ return [
     'status' => [
         'active' => 'Active',
         'desactivated' => 'Deactivated',
-    ]
+    ],
 ];

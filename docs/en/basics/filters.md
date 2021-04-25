@@ -240,3 +240,20 @@ To customize the default filters, or our own custom filters, we have at our disp
 | view() | `FilterByYear::make()->view('path.to.my.view')` | This method allows us to directly define our custom view. For example, in case we want to change the view in the predefined filters. |
 
 To create your own filters, you will only have to create the two necessary files: the **component** and the **view**.
+
+## Boolean filters 
+
+This filters have a extra feature. You can instruct **Belich Tables** to use a custom values for the filters in the select field in the view. For example:
+
+```php
+public function filters(): array
+{
+    return [
+        FilterByBoolean ::make()
+            ->trueValue('Correct!!!')
+            ->falseValue('Big Mistake!!!!'),
+    ];
+}
+```
+
+With this two methods you can customize your blade view with this custom values, overwriting the default values: `Active` or `Deactivated`.

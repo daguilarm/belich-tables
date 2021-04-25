@@ -52,4 +52,24 @@ final class FilterByBoolean extends FilterComponent
             $this->status_desactivated,
         ];
     }
+
+    /**
+     * Set the $status_active value.
+     */
+    public function trueValue(string $value): self
+    {
+        $this->status_active = $value;
+
+        return $this;
+    }
+
+    /**
+     * Set the $status_desactivated value.
+     */
+    public function falseValue(string $value): self
+    {
+        $this->status_desactivated = $value;
+
+        return $this;
+    }
 }
