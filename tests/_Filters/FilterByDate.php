@@ -13,12 +13,12 @@ final class FilterByDate extends FilterComponent
     /**
      * Create a new field.
      */
-    public function __construct(?string $name = null)
+    public function __construct(?string $uriKey = null)
     {
-        parent::__construct($name);
+        parent::__construct($uriKey);
 
         $this->view = BelichTables::include('includes.options.filters.date');
-        $this->name = $name ?? 'date';
+        $this->uriKey = $uriKey ?? 'date';
     }
 
     /**

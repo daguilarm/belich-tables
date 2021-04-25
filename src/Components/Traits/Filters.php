@@ -59,6 +59,6 @@ trait Filters
      */
     private function getFilterValue(object $filter): string | array | null
     {
-        return $this->filterValues[$filter->name] ?? null;
+        return $this->filterValues[$filter->uriKey] ?? null;
     }
 }

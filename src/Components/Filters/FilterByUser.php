@@ -14,13 +14,16 @@ final class FilterByUser extends FilterComponent
     /**
      * Create a new field.
      */
-    public function __construct(?string $name = null)
+    public function __construct(?string $uriKey = null)
     {
-        parent::__construct($name);
+        parent::__construct($uriKey);
 
+        // Set the view
         $this->view = BelichTables::include('sections.options.filters.user');
+        // Set the default table column
         $this->tableColumn = 'id';
-        $this->name = $name ?? 'user';
+        // Set the unique key
+        $this->uriKey = $uriKey ?? 'user';
     }
 
     /**

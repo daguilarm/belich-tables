@@ -25,12 +25,12 @@ final class FilterByUser extends FilterComponent
     /**
      * Create a new field.
      */
-    public function __construct(?string $name = null)
+    public function __construct(?string $uriKey = null)
     {
-        parent::__construct($name);
+        parent::__construct($uriKey);
 
         $this->view = 'belich-tables.resources.options.filters.user';
-        $this->name = 'user';
+        $this->uriKey = 'user';
         $this->tableColumn = 'id';
     }
 
@@ -71,7 +71,7 @@ In the constructor we will have to define several attributes:
 | Attribute | Example | Description |
 | :---------- |:------------| :------------|
 | $view | `$this->view ='path.to.the.filter.view'` | Defines the location where the view is located. |
-| $name | `$this->name = 'user'` | Define the filter name. |
+| $uriKey | `$this->uriKey = 'user'` | Define the filter unique name. This field is inspired in Laravel Nova documentation. |
 | $tableColumn | `$this->tableColumn = 'id'` | Defines the field in the table on which the filter action will be performed. It is important not to add the name of the table to the name of the column, for example: `users.id`, since this operation is already done by the`getColumn($model)` method automatically (as it will look later). |
 
 In the example above, the constructor part would look like this:
@@ -80,12 +80,12 @@ In the example above, the constructor part would look like this:
 /**
  * Create a new field.
  */
-public function __construct(?string $name = null)
+public function __construct(?string $uriKey = null)
 {
-    parent::__construct($name);
+    parent::__construct($uriKey);
 
     $this->view = 'belich-tables.includes.options.filters.user';
-    $this->name = 'user';
+    $this->uriKey = 'user';
     $this->tableColumn = 'id';
 }
 ```

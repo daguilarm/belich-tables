@@ -13,12 +13,14 @@ final class FilterByYear extends FilterComponent
     /**
      * Create a new field.
      */
-    public function __construct(?string $name = null)
+    public function __construct(?string $uriKey = null)
     {
-        parent::__construct($name);
+        parent::__construct($uriKey);
 
+        // Set the view
         $this->view = BelichTables::include('sections.options.filters.year');
-        $this->name = $name ?? 'year';
+        // Set the unique key
+        $this->uriKey = $uriKey ?? 'year';
     }
 
     /**
