@@ -9,6 +9,7 @@ All notable changes to `livewire-tables` will be documented in this file:
 - New boolean filter.
 - The development environment for testing has been created.
 - New tests added.
+- Renamed modals to dialogs, in order to be prepare for the new HTML5 dialog field.
 
 ## [1.0] - 2021-04-17
 
