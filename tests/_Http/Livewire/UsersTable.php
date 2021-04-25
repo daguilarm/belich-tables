@@ -3,6 +3,7 @@
 namespace Daguilarm\BelichTables\Tests\_Http\Livewire;
 
 use Daguilarm\BelichTables\Components\TableComponent;
+use Daguilarm\BelichTables\Tests\_Filters\FilterByBoolean;
 use Daguilarm\BelichTables\Tests\_Filters\FilterByDate;
 use Daguilarm\BelichTables\Tests\_Filters\FilterByUser;
 use Daguilarm\BelichTables\Tests\_Filters\FilterByYear;
@@ -52,6 +53,7 @@ class UsersTable extends TableComponent
     public function filters(): array
     {
         return [
+            FilterByBoolean::make()->tableColumn('active'),
             FilterByYear::make()->tableColumn('date'),
             FilterByUser::make(),
             FilterByDate::make()->tableColumn('date'),

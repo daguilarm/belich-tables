@@ -55,9 +55,9 @@ trait Filters
     /**
      * Get filter name.
      *
-     * @return string | array<string> | null
+     * @return bool | string | array<string> | null
      */
-    private function getFilterValue(object $filter): string | array | null
+    private function getFilterValue(object $filter): bool | string | array | null
     {
         return $this->filterValues[$filter->uriKey] ?? null;
     }

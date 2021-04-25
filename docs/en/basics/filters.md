@@ -202,10 +202,11 @@ wire:model.defer="filterValues.filterName"
 
 ## Default filters
 
-**Belich Tables** includes by default three filters:
+**Belich Tables** includes a list of default filters:
 
 | Filter | Class | Description |
 | :---------- |:------------| :------------|
+| FilterByBoolean | `FilterByBoolean:class` | It is used to filter [boolean columns](https://daguilarm.github.io/belich-tables/#/en/basics/columns?id=showasboolean), very useful for `active` or `not active` fields. |
 | FilterByDate | `FilterByDate:class` | It is used to filter between two dates or between only one, in the selected column. |
 | FilterByUser| `FilterByUser:class` | It is used to filter the users in the database. |
 | FilterByYear| `FilterByYear:class` | It is used to filter the results base on the year. |

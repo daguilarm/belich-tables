@@ -16,6 +16,17 @@ class FilterTableComponentTest extends TestCase
         parent::setUp();
     }
 
+    // test --filter=test_table_component_filter_by_boolean
+    public function test_table_component_filter_by_boolean(): void
+    {
+        Livewire::test(UsersTable::class)
+            ->call('totalResultsForTesting')
+            ->assertCount('totalResultsForTesting', 9)
+            ->set('filterValues.boolean', true)
+            ->call('totalResultsForTesting')
+            ->assertCount('totalResultsForTesting', 6);
+    }
+
     // test --filter=test_table_component_filter_by_user
     public function test_table_component_filter_by_user(): void
     {
