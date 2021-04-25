@@ -29,7 +29,7 @@ final class FilterByUser extends FilterComponent
     {
         parent::__construct($name);
 
-        $this->view = 'belich-tables.includes.options.filters.user';
+        $this->view = 'belich-tables.resources.options.filters.user';
         $this->name = 'user';
         $this->tableColumn = 'id';
     }

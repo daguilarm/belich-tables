@@ -20,5 +20,5 @@
     </button>
 
     <!-- Delete Modal -->
-    @include(BelichTables::include('sections.modals.delete-modal'), ['onclick' => 'bulkDelete'])
+    @include(BelichTables::include('dialogs.delete-elements'), ['onclick' => 'bulkDelete'])
 </div>

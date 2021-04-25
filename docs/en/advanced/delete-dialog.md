@@ -1,15 +1,15 @@
-# Delete Modal
+# Delete Dialogs
 
-This modal will allow you to eliminate individual elements and bulk elements (in the case you select multiples elements through the checkboxes). When you click on the delete button, the following modal shows:
+This html5 dialog will allow you to eliminate individual elements and bulk elements (in the case you select multiples elements through the checkboxes). When you click on the delete button, the following dialog shows:
 
 ![livewire-tables](../../_media/delete-modal.png ':class=thumbnail')
 
-The **HTML** code is shown below, and you can find it in `./tailwind/includes/modals/delete-modal.blade.php`:
+The **HTML** code is shown below, and you can find it in `./tailwind/dialogs/delete-elements.blade.php`:
 
 ```html 
 <div
     class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-gray-200 bg-opacity-75"
-    x-show="showModal"
+    x-show="showDialog"
     x-transition:enter="transform duration-200"
     x-transition:enter-start="opacity-0 scale-100"
     x-transition:enter-end="opacity-100 scale-100"
@@ -18,10 +18,10 @@ The **HTML** code is shown below, and you can find it in `./tailwind/includes/mo
     x-transition:leave-end="opacity-0 scale-100"
     x-cloak
 >
-    {{-- Modal inner --}}
+    {{-- Dialog inner --}}
     <div
         class="w-auto px-6 py-4 mx-auto"
-        @click.away="showModal = false"
+        @click.away="showDialog = false"
     >
         <div class="relative rounded-xl border border-gray-200 shadow-lg bg-gray-50 p-4">
 
@@ -30,7 +30,7 @@ The **HTML** code is shown below, and you can find it in `./tailwind/includes/mo
                 <button type="button" class="inline-flex p-1.5 focus:outline-none">
                     <span class="sr-only">Dismiss</span>
                     {{-- Heroicon name: solid/x-circle --}}
-                    <svg @click="showModal = false" class="h-5 w-5 text-gray-400 hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <svg @click="showDialog = false" class="h-5 w-5 text-gray-400 hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
                     </svg>
                 </button>
@@ -60,7 +60,7 @@ The **HTML** code is shown below, and you can find it in `./tailwind/includes/mo
                 <button
                     type="button"
                     class="flex justify-center py-1 px-4 border border-transparent text-xl font-medium rounded shadow-lg text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                    @click="showModal = false"
+                    @click="showDialog = false"
                     wire:click.prevent="{{ $onclick }}"
                 >
                     {{-- Trash icon --}}
@@ -77,7 +77,7 @@ The **HTML** code is shown below, and you can find it in `./tailwind/includes/mo
 </div>
 ```
 
-This modal is versatile one, and as has been commented before, it serves both to eliminate one element and several elements, for this, it has a dynamic component that allows including the necessary `javascript` code depending on the case:
+This dialog is versatile one, and as has been commented before, it serves both to eliminate one element and several elements, for this, it has a dynamic component that allows including the necessary `javascript` code depending on the case:
 
 ```javascript
 wire:click.prevent="{{ $onclick }}"
@@ -86,7 +86,7 @@ wire:click.prevent="{{ $onclick }}"
 The code used to remove a single item is:
 
 ```php
-@include(LivewireTables::include('includes.modals.delete-modal'), [
+@include(LivewireTables::include('dialogs.delete-elements'), [
     'onclick' => 'itemDelete('.$userId.')'
 ])
 ```
@@ -94,7 +94,7 @@ The code used to remove a single item is:
 The code used to remove multiple items is:
 
 ```php
-@include(LivewireTables::include('includes.modals.delete-modal'), [
+@include(LivewireTables::include('dialogs.delete-elements'), [
     'onclick' => 'bulkDelete()'
 ])
 ```

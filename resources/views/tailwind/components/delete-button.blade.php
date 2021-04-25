@@ -16,6 +16,6 @@
         </svg>
     </a>
 
-    {{-- Delete Modal --}}
-    @include(BelichTables::include('sections.modals.delete-modal'), ['onclick' => 'itemDelete('.$userId.')'])
+    {{-- Delete Dialog --}}
+    @include(BelichTables::include('dialogs.delete-elements'), ['onclick' => 'itemDelete('.$userId.')'])
 </div>

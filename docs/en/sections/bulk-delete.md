@@ -4,11 +4,11 @@
 
 ![Belich Tables with Livewire](../../_media/bulk-delete.png ':class=thumbnail')
 
-After pushing on the **Bulk Delete** button, a **Modal** will appear with the confirmation message.
+After pushing on the **Bulk Delete** button, a **Dialog** will appear with the confirmation message.
 
 ![Belich Tables with Livewire](../../_media/delete-modal.png ':class=thumbnail')
 
-Below you can see the content of the file `views/vendor/belich-tables.tailwind.includes.options.bulk-delete.blade.php`.
+Below you can see the content of the file `views/vendor/belich-tables.tailwind.resources.options.bulk-delete.blade.php`.
 
 ```html
 <!-- Mass delete button -->
@@ -32,7 +32,7 @@ Below you can see the content of the file `views/vendor/belich-tables.tailwind.i
         </svg>
     </button>
 
-    <!-- Delete Modal -->
-    @include(BelichTables::include('includes.modals.delete-modal'), ['onclick' => 'bulkDelete'])
+    <!-- Delete Dialog -->
+    @include(BelichTables::include('resources.dialogs.delete-elements'), ['onclick' => 'bulkDelete'])
 </div>
 ```
