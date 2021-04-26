@@ -24,6 +24,7 @@
     "require": {
         "php": "^8.0",
         "barryvdh/laravel-dompdf": "^0.9.0",
+        "daguilarm/belich-api": "^1.0",
         "livewire/livewire": "^2.3",
         "maatwebsite/excel": "^3.1.3",
         "mattlibera/livewire-flash": "^0.5.0",

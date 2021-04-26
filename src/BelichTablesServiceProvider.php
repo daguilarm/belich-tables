@@ -62,7 +62,7 @@ final class BelichTablesServiceProvider extends ServiceProvider
     public function register(): void
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'belich-tables');
+        $this->mergeConfigFrom(__DIR__.'/../config/belich-tables.php', 'belich-tables');
 
         $this->app->register(BelichTablesProvider::class);
         AliasLoader::getInstance()->alias('BelichTables', BelichTables::class);

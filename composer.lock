@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d8e7433bfe072fe016779d129d62abf",
+    "content-hash": "f517e20fcf066a69c8aac7920acab99f",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -127,6 +127,60 @@
                 }
             ],
             "time": "2021-01-20T22:51:39+00:00"
+        },
+        {
+            "name": "daguilarm/belich-api",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/daguilarm/belich-api.git",
+                "reference": "726ebd0e7c992d269d6baf8565240dccf1f1d3f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/daguilarm/belich-api/zipball/726ebd0e7c992d269d6baf8565240dccf1f1d3f9",
+                "reference": "726ebd0e7c992d269d6baf8565240dccf1f1d3f9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Daguilarm\\BelichTables\\": "src"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Damián Aguilar",
+                    "email": "damian.aguilarm@gmail.com",
+                    "homepage": "https://daguilar.dev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Internal cominication between Belich components",
+            "homepage": "https://github.com/daguilarm/belich-api",
+            "keywords": [
+                "api",
+                "belich",
+                "daguilarm",
+                "functions",
+                "laravel",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/daguilarm/belich-api/issues",
+                "source": "https://github.com/daguilarm/belich-api/tree/v1.0"
+            },
+            "time": "2021-04-26T08:05:32+00:00"
         },
         {
             "name": "doctrine/inflector",

@@ -85,7 +85,7 @@ abstract class TableComponent extends Component
      *
      * @var array<string>
      */
-    protected $listeners = ['itemDelete', 'fileDownload'];
+    protected $listeners = ['itemDelete', 'fileDownloadNotification'];
 
     /**
      * Set the model instance.
