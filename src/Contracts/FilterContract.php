@@ -9,16 +9,16 @@ use Illuminate\Database\Eloquent\Builder;
 interface FilterContract
 {
    /**
-        * Set the filter query.
-        *
-        * @param int | float | string | null $value
-        */
-       public function apply(Builder $model, $value): Builder;
+    * Set the filter query.
+    *
+    * @param int | float | string | null $value
+    */
+   public function apply(Builder $model, $value): Builder;
 
-       /**
-        * Sent values for the view.
-        *
-        * @return  array<string>
-        */
-       public function options(): array;
+   /**
+    * Sent values for the view.
+    *
+    * @return  array<string>
+    */
+   public function options(): array;
 }
