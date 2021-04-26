@@ -2,6 +2,17 @@
 
 All notable changes to `livewire-tables` will be documented in this file:
 
+## [1.2] - 2021-04-24
+
+### Added
+
+- New folder structure.
+- Some refactoring.
+
+### Fixed 
+
+- Download notifications.
+
 ## [1.1] - 2021-04-24
 
 ### Added
