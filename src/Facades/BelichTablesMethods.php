@@ -11,7 +11,7 @@ final class BelichTablesMethods
      */
     public function include(string $path): string
     {
-        return sprintf('belich-tables::'.config('belich-tables.theme').'.%s', $path);
+        return sprintf('belich-tables::'.belichConfig('belich.cssFramework', 'belich-tables.theme').'.%s', $path);
     }
 
     /**
