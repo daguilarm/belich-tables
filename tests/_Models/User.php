@@ -33,7 +33,6 @@ class User extends Authenticatable
     protected $fillable = [
         'id',
         'name',
-        'species_id',
     ];
 
     /*
