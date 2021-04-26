@@ -97,8 +97,10 @@ trait Exports
      */
     private function download(string $type, string $exportFormat)
     {
-        // Get the download class
+        // Get the download class name
         $class = belichConfig('belich.tables.exports', 'belich-tables.exports');
+
+        // Init the class
         $downloadClass = new $class(
             $this->models(),
             $this->columns()
