@@ -9,5 +9,3 @@
 
 <!-- Javascript if needed -->
 @stack('belich-javascript')
-
-hellow assets
