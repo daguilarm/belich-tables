@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace Daguilarm\BelichTables\Components\Filter;
 
 use Daguilarm\BelichTables\Components\FilterComponent;
+use Daguilarm\BelichTables\Contracts\FilterContract;
 use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Database\Eloquent\Builder;
 
-final class FilterByYear extends FilterComponent
+final class FilterByYear extends FilterComponent implements FilterContract
 {
     /**
      * Create a new field.

@@ -6,7 +6,7 @@ Let's first look at the basics of the **Filter Component**.
 
 ## Component 
 
-Let's see a complete example of what a Filter Component would look like:
+Let's see a complete example of what a **Filter Component** would look like:
 
 ```php
 <?php
@@ -17,10 +17,11 @@ namespace Daguilarm\BelichTables\Components\Filters;
 
 use App\Models\User;
 use Daguilarm\BelichTables\Components\FilterComponent;
+use Daguilarm\BelichTables\Contracts\FilterContract;
 use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Database\Eloquent\Builder;
 
-final class FilterByUser extends FilterComponent
+final class FilterByUser extends FilterComponent implements FilterContract
 {
     /**
      * Create a new field.
@@ -59,6 +60,35 @@ final class FilterByUser extends FilterComponent
             ->pluck('name', 'id')
             ->toArray();
     }
+}
+```
+
+Basically, a filter has to fulfill the contract `Daguilarm\BelichTables\Contracts\FilterContract`:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Daguilarm\BelichTables\Contracts;
+
+use Illuminate\Database\Eloquent\Builder;
+
+interface FilterContract
+{
+   /**
+        * Set the filter query.
+        *
+        * @param int | float | string | null $value
+        */
+       public function apply(Builder $model, $value): Builder;
+
+       /**
+        * Sent values for the view.
+        *
+        * @return  array<string>
+        */
+       public function options(): array;
 }
 ```
 

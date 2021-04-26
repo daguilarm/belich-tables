@@ -30,20 +30,6 @@ abstract class FilterComponent extends Component
     }
 
     /**
-     * Set the filter query.
-     *
-     * @param int | float | string | null $value
-     */
-    abstract public function apply(Builder $model, $value): Builder;
-
-    /**
-     * Sent values for the view.
-     *
-     * @return  array<string>
-     */
-    abstract public function options(): array;
-
-    /**
      * Set model to filter.
      */
     public function model(string $value): self

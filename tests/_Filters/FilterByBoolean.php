@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace Daguilarm\BelichTables\Tests\_Filters;
 
 use Daguilarm\BelichTables\Components\FilterComponent;
+use Daguilarm\BelichTables\Contracts\FilterContract;
 use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Database\Eloquent\Builder;
 
-final class FilterByBoolean extends FilterComponent
+final class FilterByBoolean extends FilterComponent implements FilterContract
 {
     public string $status_active;
     public string $status_desactivated;
