@@ -1,4 +1,4 @@
 <!-- Include the table foot -->
 <tfoot>
-    @include('livewire-tables::'.belichConfig('belich.cssFramework', 'livewire-tables.theme').'.sections.columns')
+    @include('belich-tables::'.belichConfig('belich.cssFramework', 'belich-tables.theme').'.sections.columns')
 </tfoot>
