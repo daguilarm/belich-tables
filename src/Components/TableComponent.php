@@ -19,6 +19,7 @@ use Daguilarm\BelichTables\Components\Table\Sorting;
 use Daguilarm\BelichTables\Components\Table\SortingRelatioships;
 use Daguilarm\BelichTables\Components\Table\Table;
 use Daguilarm\BelichTables\Components\Table\Testing;
+use Daguilarm\BelichTables\Contracts\TableContract;
 use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -29,7 +30,7 @@ use Livewire\WithPagination;
 /**
  * Class TableComponent.
  */
-abstract class TableComponent extends Component
+abstract class TableComponent extends Component implements TableContract
 {
     use AuthorizesRequests,
         Checkboxes,
@@ -94,6 +95,8 @@ abstract class TableComponent extends Component
 
     /**
      * TableComponent constructor.
+     *
+     * @param ?string $id
      */
     public function __construct(?string $id = null)
     {
@@ -108,25 +111,6 @@ abstract class TableComponent extends Component
         // Get table name
         $this->tableName = $this->model->getTable();
     }
-
-    /**
-     * Set the columns.
-     *
-     * @return  array<string>
-     */
-    abstract public function columns(): array;
-
-    /**
-     * Set the filters.
-     *
-     * @return  array<string>
-     */
-    abstract public function filters(): array;
-
-    /**
-     * Set the query builder.
-     */
-    abstract public function query(): Builder;
 
     /**
      * Set the view.
