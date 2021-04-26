@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\BelichTables\Components\Filters;
+namespace Daguilarm\BelichTables\Components\Filter;
 
-use App\Models\User;
 use Daguilarm\BelichTables\Components\FilterComponent;
 use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Database\Eloquent\Builder;
 
-final class FilterByUser extends FilterComponent
+final class FilterByDate extends FilterComponent
 {
     /**
      * Create a new field.
@@ -19,11 +18,9 @@ final class FilterByUser extends FilterComponent
         parent::__construct($uriKey);
 
         // Set the view
-        $this->view = BelichTables::include('sections.options.filters.user');
-        // Set the default table column
-        $this->tableColumn = 'id';
+        $this->view = BelichTables::include('sections.options.filters.date');
         // Set the unique key
-        $this->uriKey = $uriKey ?? 'user';
+        $this->uriKey = $uriKey ?? 'date';
     }
 
     /**
@@ -33,10 +30,20 @@ final class FilterByUser extends FilterComponent
      */
     public function apply(Builder $model, $value): Builder
     {
-        return $model->where(
-            $this->getColumn($model),
-            $value,
-        );
+        // Set default values
+        $column = $this->getColumn($model);
+        $start = $value['start'] ?? null;
+        $end = $value['end'] ?? null;
+
+        if ($start) {
+            $model->whereDate($column, '>=', $start);
+        }
+
+        if ($end) {
+            $model->whereDate($column, '<=', $end);
+        }
+
+        return $model;
     }
 
     /**
@@ -46,9 +53,6 @@ final class FilterByUser extends FilterComponent
      */
     public function options(): array
     {
-        return User::select('users.id', 'users.name')
-            ->orderBy('name')
-            ->pluck('name', 'id')
-            ->toArray();
+        return [];
     }
 }

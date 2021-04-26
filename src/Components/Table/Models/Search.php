@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\BelichTables\Components\Traits\Models;
+namespace Daguilarm\BelichTables\Components\Table\Models;
 
-// use Daguilarm\BelichTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
 final class Search extends SearchBuilder

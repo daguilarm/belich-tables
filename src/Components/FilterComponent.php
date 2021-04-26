@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Components;
 
+use Daguilarm\BelichTables\Contracts\FilterContract;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 
-abstract class FilterComponent extends Component
+abstract class FilterComponent extends Component implements FilterContract
 {
     public string $tableColumn;
     public int | float | string $value;
@@ -29,19 +30,6 @@ abstract class FilterComponent extends Component
         return new static(...$attributes);
     }
 
-    /**
-     * Set the filter query.
-     *
-     * @param int | float | string | null $value
-     */
-    abstract public function apply(Builder $model, $value): Builder;
-
-    /**
-     * Sent values for the view.
-     *
-     * @return  array<string>
-     */
-    abstract public function options(): array;
 
     /**
      * Set model to filter.

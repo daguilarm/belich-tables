@@ -4,21 +4,22 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Components;
 
-use Daguilarm\BelichTables\Components\Traits\Checkboxes;
-use Daguilarm\BelichTables\Components\Traits\Delete;
-use Daguilarm\BelichTables\Components\Traits\Exports;
-use Daguilarm\BelichTables\Components\Traits\Filters;
-use Daguilarm\BelichTables\Components\Traits\Loading;
-use Daguilarm\BelichTables\Components\Traits\Model;
-use Daguilarm\BelichTables\Components\Traits\Operations;
-use Daguilarm\BelichTables\Components\Traits\Pagination;
-use Daguilarm\BelichTables\Components\Traits\PerPage;
-use Daguilarm\BelichTables\Components\Traits\Relationships;
-use Daguilarm\BelichTables\Components\Traits\Search;
-use Daguilarm\BelichTables\Components\Traits\Sorting;
-use Daguilarm\BelichTables\Components\Traits\SortingRelatioships;
-use Daguilarm\BelichTables\Components\Traits\Table;
-use Daguilarm\BelichTables\Components\Traits\Testing;
+use Daguilarm\BelichTables\Components\Table\Checkboxes;
+use Daguilarm\BelichTables\Components\Table\Delete;
+use Daguilarm\BelichTables\Components\Table\Exports;
+use Daguilarm\BelichTables\Components\Table\Filters;
+use Daguilarm\BelichTables\Components\Table\Loading;
+use Daguilarm\BelichTables\Components\Table\Model;
+use Daguilarm\BelichTables\Components\Table\Operations;
+use Daguilarm\BelichTables\Components\Table\Pagination;
+use Daguilarm\BelichTables\Components\Table\PerPage;
+use Daguilarm\BelichTables\Components\Table\Relationships;
+use Daguilarm\BelichTables\Components\Table\Search;
+use Daguilarm\BelichTables\Components\Table\Sorting;
+use Daguilarm\BelichTables\Components\Table\SortingRelatioships;
+use Daguilarm\BelichTables\Components\Table\Table;
+use Daguilarm\BelichTables\Components\Table\Testing;
+use Daguilarm\BelichTables\Contracts\TableContract;
 use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -29,7 +30,7 @@ use Livewire\WithPagination;
 /**
  * Class TableComponent.
  */
-abstract class TableComponent extends Component
+abstract class TableComponent extends Component implements TableContract
 {
     use AuthorizesRequests,
         Checkboxes,
@@ -108,25 +109,6 @@ abstract class TableComponent extends Component
         // Get table name
         $this->tableName = $this->model->getTable();
     }
-
-    /**
-     * Set the columns.
-     *
-     * @return  array<string>
-     */
-    abstract public function columns(): array;
-
-    /**
-     * Set the filters.
-     *
-     * @return  array<string>
-     */
-    abstract public function filters(): array;
-
-    /**
-     * Set the query builder.
-     */
-    abstract public function query(): Builder;
 
     /**
      * Set the view.

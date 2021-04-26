@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\BelichTables\Components\Traits;
+namespace Daguilarm\BelichTables\Components\Table;
 
 /**
  * This are testing methods.
