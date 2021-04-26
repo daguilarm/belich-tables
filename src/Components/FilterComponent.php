@@ -30,7 +30,6 @@ abstract class FilterComponent extends Component implements FilterContract
         return new static(...$attributes);
     }
 
-
     /**
      * Set model to filter.
      */

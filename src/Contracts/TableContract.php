@@ -6,7 +6,8 @@ namespace Daguilarm\BelichTables\Contracts;
 
 use Illuminate\Database\Eloquent\Builder;
 
-interface TableContract {
+interface TableContract
+{
     /**
      * Set the columns.
      *
