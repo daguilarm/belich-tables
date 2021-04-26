@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\BelichTables\Components\Traits;
+namespace Daguilarm\BelichTables\Components\Table;
 
-use Daguilarm\BelichTables\Components\Traits\Models\Search;
+use Daguilarm\BelichTables\Components\Table\Models\Search;
 use Daguilarm\BelichTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 

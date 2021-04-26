@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\BelichTables\Components\Filters;
+namespace Daguilarm\BelichTables\Components\Filter;
 
 use Daguilarm\BelichTables\Components\FilterComponent;
 use Daguilarm\BelichTables\Facades\BelichTables;
