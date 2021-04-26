@@ -61,26 +61,34 @@ trait Exports
         // File is successful downloaded
         if ($download) {
             // Notify successful - only for testing
-            $this->emit('fileDownload', true);
-
-            // Success message
-            app('lwflash')
-                ->message(trans('belich-tables::strings.messages.download.success'), 'success')
-                ->livewire($this);
+            $this->emit('fileDownloadNotification', true);
 
             return $download;
 
         // Error with file download
         } else {
             // Notify failure - only for testing
-            $this->emit('fileDownload', false);
+            $this->emit('fileDownloadNotification', false);
 
+            return null;
+        }
+    }
+
+    /**
+     * Download notification.
+     */
+    public function fileDownloadNotification(bool $response): void
+    {
+        if ($response) {
+            // Success message
+            app('lwflash')
+                ->message(trans('belich-tables::strings.messages.download.success'), 'success')
+                ->livewire($this);
+        } else {
             // Error message
             app('lwflash')
                 ->message(trans('belich-tables::strings.messages.download.error'), 'error')
                 ->livewire($this);
-
-            return null;
         }
     }
 
