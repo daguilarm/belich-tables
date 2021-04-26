@@ -36,6 +36,6 @@ class ExportTableComponentTest extends TestCase
             ->set('checkboxAll', true)
             ->assertSeeHtml('dusk="table-export-button"')
             ->call('export', 'csv')
-            ->assertEmitted('fileDownload', true);
+            ->assertEmitted('fileDownloadNotification', true);
     }
 }
