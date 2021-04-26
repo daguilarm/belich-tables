@@ -39,7 +39,7 @@ final class BelichTablesServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('belich-tables.php'),
+                __DIR__.'/../config/belich-tables.php' => config_path('belich-tables.php'),
             ], 'config');
 
             $this->publishes([
