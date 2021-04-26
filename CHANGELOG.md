@@ -7,6 +7,7 @@ All notable changes to `livewire-tables` will be documented in this file:
 ### Added
 
 - New folder structure.
+- Added Contracts.
 - Some refactoring.
 
 ### Fixed 
