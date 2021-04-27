@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Components\Table\Models;
 
-use Daguilarm\BelichTables\Components\Table\RelationshipsMethod;
+use Daguilarm\BelichTables\Components\Table\Relationships\RelationshipValue;
 use Daguilarm\BelichTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
 abstract class SearchBuilder
 {
-    use RelationshipsMethod;
+    use RelationshipValue;
 
     /**
      * Resolve the model search.
@@ -38,13 +38,21 @@ abstract class SearchBuilder
             // If has a relationship.
             $builder->orWhereHas($relationship->name, function (Builder $builder) use ($relationship, $search): void {
                 // Search into the relationship.
-                $builder->where($relationship->attribute, 'like', $this->searchString($search));
+                $builder->where(
+                    $relationship->attribute,
+                    'like',
+                    $this->searchString($search),
+                );
             });
 
         // Only search the column.
         } else {
             // Search into the column
-            $builder->orWhere($this->columnAttribute($builder, $column), 'like', $this->searchString($search));
+            $builder->orWhere(
+                $this->columnAttribute($builder, $column),
+                'like',
+                $this->searchString($search),
+            );
         }
     }
 
@@ -61,7 +69,10 @@ abstract class SearchBuilder
      */
     private function columnHasRealationship(Column $column): bool
     {
-        return str_contains($column->getAttribute(), '.');
+        return str_contains(
+            $column->getAttribute(),
+            '.',
+        );
     }
 
     /**
@@ -72,7 +83,7 @@ abstract class SearchBuilder
         return sprintf(
             '%s.%s',
             $builder->getModel()->getTable(),
-            $column->getAttribute()
+            $column->getAttribute(),
         );
     }
 

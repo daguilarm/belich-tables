@@ -16,7 +16,6 @@ use Daguilarm\BelichTables\Components\Table\PerPage;
 use Daguilarm\BelichTables\Components\Table\Relationships;
 use Daguilarm\BelichTables\Components\Table\Search;
 use Daguilarm\BelichTables\Components\Table\Sorting;
-use Daguilarm\BelichTables\Components\Table\SortingRelatioships;
 use Daguilarm\BelichTables\Components\Table\Table;
 use Daguilarm\BelichTables\Components\Table\Testing;
 use Daguilarm\BelichTables\Contracts\TableContract;
@@ -45,7 +44,6 @@ abstract class TableComponent extends Component implements TableContract
         Relationships,
         Search,
         Sorting,
-        SortingRelatioships,
         Table,
         Testing,
         WithPagination;

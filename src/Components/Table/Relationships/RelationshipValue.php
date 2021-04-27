@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\BelichTables\Components\Table;
+namespace Daguilarm\BelichTables\Components\Table\Relationships;
 
-trait RelationshipsMethod
+trait RelationshipValue
 {
     /**
      * Set relationship.

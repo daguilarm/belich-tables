@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Components\Table;
 
+use Daguilarm\BelichTables\Components\Table\Relationships\RelationshipValue;
+use Daguilarm\BelichTables\Components\Table\Relationships\RelationshipSort;
 use Daguilarm\BelichTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
 
 trait Relationships
 {
-    use RelationshipsMethod;
+    Use RelationshipValue, RelationshipSort;
 
     /**
      * Set atribute.

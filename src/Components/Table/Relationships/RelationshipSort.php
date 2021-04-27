@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\BelichTables\Components\Table;
+namespace Daguilarm\BelichTables\Components\Table\Relationships;
 
 use Daguilarm\BelichTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Str;
 
-trait SortingRelatioships
+trait RelationshipSort
 {
     /**
      * Sort table base on relationship.
