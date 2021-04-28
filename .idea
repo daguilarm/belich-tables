@@ -12,7 +12,7 @@ nano .bash_profile
     alias duskall="php artisan make:dracarys --env=dusk && clear && art dusk"
     alias dusk="clear && art dusk"
     alias dracarys="art migrate:refresh --seed"
-    alias validate="php artisan insights"
+    alias validate="./vendor/bin/phpinsights"
 
 [Run tests]
 XDEBUG_MODE=coverage ./vendor/bin/phpunit
