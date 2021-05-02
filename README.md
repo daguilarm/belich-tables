@@ -5,6 +5,10 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/daguilarm/belich-tables)
 <!-- [![Total Downloads](https://img.shields.io/packagist/dt/daguilarm/belich-tables.svg?style=flat-square)](https://packagist.org/packages/daguilarm/belich-tables) -->
 
+# Belich Tables: a datatable package for Laravel Livewire
+
+Belich Tables is a Laravel package base on Livewire and AlpineJS that allows you to create scaffold datatables with search, column sort, filters, pagination, etc...
+
 ## Requirements
 
 This package need at least:

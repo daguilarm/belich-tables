@@ -11,7 +11,7 @@
          verbose="true"
 >
     <testsuites>
-        <testsuite name="Belich Tables Test Suite">
+        <testsuite name="Livewire Combobox Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

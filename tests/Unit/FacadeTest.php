@@ -1,6 +1,6 @@
 <?php
 
-namespace Daguilarm\BelichTables\Tests\Feature;
+namespace Daguilarm\BelichTables\Tests\Unit;
 
 use Daguilarm\BelichTables\Facades\BelichTables;
 use Daguilarm\BelichTables\Tests\TestCase;
