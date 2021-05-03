@@ -18,7 +18,7 @@ or if you want to test...
 "daguilarm/belich-tables": "@dev"
 ```
 
-Publishing assets is optional for this package:
+Publishing assets is mandatory for this package:
 
 ```bash
 php artisan vendor:publish --provider="Daguilarm\BelichTables\BelichTablesServiceProvider"
