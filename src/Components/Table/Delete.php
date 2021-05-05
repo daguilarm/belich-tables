@@ -6,7 +6,6 @@ namespace Daguilarm\BelichTables\Components\Table;
 
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
-use MattLibera\LivewireFlash\LivewireFlashNotifier;
 
 trait Delete
 {

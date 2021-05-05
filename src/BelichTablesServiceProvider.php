@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Daguilarm\BelichTables;
 
 use Daguilarm\BelichTables\Components\DeleteComponent;
-use Daguilarm\BelichTables\Components\MessageComponent;
 use Daguilarm\BelichTables\Facades\BelichTables;
 use Daguilarm\BelichTables\Facades\BelichTablesProvider;
 use Illuminate\Foundation\AliasLoader;
