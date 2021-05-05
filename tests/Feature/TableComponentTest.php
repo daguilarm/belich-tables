@@ -3,7 +3,7 @@
 namespace Daguilarm\BelichTables\Tests\Feature;
 
 use Daguilarm\BelichTables\Components\TableComponent;
-use Daguilarm\BelichTables\Tests\_Http\Livewire\UsersTable;
+use Daguilarm\BelichTables\Tests\App\Http\Livewire\UsersTable;
 use Daguilarm\BelichTables\Tests\TestCase;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Livewire;

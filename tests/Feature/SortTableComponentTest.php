@@ -2,7 +2,7 @@
 
 namespace Daguilarm\BelichTables\Tests\Feature;
 
-use Daguilarm\BelichTables\Tests\_Http\Livewire\UsersTable;
+use Daguilarm\BelichTables\Tests\App\Http\Livewire\UsersTable;
 use Daguilarm\BelichTables\Tests\TestCase;
 use Livewire\Livewire;
 

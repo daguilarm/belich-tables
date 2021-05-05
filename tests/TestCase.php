@@ -3,13 +3,12 @@
 namespace Daguilarm\BelichTables\Tests;
 
 use Daguilarm\BelichTables\BelichTablesServiceProvider;
-use Daguilarm\BelichTables\Tests\_Models\User;
+use Daguilarm\BelichTables\Tests\App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Livewire\LivewireServiceProvider;
 use Maatwebsite\Excel\ExcelServiceProvider;
-use MattLibera\LivewireFlash\LivewireFlashServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
@@ -47,7 +46,6 @@ class TestCase extends BaseTestCase
             BelichTablesServiceProvider::class,
             LivewireServiceProvider::class,
             ExcelServiceProvider::class,
-            LivewireFlashServiceProvider::class,
         ];
     }
 
@@ -58,7 +56,7 @@ class TestCase extends BaseTestCase
     {
         // Setup the application
         $app['config']->set('view.paths', [
-            __DIR__.'/../tests/_Resources/_Views/',
+            __DIR__.'/../tests/Browser/resources/views/',
             resource_path('views'),
         ]);
         $app['config']->set('auth.providers.users.model', User::class);
@@ -82,21 +80,6 @@ class TestCase extends BaseTestCase
     public function makeACleanSlate()
     {
         Artisan::call('view:clear');
-
-        File::deleteDirectory($this->livewireViewsPath());
-        File::deleteDirectory($this->livewireClassesPath());
-        File::deleteDirectory($this->livewireTestsPath());
-        File::delete(app()->bootstrapPath('cache/livewire-components.php'));
-    }
-
-    /**
-     * Get all the dusk attributes.
-     */
-    public function getDuskAttributes($html)
-    {
-        preg_match_all('/dusk="(.*)"/', $html, $results);
-
-        return $results[1];
     }
 
     /**
@@ -108,26 +91,11 @@ class TestCase extends BaseTestCase
     }
 
     /**
-     * Set the path for the livewire classes.
+     * Get all the dusk attributes.
      */
-    protected function livewireClassesPath($path = '')
+    public function getDuskAttributes($html)
     {
-        return app_path('Http/Livewire'.($path ? '/'.$path : ''));
-    }
-
-    /**
-     * Set the path for the livewire views.
-     */
-    protected function livewireViewsPath($path = '')
-    {
-        return resource_path('views').'/livewire'.($path ? '/'.$path : '');
-    }
-
-    /**
-     * Set the path for the livewire tests.
-     */
-    protected function livewireTestsPath($path = '')
-    {
-        return base_path('tests/Feature/Livewire'.($path ? '/'.$path : ''));
+        preg_match_all('/dusk="(.*)"/', $html, $results);
+        return $results[1];
     }
 }

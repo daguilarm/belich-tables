@@ -2,8 +2,8 @@
 
 namespace Daguilarm\BelichTables\Tests;
 
-use Daguilarm\BelichTables\Tests\_Models\Profile;
-use Daguilarm\BelichTables\Tests\_Models\User;
+use Daguilarm\BelichTables\Tests\App\Models\Profile;
+use Daguilarm\BelichTables\Tests\App\Models\User;
 
 trait TestSeed
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Daguilarm\BelichTables\Tests\_Models;
+namespace Daguilarm\BelichTables\Tests\App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

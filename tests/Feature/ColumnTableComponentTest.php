@@ -3,7 +3,7 @@
 namespace Daguilarm\BelichTables\Tests\Feature;
 
 use Daguilarm\BelichTables\Facades\BelichTables;
-use Daguilarm\BelichTables\Tests\_Models\User;
+use Daguilarm\BelichTables\Tests\App\Models\User;
 use Daguilarm\BelichTables\Tests\TestCase;
 use Daguilarm\BelichTables\Views\Action;
 use Daguilarm\BelichTables\Views\Column;

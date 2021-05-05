@@ -1,13 +1,13 @@
 <?php
 
-namespace Daguilarm\BelichTables\Tests\_Http\Livewire;
+namespace Daguilarm\BelichTables\Tests\App\Http\Livewire;
 
 use Daguilarm\BelichTables\Components\TableComponent;
-use Daguilarm\BelichTables\Tests\_Filters\FilterByBoolean;
-use Daguilarm\BelichTables\Tests\_Filters\FilterByDate;
-use Daguilarm\BelichTables\Tests\_Filters\FilterByUser;
-use Daguilarm\BelichTables\Tests\_Filters\FilterByYear;
-use Daguilarm\BelichTables\Tests\_Models\User;
+use Daguilarm\BelichTables\Tests\App\Filters\FilterByBoolean;
+use Daguilarm\BelichTables\Tests\App\Filters\FilterByDate;
+use Daguilarm\BelichTables\Tests\App\Filters\FilterByUser;
+use Daguilarm\BelichTables\Tests\App\Filters\FilterByYear;
+use Daguilarm\BelichTables\Tests\App\Models\User;
 use Daguilarm\BelichTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
