@@ -2,6 +2,12 @@
 
 All notable changes to `livewire-tables` will be documented in this file:
 
+## [1.3] - 2021-05-05
+
+### Fixed 
+
+- Fixed flash messages.
+
 ## [1.2] - 2021-04-24
 
 ### Added
