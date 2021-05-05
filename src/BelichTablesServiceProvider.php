@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Daguilarm\BelichTables;
 
 use Daguilarm\BelichTables\Components\DeleteComponent;
+use Daguilarm\BelichTables\Components\MessageComponent;
 use Daguilarm\BelichTables\Facades\BelichTables;
 use Daguilarm\BelichTables\Facades\BelichTablesProvider;
 use Illuminate\Foundation\AliasLoader;
@@ -33,9 +34,6 @@ final class BelichTablesServiceProvider extends ServiceProvider
 
         // Livewire Components
         Livewire::component('delete-button-component', DeleteComponent::class);
-
-        // Set config values
-        config()->set('livewire-flash.views.message', 'belich-tables::'.config('belich-tables.theme').'.components.flash-message');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([

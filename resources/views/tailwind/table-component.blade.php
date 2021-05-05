@@ -1,5 +1,8 @@
 <div class="flex flex-col">
 
+    <!-- Include messages -->
+    @includeWhen(session()->has('message'), BelichTables::include('components.flash-message'))
+
     <!-- Include the table loading view -->
     @includeWhen($showLoading, BelichTables::include('sections.loading'))
 

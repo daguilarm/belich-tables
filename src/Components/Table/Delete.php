@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Components\Table;
 
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 use MattLibera\LivewireFlash\LivewireFlashNotifier;
 
 trait Delete
@@ -61,13 +63,15 @@ trait Delete
     /**
      * Delete messages.
      */
-    private function messageDelete(bool $deleteOperation): LivewireFlashNotifier
+    private function messageDelete(bool $deleteOperation)
     {
+        session()->forget('message');
+
         // Messages
         return $deleteOperation
             // Success message
-            ? app('lwflash')->message(trans('belich-tables::strings.messages.delete.success'), 'success')->livewire($this)
+            ? session()->flash('message', ['success', trans('belich-tables::strings.messages.delete.success'), Str::random(20)])
             // Error message
-            : app('lwflash')->message(trans('belich-tables::strings.messages.delete.error'), 'error')->livewire($this);
+            : session()->flash('message', ['danger', trans('belich-tables::strings.messages.delete.error'), Str::random(20)]);
     }
 }

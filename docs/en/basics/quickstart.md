@@ -81,16 +81,3 @@ Column::make('Avatar', 'profile.profile_avatar')
 And this is the result:
 
 ![Belich Tables with Livewire](../../_media/belich-tables.png ':class=thumbnail')
-
-## Flash messages
-
-**Belich Tables** include the package: [Livewire Flash by Mattlibera](https://github.com/mattlibera/livewire-flash). This package allows us to incorporate flash messages through Livewire, in a very simple way. Some parts of the package use this functionality, so it is convenient to activate it.
-
-To do this, you need to add the `flash-container` component:
-
-```html
-<livewire:flash-container />
-<livewire:users-table />
-```
-
-!>If you do not add this component, the messages will not appear when certain tasks were completed.
