@@ -95,6 +95,7 @@ class TestCase extends BaseTestCase
     public function getDuskAttributes($html)
     {
         preg_match_all('/dusk="(.*)"/', $html, $results);
+
         return $results[1];
     }
 }
