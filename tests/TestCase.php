@@ -6,7 +6,6 @@ use Daguilarm\BelichTables\BelichTablesServiceProvider;
 use Daguilarm\BelichTables\Tests\App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\File;
 use Livewire\LivewireServiceProvider;
 use Maatwebsite\Excel\ExcelServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
