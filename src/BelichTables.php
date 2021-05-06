@@ -34,7 +34,7 @@ final class BelichTables
     /**
      * Support for Belich Dev.
      */
-    private function belichConfig($key, $default)
+    public function belichConfig(string $key, string $default): string
     {
         return app('config')
             ->get(
