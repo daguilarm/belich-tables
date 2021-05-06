@@ -4,6 +4,10 @@ All notable changes to `livewire-tables` will be documented in this file:
 
 ## [1.3] - 2021-05-05
 
+### Added
+
+- Support for Belich Development Environment.
+
 ### Fixed 
 
 - Fixed flash messages.
