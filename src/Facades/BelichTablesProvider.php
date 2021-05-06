@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Facades;
 
+use Daguilarm\BelichTables\BelichTables;
 use Illuminate\Support\ServiceProvider;
 
 final class BelichTablesProvider extends ServiceProvider
@@ -21,7 +22,7 @@ final class BelichTablesProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton('BelichTables', static function () {
-            return new BelichTablesMethods();
+            return new BelichTables();
         });
     }
 }
