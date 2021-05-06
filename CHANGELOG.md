@@ -11,6 +11,7 @@ All notable changes to `livewire-tables` will be documented in this file:
 ### Fixed 
 
 - Fixed flash messages.
+- Fixed problem with custom css.
 
 ## [1.2] - 2021-04-24
 
