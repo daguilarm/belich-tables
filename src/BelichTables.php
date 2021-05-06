@@ -22,7 +22,7 @@ final class BelichTables
      */
     public function noResults(): string
     {
-        return $this->belichConfig(
+        return $this->config(
             'belich.belich-tables.noResults',
             'belich-tables.noResults'
         );
@@ -31,7 +31,7 @@ final class BelichTables
     /**
      * Support for Belich Dev.
      */
-    public function belichConfig(string $key, string $default): string
+    public function config(string $key, string $default): string
     {
         return app('config')
             ->get(
@@ -45,7 +45,7 @@ final class BelichTables
      */
     public function theme(): string
     {
-        return $this->belichConfig(
+        return $this->config(
             'belich.belich-tables.theme',
             'belich-tables.theme'
         );

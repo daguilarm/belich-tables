@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Daguilarm\BelichTables\Components\Table;
 
 use Daguilarm\BelichTables\Exceptions\UnsupportedExportFormat;
+use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Excel;
 
@@ -97,8 +98,10 @@ trait Exports
      */
     private function download(string $type, string $exportFormat)
     {
-        // Get the download class
-        $class = config('belich-tables.exports');
+        // Get the download class name
+        $class = BelichTables::config('belich.belich-tables.exports', 'belich-tables.exports');
+
+        // Init the download class
         $downloadClass = new $class(
             $this->models(),
             $this->columns()
