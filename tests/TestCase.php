@@ -1,18 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\BelichTables\Tests;
 
-use Daguilarm\BelichTables\BelichTablesServiceProvider;
 use Daguilarm\BelichTables\Tests\App\Models\User;
+use Daguilarm\BelichTables\Tests\TestCaseBase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
-use Livewire\LivewireServiceProvider;
-use Maatwebsite\Excel\ExcelServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
 {
     use RefreshDatabase,
+        TestCaseBase,
         TestSeed;
 
     /**
@@ -34,18 +35,6 @@ class TestCase extends BaseTestCase
         // Seed the database
         $this->seedUsers();
         $this->seedProfiles();
-    }
-
-    /**
-     * Load the service providers.
-     */
-    protected function getPackageProviders($app)
-    {
-        return [
-            BelichTablesServiceProvider::class,
-            LivewireServiceProvider::class,
-            ExcelServiceProvider::class,
-        ];
     }
 
     /**
@@ -79,14 +68,6 @@ class TestCase extends BaseTestCase
     public function makeACleanSlate()
     {
         Artisan::call('view:clear');
-    }
-
-    /**
-     * Swap HTTP Kernel for application bootstrap.
-     */
-    protected function resolveApplicationHttpKernel($app)
-    {
-        $app->singleton('Illuminate\Contracts\Http\Kernel', 'Daguilarm\BelichTables\Tests\HttpKernel');
     }
 
     /**

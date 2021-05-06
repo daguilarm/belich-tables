@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireCombobox\Tests;
+namespace Daguilarm\BelichTables\Tests;
 
-use Daguilarm\Belich\Tests\DuskElements;
-use Daguilarm\Belich\Tests\TestCaseBase;
+use Daguilarm\BelichTables\Tests\App\Http\Livewire\UsersTable;
+use Daguilarm\BelichTables\Tests\TestCaseBase;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
+use Orchestra\Testbench\Dusk\Options as DuskOptions;
 use Orchestra\Testbench\Dusk\TestCase as BaseTestCase;
 
 /**
@@ -15,7 +16,8 @@ use Orchestra\Testbench\Dusk\TestCase as BaseTestCase;
  */
 class BrowserTestCase extends BaseTestCase
 {
-    use DuskElements, TestCaseBase;
+    use DuskElements,
+        TestCaseBase;
 
     /**
      * Setup for testing.
@@ -43,13 +45,13 @@ class BrowserTestCase extends BaseTestCase
             // CSRF hack
             app('session')->put('_token', 'this-is-a-hack-because-something-about-validating-the-csrf-token-is-broken');
 
-            // Components for testing
-            // Livewire::component('component-example', ComponentExample::class);
+            //Components for testing
+            Livewire::component('users-table', UsersTable::class);
 
             //Routes for testing
-            // Route::get('/belich/testing/example', function () {
-            //     return view('blade-example');
-            // });
+            Route::get('/testing/users', function() {
+                return view('users-table');
+            });
         });
     }
 

@@ -2,7 +2,6 @@
 
 namespace Daguilarm\BelichTables\Tests\App\Models;
 
-use Daguilarm\BelichTables\Tests\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model

@@ -6,7 +6,7 @@ namespace Daguilarm\BelichTables\Tests\App\Filters;
 
 use Daguilarm\BelichTables\Components\FilterComponent;
 use Daguilarm\BelichTables\Facades\BelichTables;
-use Daguilarm\BelichTables\Tests\_Models\User;
+use Daguilarm\BelichTables\Tests\App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 
 final class FilterByUser extends FilterComponent

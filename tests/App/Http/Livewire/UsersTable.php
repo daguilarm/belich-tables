@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\BelichTables\Tests\App\Http\Livewire;
 
 use Daguilarm\BelichTables\Components\TableComponent;

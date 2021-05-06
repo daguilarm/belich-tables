@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Daguilarm\BelichTables\Tests;
 
 use Illuminate\Foundation\Http\Kernel;

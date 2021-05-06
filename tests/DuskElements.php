@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daguilarm\LivewireCombobox\Tests;
+namespace Daguilarm\BelichTables\Tests;
 
 use Closure;
 use Orchestra\Testbench\Dusk\Options as DuskOptions;
