@@ -99,7 +99,7 @@ abstract class TableComponent extends Component implements TableContract
         parent::__construct($id);
 
         // Set the pagination theme
-        $this->paginationTheme = config('belich-tables.theme');
+        $this->paginationTheme = BelichTables::theme();
         // Init the column's filter
         $this->sqlBuilder = $this->query();
         // Init the model

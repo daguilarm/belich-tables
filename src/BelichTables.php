@@ -12,10 +12,7 @@ final class BelichTables
     public function include(string $path): string
     {
         // Get the theme variable
-        $theme = $this->belichConfig(
-            'belich.belich-tables.theme',
-            'belich-tables.theme'
-        );
+        $theme = $this->theme();
 
         return sprintf('belich-tables::'.$theme.'.%s', $path);
     }
@@ -41,5 +38,16 @@ final class BelichTables
                 $key,
                 app('config')->get($default),
             );
+    }
+
+    /**
+     * Support for Belich Dev.
+     */
+    public function theme(): string
+    {
+        return $this->belichConfig(
+            'belich.belich-tables.theme',
+            'belich-tables.theme'
+        );
     }
 }
