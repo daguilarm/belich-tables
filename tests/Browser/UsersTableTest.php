@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Tests\Browser;
 
-use Daguilarm\BelichTables\Tests\App\Http\Livewire\UsersTable;
 use Daguilarm\BelichTables\Tests\BrowserTestCase as TestCase;
-use Livewire\Livewire;
 
 // test --filter=UsersTableTest
 class UsersTableTest extends TestCase

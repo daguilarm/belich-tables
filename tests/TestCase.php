@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Daguilarm\BelichTables\Tests;
 
 use Daguilarm\BelichTables\Tests\App\Models\User;
-use Daguilarm\BelichTables\Tests\TestCaseBase;
 use Illuminate\Support\Facades\Artisan;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 

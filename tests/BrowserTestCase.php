@@ -5,9 +5,6 @@ declare(strict_types=1);
 namespace Daguilarm\BelichTables\Tests;
 
 use Daguilarm\BelichTables\Tests\App\Http\Livewire\UsersTable;
-use Daguilarm\BelichTables\Tests\App\Models\User;
-use Daguilarm\BelichTables\Tests\DuskElements;
-use Daguilarm\BelichTables\Tests\TestCaseBase;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Orchestra\Testbench\Dusk\Options as DuskOptions;
@@ -50,7 +47,7 @@ class BrowserTestCase extends \Orchestra\Testbench\Dusk\TestCase
             Livewire::component('users-table', UsersTable::class);
 
             //Routes for testing
-            Route::get('/testing/users', function() {
+            Route::get('/testing/users', function () {
                 return view('users');
             })->name('testing.users');
         });
