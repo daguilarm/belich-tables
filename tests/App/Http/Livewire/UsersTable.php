@@ -41,7 +41,8 @@ class UsersTable extends TableComponent
                 ->showAsBoolean(),
             Column::make('Name')
                 ->searchable()
-                ->sortable()
+                ->sortable(),
+            Column::make('Names', 'name')
                 ->format(static function ($value) {
                     return Str::of($value)
                         ->plural()

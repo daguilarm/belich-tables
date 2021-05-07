@@ -44,17 +44,17 @@ class SortTableComponentTest extends TestCase
             ->assertSet('sortDirection', 'desc');
     }
 
-    // test --filter=test_table_component_sort_direction_for_a_relationship_field
-    public function test_table_component_sort_direction_for_a_relationship_field(): void
-    {
-        Livewire::test(UsersTable::class)
-            // We simulate clicking on the name column
-            ->call('orderBy', 'profile.profile_telephone')
-            // Verify the new value
-            ->assertSet('sortField', 'profile.profile_telephone')
-            // We simulate clicking on the name column in order to change direction
-            ->call('orderBy', 'profile.profile_telephone')
-            // Verify the new value
-            ->assertSet('sortDirection', 'desc');
-    }
+    // // test --filter=test_table_component_sort_direction_for_a_relationship_field
+    // public function test_table_component_sort_direction_for_a_relationship_field(): void
+    // {
+    //     Livewire::test(UsersTable::class)
+    //         // We simulate clicking on the name column
+    //         ->call('orderBy', 'profile.profile_telephone')
+    //         // Verify the new value
+    //         ->assertSet('sortField', 'profile.profile_telephone')
+    //         // We simulate clicking on the name column in order to change direction
+    //         ->call('orderBy', 'profile.profile_telephone')
+    //         // Verify the new value
+    //         ->assertSet('sortDirection', 'desc');
+    // }
 }

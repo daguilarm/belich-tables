@@ -1,4 +1,4 @@
-<!-- Set the default loading css -->
+{{-- Set the default loading css --}}
 <div
     wire:loading
     class="pulse pulse-vertical-align"

@@ -10,11 +10,17 @@
          stopOnFailure="false"
          verbose="true"
 >
-    <testsuites>
-        <testsuite name="Livewire Combobox Test Suite">
-            <directory>tests</directory>
-        </testsuite>
-    </testsuites>
+<testsuites>
+    <testsuite name="Browser">
+        <directory suffix="Test.php">./tests/Browser</directory>
+    </testsuite>
+    <testsuite name="Feature">
+        <directory suffix="Test.php">./tests/Feature</directory>
+    </testsuite>
+    <testsuite name="Unit">
+        <directory suffix="Test.php">./tests/Unit</directory>
+    </testsuite>
+</testsuites>
     <coverage>
         <include>
             <directory suffix=".php">./src</directory>

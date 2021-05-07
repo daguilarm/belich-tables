@@ -8,8 +8,6 @@ use Daguilarm\BelichTables\Tests\TestCase;
 // test --filter=FacadeTest
 class FacadeTest extends TestCase
 {
-    protected TableComponent $table;
-
     // test --filter=test_facade_include_path
     public function test_facade_include_path(): void
     {

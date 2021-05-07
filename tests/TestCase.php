@@ -6,15 +6,15 @@ namespace Daguilarm\BelichTables\Tests;
 
 use Daguilarm\BelichTables\Tests\App\Models\User;
 use Daguilarm\BelichTables\Tests\TestCaseBase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
+/**
+ * @see https://github.com/livewire/livewire/blob/master/tests/Unit/TestCase.php
+ */
 class TestCase extends BaseTestCase
 {
-    use RefreshDatabase,
-        TestCaseBase,
-        TestSeed;
+    use TestCaseBase;
 
     /**
      * Setup the test environment.
@@ -31,10 +31,6 @@ class TestCase extends BaseTestCase
         });
 
         parent::setUp();
-
-        // Seed the database
-        $this->seedUsers();
-        $this->seedProfiles();
     }
 
     /**
@@ -50,16 +46,6 @@ class TestCase extends BaseTestCase
         $app['config']->set('auth.providers.users.model', User::class);
         $app['config']->set('session.driver', 'file');
         $app['config']->set('app.key', 'base64:Hupx3yAySikrM2/edkZQNQHslgDWYfiBfCuSThJ5SK8=');
-        $app['config']->set('database.default', 'testbench');
-        $app['config']->set('database.connections.testbench', [
-            'driver'   => 'sqlite',
-            'database' => ':memory:',
-            'prefix'   => '',
-        ]);
-
-        // Populate the DB
-        include_once __DIR__.'/../database/migrations/create_test_tables.php.stub';
-        (new \CreateTestTables())->up();
     }
 
     /**

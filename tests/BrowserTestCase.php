@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace Daguilarm\BelichTables\Tests;
 
 use Daguilarm\BelichTables\Tests\App\Http\Livewire\UsersTable;
+use Daguilarm\BelichTables\Tests\App\Models\User;
+use Daguilarm\BelichTables\Tests\DuskElements;
 use Daguilarm\BelichTables\Tests\TestCaseBase;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Orchestra\Testbench\Dusk\Options as DuskOptions;
-use Orchestra\Testbench\Dusk\TestCase as BaseTestCase;
 
 /**
  * @see https://github.com/livewire/livewire/blob/master/tests/Browser/TestCase.php
  */
-class BrowserTestCase extends BaseTestCase
+class BrowserTestCase extends \Orchestra\Testbench\Dusk\TestCase
 {
     use DuskElements,
         TestCaseBase;
@@ -50,8 +51,8 @@ class BrowserTestCase extends BaseTestCase
 
             //Routes for testing
             Route::get('/testing/users', function() {
-                return view('users-table');
-            });
+                return view('users');
+            })->name('testing.users');
         });
     }
 
@@ -62,5 +63,9 @@ class BrowserTestCase extends BaseTestCase
     {
         // Setup the application
         $app['config']->set('app.key', 'base64:Hupx3yAySikrM2/edkZQNQHslgDWYfiBfCuSThJ5SK8=');
+        $app['config']->set('filesystems.disks.dusk-downloads', [
+            'driver' => 'local',
+            'root' => __DIR__.'/downloads',
+        ]);
     }
 }
