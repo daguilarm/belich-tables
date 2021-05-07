@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Daguilarm\BelichTables\Tests;
 
 use Daguilarm\BelichTables\Tests\App\Http\Livewire\UsersTable;
+use Daguilarm\BelichTables\Tests\BrowserCustomMethods;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Orchestra\Testbench\Dusk\Options as DuskOptions;
@@ -14,7 +15,8 @@ use Orchestra\Testbench\Dusk\Options as DuskOptions;
  */
 class BrowserTestCase extends \Orchestra\Testbench\Dusk\TestCase
 {
-    use DuskElements,
+    use BrowserCustomMethods,
+        DuskElements,
         TestCaseBase;
 
     /**

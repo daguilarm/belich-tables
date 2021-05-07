@@ -16,16 +16,19 @@ class UsersTableTest extends TestCase
             $browser
                 ->visit('/testing/users')
                 // Assert see in first row
-                ->assertSeeIn('table > tbody > tr:nth-child(1)', 'Damián Aguilar')
+                ->assertSeeIn($this->getTablePositionSelector(1), 'Damián Aguilar')
                 // Assert see in second row
-                ->assertSeeIn('table > tbody > tr:nth-child(2)', 'Antonio Aguilar')
+                ->assertSeeIn($this->getTablePositionSelector(2), 'Antonio Aguilar')
                 // Order the column
                 ->click('@column_id')
-                ->waitUntilMissing('.loading')
+                ->waitUntilMissing('#belich-tables-loading')
                 // Assert see in first row
-                ->assertSeeIn('table > tbody > tr:nth-child(1)', 'Paula Gómez')
+                ->assertSeeIn($this->getTablePositionSelector(1), 'Paula Ferrani')
                 // Assert see in last row
-                ->assertSeeIn('table > tbody > tr:nth-child(10)', 'Damián Aguilar');
+                ->assertSeeIn($this->getTablePositionSelector(25), 'Carmen Porteros');
+
+            // Assert total results are 25
+            $this->assertEquals('25', $this->getTotalTableRows($browser));
         });
     }
 }
