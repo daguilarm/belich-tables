@@ -5,6 +5,7 @@
         <script src="https://tailwind-jit.beyondco.de/tailwind.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
         @livewireStyles
+        @belichTablesCss
     </head>
     <body>
         <section>
