@@ -18,7 +18,7 @@ class TestCase extends BaseTestCase
     /**
      * Setup the test environment.
      */
-    protected function setUp(): void
+    public function setUp(): void
     {
         // Clean up the test
         $this->afterApplicationCreated(function () {

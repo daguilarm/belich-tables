@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Daguilarm\BelichTables\Tests;
 
 use Daguilarm\BelichTables\Tests\App\Http\Livewire\UsersTable;
+use Daguilarm\BelichTables\Tests\App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Orchestra\Testbench\Dusk\Options as DuskOptions;
@@ -16,6 +18,7 @@ class BrowserTestCase extends \Orchestra\Testbench\Dusk\TestCase
 {
     use BrowserCustomMethods,
         DuskElements,
+        RefreshDatabase,
         TestCaseBase;
 
     /**
@@ -57,13 +60,17 @@ class BrowserTestCase extends \Orchestra\Testbench\Dusk\TestCase
     /**
      * Setup environment.
      */
-    protected function getEnvironmentSetUp($app)
+    public function getEnvironmentSetUp($app)
     {
         // Setup the application
-        $app['config']->set('app.key', 'base64:Hupx3yAySikrM2/edkZQNQHslgDWYfiBfCuSThJ5SK8=');
+        $app['config']->set('app.key', 'base64:2fl+Ktvkfl+Fuz4Qp/A75G2RTiWVA/ZoKZvp6fiiM10=');
         $app['config']->set('filesystems.disks.dusk-downloads', [
             'driver' => 'local',
             'root' => __DIR__.'/downloads',
         ]);
+
+        // Populate the DB
+        include_once __DIR__.'/../tests/Browser/database/migrations/create_test_tables.php.stub';
+        (new \CreateTestTables())->up();
     }
 }

@@ -12,11 +12,11 @@ trait DuskElements
     /**
      * We don't want to deal with screenshots or console logs.
      */
-    protected function storeConsoleLogsFor($browsers)
+    public function storeConsoleLogsFor($browsers)
     {
     }
 
-    protected function captureFailuresFor($browsers)
+    public function captureFailuresFor($browsers)
     {
     }
 
