@@ -37,7 +37,7 @@ final class BelichTablesServiceProvider extends ServiceProvider
             $customCss = str_replace('@backGroundColor', BelichTables::config('belich-tables.loadingColor', 'belich.belich-tables.loadingColor'), $css);
 
             return sprintf('<style>%s</style>', $customCss);
-       });
+        });
 
         // Livewire Components
         Livewire::component('delete-button-component', DeleteComponent::class);

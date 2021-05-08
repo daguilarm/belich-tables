@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Tests\Browser;
 
-use Daguilarm\BelichTables\Tests\App\Models\Profile;
-use Daguilarm\BelichTables\Tests\App\Models\User;
 use Daguilarm\BelichTables\Tests\BrowserTestCase as TestCase;
 
 // test --filter=UsersTableTest
