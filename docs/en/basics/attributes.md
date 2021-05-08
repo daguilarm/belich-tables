@@ -6,6 +6,7 @@ The attributes that you can use in a **Table Component** are described below. Th
 
 | Attribute | Default | Example | Description |
 | :---------- |:------------ |:------------| :-----------| 
+| $export | [] | `public array $export = ['pdf', 'csv', 'xls']`| Defines the file formats that are allowed to be downloaded. If you leave it in blank, the export option will be canceled. |
 | $exportAllowedFormats | csv, xls, xlsx, pdf | `public array $exportAllowedFormats = ['csv', 'pdf']`| Defines the file formats supported when exporting. |
 | $exportFileName | data | `public string $exportFileName = 'data'`| Defines the file name for the exported file. |
 
