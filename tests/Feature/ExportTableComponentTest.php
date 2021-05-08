@@ -38,4 +38,14 @@ class ExportTableComponentTest extends TestCase
             ->call('export', 'csv')
             ->assertEmitted('fileDownloadNotification', true);
     }
+
+    // test --filter=test_table_component_download_file
+    public function test_table_component_download_file(): void
+    {
+        // Assert file download
+        Livewire::test(UsersTable::class)
+            ->set('checkboxAll', true)
+            ->call('export', 'csv')
+            ->assertFileDownloaded('data.csv');
+    }
 }
