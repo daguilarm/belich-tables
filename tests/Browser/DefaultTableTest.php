@@ -6,8 +6,8 @@ namespace Daguilarm\BelichTables\Tests\Browser;
 
 use Daguilarm\BelichTables\Tests\BrowserTestCase as TestCase;
 
-// test --filter=UsersTableTest
-class UsersTableTest extends TestCase
+// test --filter=DefaultTableTest
+class DefaultTableTest extends TestCase
 {
     /**
      * Setup the test environment.
@@ -58,6 +58,54 @@ class UsersTableTest extends TestCase
             // Reset search
             $browser
                 ->click('@belich-table-clear-search')
+                ->waitUntilMissing('@belich-tables-loading');
+
+            // Assert total results are 25
+            $this->assertEquals(25, $this->getTotalTableRows($browser));
+        });
+    }
+
+    // test --filter=test_users_table_per_page
+    public function test_users_table_per_page(): void
+    {
+        $this->browse(function ($browser) {
+            $browser
+                ->visit('/testing/users');
+
+            // Assert total results are 25
+            $this->assertEquals(25, $this->getTotalTableRows($browser));
+
+            $browser
+                // Assert see in first row
+                ->select('@table-index-per-page', 50)
+                ->waitUntilMissing('@belich-tables-loading');
+
+            // Assert total results are 30
+            $this->assertEquals(30, $this->getTotalTableRows($browser));
+        });
+    }
+
+    // test --filter=test_users_table_pagination
+    public function test_users_table_pagination(): void
+    {
+        $this->browse(function ($browser) {
+            $browser
+                ->visit('/testing/users');
+
+            // Assert total results are 25
+            $this->assertEquals(25, $this->getTotalTableRows($browser));
+
+            $browser
+                // Assert see in first row
+                ->click('@pagination-next')
+                ->waitUntilMissing('@belich-tables-loading');
+
+            // Assert total results are 5
+            $this->assertEquals(5, $this->getTotalTableRows($browser));
+
+            $browser
+                // Assert see in first row
+                ->click('@pagination-previus')
                 ->waitUntilMissing('@belich-tables-loading');
 
             // Assert total results are 25

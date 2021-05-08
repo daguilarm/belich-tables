@@ -3,5 +3,6 @@
         type="checkbox"
         wire:model="checkboxAll"
         class="shadow opacity-75 __checkboxes"
+        dusk="table-index-checkbox-all"
     >
 </th>
