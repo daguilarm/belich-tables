@@ -4,6 +4,6 @@
         type="checkbox"
         wire:model="checkboxValues"
         value="{{ $model->id }}"
-        class="shadow opacity-75"
+        class="shadow opacity-75 __checkboxes"
     >
 </td>

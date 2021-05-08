@@ -2,6 +2,6 @@
     <input
         type="checkbox"
         wire:model="checkboxAll"
-        class="shadow opacity-75"
+        class="shadow opacity-75 __checkboxes"
     >
 </th>
