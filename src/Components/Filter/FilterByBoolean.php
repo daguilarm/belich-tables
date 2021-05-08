@@ -37,7 +37,7 @@ final class FilterByBoolean extends FilterComponent
     public function apply(Builder $model, $value): Builder
     {
         return $model
-            ->where($this->getColumn($model), (bool) $value);
+            ->where($this->getColumn($model), $value);
     }
 
     /**

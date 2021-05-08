@@ -19,8 +19,7 @@
         <!-- Blank option -->
         <option value=""></option>
         <!-- Options -->
-        @foreach($filter->options() as $id => $value)
-            <option value="{{ $value }}">{{ $value }}</option>
-        @endforeach
+        <option value="true">{{ $filter->status_active }}</option>
+        <option value="false">{{ $filter->status_desactivated }}</option>
     </select>
 </div>
