@@ -16,7 +16,7 @@ class User extends Authenticatable
     }
 
     protected $schema = [
-        'active' => 'bool',
+        'active' => 'boolean',
     ];
 
     /*

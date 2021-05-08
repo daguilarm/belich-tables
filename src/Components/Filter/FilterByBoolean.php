@@ -36,8 +36,10 @@ final class FilterByBoolean extends FilterComponent
      */
     public function apply(Builder $model, $value): Builder
     {
-        return $model
-            ->where($this->getColumn($model), $value);
+        $column = $this->getColumn($model);
+        $value = $this->getBooleanValue($value);
+
+        return $model->where($column, $value);
     }
 
     /**
@@ -71,5 +73,15 @@ final class FilterByBoolean extends FilterComponent
         $this->status_desactivated = $value;
 
         return $this;
+    }
+
+    /**
+     * Get the boolean value.
+     */
+    private function getBooleanValue(string $value): bool
+    {
+        return $value === 'true'
+            ? true
+            : false;
     }
 }

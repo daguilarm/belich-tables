@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Tests\App\Http\Livewire;
 
+use Daguilarm\BelichTables\Components\Filter\FilterByBoolean;
+use Daguilarm\BelichTables\Components\Filter\FilterByDate;
+use Daguilarm\BelichTables\Components\Filter\FilterByUser;
+use Daguilarm\BelichTables\Components\Filter\FilterByYear;
 use Daguilarm\BelichTables\Components\TableComponent;
-use Daguilarm\BelichTables\Tests\App\Filters\FilterByBoolean;
-use Daguilarm\BelichTables\Tests\App\Filters\FilterByDate;
-use Daguilarm\BelichTables\Tests\App\Filters\FilterByUser;
-use Daguilarm\BelichTables\Tests\App\Filters\FilterByYear;
 use Daguilarm\BelichTables\Tests\App\Models\User;
 use Daguilarm\BelichTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
@@ -64,7 +64,8 @@ class UsersTable extends TableComponent
                 ->falseValue('false value'),
             FilterByYear::make()
                 ->tableColumn('date'),
-            FilterByUser::make(),
+            FilterByUser::make()
+                ->userClass(\Daguilarm\BelichTables\Tests\App\Models\User::class),
             FilterByDate::make()
                 ->tableColumn('date'),
         ];

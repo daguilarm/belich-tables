@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Components\Filter;
 
-use App\Models\User;
 use Daguilarm\BelichTables\Components\FilterComponent;
 use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Database\Eloquent\Builder;
 
 final class FilterByUser extends FilterComponent
 {
+    protected string $user_model = \App\Models\User::class;
+
     /**
      * Create a new field.
      */
@@ -46,9 +47,20 @@ final class FilterByUser extends FilterComponent
      */
     public function options(): array
     {
-        return User::select('users.id', 'users.name')
+        return app($this->user_model)
+            ->select('users.id', 'users.name')
             ->orderBy('name')
             ->pluck('name', 'id')
             ->toArray();
+    }
+
+    /**
+     * Set User model class.
+     */
+    public function userClass(string $class): self
+    {
+        $this->user_model = $class;
+
+        return $this;
     }
 }
