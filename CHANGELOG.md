@@ -2,7 +2,7 @@
 
 All notable changes to `livewire-tables` will be documented in this file:
 
-## [1.4] - 2021-05-08
+## [1.4.0] - 2021-05-08
 
 ### Added
 
@@ -13,7 +13,7 @@ All notable changes to `livewire-tables` will be documented in this file:
 
 - Problem with boolean filter.
 
-## [1.3] - 2021-05-05
+## [1.3.0] - 2021-05-05
 
 ### Added
 
@@ -24,7 +24,7 @@ All notable changes to `livewire-tables` will be documented in this file:
 - Fixed flash messages.
 - Fixed problem with custom css.
 
-## [1.2] - 2021-04-24
+## [1.2.0] - 2021-04-24
 
 ### Added
 
@@ -36,7 +36,7 @@ All notable changes to `livewire-tables` will be documented in this file:
 
 - Download notifications.
 
-## [1.1] - 2021-04-24
+## [1.1.0] - 2021-04-24
 
 ### Added
 
@@ -45,7 +45,7 @@ All notable changes to `livewire-tables` will be documented in this file:
 - New tests added.
 - Renamed modals to dialogs, in order to be prepare for the new HTML5 dialog field.
 
-## [1.0] - 2021-04-17
+## [1.0.0] - 2021-04-17
 
 ### Added
 
