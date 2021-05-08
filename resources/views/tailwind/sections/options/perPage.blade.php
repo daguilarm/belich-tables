@@ -6,7 +6,7 @@
     <!-- Options -->
     <select
         wire:model="perPage"
-        class="text-normal border-gray-300 rounded-md shadow-md text-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
+        class="h-9 py-0 px-auto text-normal border-gray-300 rounded-md shadow-md text-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
     >
         @foreach ($perPageOptions as $option)
             <option>{{ $option }}</option>
