@@ -17,7 +17,6 @@ use Daguilarm\BelichTables\Components\Table\Relationships;
 use Daguilarm\BelichTables\Components\Table\Search;
 use Daguilarm\BelichTables\Components\Table\Sorting;
 use Daguilarm\BelichTables\Components\Table\Table;
-use Daguilarm\BelichTables\Components\Table\Testing;
 use Daguilarm\BelichTables\Contracts\TableContract;
 use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Database\Eloquent\Builder;
@@ -45,7 +44,6 @@ abstract class TableComponent extends Component implements TableContract
         Search,
         Sorting,
         Table,
-        Testing,
         WithPagination;
 
     /**

@@ -33,7 +33,7 @@ class TableComponentTest extends TestCase
     public function test_table_component_columns(): void
     {
         $this->assertCount(
-            $columns = 4,
+            $columns = 5,
             $tableColumns = $this->table->columns(),
         );
     }
@@ -44,7 +44,7 @@ class TableComponentTest extends TestCase
         $results = $this->table->models();
 
         $this->assertInstanceOf(Builder::class, $results);
-        $this->assertEquals(9, $results->count());
+        $this->assertEquals(30, $results->count());
     }
 
     // test --filter=test_table_component_pagination
@@ -59,7 +59,7 @@ class TableComponentTest extends TestCase
 
         $this->assertEquals($currentPage = 1, $pagination->currentPage());
         $this->assertEquals($totalPages = 3, $pagination->count());
-        $this->assertEquals($lastPage = 3, $pagination->lastPage());
+        $this->assertEquals($lastPage = 10, $pagination->lastPage());
     }
 
     // test --filter=test_table_component_attributes
