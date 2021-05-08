@@ -13,8 +13,8 @@
     class="block w-full px-10 py-2 shadow-md rounded-md text-gray-500 sm:text-sm focus:outline-none border border-transparent focus:border-gray-300 placeholder-gray-300"
     type="text"
     placeholder="{{ __('belich-tables::strings.search') }}"
-    id="belich-table-search"
-    dusk="belich_table_search"
+    id="belich_table_search"
+    dusk="belich-table-search"
 />
 
 <!-- Clear search button -->
@@ -22,6 +22,7 @@
     <div
         wire:click="clearSearch"
         class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+        dusk="belich-table-clear-search"
     >
         <!-- icon: heroicon-s-x-circle -->
         <svg class="h-5 w-5 text-red-500 hover:text-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">

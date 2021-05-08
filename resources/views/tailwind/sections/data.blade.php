@@ -2,8 +2,8 @@
 @foreach($models as $model)
     <tr
         class="bg-white border-b border-gray-150"
-        id="row-id-{{ $model->id }}"
-        dusk="row_id_{{ $model->id }}"
+        id="row_id_{{ $model->id }}"
+        dusk="row-id-{{ $model->id }}"
     >
         {{-- Table checkbox --}}
         @includeWhen($showCheckboxes && !isset($headerTitle), BelichTables::include('sections.checkboxes.checkbox'))
