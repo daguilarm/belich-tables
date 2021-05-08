@@ -31,6 +31,14 @@ final class BelichTablesServiceProvider extends ServiceProvider
             Blade::component('belich-tables::'.config('belich-tables.theme').'.components.filter-icon', 'belich-tables-filter-icon');
         });
 
+        // Blade directives
+        Blade::directive('belichTablesCss', function ($expression) {
+            $css = file_get_contents(__DIR__.'/../resources/css/belich-tables.min.css');
+            $customCss = str_replace('@backGroundColor', BelichTables::config('belich-tables.loadingColor', 'belich.belich-tables.loadingColor'), $css);
+
+            return sprintf('<style>%s</style>', $customCss);
+       });
+
         // Livewire Components
         Livewire::component('delete-button-component', DeleteComponent::class);
 
