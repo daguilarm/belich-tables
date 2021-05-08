@@ -2,6 +2,17 @@
 
 All notable changes to `livewire-tables` will be documented in this file:
 
+## [1.4] - 2021-05-08
+
+### Added
+
+- Blade directive for styes: @belichTablesCSS.
+- Browser tests.
+
+### Fixed 
+
+- Problem with boolean filter.
+
 ## [1.3] - 2021-05-05
 
 ### Added
