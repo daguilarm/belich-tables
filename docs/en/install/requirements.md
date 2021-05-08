@@ -11,6 +11,8 @@ And you will need to add to your template or layout the next `css` and `javascri
 - `AlpineJS ^2.0`
 - `TailwindCSS ^2.0`
 
+It will also be necessary to add the styles that the *package* requires, to do that just add in the `<head></head>` the **Blade** directive: `@belichTablesCss`
+
 For example:
 
 ```html 
@@ -25,6 +27,9 @@ For example:
 
         <!-- Livewire styles -->
         <livewire:styles />
+
+        <!-- Belich tables styles -->
+        @belichTablesCss
 
         <!-- TailwindCSS styles -->
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
