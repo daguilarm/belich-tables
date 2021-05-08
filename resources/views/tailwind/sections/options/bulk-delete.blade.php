@@ -10,8 +10,9 @@
     <button
         type="button"
         class="inline-flex ml-2 mt-3 items-center p-2 shadow-lg rounded-lg text-red-400 hover:text-white bg-white hover:bg-red-400 focus:outline-none"
-        id="options-menu"
         @click="showModal = true"
+        id="delete_mass_button_action"
+        dusk="delete-mass-button-action"
     >
         <!-- icon: heroicon-s-trash -->
         <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
