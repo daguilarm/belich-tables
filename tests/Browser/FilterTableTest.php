@@ -88,8 +88,8 @@ class FilterTableTest extends TestCase
                 ->press('@table-filter-close-button')
                 ->waitUntilMissing('@belich-tables-loading');
 
-                // Assert total results are 18
-                $this->assertEquals(18, $this->getTotalTableRows($browser));
+            // Assert total results are 18
+            $this->assertEquals(18, $this->getTotalTableRows($browser));
 
             // Filter by date end
             $browser
@@ -101,8 +101,8 @@ class FilterTableTest extends TestCase
                 ->press('@table-filter-close-button')
                 ->waitUntilMissing('@belich-tables-loading');
 
-                // Assert total results are 12
-                $this->assertEquals(12, $this->getTotalTableRows($browser));
+            // Assert total results are 12
+            $this->assertEquals(12, $this->getTotalTableRows($browser));
 
             // Filter by date start and end
             $browser
@@ -116,8 +116,8 @@ class FilterTableTest extends TestCase
                 ->press('@table-filter-close-button')
                 ->waitUntilMissing('@belich-tables-loading');
 
-                // Assert total results are 1
-                $this->assertEquals(1, $this->getTotalTableRows($browser));
+            // Assert total results are 1
+            $this->assertEquals(1, $this->getTotalTableRows($browser));
         });
     }
 }
