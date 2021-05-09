@@ -14,6 +14,7 @@ use Daguilarm\BelichTables\Components\Table\Operations;
 use Daguilarm\BelichTables\Components\Table\Pagination;
 use Daguilarm\BelichTables\Components\Table\PerPage;
 use Daguilarm\BelichTables\Components\Table\Relationships;
+use Daguilarm\BelichTables\Components\Table\Request;
 use Daguilarm\BelichTables\Components\Table\Search;
 use Daguilarm\BelichTables\Components\Table\Sorting;
 use Daguilarm\BelichTables\Components\Table\Table;
@@ -41,6 +42,7 @@ abstract class TableComponent extends Component implements TableContract
         Pagination,
         PerPage,
         Relationships,
+        Request,
         Search,
         Sorting,
         Table,

@@ -11,6 +11,7 @@
 >
     {{-- Modal inner --}}
     <div
+        dusk="belich-delete-modal"
         class="w-auto px-6 py-4 mx-auto"
         @click.away="showModal = false"
     >

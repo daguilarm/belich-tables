@@ -10,6 +10,7 @@ use Daguilarm\BelichTables\Components\Filter\FilterByUser;
 use Daguilarm\BelichTables\Components\Filter\FilterByYear;
 use Daguilarm\BelichTables\Components\TableComponent;
 use Daguilarm\BelichTables\Tests\App\Models\User;
+use Daguilarm\BelichTables\Views\Action;
 use Daguilarm\BelichTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
@@ -50,6 +51,7 @@ class UsersTable extends TableComponent
                 }),
             Column::make('Telephone', 'profile.profile_telephone')
                 ->sortable(),
+            Action::make(),
         ];
     }
 

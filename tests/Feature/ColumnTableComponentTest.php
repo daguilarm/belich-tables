@@ -143,7 +143,7 @@ class ColumnTableComponentTest extends TestCase
 
         // Verify action view has the correct dusk attributes
         $this->assertEquals(
-            ['show-button-5', 'edit-button-5', 'delete-button-5'],
+            ['show-button-5', 'edit-button-5', 'delete-button-5', 'belich-delete-modal'],
             $this->getDuskAttributes($action),
         );
     }

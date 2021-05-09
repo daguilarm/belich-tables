@@ -23,7 +23,7 @@ class DefaultTableTest extends TestCase
         $this->browse(function ($browser) {
             $browser
                 ->visit('/testing/users')
-                // Assert see in first row
+               // Assert see in first row
                 ->assertSeeIn($this->getTablePositionSelector(1), 'Damián Aguilar')
                 // Assert see in second row
                 ->assertSeeIn($this->getTablePositionSelector(2), 'Antonio Aguilar')

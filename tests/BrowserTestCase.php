@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace Daguilarm\BelichTables\Tests;
 
 use Daguilarm\BelichTables\Tests\App\Http\Livewire\UsersTable;
+use Daguilarm\BelichTables\Tests\App\Models\User;
+use Daguilarm\BelichTables\Tests\App\Policies\UserPolicy;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Orchestra\Testbench\Dusk\Options as DuskOptions;
@@ -52,8 +55,25 @@ class BrowserTestCase extends \Orchestra\Testbench\Dusk\TestCase
             //Routes for testing
             Route::get('/testing/users', function () {
                 return view('users');
-            })->name('testing.users');
+            });
+
+            // Routes for testing delete
+            Gate::policy(User::class, UserPolicy::class);
+
+            Route::get('/testing/users/delete', function () {
+                return view('users');
+            })->middleware('web');
         });
+    }
+
+    /**
+     * Tear down.
+     */
+    protected function tearDown(): void
+    {
+        $this->removeApplicationTweaks();
+
+        parent::tearDown();
     }
 
     /**
@@ -63,6 +83,13 @@ class BrowserTestCase extends \Orchestra\Testbench\Dusk\TestCase
     {
         // Setup the application
         $app['config']->set('app.key', 'base64:2fl+Ktvkfl+Fuz4Qp/A75G2RTiWVA/ZoKZvp6fiiM10=');
+        $app['config']->set('auth.providers.users.model', User::class);
+        $app['config']->set('database.default', 'testbench');
+        $app['config']->set('database.connections.testbench', [
+            'driver'   => 'sqlite',
+            'database' => ':memory:',
+            'prefix'   => '',
+        ]);
         $app['config']->set('filesystems.disks.dusk-downloads', [
             'driver' => 'local',
             'root' => __DIR__.'/downloads',

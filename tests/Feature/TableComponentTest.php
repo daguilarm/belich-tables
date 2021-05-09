@@ -33,7 +33,7 @@ class TableComponentTest extends TestCase
     public function test_table_component_columns(): void
     {
         $this->assertCount(
-            $columns = 5,
+            $columns = 6, // 5 columns + 1 action column
             $tableColumns = $this->table->columns(),
         );
     }

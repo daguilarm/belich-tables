@@ -14,8 +14,11 @@ trait Delete
      */
     public function itemDelete(string $id): void
     {
+        // Set the default user
+        $user = $this->requestUser();
+
         // First check if the user is authorized to delete the item
-        if (request()->user()->can('delete', [$this->model, $id])) {
+        if ($user->can('delete', [$this->model, $id])) {
             // Delete item
             $operation = $this->model
                 ->findOrFail($id)
@@ -34,13 +37,14 @@ trait Delete
         // Set default value to 0
         $operation = 0;
 
+        // Set the default user
+        $user = $this->requestUser();
+
         // Check if the items can be deleted
         $authItems = collect($this->checkboxValues)
-            ->filter(function ($value, $key) {
+            ->filter(function ($value, $key) use ($user) {
                 // Return only the authorized ones
-                return request()
-                    ->user()
-                    ->can('delete', [
+                return $user->can('delete', [
                         $this->model,
                         $value,
                     ]);
