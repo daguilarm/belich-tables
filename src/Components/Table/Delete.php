@@ -45,9 +45,9 @@ trait Delete
             ->filter(function ($value, $key) use ($user) {
                 // Return only the authorized ones
                 return $user->can('delete', [
-                        $this->model,
-                        $value,
-                    ]);
+                    $this->model,
+                    $value,
+                ]);
             })
             ->toArray();
 

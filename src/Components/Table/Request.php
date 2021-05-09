@@ -9,7 +9,7 @@ trait Request
     /**
      * Delete an element base on its ID.
      */
-    public function requestUser(): Object
+    public function requestUser(): object
     {
         // Just for testing the package
         if (app()->environment() === 'testing') {

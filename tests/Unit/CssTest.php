@@ -2,7 +2,6 @@
 
 namespace Daguilarm\BelichTables\Tests\Unit;
 
-use Daguilarm\BelichTables\Facades\BelichTables;
 use Daguilarm\BelichTables\Tests\TestCase;
 use Illuminate\Support\Facades\Blade;
 
