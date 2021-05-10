@@ -56,7 +56,7 @@ abstract class BaseSearch
         // Only search the column.
         } else {
             /**
-             * Search into the column
+             * Search into the column.
              * @see Daguilarm\BelichTables\Views\Traits\ColumnHelpers
              */
             $builder->orWhere(
