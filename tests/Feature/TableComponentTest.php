@@ -62,47 +62,6 @@ class TableComponentTest extends TestCase
         $this->assertEquals($lastPage = 10, $pagination->lastPage());
     }
 
-    // test --filter=test_table_component_attributes
-    public function test_table_component_attributes(): void
-    {
-        Livewire::test(UsersTable::class)
-            // Table attributes
-            ->set('refresh', true)
-            ->assertSet('refresh', true)
-            ->set('refreshInSeconds', 5)
-            ->assertSet('refreshInSeconds', 5)
-            ->assertNotSet('refreshInSeconds', 2)
-            ->set('showCheckboxes', false)
-            ->assertSet('showCheckboxes', false)
-            ->set('showOffline', false)
-            ->assertSet('showOffline', false)
-            ->set('showLoading', false)
-            ->assertSet('showLoading', false)
-            ->set('showTableHead', false)
-            ->assertSet('showTableHead', false)
-            ->set('showTableFooter', false)
-            ->assertSet('showTableFooter', false)
-            // Pagination attributes
-            ->set('showPagination', false)
-            ->assertSet('showPagination', false)
-            ->set('paginationTheme', 'tailwind')
-            ->assertSet('paginationTheme', 'tailwind')
-            ->assertNotSet('paginationTheme', 'bootstrap')
-            // Per page attributes
-            ->set('showPerPage', false)
-            ->assertSet('showPerPage', false)
-            ->set('perPageOptions', [10, 25, 50, 100, 200])
-            ->assertSet('perPageOptions', [10, 25, 50, 100, 200])
-            ->assertCount('perPageOptions', 5)
-            ->set('perPage', 10)
-            ->assertSet('perPage', 10)
-            ->assertNotSet('perPage', 25)
-            // Other attributes
-            ->set('newResource', '/my/url/path')
-            ->assertSet('newResource', '/my/url/path')
-            ->assertNotSet('newResource', '');
-    }
-
     // test --filter=test_table_component_view_exists
     public function test_table_component_view_exists(): void
     {

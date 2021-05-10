@@ -9,12 +9,12 @@ trait Pagination
     /**
      * The default pagination theme.
      */
-    public string $paginationTheme;
+    protected string $paginationTheme;
 
     /**
      * Displays per page and pagination links.
      */
-    public bool $showPagination = true;
+    protected bool $showPagination = true;
 
     /**
      * https://laravel-livewire.com/docs/pagination

@@ -7,19 +7,19 @@ namespace Daguilarm\BelichTables\Components\Table;
 trait PerPage
 {
     /**
-     * The options to limit the amount of results per page.
-     *
-     * @var array <int>
-     */
-    public array $perPageOptions = [10, 25, 50, 100];
-
-    /**
      * Amount of items to show per page.
      */
     public int $perPage = 25;
 
     /**
+     * The options to limit the amount of results per page.
+     *
+     * @var array <int>
+     */
+    protected array $perPageOptions = [10, 25, 50, 100];
+
+    /**
      * Show the per page select.
      */
-    public bool $showPerPage = true;
+    protected bool $showPerPage = true;
 }

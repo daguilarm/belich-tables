@@ -6,7 +6,7 @@ namespace Daguilarm\BelichTables\Views\Traits;
 
 trait ColumnBoolean
 {
-    public bool $showAsBoolean = false;
+    protected bool $showAsBoolean = false;
 
     /**
      * Show content as boolean.

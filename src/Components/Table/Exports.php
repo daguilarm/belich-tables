@@ -16,12 +16,12 @@ trait Exports
 {
     use Notification, PdfLibrary;
 
-    public string $exportFileName = 'data';
+    protected string $exportFileName = 'data';
 
     /**
      * @var array<string>
      */
-    public array $exportAllowedFormats = [
+    protected array $exportAllowedFormats = [
         'csv',
         'xls',
         'xlsx',
@@ -31,7 +31,7 @@ trait Exports
     /**
      * @var array<string>
      */
-    public array $exports = [];
+    protected array $exports = [];
 
     /**
      * Export file with the selected format.

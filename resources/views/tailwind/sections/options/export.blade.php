@@ -32,8 +32,8 @@
             x-cloak
         >
             <!-- Allowed file format -->
-            @foreach(Arr::sort($exports) as $export)
-                @if(in_array($export, $exportAllowedFormats))
+            @foreach(data_get($tableOptions, 'export.selected') as $export)
+                @if(in_array($export, data_get($tableOptions, 'export.allowed')))
                     <a
                         href="#"
                         dusk="export-{{ $export }}-link"

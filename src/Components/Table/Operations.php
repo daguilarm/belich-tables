@@ -11,7 +11,7 @@ trait Operations
      *
      * @var  array<string>
      */
-    public array $operations = [];
+    protected array $operations = [];
 
     /**
      * Merge the default operation's values with the rest of the operations.

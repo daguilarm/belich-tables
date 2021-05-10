@@ -3,25 +3,34 @@
     <div class="flex flex-col">
 
         {{-- Include messages --}}
-        @includeWhen(session()->has('message'), BelichTables::include('components.flash-message'))
+        @includeWhen(
+            session()->has('message'),
+            BelichTables::include('components.flash-message')
+        )
 
         {{-- Include the table loading view --}}
-        @include(BelichTables::include('sections.loading'))
+        @includeWhen(
+            $tableOptions->get('loading'),
+            BelichTables::include('sections.loading')
+        )
 
         <div class="min-w-full min-h-screen py-2 align-middle inline-block sm:px-6 lg:px-8">
             <div
                 class="border-b border-gray-200 sm:rounded-lg"
                 {{-- Refresh the table  --}}
-                @if ($refresh)
-                    @if ($refreshInSeconds)
-                        wire:poll.{{ $refreshInSeconds * 1000 }}ms
+                @if ($tableOptions->get('refresh'))
+                    @if ($tableOptions->get('refreshInSeconds'))
+                        wire:poll.{{ $tableOptions->get('refreshInSeconds') * 1000 }}ms
                     @else
                         wire:poll
                     @endif
                 @endif
             >
                 {{-- Include the table offline message --}}
-                @includeWhen($showOffline, BelichTables::include('sections.offline'))
+                @includeWhen(
+                    $tableOptions->get('offline'),
+                    BelichTables::include('sections.offline')
+                )
 
                 {{-- Load all the options: search, filters, perPage, export, new resource... --}}
                 @include(BelichTables::include('sections.options'))
@@ -30,7 +39,10 @@
                     <table class="table min-w-full leading-normal mt-1">
 
                         {{-- Include the table head --}}
-                        @includeWhen($showTableHead, BelichTables::include('sections.thead'))
+                        @includeWhen(
+                            data_get($tableOptions, 'table.head'),
+                            BelichTables::include('sections.thead')
+                        )
 
                         {{-- Include the table data --}}
                         <tbody>
@@ -42,11 +54,14 @@
                         </tbody>
 
                         {{-- Include the table foot --}}
-                        @includeWhen($showTableFooter, BelichTables::include('sections.tfoot'))
+                        @includeWhen(
+                            data_get($tableOptions, 'table.footer'),
+                            BelichTables::include('sections.tfoot')
+                        )
                     </table>
 
                     {{-- Include the pagination --}}
-                    @if($showPagination)
+                    @if($tableOptions->get('pagination'))
                         {{ $models->links(BelichTables::include('sections.pagination')) }}
                     @endif
                 </div>

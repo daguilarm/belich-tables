@@ -10,7 +10,7 @@
         id="table_index_per_page"
         dusk="table-index-per-page"
     >
-        @foreach ($perPageOptions as $option)
+        @foreach (data_get($tableOptions, 'perPage.options') as $option)
             <option>{{ $option }}</option>
         @endforeach
     </select>

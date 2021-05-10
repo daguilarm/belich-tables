@@ -1,7 +1,7 @@
 <tr>
     {{-- Create the colspan base on the columns and if the checkbox is enable --}}
     <td
-        colspan="{{ collect($columns)->count() + ($showCheckboxes ? 1 : 0) }}"
+        colspan="{{ collect($columns)->count() + (data_get($tableOptions, 'checkboxes.show') ? 1 : 0) }}"
         class="text-center p-6 bg-gradient-to-b from-white via-white to-gray-200"
     >
         {{-- Text for no results --}}

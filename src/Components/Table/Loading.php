@@ -9,5 +9,5 @@ trait Loading
     /**
      * Whether or not to show a loading indicator when searching.
      */
-    public bool $showLoading = true;
+    protected bool $showLoading = true;
 }

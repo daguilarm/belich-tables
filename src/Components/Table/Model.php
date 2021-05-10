@@ -24,7 +24,7 @@ trait Model
         $sortAttribute = $this->getSortAttribute($builder);
 
         // Get the column.
-        $column = $this->getColumnByAttribute($this->sortField);
+        $column = $this->getColumnByAttribute($this->getSortField());
 
         // Initialize the search
         // @See Daguilarm\BelichTables\Components\Traits\Models\Search:class
@@ -43,7 +43,7 @@ trait Model
             $search->callback(
                 builder: $builder,
                 column: $column,
-                direction: $this->sortDirection
+                direction: $this->getSortDirection()
             );
         }
 
@@ -53,7 +53,7 @@ trait Model
         }
 
         // Get the final result.
-        return $builder->reorder($sortAttribute, $this->sortDirection);
+        return $builder->reorder($sortAttribute, $this->getSortDirection());
     }
 
     /**
@@ -81,6 +81,6 @@ trait Model
     {
         $tableName = $builder->getQuery()->from;
 
-        return sprintf('%s.%s', $tableName, $this->sortField);
+        return sprintf('%s.%s', $tableName, $this->getSortField());
     }
 }

@@ -1,5 +1,5 @@
 <a
-    href="{{ $newResource }} "
+    href="{{ $tableOptions->get('newResource') }} "
     type="button"
     class="inline-flex ml-2 mt-3 items-center p-2 shadow-lg rounded-lg text-blue-400 hover:text-white bg-white hover:bg-blue-400 focus:outline-none"
 >

@@ -6,7 +6,7 @@ namespace Daguilarm\BelichTables\Views\Traits;
 
 trait ColumnVisibility
 {
-    public string $show = '';
+    protected string $show = '';
 
     /**
      * Hide content base on screen.
@@ -38,5 +38,13 @@ trait ColumnVisibility
         };
 
         return $this;
+    }
+
+    /**
+     * Get column visibility.
+     */
+    public function getVisibility()
+    {
+        return $this->show;
     }
 }

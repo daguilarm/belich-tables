@@ -14,19 +14,6 @@ class ExportTableComponentTest extends TestCase
         parent::setUp();
     }
 
-    // test --filter=test_table_component_export_attributes
-    public function test_table_component_export_attributes(): void
-    {
-        Livewire::test(UsersTable::class)
-            // Export attributes
-            ->set('exportAllowedFormats', ['csv', 'xls', 'xlsx', 'pdf'])
-            ->assertSet('exportAllowedFormats', ['csv', 'xls', 'xlsx', 'pdf'])
-            ->assertCount('exportAllowedFormats', 4)
-            ->set('exportFileName', 'myCustomFile')
-            ->assertSet('exportFileName', 'myCustomFile')
-            ->assertNotSet('exportFileName', 'data');
-    }
-
     // test --filter=test_table_component_export_file
     public function test_table_component_export_file(): void
     {

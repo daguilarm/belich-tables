@@ -22,6 +22,7 @@ use Daguilarm\BelichTables\Contracts\TableContract;
 use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -51,23 +52,23 @@ abstract class TableComponent extends Component implements TableContract
     /**
      * Add a new resource into the database for the current model.
      */
-    public string $newResource;
+    protected string $newResource = '';
 
     /**
      * Whether or not to refresh the table at a certain interval (false is off).
      * By default will refresh every 2 seconds.
      */
-    public bool $refresh = false;
+    protected bool $refresh = false;
 
     /**
      * Refresh table each XX seconds.
      */
-    public int $refreshInSeconds = 2;
+    protected int $refreshInSeconds = 2;
 
     /**
      * Whether or not to display an offline message when there is no connection.
      */
-    public bool $showOffline = true;
+    protected bool $showOffline = true;
 
     /**
      * Set the model builder.
@@ -127,7 +128,49 @@ abstract class TableComponent extends Component implements TableContract
             'models' => $this->showPagination
                 ? $this->models()->paginate((int) $this->perPage)
                 : $this->models()->get(),
+            'tableOptions' => $this->tableOptions(),
+        ]);
+    }
+
+    /**
+     * Set the table options.
+     */
+    public function tableOptions()
+    {
+        return collect([
+            'checkboxes' => [
+                'show' => $this->showCheckboxes,
+            ],
+            'export' => [
+                'allowed' => $this->exportAllowedFormats,
+                'selected' => Arr::sort($this->exports),
+                'selectedTotal' => count($this->exports),
+            ],
+            'loading' => $this->showLoading,
+            'newResource' => $this->newResource,
             'operations' => $this->mergeOperations(),
+            'pagination' => $this->showPagination,
+            'perPage' => [
+                'options' => $this->perPageOptions,
+                'show' => $this->showPerPage,
+            ],
+            'refresh' => $this->refresh,
+            'refreshInSeconds' => $this->refreshInSeconds,
+            'search' => [
+                'clearButton' => $this->clearSearchButton,
+                'debounce' => $this->searchDebounce,
+                'show' => $this->showSearch,
+                'updateMethod' => $this->searchUpdateMethod,
+            ],
+            'sort' => [
+                'field' => $this->sortField,
+                'direction' => $this->sortDirection,
+            ],
+            'table' => [
+                'head' => $this->showTableHead,
+                'footer' => $this->showTableFooter,
+            ],
+            'offline' => $this->showOffline,
         ]);
     }
 }

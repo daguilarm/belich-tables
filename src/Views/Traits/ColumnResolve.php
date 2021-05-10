@@ -9,7 +9,7 @@ use Daguilarm\BelichTables\Views\Column;
 
 trait ColumnResolve
 {
-    public bool $asHtml = false;
+    protected bool $asHtml = false;
 
     /**
      * Html column.

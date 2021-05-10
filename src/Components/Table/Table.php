@@ -9,10 +9,10 @@ trait Table
     /**
      * Whether or not to display the table header.
      */
-    public bool $showTableHead = true;
+    protected bool $showTableHead = true;
 
     /**
      * Whether or not to display the table footer.
      */
-    public bool $showTableFooter = false;
+    protected bool $showTableFooter = false;
 }

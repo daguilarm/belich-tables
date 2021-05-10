@@ -1,20 +1,22 @@
 <tr class="border-b border-gray-200">
     {{-- Table head checkbox --}}
-    @includeWhen($showCheckboxes && !isset($headerTitle), 'belich-tables::'.config('belich-tables.theme').'.sections.checkboxes.checkbox-header')
+    @includeWhen(
+        data_get($tableOptions, 'checkboxes.show') && !isset($headerTitle),
+        'belich-tables::'.config('belich-tables.theme').'.sections.checkboxes.checkbox-header'
+    )
 
     {{-- All the columns --}}
     @foreach($columns as $column)
         {{-- Set the column name --}}
-        @php $columnName = Str::lower($column->getText()); @endphp
         @if ($column->isVisible())
             @if($column->isSortable())
                 {{-- Sortable column --}}
                 <th
                     scope="col"
-                    class="{{ $column->show }} px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
-                    id="column_{{ $columnName }}"
-                    dusk="column-{{ $columnName }}"
-                    wire:click="orderBy('{{ $column->getAttribute() }}')"
+                    class="{{ $column->getVisibility() }} px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+                    id="column_{{ $column->getName() }}"
+                    dusk="column-{{ $column->getName() }}"
+                    wire:click="orderBy('{{ $column->getAttribute() }}', '{{ data_get($tableOptions, 'sort.direction') }}')"
                 >
                     <div class="flex justify-start items-center">
 
@@ -22,13 +24,13 @@
                         {{ $column->getText() }}
 
                         {{-- Default icon --}}
-                        @if ($sortField !== $column->getAttribute())
+                        @if (data_get($tableOptions, 'sort.field') !== $column->getAttribute())
                             <svg class="flex h-4 text-gray-300 ml-2" style="margin-top: 2px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"></path>
                             </svg>
 
                         {{-- ASC icon: heroicon-s-chevron-up --}}
-                        @elseif ($sortDirection === 'asc')
+                        @elseif (data_get($tableOptions, 'sort.direction') === 'asc')
                             <svg class="flex h-4 text-gray-400 ml-2" style="margin-top: 2px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" />
                             </svg>
@@ -45,9 +47,9 @@
                 {{-- Not sortable column --}}
                 <th
                     scope="col"
-                    class="{{ $column->show }} px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    id="column-{{ $columnName }}"
-                    dusk="column_{{ $columnName }}"
+                    class="{{ $column->getVisibility() }} px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    id="column-{{ $column->getName() }}"
+                    dusk="column_{{ $column->getName() }}"
                 >
                     {{-- Column text --}}
                     {{ $column->getText() }}

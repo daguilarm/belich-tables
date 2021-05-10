@@ -17,7 +17,7 @@ use Illuminate\Support\Str;
 
 class UsersTable extends TableComponent
 {
-    public string $newResource = '../../dashboard/users/create';
+    protected string $newResource = '../../dashboard/users/create';
     public array $exports = ['xls', 'csv', 'pdf'];
 
     /**

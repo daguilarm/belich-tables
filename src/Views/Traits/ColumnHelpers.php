@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Views\Traits;
 
+use Illuminate\Support\Str;
+
 trait ColumnHelpers
 {
     /**
@@ -43,5 +45,13 @@ trait ColumnHelpers
             'builder' => $builder,
             'direction' => $direction,
         ]);
+    }
+
+    /**
+     * Get the column name.
+     */
+    public function getName(): string
+    {
+        return Str::lower($this->getText());
     }
 }

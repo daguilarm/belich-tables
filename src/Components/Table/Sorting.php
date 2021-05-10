@@ -9,24 +9,45 @@ trait Sorting
     /**
      * The initial field to be sorting by.
      */
-    public string $sortField = 'id';
+    protected string $sortField = 'id';
 
     /**
      * The initial direction to sort.
      */
-    public string $sortDirection = 'asc';
+    protected string $sortDirection = 'asc';
 
     /**
      * Sorting columns.
      */
-    public function orderBy(string $attribute): void
+    public function orderBy(string $attribute, string $direction): void
     {
-        $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
-
-        if ($this->sortField !== $attribute) {
-            $this->sortDirection = 'asc';
-        }
-
         $this->sortField = $attribute;
+        $this->sortDirection = $this->toogleDirection($direction);
+    }
+
+    /**
+     * Sorting field.
+     */
+    public function getSortField(): string
+    {
+        return $this->sortField;
+    }
+
+    /**
+     * Sorting direction.
+     */
+    public function getSortDirection(): string
+    {
+        return $this->sortDirection;
+    }
+
+    /**
+     * Update order.
+     */
+    private function toogleDirection(string $direction): string
+    {
+        return $direction === 'asc'
+            ? 'desc'
+            : 'asc';
     }
 }

@@ -7,11 +7,6 @@ namespace Daguilarm\BelichTables\Components\Table;
 trait Checkboxes
 {
     /**
-     * Whether or not checkboxes are enabled. Enable by default.
-     */
-    public bool $showCheckboxes = true;
-
-    /**
      * Whether or not all checkboxes are currently selected.
      */
     public bool $checkboxAll = false;
@@ -22,6 +17,11 @@ trait Checkboxes
      * @var array<int>
      */
     public array $checkboxValues = [];
+
+    /**
+     * Whether or not checkboxes are enabled. Enable by default.
+     */
+    protected bool $showCheckboxes = true;
 
     /**
      * Adds all the id's to the checkbox array.
