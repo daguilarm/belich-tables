@@ -7,6 +7,7 @@ All notable changes to `livewire-tables` will be documented in this file:
 ### Added
 
 - Re-build: relationships and export code.
+- Now the attributes has protected properties.
 
 ### Fixed 
 
