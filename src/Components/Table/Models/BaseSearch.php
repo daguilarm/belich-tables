@@ -60,7 +60,8 @@ abstract class BaseSearch
              * @see Daguilarm\BelichTables\Views\Traits\ColumnHelpers
              */
             $builder->orWhere(
-                $column->getAttribute($builder),
+                // Added table.attribute for avoid errors with relationships
+                $this->getColumnAttribute($builder, $column),
                 'like',
                 $this->searchString($search),
             );
@@ -75,5 +76,16 @@ abstract class BaseSearch
         return $search
             ? '%'.trim($search).'%'
             : '';
+    }
+
+    /**
+     * Set the column attribute.
+     */
+    private function getColumnAttribute(Builder $builder, Column $column): string
+    {
+        $table = $builder->getQuery()->from;
+        $attribute = $column->getAttribute();
+
+        return sprintf('%s.%s', $table, $attribute);
     }
 }

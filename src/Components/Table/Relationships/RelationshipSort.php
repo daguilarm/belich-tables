@@ -57,18 +57,50 @@ trait RelationshipSort
      */
     private function defaultRelationshipVariables(Builder $builder, Column $column): array
     {
-        // Set values
-        $relationship = $this->relationship($column->getAttribute());
-        $relationshipName = $relationship->name;
-        // Get values
-        $relationshipTable = Str::of($relationshipName)->plural();
-        $model = $builder->getRelation($relationshipName);
-        $sortAttribute = sprintf('%s.%s', $relationshipTable, $relationship->attribute);
+        // Get default values
+        $relationship = $this->getRelationship($column);
+        $relationshipName = $this->getRelationshipName($relationship);
 
         return [
-            $relationshipTable,
-            $model,
-            $sortAttribute,
+            $relationshipTable = $this->getRelationshipTable($relationshipName),
+            $model = $builder->getRelation($relationshipName),
+            $orderBy = $this->getRelationshipOrderBy($relationship),
         ];
+    }
+
+    /**
+     * Get relationship.
+     */
+    private function getRelationship(Column $column): object
+    {
+        return $this->relationship($column->getAttribute());
+    }
+
+    /**
+     * Get relationship name.
+     */
+    private function getRelationshipName(object $relationship): string
+    {
+        return $relationship->name;
+    }
+
+    /**
+     * Get relationship table.
+     */
+    private function getRelationshipTable(string $relationshipName): string
+    {
+        return Str::of($relationshipName)->plural()->__toString();
+    }
+
+    /**
+     * Get relationship order by.
+     */
+    private function getRelationshipOrderBy(object $relationship): string
+    {
+        return sprintf(
+            '%s.%s',
+            $this->getRelationshipTable($relationship->name),
+            $relationship->attribute,
+        );
     }
 }

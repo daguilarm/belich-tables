@@ -2,6 +2,12 @@
 
 All notable changes to `livewire-tables` will be documented in this file:
 
+## [1.4.1] - 2021-05-10
+
+### Fixed 
+
+- Error when searching a column with a relatioship.
+
 ## [1.4.0] - 2021-05-08
 
 ### Added

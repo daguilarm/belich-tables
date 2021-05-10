@@ -49,7 +49,7 @@ trait Model
         }
 
         // Sort by relationship [Daguilarm\BelichTables\Components\Traits\SortingRelatioships]
-        if ($this->columnHasRealationship($column)) {
+        if ($column->hasRealationship()) {
             [$builder, $sortAttribute] = $this->sortingByRelationship($builder, $column);
         }
 
@@ -83,16 +83,5 @@ trait Model
         $tableName = $builder->getQuery()->from;
 
         return sprintf('%s.%s', $tableName, $this->getSortField($builder));
-    }
-
-    /**
-     * Check if the column has relationships.
-     */
-    private function columnHasRealationship(Column $column): bool
-    {
-        return str_contains(
-            $column->getAttribute(),
-            '.'
-        );
     }
 }
