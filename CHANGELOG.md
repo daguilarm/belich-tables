@@ -8,6 +8,7 @@ All notable changes to `livewire-tables` will be documented in this file:
 
 - Re-build: relationships and export code.
 - Now the attributes has protected properties.
+- Reset column order when select a new column.
 
 ### Fixed 
 

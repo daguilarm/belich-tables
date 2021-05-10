@@ -46,6 +46,10 @@ trait Sorting
      */
     private function toogleDirection(string $direction): string
     {
+        if ($direction === 'reorder') {
+            return 'asc';
+        }
+
         return $direction === 'asc'
             ? 'desc'
             : 'asc';

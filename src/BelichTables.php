@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables;
 
+use Daguilarm\BelichTables\Views\Column;
+use Illuminate\Support\Collection;
+
 final class BelichTables
 {
     /**
@@ -38,6 +41,16 @@ final class BelichTables
                 $key,
                 app('config')->get($default),
             );
+    }
+
+    /**
+     * Set column order.
+     */
+    public function orderBy(Column $column, Collection $options): string
+    {
+        return $column->getAttribute() !== data_get($options, 'sort.field')
+            ? 'reorder'
+            : data_get($options, 'sort.direction');
     }
 
     /**
