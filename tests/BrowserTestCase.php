@@ -94,9 +94,5 @@ class BrowserTestCase extends \Orchestra\Testbench\Dusk\TestCase
             'driver' => 'local',
             'root' => __DIR__.'/downloads',
         ]);
-
-        // Populate the DB
-        include_once __DIR__.'/../tests/Browser/database/migrations/create_test_tables.php.stub';
-        (new \CreateTestTables())->up();
     }
 }

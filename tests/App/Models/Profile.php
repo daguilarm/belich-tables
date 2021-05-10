@@ -8,7 +8,8 @@ use Sushi\Sushi;
 
 class Profile extends Model
 {
-    use Sushi, TableSeeder;
+    use Sushi,
+        TableSeeder;
 
     public function getRows()
     {
