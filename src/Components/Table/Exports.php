@@ -4,13 +4,18 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Components\Table;
 
+use Daguilarm\BelichTables\Components\Table\Export\Notification;
+use Daguilarm\BelichTables\Components\Table\Export\PdfLibrary;
 use Daguilarm\BelichTables\Exceptions\UnsupportedExportFormat;
 use Daguilarm\BelichTables\Facades\BelichTables;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Excel;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 trait Exports
 {
+    use Notification, PdfLibrary;
+
     public string $exportFileName = 'data';
 
     /**
@@ -48,56 +53,21 @@ trait Exports
             throw new UnsupportedExportFormat(__('This export type is not set on this table component.'));
         }
 
-        // Set the export format
-        $exportFormat = match ($type) {
-            'csv' => Excel::CSV,
-            'xls' => Excel::XLS,
-            'xlsx' => Excel::XLSX,
-            'pdf' => $this->selectPdfLibrary(),
-        };
-
         // Download the file
-        $download = $this->download($type, $exportFormat);
+        $download = $this->download($type);
 
-        // File is successful downloaded
-        if ($download) {
-            // Notify successful - only for testing
-            $this->emit('fileDownloadNotification', true);
-
-            return $download;
-
-        // Error with file download
-        } else {
-            // Notify failure - only for testing
-            $this->emit('fileDownloadNotification', false);
-
-            return null;
-        }
-    }
-
-    /**
-     * Download notification.
-     */
-    public function fileDownloadNotification(bool $response): void
-    {
-        if ($response) {
-            // Success message
-            app('lwflash')
-                ->message(trans('belich-tables::strings.messages.download.success'), 'success')
-                ->livewire($this);
-        } else {
-            // Error message
-            app('lwflash')
-                ->message(trans('belich-tables::strings.messages.download.error'), 'error')
-                ->livewire($this);
-        }
+        // File download response
+        return $this->downloadResponse($download);
     }
 
     /**
      * Download the file.
      */
-    private function download(string $type, string $exportFormat)
+    private function download(string $type): BinaryFileResponse | null
     {
+        // Set the export format
+        $exportFormat = $this->exportFormat($type);
+
         // Get the download class name
         $class = BelichTables::config('belich.belich-tables.exports', 'belich-tables.exports');
 
@@ -110,28 +80,39 @@ trait Exports
         // File name
         $fileName = sprintf('%s.%s', $this->exportFileName, $type);
 
-        return $downloadClass
-            ->download($fileName, $exportFormat);
+        return $downloadClass->download($fileName, $exportFormat);
     }
 
     /**
-     * Select the PDF library.
+     * Export type for the file.
      */
-    private function selectPdfLibrary()
+    private function exportFormat(string $type): string
     {
-        // Prepare the library
-        $pdfLibrary = Str::of(config('belich-tables.pdf_library'))
-            ->lower()
-            ->__toString();
+        return match ($type) {
+            'csv' => Excel::CSV,
+            'xls' => Excel::XLS,
+            'xlsx' => Excel::XLSX,
+            'pdf' => $this->selectPdfLibrary(),
+        };
+    }
 
-        // Library not supported
-        if (! in_array($pdfLibrary, ['dompdf', 'mpdf'], true)) {
-            throw new UnsupportedExportFormat(__('This PDF export library is not supported.'));
+    /**
+     * Get the download response.
+     */
+    private function downloadResponse($download): BinaryFileResponse | null
+    {
+        // File is successful downloaded
+        if ($download) {
+            // Notify successful - only for testing
+            $this->emit('fileDownloadNotification', true);
+
+            return $download;
         }
 
-        return match ($pdfLibrary) {
-            'mpdf' => Excel::MPDF,
-            default => Excel::DOMPDF,
-        };
+        // Error with file download
+        // Notify failure - only for testing
+        $this->emit('fileDownloadNotification', false);
+
+        return null;
     }
 }

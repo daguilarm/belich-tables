@@ -4,6 +4,10 @@ All notable changes to `livewire-tables` will be documented in this file:
 
 ## [1.4.1] - 2021-05-10
 
+### Added
+
+- Re-build: relationships and export code.
+
 ### Fixed 
 
 - Error when searching a column with a relatioship.

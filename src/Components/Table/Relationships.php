@@ -32,7 +32,7 @@ trait Relationships
             // Values base on the relationship type
             [$table, $foreign, $other, $baseQuery, $query] = match ($model) {
                 // See the cases
-                $model instanceof BelongsToMany => $this->BelongsToMany($model, $baseQuery, $query),
+                $model instanceof BelongsToMany => $this->getBelongsToMany($model, $baseQuery, $query),
                 $model instanceof HasOneOrMany => $this->getHasOneOrMany($model, $baseQuery, $query),
                 $model instanceof BelongsTo => $this->getBelongsTo($model, $baseQuery, $query),
                 // Null relationship
@@ -63,7 +63,7 @@ trait Relationships
             }
         }
 
-        return false;
+        return $column ?? false;
     }
 
     /**
@@ -81,19 +81,22 @@ trait Relationships
      *
      * @return array<string>
      */
-    private function BelongsToMany(BelongsToMany $model, Builder $baseQuery, Builder $query): array
+    private function getBelongsToMany(BelongsToMany $model, Builder $baseQuery, Builder $query): array
     {
+        // Get the pivot table
         $pivot = $model->getTable();
-        $pivotPK = $model->getExistenceCompareKey();
-        $pivotFK = $model->getQualifiedParentKeyName();
-        $query->leftJoin($pivot, $pivotPK, $pivotFK);
-
+        // Query results
+        $query->leftJoin(
+            $pivot,
+            $model->getExistenceCompareKey(),
+            $model->getQualifiedParentKeyName(),
+        );
+        // Get the related values
         $related = $model->getRelated();
         $table = $related->getTable();
-        $tablePK = $related->getForeignKey();
-        $foreign = $pivot.'.'.$tablePK;
+        $foreign = $pivot.'.'.$related->getForeignKey();
         $other = $related->getQualifiedKeyName();
-
+        // Query results
         $baseQuery->addSelect($table.'.'.$attribute);
         $query->leftJoin($table, $foreign, $other);
 
