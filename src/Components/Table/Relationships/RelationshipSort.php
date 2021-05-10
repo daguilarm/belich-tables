@@ -20,13 +20,13 @@ trait RelationshipSort
     public function sortingByRelationship(Builder $builder, Column $column): array
     {
         // Get the relationship default variables
-        [$relationshipTable, $model, $sortAttribute] = $this->defaultRelationshipVariables($builder, $column);
+        [$model, $order, $table] = $this->defaultRelationshipVariables($builder, $column);
 
         // Sort if relationship is: HasOne
         if ($model instanceof HasOne) {
             // HasOne relationship query
             $builder->join(
-                table: $relationshipTable,
+                table: $table,
                 first: $model->getQualifiedForeignKeyName(),
                 operator: '=',
                 second: $model->getQualifiedParentKeyName(),
@@ -37,7 +37,7 @@ trait RelationshipSort
         if ($model instanceof BelongsTo) {
             // BelongsTo relationship query
             $builder->join(
-                table: $relationshipTable,
+                table: $table,
                 first: $model->getRelated()->getQualifiedKeyName(),
                 operator: '=',
                 second: $model->getQualifiedOwnerKeyName(),
@@ -46,26 +46,24 @@ trait RelationshipSort
 
         return [
             $builder,
-            $sortAttribute,
+            $order,
         ];
     }
 
     /**
      * Set the default relationship variables.
      *
-     * @return  array<string> [$relationshipTable, $model, $sortAttribute]
+     * @return  array<string> [$model, $order, $table]
      */
     private function defaultRelationshipVariables(Builder $builder, Column $column): array
     {
         // Get default values
         $relationship = $this->getRelationship($column);
-        $relationshipName = $this->getRelationshipName($relationship);
+        $model = $builder->getRelation($relationship->name);
+        $table = $model->getRelated()->getTable();
+        $order = $this->getRelationshipOrderBy($table, $relationship->attribute);
 
-        return [
-            $relationshipTable = $this->getRelationshipTable($relationshipName),
-            $model = $builder->getRelation($relationshipName),
-            $orderBy = $this->getRelationshipOrderBy($relationship),
-        ];
+        return [$model, $order, $table];
     }
 
     /**
@@ -73,34 +71,20 @@ trait RelationshipSort
      */
     private function getRelationship(Column $column): object
     {
-        return $this->relationship($column->getAttribute());
-    }
+        $attribute = $column->getAttribute();
 
-    /**
-     * Get relationship name.
-     */
-    private function getRelationshipName(object $relationship): string
-    {
-        return $relationship->name;
-    }
-
-    /**
-     * Get relationship table.
-     */
-    private function getRelationshipTable(string $relationshipName): string
-    {
-        return Str::of($relationshipName)->plural()->__toString();
+        return $this->relationship($attribute);
     }
 
     /**
      * Get relationship order by.
      */
-    private function getRelationshipOrderBy(object $relationship): string
+    private function getRelationshipOrderBy(string $table, string $attribute): string
     {
         return sprintf(
             '%s.%s',
-            $this->getRelationshipTable($relationship->name),
-            $relationship->attribute,
+            $table,
+            $attribute,
         );
     }
 }

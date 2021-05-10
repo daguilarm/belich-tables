@@ -83,9 +83,17 @@ abstract class BaseSearch
      */
     private function getColumnAttribute(Builder $builder, Column $column): string
     {
-        $table = $builder->getQuery()->from;
+        $table = $this->getColumnTable($builder);
         $attribute = $column->getAttribute();
 
         return sprintf('%s.%s', $table, $attribute);
+    }
+
+    /**
+     * Get column table.
+     */
+    private function getColumnTable(Builder $builder)
+    {
+        return $builder->getQuery()->from;
     }
 }

@@ -31,22 +31,4 @@ trait Sorting
 
         $this->sortField = $attribute;
     }
-
-    /**
-     * Sorting field.
-     */
-    protected function getSortField(Builder $builder): string
-    {
-        if (str_contains($this->sortField, '.')) {
-            $relationship = $this->relationship($this->sortField);
-
-            return $this->attribute(
-                $builder,
-                $relationship->name,
-                $relationship->attribute
-            );
-        }
-
-        return $this->sortField;
-    }
 }

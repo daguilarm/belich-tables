@@ -82,6 +82,6 @@ trait Model
     {
         $tableName = $builder->getQuery()->from;
 
-        return sprintf('%s.%s', $tableName, $this->getSortField($builder));
+        return sprintf('%s.%s', $tableName, $this->sortField);
     }
 }
