@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Components\Table;
 
-use Illuminate\Database\Eloquent\Builder;
-
 trait Sorting
 {
     /**
