@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Daguilarm\BelichTables\Components\Table;
 
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 trait Delete

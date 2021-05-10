@@ -60,6 +60,6 @@ trait ColumnResolve
             return $column->formatted($value);
         }
 
-        return $value ?: BelichTables::noResults();
+        return $value ?? BelichTables::noResults();
     }
 }

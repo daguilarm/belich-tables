@@ -36,7 +36,7 @@ trait Exports
     /**
      * Export file with the selected format.
      */
-    public function export(string $type): ?object
+    public function export(string $type): BinaryFileResponse | null
     {
         // Set the default export type
         $type = Str::of($type)

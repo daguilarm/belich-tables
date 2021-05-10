@@ -15,12 +15,13 @@ abstract class BaseSearch
     /**
      * Resolve the model search.
      *
-     * @return Illuminate\Database\Eloquent\Builder | void
+     * @return Builder | none
      */
     protected function searchBuilder(Builder $builder, object $column, ?string $search)
     {
         /**
          * The column is not searchable.
+         *
          * @see Daguilarm\BelichTables\Views\Traits\ColumnHelpers
          */
         if (! $column->isSearchable()) {
@@ -29,6 +30,7 @@ abstract class BaseSearch
 
         /**
          * The column is callable.
+         *
          * @see Daguilarm\BelichTables\Views\Traits\ColumnHelpers
          */
         if ($column->isCallable()) {
@@ -37,6 +39,7 @@ abstract class BaseSearch
 
         /**
          * The column has a relationship.
+         *
          * @see Daguilarm\BelichTables\Views\Traits\ColumnHelpers
          */
         if ($column->hasRealationship()) {
@@ -57,6 +60,7 @@ abstract class BaseSearch
         } else {
             /**
              * Search into the column.
+             *
              * @see Daguilarm\BelichTables\Views\Traits\ColumnHelpers
              */
             $builder->orWhere(
@@ -92,7 +96,7 @@ abstract class BaseSearch
     /**
      * Get column table.
      */
-    private function getColumnTable(Builder $builder)
+    private function getColumnTable(Builder $builder): string
     {
         return $builder->getQuery()->from;
     }

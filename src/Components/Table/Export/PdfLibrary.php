@@ -13,7 +13,7 @@ trait PdfLibrary
     /**
      * Select the PDF library.
      */
-    protected function selectPdfLibrary()
+    protected function selectPdfLibrary(): string
     {
         // Prepare the library
         $pdfLibrary = Str::of(config('belich-tables.pdf_library'))

@@ -60,10 +60,8 @@ trait ColumnType
 
     /**
      * Resolve the column.
-     *
-     * @param bool | int | float | object | string | null $value
      */
-    public function resolveType($value = null): bool | int | float | object | string | null
+    public function resolveType(bool | int | float | object | string | null $value = null): bool | int | float | object | string | null
     {
         return match ($this->type) {
             'bool' => (bool) $value,

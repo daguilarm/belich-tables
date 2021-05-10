@@ -23,8 +23,8 @@ final class BelichTablesServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'belich-tables');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'belich-tables');
+        // Publish and configure resources and config
+        $this->publishAndConfigure();
 
         // Blade Components
         $this->callAfterResolving(BladeCompiler::class, static function (): void {
@@ -32,7 +32,7 @@ final class BelichTablesServiceProvider extends ServiceProvider
         });
 
         // Blade directives
-        Blade::directive('belichTablesCss', function ($expression) {
+        Blade::directive('belichTablesCss', static function ($expression) {
             $css = file_get_contents(__DIR__.'/../resources/css/belich-tables.min.css');
             $customCss = str_replace('@backGroundColor', BelichTables::config('belich-tables.loadingColor', 'belich.belich-tables.loadingColor'), $css);
 
@@ -41,24 +41,6 @@ final class BelichTablesServiceProvider extends ServiceProvider
 
         // Livewire Components
         Livewire::component('delete-button-component', DeleteComponent::class);
-
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('belich-tables.php'),
-            ], 'config');
-
-            $this->publishes([
-                __DIR__.'/../config/livewire-flash.php' => config_path('livewire-flash.php'),
-            ], 'config');
-
-            $this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/belich-tables'),
-            ], 'views');
-
-            $this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/belich-tables'),
-            ], 'lang');
-        }
     }
 
     /**
@@ -69,7 +51,36 @@ final class BelichTablesServiceProvider extends ServiceProvider
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'belich-tables');
 
+        // Facade
         $this->app->register(BelichTablesProvider::class);
         AliasLoader::getInstance()->alias('BelichTables', BelichTables::class);
+    }
+
+    /**
+     * Publish and configure the config and the resources.
+     */
+    private function publishAndConfigure(): void
+    {
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'belich-tables');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'belich-tables');
+
+        // Only on console
+        if ($this->app->runningInConsole()) {
+
+            // Publish the config
+            $this->publishes([
+                __DIR__.'/../config/config.php' => config_path('belich-tables.php'),
+            ], 'config');
+
+            // Publish the views
+            $this->publishes([
+                __DIR__.'/../resources/views' => resource_path('views/vendor/belich-tables'),
+            ], 'views');
+
+            // Publish the localization
+            $this->publishes([
+                __DIR__.'/../resources/lang' => resource_path('lang/vendor/belich-tables'),
+            ], 'lang');
+        }
     }
 }
