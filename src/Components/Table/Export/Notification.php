@@ -18,7 +18,7 @@ trait Notification
             session()->flash('message', ['success', trans('belich-tables::strings.messages.download.success'), Str::random(20)]);
         } else {
             // Error message
-            session()->flash('message', ['danger', trans('belich-tables::strings.messages.download.error'), Str::random(20)]);;
+            session()->flash('message', ['danger', trans('belich-tables::strings.messages.download.error'), Str::random(20)]);
         }
     }
 }
