@@ -19,17 +19,22 @@ abstract class SearchBuilder
      */
     protected function searchBuilder(Builder $builder, object $column, ?string $search)
     {
-        // The column is not searchable.
+        /**
+         * The column is not searchable.
+         * @see Daguilarm\BelichTables\Views\Traits\ColumnHelpers
+         */
         if (! $column->isSearchable()) {
             return $builder;
         }
 
         // The column is callable.
+        // Daguilarm\BelichTables\Views\Traits\ColumnHelpers
         if ($column->isCallable()) {
             return $this->modelSearchCallable($builder);
         }
 
         // The column has a relationship.
+        // Daguilarm\BelichTables\Views\Traits\ColumnHelpers
         if ($column->hasRealationship()) {
 
             // Get the relationship.
@@ -49,6 +54,7 @@ abstract class SearchBuilder
         } else {
             // Search into the column
             $builder->orWhere(
+                // Daguilarm\BelichTables\Views\Traits\ColumnHelpers
                 $column->getAttribute($builder),
                 'like',
                 $this->searchString($search),
