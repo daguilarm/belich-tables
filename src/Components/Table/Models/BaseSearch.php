@@ -8,7 +8,7 @@ use Daguilarm\BelichTables\Components\Table\Relationships\RelationshipValue;
 use Daguilarm\BelichTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 
-abstract class SearchBuilder
+abstract class BaseSearch
 {
     use RelationshipValue;
 
@@ -27,16 +27,19 @@ abstract class SearchBuilder
             return $builder;
         }
 
-        // The column is callable.
-        // Daguilarm\BelichTables\Views\Traits\ColumnHelpers
+        /**
+         * The column is callable.
+         * @see Daguilarm\BelichTables\Views\Traits\ColumnHelpers
+         */
         if ($column->isCallable()) {
             return $this->modelSearchCallable($builder);
         }
 
-        // The column has a relationship.
-        // Daguilarm\BelichTables\Views\Traits\ColumnHelpers
+        /**
+         * The column has a relationship.
+         * @see Daguilarm\BelichTables\Views\Traits\ColumnHelpers
+         */
         if ($column->hasRealationship()) {
-
             // Get the relationship.
             $relationship = $this->relationship($column->getAttribute());
 
@@ -52,9 +55,11 @@ abstract class SearchBuilder
 
         // Only search the column.
         } else {
-            // Search into the column
+            /**
+             * Search into the column
+             * @see Daguilarm\BelichTables\Views\Traits\ColumnHelpers
+             */
             $builder->orWhere(
-                // Daguilarm\BelichTables\Views\Traits\ColumnHelpers
                 $column->getAttribute($builder),
                 'like',
                 $this->searchString($search),

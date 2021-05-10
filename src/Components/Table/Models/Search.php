@@ -6,7 +6,7 @@ namespace Daguilarm\BelichTables\Components\Table\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 
-final class Search extends SearchBuilder
+final class Search extends BaseSearch
 {
     /**
      * Search in all the selected columns.
@@ -30,15 +30,4 @@ final class Search extends SearchBuilder
 
         return $builder;
     }
-
-    // /**
-    //  * Resolve the column callback.
-    //  */
-    // public function columnCallback(Builder $builder, Column $column, string $direction): object
-    // {
-    //     return app()->call($column->getSortCallback(), [
-    //         'builder' => $builder,
-    //         'direction' => $direction,
-    //     ]);
-    // }
 }

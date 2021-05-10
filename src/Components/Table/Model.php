@@ -39,14 +39,14 @@ trait Model
             showSearch: $this->showSearch,
         );
 
-        // // If the column is callable
-        // if ($column !== false && is_callable($column->getSortCallback())) {
-        //     $search->columnCallback(
-        //         builder: $builder,
-        //         column: $column,
-        //         direction: $this->sortDirection
-        //     );
-        // }
+        // If the column is callable
+        if ($column !== false && is_callable($column->getSortCallback())) {
+            $search->callback(
+                builder: $builder,
+                column: $column,
+                direction: $this->sortDirection
+            );
+        }
 
         // Sort by relationship [Daguilarm\BelichTables\Components\Traits\SortingRelatioships]
         if ($this->columnHasRealationship($column)) {

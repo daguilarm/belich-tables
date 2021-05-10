@@ -33,4 +33,15 @@ trait ColumnHelpers
             $this->getAttribute(),
         );
     }
+
+    /**
+     * Resolve the column callback.
+     */
+    public function callback(Builder $builder, string $direction): object
+    {
+        return app()->call($this->getSortCallback(), [
+            'builder' => $builder,
+            'direction' => $direction,
+        ]);
+    }
 }
