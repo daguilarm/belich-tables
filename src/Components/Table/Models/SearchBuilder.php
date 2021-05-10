@@ -25,12 +25,12 @@ abstract class SearchBuilder
         }
 
         // The column is callable.
-        if ($this->columnIsCallable($column)) {
+        if ($column->isCallable()) {
             return $this->modelSearchCallable($builder);
         }
 
         // The column has a relationship.
-        if ($this->columnHasRealationship($column)) {
+        if ($column->hasRealationship()) {
 
             // Get the relationship.
             $relationship = $this->relationship($column->getAttribute());
@@ -49,42 +49,11 @@ abstract class SearchBuilder
         } else {
             // Search into the column
             $builder->orWhere(
-                $this->columnAttribute($builder, $column),
+                $column->getAttribute($builder),
                 'like',
                 $this->searchString($search),
             );
         }
-    }
-
-    /**
-     * Check if the column is callable.
-     */
-    private function columnIsCallable(Column $column): bool
-    {
-        return is_callable($column->getSearchCallback());
-    }
-
-    /**
-     * Check if the column has relationships.
-     */
-    private function columnHasRealationship(Column $column): bool
-    {
-        return str_contains(
-            $column->getAttribute(),
-            '.',
-        );
-    }
-
-    /**
-     * Get the column attribute.
-     */
-    private function columnAttribute(Builder $builder, Column $column): string
-    {
-        return sprintf(
-            '%s.%s',
-            $builder->getModel()->getTable(),
-            $column->getAttribute(),
-        );
     }
 
     /**

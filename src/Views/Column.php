@@ -7,6 +7,7 @@ namespace Daguilarm\BelichTables\Views;
 use Daguilarm\BelichTables\Views\Traits\ColumnBoolean;
 use Daguilarm\BelichTables\Views\Traits\ColumnCallback;
 use Daguilarm\BelichTables\Views\Traits\ColumnExport;
+use Daguilarm\BelichTables\Views\Traits\ColumnHelpers;
 use Daguilarm\BelichTables\Views\Traits\ColumnHidden;
 use Daguilarm\BelichTables\Views\Traits\ColumnResolve;
 use Daguilarm\BelichTables\Views\Traits\ColumnType;
@@ -19,6 +20,7 @@ final class Column
     use ColumnBoolean,
         ColumnCallback,
         ColumnExport,
+        ColumnHelpers,
         ColumnHidden,
         ColumnResolve,
         ColumnType,
