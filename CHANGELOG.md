@@ -2,6 +2,15 @@
 
 All notable changes to `livewire-tables` will be documented in this file:
 
+## [1.4.2] - 2021-06-21
+
+### Fixed 
+
+- Error when artisan publish the package.
+- Minor fixeds.
+- Some refactoring.
+
+
 ## [1.4.1] - 2021-05-10
 
 ### Added
