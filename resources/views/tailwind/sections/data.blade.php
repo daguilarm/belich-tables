@@ -15,7 +15,7 @@
         @foreach($columns as $column)
             @if ($column->isVisible())
                 <td
-                    class="{{ $column->getVisibility() }} px-6 py-3 break-words text-sm text-gray-500"
+                    class="{{ $column->getVisibility() }} px-6 py-3 text-sm text-gray-500"
                     dusk="column-{{ $column->getAttribute() }}-{{ $model->id }}"
                 >
                     {{-- Render column as Boolean --}}
