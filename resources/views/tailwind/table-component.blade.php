@@ -14,7 +14,7 @@
             BelichTables::include('sections.loading')
         )
 
-        <div class="min-w-full min-h-screen py-2 align-middle inline-block sm:px-6 lg:px-8">
+        <div class="py-2 align-middle inline-block sm:px-6 lg:px-8">
             <div
                 class="border-b border-gray-200 sm:rounded-lg"
                 {{-- Refresh the table  --}}
@@ -36,7 +36,7 @@
                 @include(BelichTables::include('sections.options'))
 
                 <div class="bg-gray-50 text-gray-500 border border-gray-200 rounded-t-lg rounded-b-lg">
-                    <table class="table min-w-full leading-normal mt-1">
+                    <table class="table-auto w-full mt-1">
 
                         {{-- Include the table head --}}
                         @includeWhen(
