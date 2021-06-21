@@ -2,6 +2,14 @@
 
 All notable changes to `livewire-tables` will be documented in this file:
 
+## [1.4.3] - 2021-06-21
+
+### Added 
+
+- Livewire 2.5 support.
+- Alpine v3 support.
+- Set the default filters to none...
+
 ## [1.4.2] - 2021-06-21
 
 ### Fixed 

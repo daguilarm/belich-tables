@@ -15,8 +15,8 @@ This package need at least:
 
 - PHP ^8.0
 - Laravel ^8.0
-- Laravel Livewire ^2.0
-- AlpineJS ^2.0
+- Laravel Livewire ^2.0 | ^2.5
+- AlpineJS ^2.0 | ^3.0
 - TailwindCSS ^2.0
 
 ## Installation
