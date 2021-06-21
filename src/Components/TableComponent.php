@@ -173,4 +173,12 @@ abstract class TableComponent extends Component implements TableContract
             'offline' => $this->showOffline,
         ]);
     }
+
+    /**
+     * Set default filters.
+     */
+    public function filters(): array
+    {
+        return [];
+    }
 }
