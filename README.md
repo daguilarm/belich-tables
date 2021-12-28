@@ -9,6 +9,9 @@
 
 Belich Tables is a Laravel package base on Livewire and AlpineJS that allows you to create scaffold datatables with search, column sort, filters, pagination, etc...
 
+## Important 
+This repository is not longer update... sorry I have no time.
+
 ## Requirements
 
 This package need at least:
